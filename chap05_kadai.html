@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>演習課題 &#8212; Fortran演習(地球惑星物理学演習)</title>
+    
+    <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2018',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-99010794-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </head>
+  <body role="document">
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="index.html">Fortran演習</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="genindex.html" title="総合索引"
+             accesskey="I">索引</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="id1">
+<h1>演習課題<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="id2">
+<h2>課題1<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>サンプルプログラムをコンパイル・実行して動作を確認せよ．さらに，適宜修正してその実行結果を確認せよ．</p>
+</div>
+<div class="section" id="id3">
+<h2>課題2<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>与えられた月日(例えば4月1日であれば4と1)を標準入力から読み込み，その日が1年のうちで何日目かを表示するプログラムを作成せよ．ただし閏年は無視して考えて良い．以下のような配列を用いるとよいだろう．</p>
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">integer</span><span class="p">,</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">days</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="o">=</span> <span class="p">&amp;</span>
+     <span class="p">&amp;</span> <span class="p">(</span><span class="o">/</span><span class="mi">31</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="o">/</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>実行結果は例えば以下のようなものである．</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ ./a.out
+ Input month and day :
+<span class="m">4</span>    <span class="c1"># キーボード入力</span>
+<span class="m">1</span>    <span class="c1"># キーボード入力</span>
+ day of year :           <span class="m">91</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="score-format">
+<span id="id4"></span><h2>課題3<a class="headerlink" href="#score-format" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>学生のテストの点数を自動的に処理するプログラムを作成せよ．すなわち，標準入力から学生の人数および人数分のテストの点を順に読み込み，最高点，最低点，平均点，標準偏差をそれぞれ表示するプログラムを作成せよ．ただし標準偏差はデータ数 <span class="math">\(N\)</span> ，各データの値 <span class="math">\(x_i (i=1,\ldots,N)\)</span> ，平均値 <span class="math">\(\bar{x}\)</span> を用いて</p>
+<div class="math">
+\[\sigma = \sqrt{\frac{1}{N} \sum_{i=1}^{N} (x_i - \bar{x})^2}\]</div>
+<p>と定義される．</p>
+<p>データファイル <a class="reference external" href="data/score1.dat">score1.dat</a> を手元にコピーして，以下のようにリダイレクトによって作成したプログラムに読み込ませ，結果を確認せよ．</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ ./a.out &lt; score1.dat
+ Best               :           <span class="m">98</span>
+ Worst              :            <span class="m">6</span>
+ Average            :    <span class="m">46</span>.399999999999999
+ Standard deviation :    <span class="m">25</span>.115201240152015
+</pre></div>
+</div>
+<p>なおデータファイルには，1行目にデータ数 <span class="math">\(N\)</span> ，それ以降に各データ <span class="math">\(x_i\)</span> が記述されているので，まずはデータ数を読み込み配列のメモリを <code class="docutils literal"><span class="pre">allocate</span></code> した後に各データを読み込めば良い．</p>
+</div>
+<div class="section" id="id5">
+<h2>課題4<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>標準入力から2つのベクトルを読み込み，両者の内積を計算し表示するプログラムを作成せよ． <code class="docutils literal"><span class="pre">do</span></code> ループを用いて地道に計算した結果と組込み関数 <code class="docutils literal"><span class="pre">dot_product</span></code> を用いた結果を比較すること．</p>
+<p>以下はデータファイル <a class="reference external" href="data/vector.dat">vector.dat</a> を入力とした場合の結果である．</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ ./a.out &lt; vector.dat
+ Inner product with <span class="k">do</span> loop     :    <span class="m">5</span>.4454054113084460E-017
+ Inner product with dot_product :    <span class="m">9</span>.8770817913429454E-017
+</pre></div>
+</div>
+<p>ただしデータは，ベクトルの長さ <span class="math">\(N\)</span> ，1つ目のベクトルの要素( <span class="math">\(N\)</span> 個)，2つ目のベクトルの各要素( <span class="math">\(N\)</span> 個)，の順に並んでいるものとする．</p>
+</div>
+<div class="section" id="id6">
+<h2>課題5<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>標準入力からベクトルと行列を読み込み，積を計算して表示するプログラムを作成せよ．これについても2重<code class="docutils literal"><span class="pre">do</span></code> ループを用いて地道に計算した結果と，組込み関数 <code class="docutils literal"><span class="pre">matmul</span></code> を用いた結果を比較すること．</p>
+<p>以下はデータファイル <a class="reference external" href="data/matvec.dat">matvec.dat</a> を入力とした場合の結果である．</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ /a.out &lt; matvec.dat
+ Matrix-vector product with <span class="k">do</span> loop
+   <span class="m">1</span>.0000000000000000
+  -1.0000000000000000
+ -0.50000000000000000
+  <span class="m">0</span>.50000000000000000
+  -1.5000000000000000
+   <span class="m">1</span>.5000000000000000
+   <span class="m">1</span>.0000000000000000
+  -1.0000000000000000
+ Matrix-vector product with matmul
+   <span class="m">1</span>.0000000000000000
+  -1.0000000000000000
+ -0.50000000000000000
+  <span class="m">0</span>.50000000000000000
+  -1.5000000000000000
+   <span class="m">1</span>.5000000000000000
+   <span class="m">1</span>.0000000000000000
+  -1.0000000000000000
+</pre></div>
+</div>
+<p>データは，ベクトルの長さ <span class="math">\(N\)</span> ，ベクトルの要素( <span class="math">\(N\)</span> 個)，行列の各要素( <span class="math">\(N^2\)</span> 個)，が順に並んでいるものとする．また行列の要素は <span class="math">\(a_{11}, a_{21}, a_{31} \ldots\)</span> の順に読み込まれることと，ベクトルと行列の積 <span class="math">\(b_{i} = \sum_{j} a_{i,j} x_{j}\)</span> の添字の順番に注意せよ．</p>
+</div>
+<div class="section" id="id7">
+<h2>課題6<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>標準入力から与えられた整数 <span class="math">\(n ( \ge 2)\)</span> 以下の全ての素数( <span class="math">\(1\)</span> は素数に含めない)を表示するプログラムを作成せよ．以下のエラトステネスのふるいと呼ばれるアルゴリズムを用いるとよい．</p>
+<p>各整数 <span class="math">\(i=2,\ldots,n\)</span> について順に</p>
+<blockquote>
+<div><ul class="simple">
+<li><span class="math">\(i\)</span> が素数でなければ無視( <span class="math">\(i+1\)</span> の処理へ)</li>
+<li><span class="math">\(i\)</span> が素数であれば <span class="math">\(i\)</span> から <span class="math">\(n\)</span> の整数のうち <span class="math">\(i\)</span> の倍数のものを消去(素数以外と判定)</li>
+</ul>
+</div></blockquote>
+<p>の処理を行う．なお各整数が素数かどうかを判定するには長さ <span class="math">\(n\)</span> の論理型配列を用いれば良い．この配列を全て <code class="docutils literal"><span class="pre">.true.</span></code> に初期化し，素数でないと判定されたものは <code class="docutils literal"><span class="pre">.false.</span></code> を代入して消去する．</p>
+</div>
+<div class="section" id="id8">
+<h2>課題7<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>標準入力から3つの整数 <span class="math">\(L, M, N\)</span> を読み込み， <code class="docutils literal"><span class="pre">integer</span></code> の <span class="math">\(L \times M \times N\)</span> の3次元配列のメモリを確保せよ．その配列に対して，組み込み関数 <code class="docutils literal"><span class="pre">size</span></code>, <code class="docutils literal"><span class="pre">shape</span></code>, <code class="docutils literal"><span class="pre">lbound</span></code>, <code class="docutils literal"><span class="pre">ubound</span></code> を呼び出すことでその動作を確認せよ．( <span class="math">\(L, M, N\)</span> の値はそれぞれせいぜい100程度かそれ以下にしておいた方が良い．)</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          <h3>目次</h3>
+          <ul>
+<li class="toctree-l1"><a class="reference internal" href="chap01.html">1. はじめに</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap02.html">2. プログラムの作成と実行</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap03.html">3. 変数・データ型・基本的な計算</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap04.html">4. 制御構造</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap05.html">5. 配列</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap06.html">6. 書式指定・ファイル入出力・文字列処理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap07.html">7. 関数とサブルーチン</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap08.html">8. 数値解析の基礎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap09.html">9. モジュールと構造型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap10.html">10. 付録</a></li>
+</ul>
+
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">検索</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="検索" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+          </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="genindex.html" title="総合索引"
+              >索引</a>
+          </div>
+          <div role="note" aria-label="source link">
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Takanobu Amano.
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.6 で生成しました。
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

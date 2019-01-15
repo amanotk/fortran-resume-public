@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>演習課題 &#8212; Fortran演習(地球惑星物理学演習)</title>
+    
+    <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2018',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-99010794-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </head>
+  <body role="document">
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="index.html">Fortran演習</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="genindex.html" title="総合索引"
+             accesskey="I">索引</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="id1">
+<h1>演習課題<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="id2">
+<h2>課題1<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>サンプルプログラムをコンパイル・実行して動作を確認せよ．さらに，適宜修正してその実行結果を確認せよ．</p>
+</div>
+<div class="section" id="id3">
+<h2>課題2<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>任意の1変数関数<span class="math">\(f(x)\)</span>およびその微分値を返す関数<span class="math">\(f'(x)\)</span>を引数として受け取り，<span class="math">\(f(x) = 0\)</span>の近似解をNewton法により求めるサブルーチンを実装し，その動作を確認せよ．ただし以下の条件を満たすこと．</p>
+<ul class="simple">
+<li>初期値を引数として受け取る．</li>
+<li>無限ループにならないように最大の反復回数を引数として受け取る．</li>
+<li>許容誤差を引数として受け取り,
+反復による近似解の変化が許容誤差以下となったら収束したとみなす．</li>
+<li>収束判定のステータスを返す．</li>
+<li>求まった近似解を返す(収束しなかった場合は最後の反復後の解の近似値)．</li>
+</ul>
+<p>(二分法のモジュール``bisection.f90``の<code class="docutils literal"><span class="pre">mod_bisection</span></code>を参考にすればよい．)</p>
+</div>
+<div class="section" id="id4">
+<h2>課題3 <sup>†</sup><a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">list.f90</span></code>で定義されているリストを実装したモジュール<code class="docutils literal"><span class="pre">mod_list</span></code>へ以下の様な機能追加を試みよ．以下では<code class="docutils literal"><span class="pre">a</span></code>はリスト(<code class="docutils literal"><span class="pre">type(list_type)</span></code>)のポインタであるとする．</p>
+<ul class="simple">
+<li>代入演算子が配列を受け取れるようにせよ．即ち，</li>
+</ul>
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">/</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>のようにリストに配列を代入すると元のリストを破棄し(正しく<code class="docutils literal"><span class="pre">deallocate</span></code>し)，与えられた配列でリストを初期化すること．</p>
+<ul class="simple">
+<li>サンプルでは<code class="docutils literal"><span class="pre">append</span></code>によって単一の値をリストの終端に追加しているが，配列を与えた場合にはその各要素をリストに追加するように拡張せよ．ただしオーバーロードを用いることで，どちらも同じサブルーチン名<code class="docutils literal"><span class="pre">append</span></code>で行うようにせよ．</li>
+</ul>
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">call </span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="k">call </span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">(</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="o">/</span><span class="p">))</span>
+</pre></div>
+</td></tr></table></div>
+<p>のようなコードが実行可能となるはずである．</p>
+<ul class="simple">
+<li>同様にinsertでも配列を追加できるようにせよ．</li>
+</ul>
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">call </span><span class="n">insert</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">call </span><span class="n">insert</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="o">/-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="o">/</span><span class="p">))</span>
+</pre></div>
+</td></tr></table></div>
+<p>のようなコードが実行可能となるはずである．</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          <h3>目次</h3>
+          <ul>
+<li class="toctree-l1"><a class="reference internal" href="chap01.html">1. はじめに</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap02.html">2. プログラムの作成と実行</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap03.html">3. 変数・データ型・基本的な計算</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap04.html">4. 制御構造</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap05.html">5. 配列</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap06.html">6. 書式指定・ファイル入出力・文字列処理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap07.html">7. 関数とサブルーチン</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap08.html">8. 数値解析の基礎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap09.html">9. モジュールと構造型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap10.html">10. 付録</a></li>
+</ul>
+
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">検索</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="検索" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+          </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="genindex.html" title="総合索引"
+              >索引</a>
+          </div>
+          <div role="note" aria-label="source link">
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Takanobu Amano.
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.6 で生成しました。
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

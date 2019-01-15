@@ -1,0 +1,659 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4. 制御構造 &#8212; Fortran演習(地球惑星物理学演習)</title>
+    
+    <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2018',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="next" title="5. 配列" href="chap05.html" />
+    <link rel="prev" title="3. 変数・データ型・基本的な計算" href="chap03.html" />
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-99010794-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </head>
+  <body role="document">
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="index.html">Fortran演習</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="chap03.html" title="3. 変数・データ型・基本的な計算"
+             accesskey="P">前へ</a> |
+          <a href="chap05.html" title="5. 配列"
+             accesskey="N">次へ</a> |
+          <a href="genindex.html" title="総合索引"
+             accesskey="I">索引</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="id1">
+<h1><a class="toc-backref" href="#id15">4. 制御構造</a><a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>ここではプログラムの動作を制御するための文法について学ぼう．と言っても覚えなければいけないことは <code class="docutils literal"><span class="pre">if</span></code> による条件分岐，<code class="docutils literal"><span class="pre">do</span></code> による繰り返し，<code class="docutils literal"><span class="pre">select</span></code> による条件分岐のみである．<code class="docutils literal"><span class="pre">goto</span></code> という構文も存在するのだが，これはバグのもとになることから一般的には使わないほうが良いとされており，従ってここでも敢えて扱わない．</p>
+<blockquote>
+<div><p>サンプルプログラム</p>
+<ul class="simple">
+<li><a class="reference internal" href="chap04_sample1.html"><span class="doc">sample1.f90</span></a> : 条件分岐(if)</li>
+<li><a class="reference internal" href="chap04_sample2.html"><span class="doc">sample2.f90</span></a> : 反復処理(doループ1)</li>
+<li><a class="reference internal" href="chap04_sample3.html"><span class="doc">sample3.f90</span></a> : 反復処理(doループ2)</li>
+<li><a class="reference internal" href="chap04_sample4.html"><span class="doc">sample4.f90</span></a> : 反復処理(doループ3)</li>
+<li><a class="reference internal" href="chap04_sample5.html"><span class="doc">sample5.f90</span></a> : 条件分岐(select)</li>
+</ul>
+</div></blockquote>
+<div class="contents topic" id="id2">
+<p class="topic-title first">この章の内容</p>
+<ul class="simple">
+<li><a class="reference internal" href="#id1" id="id15">制御構造</a><ul>
+<li><a class="reference internal" href="#if" id="id16">条件分岐(if)</a></li>
+<li><a class="reference internal" href="#id4" id="id17">反復処理</a></li>
+<li><a class="reference internal" href="#select" id="id18">条件分岐(select)</a></li>
+<li><a class="reference internal" href="#id5" id="id19">演習課題</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="if">
+<h2><a class="toc-backref" href="#id16">4.1. 条件分岐(if)</a><a class="headerlink" href="#if" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<blockquote>
+<div><a class="reference internal" href="chap04_sample1.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
+<p><code class="docutils literal"><span class="pre">if</span></code> による条件分岐は例えばユーザーの入力によって動作を変更する場合などに用いる．典型的な使い方は以下のようなものである．</p>
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">integer</span> <span class="kd">::</span> <span class="n">n</span>
+
+<span class="k">read</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">n</span>  <span class="c">! 整数値を標準入力から読み込む</span>
+
+<span class="k">if</span> <span class="p">(</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span> <span class="k">then</span>
+<span class="k">  write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">n</span><span class="p">,</span> <span class="s1">&#39;is zero&#39;</span>
+<span class="k">else if</span> <span class="p">(</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">)</span> <span class="k">then</span>
+<span class="k">  write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">n</span><span class="p">,</span> <span class="s1">&#39;is positive&#39;</span>
+<span class="k">else if</span> <span class="p">(</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="p">)</span> <span class="k">then</span>
+<span class="k">  write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">n</span><span class="p">,</span> <span class="s1">&#39;is negative&#39;</span>
+<span class="k">end if</span>
+</pre></div>
+</td></tr></table></div>
+<p>このように <code class="docutils literal"><span class="pre">if</span></code> に続く <code class="docutils literal"><span class="pre">()</span></code> の中に条件式(conditional)を記述し，その条件が真( <code class="docutils literal"><span class="pre">.true.</span></code>)の時には <code class="docutils literal"><span class="pre">then</span></code> に続く処理が実行され，偽( <code class="docutils literal"><span class="pre">.false.</span></code>)の時には <code class="docutils literal"><span class="pre">else</span> <span class="pre">if</span></code> 以下で更に条件判定をすることになる．また</p>
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span> <span class="n">conditional</span> <span class="p">)</span> <span class="k">then</span>
+  <span class="c">! 処理</span>
+<span class="k">end if</span>
+</pre></div>
+</td></tr></table></div>
+<p>や</p>
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span> <span class="n">conditional</span> <span class="p">)</span> <span class="k">then</span>
+  <span class="c">! 処理1</span>
+<span class="k">else</span>
+  <span class="c">! 処理2</span>
+<span class="k">end if</span>
+</pre></div>
+</td></tr></table></div>
+<p>の用に書くことも出来る．構文自体はそれほど難しくないので，ここで注意すべきは条件判定の部分だけであろう．以下の表に条件式に用いられることの多い演算子をまとめてある．なおFortran 77では <code class="docutils literal"><span class="pre">&gt;</span></code> のような演算子(関係演算子と呼ばれる)は正式にはサポートされていなかった．このため古いコードには <code class="docutils literal"><span class="pre">.gt.</span></code> のような演算子を見かけることもあるかも知れないが，自分で新しくプログラムを作成する際にはこのような古い形式は使うべきではない．新しい形式は <code class="docutils literal"><span class="pre">/=</span></code> 以外のものについてはC言語を始めとする他の多くの言語と同じなのでこちらを用いることを強く推奨する．ちなみにC言語などでは <code class="docutils literal"><span class="pre">/=</span></code> ではなく <code class="docutils literal"><span class="pre">!=</span></code> が用いられる．</p>
+<p>特に実数の値が等しいかどうかを判定する際には注意が必要である．すなわち，実数に対しては <code class="docutils literal"><span class="pre">==</span></code> を使うことは出来ない．なぜなら2つの実数がほぼ等しいように見えても <code class="docutils literal"><span class="pre">==</span></code> による判定では全てのビットが厳密に等しくなければ真とは判定されないからである．従って，代わりに例えば差の絶対値 <code class="docutils literal"><span class="pre">abs(A-B)</span></code> が十分小さいかどうかで判定しなくてはならない <a class="footnote-reference" href="#id12" id="id3">[1]</a>．</p>
+<table border="1" class="colwidths-given docutils" id="id13">
+<caption><span class="caption-text">条件演算子</span><a class="headerlink" href="#id13" title="このテーブルへのパーマリンク">¶</a></caption>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">演算子</th>
+<th class="head">Fortran 77形式</th>
+<th class="head">意味</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">A</span> <span class="pre">&gt;</span>&#160; <span class="pre">B</span></code></td>
+<td><code class="docutils literal"><span class="pre">A</span> <span class="pre">.gt.</span> <span class="pre">B</span></code></td>
+<td><code class="docutils literal"><span class="pre">A</span></code> の方が <code class="docutils literal"><span class="pre">B</span></code> よりも大きければ真</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">A</span> <span class="pre">&gt;=</span> <span class="pre">B</span></code></td>
+<td><code class="docutils literal"><span class="pre">A</span> <span class="pre">.ge.</span> <span class="pre">B</span></code></td>
+<td><code class="docutils literal"><span class="pre">A</span></code> が <code class="docutils literal"><span class="pre">B</span></code> 以上であれば真</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">A</span> <span class="pre">&lt;</span>&#160; <span class="pre">B</span></code></td>
+<td><code class="docutils literal"><span class="pre">A</span> <span class="pre">.lt.</span> <span class="pre">B</span></code></td>
+<td><code class="docutils literal"><span class="pre">A</span></code> の方が <code class="docutils literal"><span class="pre">B</span></code> よりも小さければ真</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">A</span> <span class="pre">&lt;=</span> <span class="pre">B</span></code></td>
+<td><code class="docutils literal"><span class="pre">A</span> <span class="pre">.le.</span> <span class="pre">B</span></code></td>
+<td><code class="docutils literal"><span class="pre">A</span></code> が <code class="docutils literal"><span class="pre">B</span></code> 以下であれば真</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">A</span> <span class="pre">==</span> <span class="pre">B</span></code></td>
+<td><code class="docutils literal"><span class="pre">A</span> <span class="pre">.eq.</span> <span class="pre">B</span></code></td>
+<td><code class="docutils literal"><span class="pre">A</span></code> と <code class="docutils literal"><span class="pre">B</span></code> が厳密に等しければ真</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">A</span> <span class="pre">/=</span> <span class="pre">B</span></code></td>
+<td><code class="docutils literal"><span class="pre">A</span> <span class="pre">.ne.</span> <span class="pre">B</span></code></td>
+<td><code class="docutils literal"><span class="pre">A</span></code> と <code class="docutils literal"><span class="pre">B</span></code> が等しくなければ真</td>
+</tr>
+</tbody>
+</table>
+<p>また条件判定が複雑な時には以下の論理演算子を用いることになるだろう．</p>
+<table border="1" class="colwidths-given docutils" id="id14">
+<caption><span class="caption-text">論理演算子</span><a class="headerlink" href="#id14" title="このテーブルへのパーマリンク">¶</a></caption>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">演算子</th>
+<th class="head">意味</th>
+<th class="head">使い方</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">.and.</span></code></td>
+<td>論理積</td>
+<td><code class="docutils literal"><span class="pre">(条件式1)</span> <span class="pre">.and.</span> <span class="pre">(条件式2)</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">.or.</span></code></td>
+<td>論理和</td>
+<td><code class="docutils literal"><span class="pre">(条件式1)</span> <span class="pre">.or.</span>&#160; <span class="pre">(条件式2)</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">.not.</span></code></td>
+<td>否定</td>
+<td><code class="docutils literal"><span class="pre">.not.</span> <span class="pre">(条件式)</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">.eqv.</span></code></td>
+<td>論理等価</td>
+<td><code class="docutils literal"><span class="pre">(条件式1)</span> <span class="pre">.eqv.</span> <span class="pre">(条件式2)</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">.neqv.</span></code></td>
+<td>論理非等価</td>
+<td><code class="docutils literal"><span class="pre">(条件式1)</span> <span class="pre">.neqv.</span> <span class="pre">(条件式2)</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>使い方は例えば</p>
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">integer</span> <span class="kd">::</span> <span class="n">n</span>
+
+<span class="k">if</span> <span class="p">(</span> <span class="mi">2</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="p">.</span><span class="nb">and</span><span class="p">.</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="p">)</span> <span class="k">then</span>
+<span class="k">  write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;n is larger than 2 and smaller than 5&#39;</span>
+<span class="k">end if</span>
+</pre></div>
+</td></tr></table></div>
+<p>と言った具合である．<code class="docutils literal"><span class="pre">2</span> <span class="pre">&lt;</span> <span class="pre">n</span> <span class="pre">&lt;</span> <span class="pre">5</span></code> のような数学的な書き方はできないので注意が必要である．</p>
+<p>さらに複雑な条件分岐の場合には以下のように <code class="docutils literal"><span class="pre">if</span></code> 文を入れ子で使うことも出来る．</p>
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span> <span class="n">conditional</span> <span class="mi">1</span> <span class="p">)</span> <span class="k">then</span>
+<span class="k">  if</span> <span class="p">(</span> <span class="n">conditional</span> <span class="mi">2</span> <span class="p">)</span> <span class="k">then</span>
+    <span class="c">! 処理1</span>
+  <span class="k">else</span>
+    <span class="c">! 処理2</span>
+  <span class="k">end if</span>
+<span class="k">end if</span>
+</pre></div>
+</td></tr></table></div>
+<p>ただし何重にも深く入れ子になった <code class="docutils literal"><span class="pre">if</span></code> 文の実行効率はあまり良くないので出来るかぎり浅い条件分岐に留めておいた方が良い．</p>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id17">4.2. 反復処理</a><a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="do">
+<span id="c4-do"></span><h3>4.2.1. 決まった回数の繰り返し(do)<a class="headerlink" href="#do" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<blockquote>
+<div><a class="reference internal" href="chap04_sample2.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
+<p>決まった繰り返しの処理をするために用いるのが <code class="docutils literal"><span class="pre">do</span></code> (従ってこの反復処理は <code class="docutils literal"><span class="pre">do</span></code> ループと呼ばれる)である．これも使い方は至ってシンプルである．</p>
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">integer</span> <span class="kd">::</span> <span class="n">i</span>
+
+<span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">i</span>
+<span class="k">end do</span>
+</pre></div>
+</td></tr></table></div>
+<p>とすれば <code class="docutils literal"><span class="pre">1,</span> <span class="pre">3,</span> <span class="pre">5,</span> <span class="pre">7,</span> <span class="pre">9</span></code> が出力される．より一般には</p>
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">,</span> <span class="n">stride</span>
+  <span class="c">! 繰り返し処理</span>
+<span class="k">end do</span>
+</pre></div>
+</td></tr></table></div>
+<p>のような形で書くことになる．上の例では整数型変数 <code class="docutils literal"><span class="pre">i</span></code> は <code class="docutils literal"><span class="pre">do</span></code> 変数と呼ばれ，<code class="docutils literal"><span class="pre">do</span></code> ループの中で <code class="docutils literal"><span class="pre">i</span></code> の値が <code class="docutils literal"><span class="pre">lower</span></code> から <code class="docutils literal"><span class="pre">upper</span></code> まで <code class="docutils literal"><span class="pre">stride</span></code> ずつ変化する．<code class="docutils literal"><span class="pre">stride</span></code> は省略することも可能であり，その場合は <code class="docutils literal"><span class="pre">1</span></code> と解釈される．また <code class="docutils literal"><span class="pre">stride</span></code> は負の値であっても良い(当然この時は <code class="docutils literal"><span class="pre">lower</span> <span class="pre">&gt;</span> <span class="pre">upper</span></code> でなければループ内の処理は実行されない)．通常 <code class="docutils literal"><span class="pre">do</span></code> 変数は整数型でなければならないが，実数型などでもコンパイル出来てしまう環境もあり，そのような場合は思わぬバグの原因となってしまう．間違いを未然に防ぐためにも <code class="docutils literal"><span class="pre">do</span></code> 変数には整数型を用いること．</p>
+<p>また <code class="docutils literal"><span class="pre">if</span></code> 文の場合と同様に <code class="docutils literal"><span class="pre">do</span></code> ループに関しても以下のように入れ子(多重ループ)にすることが出来る．</p>
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">integer</span> <span class="kd">::</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span>
+
+<span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">9</span>
+  <span class="k">do </span><span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">9</span>
+    <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="o">*</span><span class="n">j</span>
+  <span class="k">end do</span>
+<span class="k">end do</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="do-while">
+<h3>4.2.2. 条件を指定した繰り返し(do while)<a class="headerlink" href="#do-while" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<blockquote>
+<div><a class="reference internal" href="chap04_sample3.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
+<p>繰り返しの処理には基本的に先ほどの <code class="docutils literal"><span class="pre">do</span></code> ループを用いれば良いのだが，これを少し違った形式で行う <code class="docutils literal"><span class="pre">do</span> <span class="pre">while</span></code> なる構文も用意されている．これは</p>
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">do while</span><span class="p">(</span> <span class="n">conditional</span> <span class="p">)</span>
+  <span class="c">! 繰り返し処理</span>
+<span class="k">end do</span>
+</pre></div>
+</td></tr></table></div>
+<p>のような形で用い，<code class="docutils literal"><span class="pre">()</span></code> 内の条件式が真( <code class="docutils literal"><span class="pre">.true.</span></code>)の間は繰り返し処理が行われる．例えば</p>
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">integer</span> <span class="kd">::</span> <span class="n">i</span>
+
+<span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">do while</span><span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">i</span>
+  <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="k">end do</span>
+</pre></div>
+</td></tr></table></div>
+<p>の例では <code class="docutils literal"><span class="pre">1,</span> <span class="pre">3,</span> <span class="pre">5,</span> <span class="pre">7,</span> <span class="pre">9</span></code> が出力されることになる．繰り返し回数が予め分からない処理ではこのような形式を用いるとスマートに書ける場面にもしばしば遭遇する．例えば反復計算によって実数型の値の収束判定をする場合などは</p>
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span>
+
+<span class="k">do while</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">1.0e-8_8</span><span class="p">)</span>
+  <span class="c">! 繰り返し処理</span>
+<span class="k">end do</span>
+</pre></div>
+</td></tr></table></div>
+<p>などのように非常にスッキリと記述できる．この例では <code class="docutils literal"><span class="pre">abs(x)</span></code> の値が <span class="math">\(10^{-8}\)</span> 以下になるまで反復を続ける．</p>
+</div>
+<div class="section" id="exitcycle">
+<h3>4.2.3. 複雑な処理(exitとcycle)<a class="headerlink" href="#exitcycle" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<blockquote>
+<div><a class="reference internal" href="chap04_sample4.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
+<p>単純な繰り返しだけでなく，より柔軟な制御を行うには <code class="docutils literal"><span class="pre">exit</span></code> や <code class="docutils literal"><span class="pre">cycle</span></code> を用いる．<code class="docutils literal"><span class="pre">exit</span></code> では <code class="docutils literal"><span class="pre">do</span></code> ループの中から途中で抜けることが出来，<code class="docutils literal"><span class="pre">cycle</span></code> ではループ内のそれ以降の処理を行わずにループ先頭に戻ることがで出来る．これらを用いると意図的に作った無限ループから条件を満たした時だけ抜け出すようなプログラムも簡単に作ることができる．例えば以下の例を見てみよう．</p>
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">integer</span> <span class="kd">::</span> <span class="n">i</span>
+
+<span class="k">do while</span><span class="p">(</span> <span class="p">.</span><span class="n">true</span><span class="p">.</span> <span class="p">)</span>        <span class="c">! 無限ループ</span>
+  <span class="k">read</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">i</span>             <span class="c">! 標準入力から整数値を読み込む</span>
+
+  <span class="k">if</span> <span class="p">(</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span> <span class="k">then</span>
+<span class="k">    exit</span>                  <span class="c">! 0ならループを抜ける</span>
+  <span class="k">else if</span> <span class="p">(</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="p">)</span> <span class="k">then</span>
+<span class="k">    cycle</span>                 <span class="c">! 負ならループ先頭(4行目)に戻る</span>
+  <span class="k">end if</span>
+
+<span class="k">  write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">i</span>            <span class="c">! 値を標準出力に表示</span>
+<span class="k">end do</span>
+</pre></div>
+</td></tr></table></div>
+<p>この例では標準入力からの整数の入力値が正の時だけその値を表示し，負の時は表示しない．また0を入力値として受け取るとループを抜けるようになっている．なお，同じ処理を実現する方法は1つとは限らない．例えば，以下のループも全く同じ処理を行っていることが分かるかと思う．</p>
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">integer</span> <span class="kd">::</span> <span class="n">i</span>
+
+<span class="k">read</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">i</span>
+
+<span class="k">do while</span><span class="p">(</span> <span class="n">i</span> <span class="o">/=</span> <span class="mi">0</span> <span class="p">)</span>
+  <span class="k">if</span> <span class="p">(</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">)</span> <span class="k">then</span>
+<span class="k">    write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">i</span>
+  <span class="k">end if</span>
+
+<span class="k">  read</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">i</span>
+<span class="k">end do</span>
+</pre></div>
+</td></tr></table></div>
+<p>このように複数の方法がある場合にはより分かりやすい方(すなわち間違いが発生しにくい方)を採用すれば良い．</p>
+<p>ちなみに無限ループを作るには <code class="docutils literal"><span class="pre">while</span> <span class="pre">(.true.)</span></code> は必ずしも必要では無く，</p>
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">do</span>
+  <span class="c">! exitで抜けないかぎりここの処理が無限に繰り返される</span>
+<span class="k">end do</span>
+</pre></div>
+</td></tr></table></div>
+<p>のように書くことも可能である．</p>
+</div>
+</div>
+<div class="section" id="select">
+<h2><a class="toc-backref" href="#id18">4.3. 条件分岐(select)</a><a class="headerlink" href="#select" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<blockquote>
+<div><a class="reference internal" href="chap04_sample5.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
+<p><code class="docutils literal"><span class="pre">select</span></code> 構文を用いても条件分岐を行うことも出来る．基本的には <code class="docutils literal"><span class="pre">if</span></code> を用いれば同じことは実現出来るのだが，場合によっては <code class="docutils literal"><span class="pre">select</span></code> を用いた方がよりスッキリとした形で書ける事があるので知っておいて損はない．典型的には整数や文字列の値で場合分けを制御する際に用いる(実数型には用いることは出来ない)．以下は入力された整数 <code class="docutils literal"><span class="pre">score</span></code> (テストの点だと思おう)の値によって場合分けをする例である．</p>
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">integer</span> <span class="kd">::</span> <span class="n">score</span>
+
+<span class="k">read</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">score</span>
+
+<span class="k">select case</span><span class="p">(</span><span class="n">score</span><span class="p">)</span>
+<span class="k">case</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>              <span class="c">! 0点</span>
+   <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;zero&#39;</span>
+<span class="k">case</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">29</span><span class="p">)</span>           <span class="c">! 1-29点</span>
+   <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;poor&#39;</span>
+<span class="k">case</span><span class="p">(</span><span class="mi">30</span><span class="p">:</span><span class="mi">59</span><span class="p">)</span>          <span class="c">! 30-59点</span>
+   <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;fair&#39;</span>
+<span class="k">case</span><span class="p">(</span><span class="mi">60</span><span class="p">:</span><span class="mi">89</span><span class="p">)</span>          <span class="c">! 60-89点</span>
+   <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;good&#39;</span>
+<span class="k">case</span><span class="p">(</span><span class="mi">90</span><span class="p">:</span><span class="mi">100</span><span class="p">)</span>         <span class="c">! 90-100点</span>
+   <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;excellent&#39;</span>
+<span class="k">case </span><span class="n">default</span>         <span class="c">! それ以外</span>
+   <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;invalid input&#39;</span>
+<span class="k">end select</span>
+</pre></div>
+</td></tr></table></div>
+<p><code class="docutils literal"><span class="pre">case</span></code> では単一の値もしくは値の範囲を指定する．範囲の指定は <code class="docutils literal"><span class="pre">case(下限:上限)</span></code> のような形ですれば良い．また指定した範囲外の値に対する処理は <code class="docutils literal"><span class="pre">case</span> <span class="pre">deafault</span></code> によって行えば良い．</p>
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span> <span class="kd">::</span> <span class="n">input</span>
+
+<span class="k">read</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">input</span>
+
+<span class="k">select case</span><span class="p">(</span><span class="n">input</span><span class="p">)</span>
+<span class="k">case</span><span class="p">(</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;banana&#39;</span><span class="p">)</span>
+   <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;food&#39;</span>
+<span class="k">case</span><span class="p">(</span><span class="s1">&#39;earth&#39;</span><span class="p">,</span> <span class="s1">&#39;mars&#39;</span><span class="p">,</span> <span class="s1">&#39;venus&#39;</span><span class="p">)</span>
+   <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;planet&#39;</span>
+<span class="k">case </span><span class="n">default</span>
+   <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;others&#39;</span>
+<span class="k">end select</span>
+</pre></div>
+</td></tr></table></div>
+<p>上の例は文字列の値によって分岐する例である．このように1つの <code class="docutils literal"><span class="pre">case</span></code> で複数の値をカンマで区切って指定することも出来る．</p>
+</div>
+<div class="section" id="id5">
+<h2><a class="toc-backref" href="#id19">4.4. 演習課題</a><a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id6">
+<h3>4.4.1. 課題1<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>サンプルプログラムをコンパイル・実行して動作を確認せよ．さらに，適宜修正してその実行結果を確認せよ．</p>
+</div>
+<div class="section" id="id7">
+<h3>4.4.2. 課題2<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>標準入力から2つの整数( <span class="math">\(n, m\)</span> とする)を読み込み，その大小を比較するプログラムを作成せよ．例えば <span class="math">\(n = 1, m = 2\)</span> なら以下のように <code class="docutils literal"><span class="pre">1</span> <span class="pre">is</span> <span class="pre">smaller</span> <span class="pre">than</span> <span class="pre">2</span></code> と表示する．</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$./a.out
+ Input two integers:
+<span class="m">1</span>    <span class="c1"># キーボード入力</span>
+<span class="m">2</span>    <span class="c1"># キーボード入力</span>
+           <span class="m">1</span>  is smaller than            <span class="m">2</span>
+</pre></div>
+</div>
+<p>同様に <span class="math">\(n = 2, m = 1\)</span> なら <code class="docutils literal"><span class="pre">2</span> <span class="pre">is</span> <span class="pre">larger</span> <span class="pre">than</span> <span class="pre">1</span></code>, <span class="math">\(n = m = 1\)</span> なら <code class="docutils literal"><span class="pre">1</span> <span class="pre">is</span> <span class="pre">equal</span> <span class="pre">to</span> <span class="pre">1</span></code> などと表示するものとする．</p>
+</div>
+<div class="section" id="id8">
+<h3>4.4.3. 課題3<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><span class="math">\(0^\circ\)</span> から <span class="math">\(180^\circ\)</span> まで <span class="math">\(10^\circ\)</span> 刻みの <span class="math">\(\theta\)</span> および， <span class="math">\(\sin \theta\)</span>, <span class="math">\(\cos \theta\)</span> を標準出力に表示するプログラムを作成せよ(以下のように各 <span class="math">\(\theta\)</span> の値ごとに改行せよ)．またこの結果をリダイレクトを用いてファイルとして記録し，gnuplotを用いてこのファイルのデータとgnuplotに組み込みの三角関数を共に図示せよ．なお三角関数の引数はラジアン単位であることに注意せよ．プログラムの出力結果は以下のようなものとなる．</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ ./a.out
+  <span class="m">0</span>.0000000000000000        <span class="m">0</span>.0000000000000000        <span class="m">1</span>.0000000000000000
+  <span class="m">10</span>.000000000000000        ...                       ...
+  <span class="m">20</span>.000000000000000        ...                       ...
+  ...                       ...                       ...
+  <span class="m">180</span>.00000000000000        ...                       ...
+</pre></div>
+</div>
+<p>なおリダイレクトでデータファイルを作成するには</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ ./a.out &gt; data.dat
+</pre></div>
+</div>
+<p>とすれば良い．gnuplotでは</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>&gt; plot   <span class="s1">&#39;data.dat&#39;</span> using <span class="m">1</span>:2 w lp, sin<span class="o">(</span>x/180*pi<span class="o">)</span>
+&gt; replot <span class="s1">&#39;data.dat&#39;</span> using <span class="m">1</span>:3 w lp, cos<span class="o">(</span>x/180*pi<span class="o">)</span>
+</pre></div>
+</div>
+<p>などとすれば結果を確認出来る．(忘れている人は復習せよ!)</p>
+</div>
+<div class="section" id="id9">
+<h3>4.4.4. 課題4<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>標準入力から与えられた2つの整数<span class="math">\(m, n \ge 1\)</span> の最大公約数を表示するプログラムを作成せよ．最大公約数を求めるには以下のアルゴリズム(ユークリッドの互除法)を用いるとよい．</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><span class="math">\(m\)</span> を <span class="math">\(n\)</span> で割った余り <span class="math">\(r\)</span> を求める．</li>
+<li>もし <span class="math">\(r = 0\)</span> ならば <span class="math">\(n\)</span> が最大公約数である．</li>
+<li>もし <span class="math">\(r \neq 0\)</span> ならば， <span class="math">\(m\)</span> に <span class="math">\(n\)</span> を， <span class="math">\(n\)</span> に <span class="math">\(r\)</span> を代入して[1]に戻る(繰り返す)．</li>
+</ol>
+</div></blockquote>
+<p>なお，組み込み関数 <code class="docutils literal"><span class="pre">mod</span></code> を用いて</p>
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="nb">mod</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>とすれば <code class="docutils literal"><span class="pre">m</span></code> を <code class="docutils literal"><span class="pre">n</span></code> で割った余りを <code class="docutils literal"><span class="pre">r</span></code> に代入することが出来る．</p>
+</div>
+<div class="section" id="id10">
+<h3>4.4.5. 課題5<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>以下の級数計算により自然対数の底 <span class="math">\(e\)</span> の近似値を求めるプログラムを作成せよ．</p>
+<div class="math">
+\[e \simeq \sum_{n=0}^{N} \frac{1}{n !}. \quad (0! = 1に注意せよ)\]</div>
+<p>ただし以下の条件を満たすこと．</p>
+<blockquote>
+<div><ul class="simple">
+<li>級数の項数 <span class="math">\(N\)</span> および許容誤差 <span class="math">\(\epsilon\)</span> を標準入力から読み込む．</li>
+<li><span class="math">\(N &gt; 1\)</span> でない場合および <span class="math">\(0 &lt; \epsilon &lt; 1\)</span> でない場合にはエラーメッセージを表示して終了する．</li>
+<li>誤差が <span class="math">\(\epsilon\)</span> 以下になった時点か， <span class="math">\(n = N\)</span> まで計算した時点で級数計算を打ち切る．</li>
+<li>最後に収束したかどうか，最終的な項数 <span class="math">\(N\)</span> ，真値，近似値，相対誤差を表示して終了する．</li>
+</ul>
+</div></blockquote>
+<p>出力のイメージとしては例えば以下のようなものである．</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ ./a.out
+<span class="m">10</span>          <span class="c1"># キーボード入力</span>
+<span class="m">1</span>.0e-8      <span class="c1"># キーボード入力</span>
+ Did not converge !
+ N                  :           <span class="m">10</span>
+ Exact value        :    <span class="m">2</span>.7182818284590451
+ Approximated value :    <span class="m">2</span>.7182818011463845
+ Error              :   <span class="m">1</span>.00477663102110533E-008
+</pre></div>
+</div>
+</div>
+<div class="section" id="id11">
+<h3>4.4.6. 課題6<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>標準入力から文字列(英単語)を読み込み，それが <code class="docutils literal"><span class="pre">food</span></code>, <code class="docutils literal"><span class="pre">animal</span></code>, <code class="docutils literal"><span class="pre">vehicle</span></code>, <code class="docutils literal"><span class="pre">others</span></code> (それ以外)のいずれかを判定し，表示するプログラムを作成せよ．ただし <code class="docutils literal"><span class="pre">exit</span></code> が入力されるまでプログラムは終了せず何度でも入力を受け付けるものとする．なお以下の英単語リスト以外のものは <code class="docutils literal"><span class="pre">others</span></code> と判断してよい:
+<code class="docutils literal"><span class="pre">apple</span></code>, <code class="docutils literal"><span class="pre">orange</span></code>, <code class="docutils literal"><span class="pre">banana</span></code>, <code class="docutils literal"><span class="pre">dog</span></code>, <code class="docutils literal"><span class="pre">cat</span></code>, <code class="docutils literal"><span class="pre">lion</span></code>, <code class="docutils literal"><span class="pre">car</span></code>,
+<code class="docutils literal"><span class="pre">airplane</span></code>, <code class="docutils literal"><span class="pre">motorcycle</span></code> ．</p>
+<p>実行結果は例えば以下のような出力になるだろう．</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ ./a.out
+apple
+ food
+cat
+ animal
+car
+ vehicle
+dog
+ animal
+airplane
+ vehicle
+bike
+ others
+<span class="nb">exit</span>
+ Now <span class="nb">exit</span> program...
+</pre></div>
+</div>
+<hr class="docutils" />
+<table class="docutils footnote" frame="void" id="id12" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[1]</a></td><td><code class="docutils literal"><span class="pre">abs(x)</span></code> は <code class="docutils literal"><span class="pre">x</span></code> の絶対値を返す組込み関数である．</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          <h3>目次</h3>
+          <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="chap01.html">1. はじめに</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap02.html">2. プログラムの作成と実行</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap03.html">3. 変数・データ型・基本的な計算</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. 制御構造</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#if">4.1. 条件分岐(if)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">4.2. 反復処理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#select">4.3. 条件分岐(select)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">4.4. 演習課題</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chap05.html">5. 配列</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap06.html">6. 書式指定・ファイル入出力・文字列処理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap07.html">7. 関数とサブルーチン</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap08.html">8. 数値解析の基礎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap09.html">9. モジュールと構造型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap10.html">10. 付録</a></li>
+</ul>
+
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">検索</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="検索" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+          </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="chap03.html" title="3. 変数・データ型・基本的な計算"
+              >前へ</a> |
+            <a href="chap05.html" title="5. 配列"
+              >次へ</a> |
+            <a href="genindex.html" title="総合索引"
+              >索引</a>
+          </div>
+          <div role="note" aria-label="source link">
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Takanobu Amano.
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.6 で生成しました。
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

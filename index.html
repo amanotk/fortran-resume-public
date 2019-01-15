@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Fortran演習 (地球惑星物理学演習) &#8212; Fortran演習(地球惑星物理学演習)</title>
+    
+    <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2018',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="next" title="1. はじめに" href="chap01.html" />
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-99010794-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </head>
+  <body role="document">
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="#">Fortran演習</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="chap01.html" title="1. はじめに"
+             accesskey="N">次へ</a> |
+          <a href="genindex.html" title="総合索引"
+             accesskey="I">索引</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="fortran">
+<h1>Fortran演習 (地球惑星物理学演習)<a class="headerlink" href="#fortran" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p>この文書について</p>
+<p>この文書は東京大学理学部地球惑星物理学科3年生向けの演習科目「地球惑星物理学演習」用に書かれたものです．それ以外の用途に使用することを妨げるものではありませんが，必ずしも万人向けのものではありませんのでご注意下さい．特に演習課題はUnix系のコマンドラインでの実行を前提としています．</p>
+<p class="last">なお，当然のことながらこの文書の利用は自己責任でお願いします．</p>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="chap01.html">1. はじめに</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chap01.html#id4">1.1. プログラミングを学ぶ意義</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap01.html#id5">1.2. プログラミング言語について</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chap02.html">2. プログラムの作成と実行</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chap02.html#hello-world">2.1. Hello, world !</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap02.html#id5">2.2. ソースコードの基本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap02.html#id12">2.3. ソースコード編集にまつわるエトセトラ <sup>†</sup></a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap02.html#id20">2.4. 演習課題</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chap03.html">3. 変数・データ型・基本的な計算</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chap03.html#id3">3.1. 変数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap03.html#id5">3.2. データ型と精度</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap03.html#id8">3.3. 定数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap03.html#id9">3.4. 標準入力から変数への値の代入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap03.html#id10">3.5. 算術演算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap03.html#id11">3.6. 代入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap03.html#id12">3.7. 組込み関数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap03.html#id14">3.8. 型変換</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap03.html#id15">3.9. 演習課題</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chap04.html">4. 制御構造</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chap04.html#if">4.1. 条件分岐(if)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap04.html#id4">4.2. 反復処理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap04.html#select">4.3. 条件分岐(select)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap04.html#id5">4.4. 演習課題</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chap05.html">5. 配列</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chap05.html#id3">5.1. 基本的な使い方</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap05.html#id5">5.2. 配列の定数と初期化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap05.html#id6">5.3. 動的割付け</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap05.html#id8">5.4. 多次元配列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap05.html#c5-array-io">5.5. 配列の入出力</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap05.html#id10">5.6. 配列に関する組込み関数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap05.html#id12">5.7. 部分配列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap05.html#id13">5.8. 配列演算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap05.html#id14">5.9. 補足 <sup>†</sup></a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap05.html#id18">5.10. 演習課題</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chap06.html">6. 書式指定・ファイル入出力・文字列処理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chap06.html#id3">6.1. 書式指定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap06.html#c6-file-io">6.2. ファイル入出力</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap06.html#id14">6.3. 文字列処理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap06.html#id20">6.4. ファイル終端までの逐次処理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap06.html#id21">6.5. 演習課題</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chap07.html">7. 関数とサブルーチン</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chap07.html#id4">7.1. 概要</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap07.html#id7">7.2. 定義と呼び出し</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap07.html#id11">7.3. 変数のスコープ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap07.html#id13">7.4. 引数の詳細</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap07.html#recursive">7.5. 再帰呼び出し(recursive) <sup>†</sup></a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap07.html#c7-intext-procedure">7.6. 内部手続きと外部手続き <sup>†</sup></a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap07.html#id21">7.7. 演習課題</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chap08.html">8. 数値解析の基礎</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chap08.html#c8-float-precision">8.1. 実数の精度と誤差</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap08.html#id7">8.2. 求根法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap08.html#c8-numerical-integration">8.3. 数値積分</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap08.html#id11">8.4. 乱数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap08.html#id13">8.5. 演習課題</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chap09.html">9. モジュールと構造型</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chap09.html#id3">9.1. モジュールの基本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap09.html#c9-refer-variables">9.2. 変数や定数の参照</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap09.html#c9-internal-procedure">9.3. 内部手続き</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap09.html#id6">9.4. 総称名</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap09.html#id8">9.5. アクセス制限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap09.html#c9-structure">9.6. 構造型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap09.html#id19">9.7. 演習課題</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chap10.html">10. 付録</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chap10.html#id3">10.1. 大規模なプログラム開発</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap10.html#id8">10.2. 関数やサブルーチンの引数渡し</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap10.html#id9">10.3. 計算時間の測定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap10.html#id11">10.4. ポインタとデータ構造 <sup>†</sup></a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap10.html#id17">10.5. デバッグのテクニック <sup>†</sup></a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap10.html#c">10.6. C言語とのリンク <sup>†</sup></a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap10.html#fortran-77">10.7. Fortran 77について <sup>†</sup></a></li>
+<li class="toctree-l2"><a class="reference internal" href="chap10.html#id22">10.8. 演習課題</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          <h3>目次</h3>
+          <ul>
+<li class="toctree-l1"><a class="reference internal" href="chap01.html">1. はじめに</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap02.html">2. プログラムの作成と実行</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap03.html">3. 変数・データ型・基本的な計算</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap04.html">4. 制御構造</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap05.html">5. 配列</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap06.html">6. 書式指定・ファイル入出力・文字列処理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap07.html">7. 関数とサブルーチン</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap08.html">8. 数値解析の基礎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap09.html">9. モジュールと構造型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap10.html">10. 付録</a></li>
+</ul>
+
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">検索</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="検索" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+          </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="chap01.html" title="1. はじめに"
+              >次へ</a> |
+            <a href="genindex.html" title="総合索引"
+              >索引</a>
+          </div>
+          <div role="note" aria-label="source link">
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Takanobu Amano.
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.6 で生成しました。
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

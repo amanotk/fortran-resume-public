@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>演習課題 &#8212; Fortran演習(地球惑星物理学演習)</title>
+    
+    <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2018',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-99010794-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </head>
+  <body role="document">
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="index.html">Fortran演習</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="genindex.html" title="総合索引"
+             accesskey="I">索引</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="id1">
+<h1>演習課題<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="id2">
+<h2>課題1<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>サンプルプログラムをコンパイル・実行して動作を確認せよ．さらに，適宜修正してその実行結果を確認せよ．</p>
+</div>
+<div class="section" id="id3">
+<h2>課題2<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>以下のように掛け算九九の表を標準出力にキレイに表示するプログラムを作成せよ．</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ ./a.out
+   <span class="m">1</span>   <span class="m">2</span>   <span class="m">3</span>   <span class="m">4</span>   <span class="m">5</span>   <span class="m">6</span>   <span class="m">7</span>   <span class="m">8</span>   <span class="m">9</span>
+   <span class="m">2</span>   <span class="m">4</span>   <span class="m">6</span>   <span class="m">8</span>  <span class="m">10</span>  <span class="m">12</span>  <span class="m">14</span>  <span class="m">16</span>  <span class="m">18</span>
+   <span class="m">3</span>   <span class="m">6</span>   <span class="m">9</span>  <span class="m">12</span>  <span class="m">15</span>  <span class="m">18</span>  <span class="m">21</span>  <span class="m">24</span>  <span class="m">27</span>
+   <span class="m">4</span>   <span class="m">8</span>  <span class="m">12</span>  <span class="m">16</span>  <span class="m">20</span>  <span class="m">24</span>  <span class="m">28</span>  <span class="m">32</span>  <span class="m">36</span>
+   <span class="m">5</span>  <span class="m">10</span>  <span class="m">15</span>  <span class="m">20</span>  <span class="m">25</span>  <span class="m">30</span>  <span class="m">35</span>  <span class="m">40</span>  <span class="m">45</span>
+   <span class="m">6</span>  <span class="m">12</span>  <span class="m">18</span>  <span class="m">24</span>  <span class="m">30</span>  <span class="m">36</span>  <span class="m">42</span>  <span class="m">48</span>  <span class="m">54</span>
+   <span class="m">7</span>  <span class="m">14</span>  <span class="m">21</span>  <span class="m">28</span>  <span class="m">35</span>  <span class="m">42</span>  <span class="m">49</span>  <span class="m">56</span>  <span class="m">63</span>
+   <span class="m">8</span>  <span class="m">16</span>  <span class="m">24</span>  <span class="m">32</span>  <span class="m">40</span>  <span class="m">48</span>  <span class="m">56</span>  <span class="m">64</span>  <span class="m">72</span>
+   <span class="m">9</span>  <span class="m">18</span>  <span class="m">27</span>  <span class="m">36</span>  <span class="m">45</span>  <span class="m">54</span>  <span class="m">63</span>  <span class="m">72</span>  <span class="m">81</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>課題3<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="data/helix1.dat">helix1.dat</a> から実数データ <span class="math">\(x_i, y_i, z_i (i=1, \ldots, 32)\)</span> を読み込み，全く同じフォーマットで標準出力に表示するプログラムを作成せよ．以下のようにリダイレクトでファイルに出力し， <code class="docutils literal"><span class="pre">diff</span></code> コマンドによってフォーマットが同じかどうかを確かめよ．</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ ./a.out &gt; test.dat
+$ diff helix1.dat test.dat
+</pre></div>
+</div>
+<p>上記の <code class="docutils literal"><span class="pre">diff</span></code> コマンドを実行して，出力が何も無ければファイルが同一であることを意味する．</p>
+<p>データファイルには <span class="math">\(i\)</span> 行目に <span class="math">\(x_i\)</span>, <span class="math">\(y_i\)</span>, <span class="math">\(z_i\)</span> の3つの実数データが記述されている． <code class="docutils literal"><span class="pre">open</span></code> を用いて読み込むこと．</p>
+</div>
+<div class="section" id="id5">
+<h2>課題4<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>課題3と同様に読み込んだデータ <span class="math">\(x_i, y_i, z_i\)</span> をそれぞれ別のファイル(例えば <code class="docutils literal"><span class="pre">x.dat</span></code>, <code class="docutils literal"><span class="pre">y.dat</span></code>, <code class="docutils literal"><span class="pre">z.dat</span></code>)にアスキー形式で出力せよ．各データの書式は <a class="reference external" href="data/helix1.dat">helix1.dat</a> のものと同一とする．</p>
+<p>このとき以下のコマンドによって結果を確認できる．</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ paste -d<span class="s2">&quot; &quot;</span> x.dat y.dat z.dat &gt; test.dat
+$ diff helix1.dat test.dat
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">helix1.dat</span></code> と <code class="docutils literal"><span class="pre">test.dat</span></code> が同一ファイルになっていれば( <code class="docutils literal"><span class="pre">diff</span></code> コマンドが何も出力しなければ)良い．</p>
+</div>
+<div class="section" id="id7">
+<h2>課題5<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>バイナリファイル <a class="reference external" href="data/helix2.dat">helix2.dat</a> を <code class="docutils literal"><span class="pre">open</span></code> を用いて開き，実数データ <span class="math">\(x_i, y_i, z_i (i=1, \ldots, 32)\)</span> を読み込み，先ほどの <code class="docutils literal"><span class="pre">helix1.dat</span></code> と全く同じフォーマットで標準出力に表示するプログラムを作成せよ．</p>
+<p>作成したプログラムを</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ ./a.out &gt; test.dat
+$ diff helix1.dat test.dat
+</pre></div>
+</div>
+<p>のように実行し，結果が <code class="docutils literal"><span class="pre">helix1.dat</span></code> と同じになることを <code class="docutils literal"><span class="pre">diff</span></code> コマンドによって確かめよ．</p>
+<p>なお，このバイナリファイルは <code class="docutils literal"><span class="pre">form='unformatted'</span></code> で <code class="docutils literal"><span class="pre">open</span></code> したファイルに(その装置番号を10として)</p>
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">write</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="n">x</span>
+<span class="k">write</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="n">y</span>
+<span class="k">write</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="n">z</span>
+</pre></div>
+</td></tr></table></div>
+<p>のように出力したものである． ただしここで， <code class="docutils literal"><span class="pre">x</span></code>, <code class="docutils literal"><span class="pre">y</span></code>, <code class="docutils literal"><span class="pre">z</span></code> はそれぞれ長さ32の倍精度の実数配列である．すなわち</p>
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span><span class="p">(</span><span class="mi">32</span><span class="p">),</span> <span class="n">y</span><span class="p">(</span><span class="mi">32</span><span class="p">),</span> <span class="n">z</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>のように宣言されたものであると考えれば良い．</p>
+</div>
+<div class="section" id="id8">
+<h2>課題6<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Fortranのソースコードから，何らかのFortranの命令文を含む行数(コメントのみの行および空白行を除いた行数)を数えるプログラムを作成せよ．</p>
+<p>入力はリダイレクトによって</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ ./a.out &lt; chap06/sample5.f90
+ Number of lines with valid fortran statement :           <span class="m">24</span>
+</pre></div>
+</div>
+<p>のようにすれば良い． (チェックが出来ればファイル名は何でもよい．)</p>
+<p>なお，コメントのみの行は最初の空白以外の文字が &#8221; <code class="docutils literal"><span class="pre">!</span></code> &#8220;である行，空白行は空白のみで表される行であるとして判定すれば良い．組込み関数 <code class="docutils literal"><span class="pre">adjustl</span></code> を用いると良い．</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          <h3>目次</h3>
+          <ul>
+<li class="toctree-l1"><a class="reference internal" href="chap01.html">1. はじめに</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap02.html">2. プログラムの作成と実行</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap03.html">3. 変数・データ型・基本的な計算</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap04.html">4. 制御構造</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap05.html">5. 配列</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap06.html">6. 書式指定・ファイル入出力・文字列処理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap07.html">7. 関数とサブルーチン</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap08.html">8. 数値解析の基礎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap09.html">9. モジュールと構造型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap10.html">10. 付録</a></li>
+</ul>
+
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">検索</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="検索" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+          </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="genindex.html" title="総合索引"
+              >索引</a>
+          </div>
+          <div role="note" aria-label="source link">
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Takanobu Amano.
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.6 で生成しました。
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>
