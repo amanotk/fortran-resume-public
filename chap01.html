@@ -72,7 +72,7 @@
 <p>とは言っても，プログラミング言語を用いて自分のやりたいことを思うがままに実現できるようになるのはそれほど簡単なことでは無く，8日間の演習では短か過ぎると思われる．プログラミング言語の文法自体は英語や日本語などの自然言語に比べたら格段に簡単だが，それでもそれを使いこなすのにはある程度の訓練が必要なのである．特にプログラミング初心者の人がこの演習の内容を全て理解するのは難しいので，分からない内容があっても落ち込むことは無い．(興味を持ってやっていればそのうちに自然と身に付くものである．) 最低限の目標は，Fortranというプログラミング言語の基礎を覚え，自分で簡単なプログラムの作成および実行が出来るようになること(=この後の演習の内容についていけるようになること)である．各節のタイトルに「<sup>†</sup>」がついている項目がいくつかあるが，この内容は演習の課題をこなすためには必ずしも知らなくて良い内容である．ただし，知っておくと色々と便利なことが多いので余裕があればこの内容もマスターしておくと良い．</p>
 <p>なお演習時には言語仕様を事細かに解説するようなことはしない．そんなことをしていては時間が足りないし，何より退屈なだけである．また言語仕様の詳細を理解したからと言ってプログラムを書けるようになるわけではなく，全く実用的では無い．その代わりに，各事項を理解する助けになるようサンプルプログラムを多数用意してある．大事なのは自分でサンプルプログラムを修正，実行し，その動作を自分の目で確認することである．また毎日の課題に取り組むことで，「習うより慣れよ」の精神で実践的に基礎を身につけて行って欲しい．この文書についても教科書的なものでは無く，サンプルプログラムの解説といった位置付けである．また，各章の最後に用意してある演習課題には各自で取り組んで欲しい <a class="footnote-reference" href="#id8" id="id2">[1]</a> ．</p>
 <p>なお最初に断っておくと，この文書は <em>未完成</em> である．用語が統一されていなかったり，間違いなどを含んでいる可能性も大いにあるので，その点については注意して欲しい．内容としてはどちらかと言うと教科書には書いていないようなことを随時盛り込んでいく予定である(あくまで予定である)．基本的にはhtmlバージョンのページを正式版とするが，オフラインで勉強したい場合には以下からPDFをダウンロードすることも出来るので適宜活用して欲しい．(ただしPDF版ではサンプルファイルへのリンクなどが上手く動作しないので注意して欲しい．)</p>
-<p>PDF版: <a class="reference external" href="http://www-space.eps.s.u-tokyo.ac.jp/~amano/education/fortran.pdf">http://www-space.eps.s.u-tokyo.ac.jp/~amano/education/fortran.pdf</a></p>
+<p>PDF版: <a class="reference external" href="https://amanotk.github.io/fortran-resume-public/fortran-resume.pdf">https://amanotk.github.io/fortran-resume-public/fortran-resume.pdf</a></p>
 <p>この演習では説明しないような内容(細かい文法事項など)については必要であれば以下を適宜参考にすると良い <a class="footnote-reference" href="#id10" id="id3">[2]</a> ．高木(2009)は非常に良くまとまっているので，これがあれば困ることは少ないであろう．紙の本が良いという人は富田・齋藤(2011)がよくまとまっている．少し古いバージョンがWebで参照でき，多くの人にはこれで十分である．牛島(2007)は少し初心者には分かりづらいかもしれないが，モジュールに関する記述が実践的である．数値計算についても少し触れられているが，本格的に取り組む場合は専門の文献も併せて参考にした方が良い．</p>
 <ol class="arabic simple">
 <li>高木征弘 (2009) 『地球物理学演習テキスト Fortran90/95入門』</li>
@@ -81,7 +81,7 @@
 (森北出版)</li>
 </ol>
 <p>なおサンプルプログラム等は各章のリンクからダウンロードすることも出来るし,</p>
-<p><a class="reference external" href="http://www-space.eps.s.u-tokyo.ac.jp/~amano/education/fortran/sample.tar.gz">http://www-space.eps.s.u-tokyo.ac.jp/~amano/education/fortran/sample.tar.gz</a></p>
+<p><a class="reference external" href="https://amanotk.github.io/fortran-resume-public/sample.tar.gz">https://amanotk.github.io/fortran-resume-public/sample.tar.gz</a></p>
 <p>にまとめて置いてあるものをダウンロードしても良い．各章ごとにディレクトリに分類して(例えば3章なら <code class="docutils literal"><span class="pre">sample/chap03</span></code> )置いてあるので適宜手元にコピーして参照して欲しい．</p>
 <p>ちなみに，<code class="docutils literal"><span class="pre">.tar.gz</span></code> 形式のファイルの解凍はUnix系のマシンではコマンドラインで</p>
 <div class="highlight-sh"><div class="highlight"><pre><span></span>$ tar -zxvf sample.tar.gz
