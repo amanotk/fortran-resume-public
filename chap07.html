@@ -1,31 +1,20 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>7. 関数とサブルーチン &#8212; Fortran演習(地球惑星物理学演習)</title>
-    
     <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '2018',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
     <link rel="next" title="8. 数値解析の基礎" href="chap08.html" />
@@ -41,8 +30,7 @@
 
 </script>
 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
@@ -68,10 +56,10 @@
             
   <div class="section" id="c7">
 <span id="id1"></span><h1><a class="toc-backref" href="#id43">7. 関数とサブルーチン</a><a class="headerlink" href="#c7" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>これまでのプログラムは全ての処理が <code class="docutils literal"><span class="pre">program</span></code> から <code class="docutils literal"><span class="pre">end</span> <span class="pre">program</span></code> で囲まれた部分に記述されていたことと思う.これをメインプログラムと呼ぶ．これに対して，メインプログラム以外にもまとまった処理を1つのプログラム単位として記述しておくことが出来る．これをサブプログラムと呼んでいる．サブプログラムを用いることで同じ処理を何度も書かずに済むようになるため，プログラムを簡潔に記述することが出来る(従って無用な間違いも減らすことが出来る)．</p>
-<p>なおFortranでのサブプログラムには関数( <code class="docutils literal"><span class="pre">function</span></code> )とサブルーチン( <code class="docutils literal"><span class="pre">subroutine</span></code> )の2種類が有る <a class="footnote-reference" href="#id34" id="id2">[1]</a>．
+<p>これまでのプログラムは全ての処理が <code class="docutils literal notranslate"><span class="pre">program</span></code> から <code class="docutils literal notranslate"><span class="pre">end</span> <span class="pre">program</span></code> で囲まれた部分に記述されていたことと思う.これをメインプログラムと呼ぶ．これに対して，メインプログラム以外にもまとまった処理を1つのプログラム単位として記述しておくことが出来る．これをサブプログラムと呼んでいる．サブプログラムを用いることで同じ処理を何度も書かずに済むようになるため，プログラムを簡潔に記述することが出来る(従って無用な間違いも減らすことが出来る)．</p>
+<p>なおFortranでのサブプログラムには関数( <code class="docutils literal notranslate"><span class="pre">function</span></code> )とサブルーチン( <code class="docutils literal notranslate"><span class="pre">subroutine</span></code> )の2種類が有る <a class="footnote-reference" href="#id34" id="id2">[1]</a>．
 関数は値を返すのに対してサブルーチンは値を返さないという違いが有るが，どちらも同じようなものである．
-(実際にほとんどの言語でサブルーチンと関数の区別は存在しない．Fortranで言うところサブルーチンはC/C++では単に返値が <code class="docutils literal"><span class="pre">void</span></code> 型の関数でしかない.)
+(実際にほとんどの言語でサブルーチンと関数の区別は存在しない．Fortranで言うところサブルーチンはC/C++では単に返値が <code class="docutils literal notranslate"><span class="pre">void</span></code> 型の関数でしかない.)
 最初は少し取っ付きづらいかもしれないが，関数やサブルーチンを使いこなせるようになると格段にプログラムの開発が楽になるので積極的に利用しよう．</p>
 <blockquote>
 <div><p>サンプルプログラム</p>
@@ -103,13 +91,13 @@
 </div>
 <div class="section" id="id4">
 <h2><a class="toc-backref" href="#id44">7.1. 概要</a><a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>関数やサブルーチンなどのサブプログラムはひとまとまりの処理を実行する独立なプログラムと考えることが出来る．例えば，3次方程式 <span class="math">\(a x^3 + b x ^2 + c x + d = 0\)</span> の数値解を与えられた初期値からなんらかの反復法を用いて求める処理を考えよう <a class="footnote-reference" href="#id35" id="id5">[2]</a>．</p>
-<p>ここで係数 <span class="math">\(a, b, c, d\)</span> の値が何であっても行う処理は基本的に同じであろう．では2つの異なる係数の組に対して数値解を知りたい場合はどうすれば良いだろうか? 同じ処理なのだからコピー＆ペーストして係数の値だけ書き換えるというのも一つの案である．しかし，100個の異なる係数の組に対する解を知りたい場合にはどうすれば良いだろうか?
+<p>関数やサブルーチンなどのサブプログラムはひとまとまりの処理を実行する独立なプログラムと考えることが出来る．例えば，3次方程式 <span class="math notranslate nohighlight">\(a x^3 + b x ^2 + c x + d = 0\)</span> の数値解を与えられた初期値からなんらかの反復法を用いて求める処理を考えよう <a class="footnote-reference" href="#id35" id="id5">[2]</a>．</p>
+<p>ここで係数 <span class="math notranslate nohighlight">\(a, b, c, d\)</span> の値が何であっても行う処理は基本的に同じであろう．では2つの異なる係数の組に対して数値解を知りたい場合はどうすれば良いだろうか? 同じ処理なのだからコピー＆ペーストして係数の値だけ書き換えるというのも一つの案である．しかし，100個の異なる係数の組に対する解を知りたい場合にはどうすれば良いだろうか?
 100回コピー＆ペーストするというのは得策とは言えない．このような場合には与えられた係数の組に対して処理を実行し，結果を返す <strong>関数</strong> が定義されていれば，それを100回呼び出すだけである．
-(<span class="math">\(\cos x\)</span> のような数学関数を思い浮かべてもらえば良い.)</p>
+(<span class="math notranslate nohighlight">\(\cos x\)</span> のような数学関数を思い浮かべてもらえば良い.)</p>
 <p>このように，何らかのまとまった処理を1つの独立したプログラム単位として定義することが出来れば圧倒的にプログラム作成が簡単になる．プログラム作成時に大事な事は人間は間違える動物であるという前提に立つことである．間違いを少なくするには問題を簡単にするしか方法は無い．サブプログラムはそれ単体で独立したプログラムであるから，仕様さえ確定してしまえばプログラマはそのサブプログラムの実装に集中すれば良く，それがどのように使われるかに気を使う必要は無いのである．また，サブプログラムが機能的に小さければ小さいほど(問題設定が単純になるので)実装が簡単で間違いが少ない <a class="footnote-reference" href="#id36" id="id6">[3]</a>．
 従って，規模の大きなプログラムを開発する際には，機能を出来る限り分割した小さな関数やサブルーチン群を実装し，それらを利用して最終的に所望の機能を実装する戦略の方が圧倒的にバグが入りにくいし，またあったとしても修正が容易になる．プログラムを作成する際には関数やサブルーチンにまとめられるような処理が無いか常に注意しておくべきである．</p>
-<p>次図は関数とサブルーチンの概念図である．いずれもひとまとまりの処理を実行するものであり，何らかの入力を受け取り，出力を返すことが出来る．(もちろん入力や出力は無くても良い.) ひとたび正しく実装してしまえば，利用者(呼び出し側)はサブプログラムの内部の実装を気にする必要は無く，ブラックボックスとして用いることが出来る．(<span class="math">\(\cos x\)</span> の値を内部でどのように計算するのか意識しながら用いることは無いのと同じである.) このため，利用者はその他の処理の実装に集中することが可能になるのである．</p>
+<p>次図は関数とサブルーチンの概念図である．いずれもひとまとまりの処理を実行するものであり，何らかの入力を受け取り，出力を返すことが出来る．(もちろん入力や出力は無くても良い.) ひとたび正しく実装してしまえば，利用者(呼び出し側)はサブプログラムの内部の実装を気にする必要は無く，ブラックボックスとして用いることが出来る．(<span class="math notranslate nohighlight">\(\cos x\)</span> の値を内部でどのように計算するのか意識しながら用いることは無いのと同じである.) このため，利用者はその他の処理の実装に集中することが可能になるのである．</p>
 <div class="figure" id="id41">
 <a class="reference internal image-reference" href="_images/blackbox.png"><img alt="関数とサブルーチンの概念図．" src="_images/blackbox.png" style="width: 100%;" /></a>
 <p class="caption"><span class="caption-text">関数とサブルーチンの概念図．</span></p>
@@ -125,8 +113,8 @@
 <p>まずはサブプログラムの定義の仕方と，その呼び出し方を学ぼう．</p>
 <div class="section" id="c7-def-procedure">
 <span id="id8"></span><h3>7.2.1. 定義場所<a class="headerlink" href="#c7-def-procedure" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>詳細は <a class="reference internal" href="#c7-intext-procedure"><span class="std std-ref">内部手続きと外部手続き †</span></a> に譲るが，基本的には関数やサブルーチンはメインプログラムの <code class="docutils literal"><span class="pre">stop</span></code> の後に <code class="docutils literal"><span class="pre">contains</span></code> を挿入し，そこから <code class="docutils literal"><span class="pre">end</span> <span class="pre">program</span></code> の間に定義すれば良い．</p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<p>詳細は <a class="reference internal" href="#c7-intext-procedure"><span class="std std-ref">内部手続きと外部手続き †</span></a> に譲るが，基本的には関数やサブルーチンはメインプログラムの <code class="docutils literal notranslate"><span class="pre">stop</span></code> の後に <code class="docutils literal notranslate"><span class="pre">contains</span></code> を挿入し，そこから <code class="docutils literal notranslate"><span class="pre">end</span> <span class="pre">program</span></code> の間に定義すれば良い．</p>
+<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -157,7 +145,7 @@
 <div><a class="reference internal" href="chap07_sample1.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>関数とは何らかの値を返すサブプログラムであり,
 以下の様な形式で定義される．</p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -173,7 +161,7 @@ end function 関数名
 </pre></div>
 </td></tr></table></div>
 <p>例えば以下は倍精度実数の2乗を返す関数の定義である．</p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -190,10 +178,10 @@ end function 関数名
 <span class="k">end function </span><span class="n">square1</span>
 </pre></div>
 </td></tr></table></div>
-<p>メインプログラムが <code class="docutils literal"><span class="pre">program</span></code> で始まり <code class="docutils literal"><span class="pre">end</span> <span class="pre">program</span></code> で終わるのと同様に，関数定義も <code class="docutils literal"><span class="pre">function</span></code> で始まり <code class="docutils literal"><span class="pre">end</span> <span class="pre">function</span></code> で終わる一つの独立したプログラム単位である．従って <code class="docutils literal"><span class="pre">implicit</span> <span class="pre">none</span></code> によって暗黙の型宣言を禁止し，使用する変数は明示的に宣言をする必要がある．メインプログラムとの大きな違いは，サブプログラムには引数(この場合は <code class="docutils literal"><span class="pre">x</span></code>)が入力として与えられることであり，引数についてもデータ型を宣言しなければならない．引数はカンマで区切って複数与えても良いし，それぞれが別のデータ型であっても構わない．
-なおサブプログラムの定義時の引数のことを仮引数と呼び，呼び出すときに実際に与えられる引数のことを実引数と呼ぶ．一方，返値は <strong>関数名と同じ名前の変数に値を代入する</strong> ことでそれが返値となる．返値のデータ型は1行目先頭の <code class="docutils literal"><span class="pre">real(8)</span></code> で指定される．<code class="docutils literal"><span class="pre">return</span></code> 文はサブプログラムからその呼び出し元へ制御を戻すことを意味しており，上のように他の処理が全て終わった後であれば省略しても構わない．処理の途中で <code class="docutils literal"><span class="pre">return</span></code> することも可能で，その場合にはそれ以降の処理は行われずに呼び出し元へと制御が戻される.例えば <code class="docutils literal"><span class="pre">if</span></code> 文で何らかの条件判定を行い，それ以降の処理を行う必要がないと判断した場合にはその時点で <code class="docutils literal"><span class="pre">return</span></code> によって関数から抜けることが出来る．</p>
-<p>なお関数宣言時に <code class="docutils literal"><span class="pre">function</span></code> の前に返値のデータ型を指定するのでは無く，以下の様に <code class="docutils literal"><span class="pre">result(変数名)</span></code> のような形で指定することも出来る．</p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<p>メインプログラムが <code class="docutils literal notranslate"><span class="pre">program</span></code> で始まり <code class="docutils literal notranslate"><span class="pre">end</span> <span class="pre">program</span></code> で終わるのと同様に，関数定義も <code class="docutils literal notranslate"><span class="pre">function</span></code> で始まり <code class="docutils literal notranslate"><span class="pre">end</span> <span class="pre">function</span></code> で終わる一つの独立したプログラム単位である．従って <code class="docutils literal notranslate"><span class="pre">implicit</span> <span class="pre">none</span></code> によって暗黙の型宣言を禁止し，使用する変数は明示的に宣言をする必要がある．メインプログラムとの大きな違いは，サブプログラムには引数(この場合は <code class="docutils literal notranslate"><span class="pre">x</span></code>)が入力として与えられることであり，引数についてもデータ型を宣言しなければならない．引数はカンマで区切って複数与えても良いし，それぞれが別のデータ型であっても構わない．
+なおサブプログラムの定義時の引数のことを仮引数と呼び，呼び出すときに実際に与えられる引数のことを実引数と呼ぶ．一方，返値は <strong>関数名と同じ名前の変数に値を代入する</strong> ことでそれが返値となる．返値のデータ型は1行目先頭の <code class="docutils literal notranslate"><span class="pre">real(8)</span></code> で指定される．<code class="docutils literal notranslate"><span class="pre">return</span></code> 文はサブプログラムからその呼び出し元へ制御を戻すことを意味しており，上のように他の処理が全て終わった後であれば省略しても構わない．処理の途中で <code class="docutils literal notranslate"><span class="pre">return</span></code> することも可能で，その場合にはそれ以降の処理は行われずに呼び出し元へと制御が戻される.例えば <code class="docutils literal notranslate"><span class="pre">if</span></code> 文で何らかの条件判定を行い，それ以降の処理を行う必要がないと判断した場合にはその時点で <code class="docutils literal notranslate"><span class="pre">return</span></code> によって関数から抜けることが出来る．</p>
+<p>なお関数宣言時に <code class="docutils literal notranslate"><span class="pre">function</span></code> の前に返値のデータ型を指定するのでは無く，以下の様に <code class="docutils literal notranslate"><span class="pre">result(変数名)</span></code> のような形で指定することも出来る．</p>
+<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -208,8 +196,8 @@ end function 関数名
 end function 関数名
 </pre></div>
 </td></tr></table></div>
-<p>この場合は <code class="docutils literal"><span class="pre">result</span></code> で指定された変数に値を代入することで，それが関数の返値となる．従って，先ほどの <code class="docutils literal"><span class="pre">square</span></code> の定義は以下のように行うことも出来る．</p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<p>この場合は <code class="docutils literal notranslate"><span class="pre">result</span></code> で指定された変数に値を代入することで，それが関数の返値となる．従って，先ほどの <code class="docutils literal notranslate"><span class="pre">square</span></code> の定義は以下のように行うことも出来る．</p>
+<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -229,13 +217,13 @@ end function 関数名
 </pre></div>
 </td></tr></table></div>
 <p>関数の呼出は組込み関数と全く同じで，以下のように適宜引数を与えて呼び出せば良い．</p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;square1 =&gt; &#39;</span><span class="p">,</span> <span class="n">square1</span><span class="p">(</span><span class="mf">2.0_8</span><span class="p">)</span>
 <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;square2 =&gt; &#39;</span><span class="p">,</span> <span class="n">square2</span><span class="p">(</span><span class="mf">2.0_8</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>ただし，引数の型は宣言したものと同一でなければならない．この場合は引数は <code class="docutils literal"><span class="pre">real(8)</span></code> で宣言されているので，</p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">square1</span><span class="p">(</span><span class="mf">2.0</span><span class="p">),</span> <span class="n">square2</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+<p>ただし，引数の型は宣言したものと同一でなければならない．この場合は引数は <code class="docutils literal notranslate"><span class="pre">real(8)</span></code> で宣言されているので，</p>
+<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">square1</span><span class="p">(</span><span class="mf">2.0</span><span class="p">),</span> <span class="n">square2</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 <p>のような呼出しはコンパイルエラーとなることに注意して欲しい．</p>
@@ -245,7 +233,7 @@ end function 関数名
 <blockquote>
 <div><a class="reference internal" href="chap07_sample2.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>サブルーチンは関数と良く似ているが，値を返さないという違いがある．定義は以下の様な形式となる．</p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -259,7 +247,7 @@ end subroutine サブルーチン名
 </pre></div>
 </td></tr></table></div>
 <p>例えば</p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -276,21 +264,21 @@ end subroutine サブルーチン名
 <span class="k">end subroutine </span><span class="n">hello</span>
 </pre></div>
 </td></tr></table></div>
-<p>は引数で渡された文字列 <code class="docutils literal"><span class="pre">name</span></code> を <code class="docutils literal"><span class="pre">Hello</span></code> に続けて標準出力に表示するだけのサブルーチンである．関数と非常によく似た構造になっていることが分かるだろう．実際に，関数で必要だった返値の型指定が無いことを除くとほとんど同じである．</p>
-<p>サブルーチンの呼び出しは関数と異なり <code class="docutils literal"><span class="pre">call</span></code> を用いて以下のような形でなければならない．</p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">call </span><span class="n">hello</span><span class="p">(</span><span class="s1">&#39;Michel&#39;</span><span class="p">)</span>
+<p>は引数で渡された文字列 <code class="docutils literal notranslate"><span class="pre">name</span></code> を <code class="docutils literal notranslate"><span class="pre">Hello</span></code> に続けて標準出力に表示するだけのサブルーチンである．関数と非常によく似た構造になっていることが分かるだろう．実際に，関数で必要だった返値の型指定が無いことを除くとほとんど同じである．</p>
+<p>サブルーチンの呼び出しは関数と異なり <code class="docutils literal notranslate"><span class="pre">call</span></code> を用いて以下のような形でなければならない．</p>
+<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">call </span><span class="n">hello</span><span class="p">(</span><span class="s1">&#39;Michel&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>(逆に関数呼び出しに <code class="docutils literal"><span class="pre">call</span></code> を用いることはできない.)</p>
+<p>(逆に関数呼び出しに <code class="docutils literal notranslate"><span class="pre">call</span></code> を用いることはできない.)</p>
 </div>
 </div>
 <div class="section" id="id11">
 <h2><a class="toc-backref" href="#id46">7.3. 変数のスコープ</a><a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
 <div><a class="reference internal" href="chap07_sample3.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
-<p>注意しなければならないのは，サブプログラムは1つの独立したプログラム単位であるので，その中で宣言する <strong>変数は外部の変数とは完全に独立</strong> であるという点である．例えばメインプログラムで宣言されている <code class="docutils literal"><span class="pre">x</span></code> という変数とサブプログラム中で宣言されている <code class="docutils literal"><span class="pre">x</span></code> という変数は完全に別のものとして扱われる．また当然サブプログラム中で使用している変数を外部から使用することは出来ない．例外(<a class="reference internal" href="#id17">内部手続き</a> を参照)はあるものの，基本的にはサブプログラムとメインプログラム及び他のサブプログラムは全く独立なものとして考えて良い <a class="footnote-reference" href="#id37" id="id12">[4]</a>．<strong>サブプログラムと外部の情報のやり取りは基本的には引数と返値を通じて行う</strong> ものと理解して欲しい．</p>
+<p>注意しなければならないのは，サブプログラムは1つの独立したプログラム単位であるので，その中で宣言する <strong>変数は外部の変数とは完全に独立</strong> であるという点である．例えばメインプログラムで宣言されている <code class="docutils literal notranslate"><span class="pre">x</span></code> という変数とサブプログラム中で宣言されている <code class="docutils literal notranslate"><span class="pre">x</span></code> という変数は完全に別のものとして扱われる．また当然サブプログラム中で使用している変数を外部から使用することは出来ない．例外(<a class="reference internal" href="#id17">内部手続き</a> を参照)はあるものの，基本的にはサブプログラムとメインプログラム及び他のサブプログラムは全く独立なものとして考えて良い <a class="footnote-reference" href="#id37" id="id12">[4]</a>．<strong>サブプログラムと外部の情報のやり取りは基本的には引数と返値を通じて行う</strong> ものと理解して欲しい．</p>
 <p>以下に挙げる例ではサブルーチン内部で変数を宣言し使用している．</p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -336,7 +324,7 @@ end subroutine サブルーチン名
 </pre></div>
 </td></tr></table></div>
 <p>この変数は全てこのサブルーチン内部でのみ参照されるものであり，外部からはこれらの変数は参照出来ない．従って，別のサブルーチンが</p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -355,7 +343,7 @@ end subroutine サブルーチン名
 <span class="k">end subroutine </span><span class="n">sub2</span>
 </pre></div>
 </td></tr></table></div>
-<p>のように定義されていても， <code class="docutils literal"><span class="pre">sub1</span></code> 中の <code class="docutils literal"><span class="pre">n</span></code> と <code class="docutils literal"><span class="pre">sub2</span></code> 中の <code class="docutils literal"><span class="pre">n</span></code> は全く別の変数である．</p>
+<p>のように定義されていても， <code class="docutils literal notranslate"><span class="pre">sub1</span></code> 中の <code class="docutils literal notranslate"><span class="pre">n</span></code> と <code class="docutils literal notranslate"><span class="pre">sub2</span></code> 中の <code class="docutils literal notranslate"><span class="pre">n</span></code> は全く別の変数である．</p>
 </div>
 <div class="section" id="id13">
 <h2><a class="toc-backref" href="#id47">7.4. 引数の詳細</a><a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -366,21 +354,21 @@ end subroutine サブルーチン名
 <p>関数は返値として値を返すことが出来るが，返値はあくまでも一つだけである．実用的には複数の値を結果として返して欲しい場合も多いが，そのような場合には引数に結果の値を代入して返すことが出来る <a class="footnote-reference" href="#id38" id="id14">[5]</a>．このことからすぐ分かるように関数とサブルーチンには本質的な違いは無い．サブルーチンを使っても返したい値を引数に代入して返せば良いからだ．どちらを使うかは好みの問題であろう．(Fortranしか使わない人はあまり関数を使いたがらない傾向があるように思える．一方でC言語では関数の返値はエラーチェックに使うことが多いので，C言語から入った人は関数を好むかもしれない.)</p>
 <p>さて，実際には引数で与えた変数の値を勝手に変更して欲しく無い場合もあるだろう．そのため，以下のようにサブプログラムの定義時に引数の入出力特性を指定することが出来る．</p>
 <ul>
-<li><p class="first"><code class="docutils literal"><span class="pre">intent(in)</span></code></p>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">intent(in)</span></code></p>
 <p>入力用の変数に指定する．値は内部で参照されるのみで変更はされない．
 (変更しようとするとコンパイルエラーとなる．)</p>
 </li>
-<li><p class="first"><code class="docutils literal"><span class="pre">intent(out)</span></code></p>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">intent(out)</span></code></p>
 <p>出力用の変数に指定する．
 サブプログラム中で値が代入されることを意味する．</p>
 </li>
-<li><p class="first"><code class="docutils literal"><span class="pre">intent(inout)</span></code></p>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">intent(inout)</span></code></p>
 <p>入出力のどちらにも用いる変数に指定する．
 何も指定しない場合のデフォルト．</p>
 </li>
 </ul>
-<p>例えば以下のように引数に属性を指定することによって意図せず第1引数 <code class="docutils literal"><span class="pre">a</span></code> や第2引数 <code class="docutils literal"><span class="pre">b</span></code> の値が変更されてしまうバグを防ぐことが出来る．</p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<p>例えば以下のように引数に属性を指定することによって意図せず第1引数 <code class="docutils literal notranslate"><span class="pre">a</span></code> や第2引数 <code class="docutils literal notranslate"><span class="pre">b</span></code> の値が変更されてしまうバグを防ぐことが出来る．</p>
+<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -413,8 +401,8 @@ end subroutine サブルーチン名
 <h3>7.4.2. 配列渡し<a class="headerlink" href="#id15" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <blockquote>
 <div><a class="reference internal" href="chap07_sample4.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
-<p>配列も同様に関数やサブルーチンに引数として渡すことが可能である．以下の例の <code class="docutils literal"><span class="pre">average1</span></code> では任意のサイズの配列を渡すことが出来る．(ただし次元は予め指定しておく必要がある.) 配列のサイズや形状が必要であれば <code class="docutils literal"><span class="pre">size</span></code> や <code class="docutils literal"><span class="pre">shape</span></code> などの組込み関数を使って求めることが出来る．一方で <code class="docutils literal"><span class="pre">average2</span></code> では配列サイズを引数として明示的に渡している．配列の添字範囲を指定するなどの特別な事情が無い限りは <code class="docutils literal"><span class="pre">average1</span></code> のような書き方の方がシンプルで良い．</p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<p>配列も同様に関数やサブルーチンに引数として渡すことが可能である．以下の例の <code class="docutils literal notranslate"><span class="pre">average1</span></code> では任意のサイズの配列を渡すことが出来る．(ただし次元は予め指定しておく必要がある.) 配列のサイズや形状が必要であれば <code class="docutils literal notranslate"><span class="pre">size</span></code> や <code class="docutils literal notranslate"><span class="pre">shape</span></code> などの組込み関数を使って求めることが出来る．一方で <code class="docutils literal notranslate"><span class="pre">average2</span></code> では配列サイズを引数として明示的に渡している．配列の添字範囲を指定するなどの特別な事情が無い限りは <code class="docutils literal notranslate"><span class="pre">average1</span></code> のような書き方の方がシンプルで良い．</p>
+<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -460,9 +448,9 @@ end subroutine サブルーチン名
 <h3>7.4.3. save属性<a class="headerlink" href="#save" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <blockquote>
 <div><a class="reference internal" href="chap07_sample4.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
-<p>関数やサブルーチン内で <code class="docutils literal"><span class="pre">save</span></code> 属性付きで宣言された変数は前回の呼び出し時の値を記憶しておくことが出来る(C言語のstatic変数と同等である)．従って，例えば自分が呼び出された回数を保持することなどもできる．</p>
-<p><code class="docutils literal"><span class="pre">save</span></code> 属性付きの変数はプログラムの開始時に一度だけ宣言文で代入された値に初期化される．例えば以下のサブルーチン <code class="docutils literal"><span class="pre">fibonacci</span></code> ではプログラムの開始時に <code class="docutils literal"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">1</span></code>，<code class="docutils literal"><span class="pre">f0</span> <span class="pre">=</span> <span class="pre">0</span></code>，<code class="docutils literal"><span class="pre">f1</span> <span class="pre">=</span> <span class="pre">0</span></code> と値が初期化されるが，呼び出しごとに値が変更され，プログラムが終了するまでその値を内部に保持し続ける．</p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<p>関数やサブルーチン内で <code class="docutils literal notranslate"><span class="pre">save</span></code> 属性付きで宣言された変数は前回の呼び出し時の値を記憶しておくことが出来る(C言語のstatic変数と同等である)．従って，例えば自分が呼び出された回数を保持することなどもできる．</p>
+<p><code class="docutils literal notranslate"><span class="pre">save</span></code> 属性付きの変数はプログラムの開始時に一度だけ宣言文で代入された値に初期化される．例えば以下のサブルーチン <code class="docutils literal notranslate"><span class="pre">fibonacci</span></code> ではプログラムの開始時に <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">1</span></code>，<code class="docutils literal notranslate"><span class="pre">f0</span> <span class="pre">=</span> <span class="pre">0</span></code>，<code class="docutils literal notranslate"><span class="pre">f1</span> <span class="pre">=</span> <span class="pre">0</span></code> と値が初期化されるが，呼び出しごとに値が変更され，プログラムが終了するまでその値を内部に保持し続ける．</p>
+<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -513,25 +501,25 @@ end subroutine サブルーチン名
 <span class="k">end subroutine </span><span class="n">fibonacci</span>
 </pre></div>
 </td></tr></table></div>
-<p>なおFortranでは変数宣言時に同時に初期化を行うと，それを自動的に <code class="docutils literal"><span class="pre">save</span></code> 属性付きと扱うようである．(個人的にはこれは大変紛らわしい仕様だと思うのだが・・・)</p>
+<p>なおFortranでは変数宣言時に同時に初期化を行うと，それを自動的に <code class="docutils literal notranslate"><span class="pre">save</span></code> 属性付きと扱うようである．(個人的にはこれは大変紛らわしい仕様だと思うのだが・・・)</p>
 <p>すなわち</p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">integer</span> <span class="kd">::</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
+<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">integer</span> <span class="kd">::</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
 </pre></div>
 </td></tr></table></div>
-<p>と宣言された変数には自動的に <code class="docutils literal"><span class="pre">save</span></code> 属性が付加されるため <code class="docutils literal"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">1</span></code> に初期化されるのは一度だけである．一方で,</p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<p>と宣言された変数には自動的に <code class="docutils literal notranslate"><span class="pre">save</span></code> 属性が付加されるため <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">1</span></code> に初期化されるのは一度だけである．一方で,</p>
+<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">integer</span> <span class="kd">::</span> <span class="n">n</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
 </pre></div>
 </td></tr></table></div>
-<p>では毎回 <code class="docutils literal"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">1</span></code> に初期化される．混乱を防ぐために <code class="docutils literal"><span class="pre">save</span></code> 属性付きとしたい変数は明示的に <code class="docutils literal"><span class="pre">save</span></code> を指定し，それ以外の変数は宣言時の初期化は避けたほうが無難である．</p>
+<p>では毎回 <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">1</span></code> に初期化される．混乱を防ぐために <code class="docutils literal notranslate"><span class="pre">save</span></code> 属性付きとしたい変数は明示的に <code class="docutils literal notranslate"><span class="pre">save</span></code> を指定し，それ以外の変数は宣言時の初期化は避けたほうが無難である．</p>
 </div>
 <div class="section" id="optional">
 <span id="c7-optional-keyword"></span><h3>7.4.4. optional属性とキーワード引数 <sup>†</sup><a class="headerlink" href="#optional" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <blockquote>
 <div><a class="reference internal" href="chap07_sample5.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
-<p>引数の型宣言において <code class="docutils literal"><span class="pre">optional</span></code> 属性を指定した引数は，呼出し時に省略することが出来る． <code class="docutils literal"><span class="pre">optional</span></code> 属性付きの引数は，その引数が与えられたかどうかを検査する <code class="docutils literal"><span class="pre">present</span></code> という組込み関数と共に用いる．すなわち <code class="docutils literal"><span class="pre">present(引数)</span></code> は引数が与えられていれば真，そうでない場合には偽を返すので，<code class="docutils literal"><span class="pre">if</span></code> による条件分岐と組み合わせて用いれば良い．以下の例では引数 <code class="docutils literal"><span class="pre">unit</span></code> が与えられた場合にはその装置番号へ，与えられていない場合は標準出力へと出力を行う．</p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<p>引数の型宣言において <code class="docutils literal notranslate"><span class="pre">optional</span></code> 属性を指定した引数は，呼出し時に省略することが出来る． <code class="docutils literal notranslate"><span class="pre">optional</span></code> 属性付きの引数は，その引数が与えられたかどうかを検査する <code class="docutils literal notranslate"><span class="pre">present</span></code> という組込み関数と共に用いる．すなわち <code class="docutils literal notranslate"><span class="pre">present(引数)</span></code> は引数が与えられていれば真，そうでない場合には偽を返すので，<code class="docutils literal notranslate"><span class="pre">if</span></code> による条件分岐と組み合わせて用いれば良い．以下の例では引数 <code class="docutils literal notranslate"><span class="pre">unit</span></code> が与えられた場合にはその装置番号へ，与えられていない場合は標準出力へと出力を行う．</p>
+<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -570,23 +558,23 @@ end subroutine サブルーチン名
 <span class="k">end subroutine </span><span class="n">hello</span>
 </pre></div>
 </td></tr></table></div>
-<p>これまで関数やサブルーチンを呼び出す際には定義時の引数並びの順番通りに与えなければならなかった．しかしキーワード引数という機能を用いて，順番を気にせず引数を与えることも可能である．( <code class="docutils literal"><span class="pre">open</span></code> 文の使い方を思い出そう.) すなわち，上で定義された <code class="docutils literal"><span class="pre">hello</span></code> を呼び出す際に</p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<p>これまで関数やサブルーチンを呼び出す際には定義時の引数並びの順番通りに与えなければならなかった．しかしキーワード引数という機能を用いて，順番を気にせず引数を与えることも可能である．( <code class="docutils literal notranslate"><span class="pre">open</span></code> 文の使い方を思い出そう.) すなわち，上で定義された <code class="docutils literal notranslate"><span class="pre">hello</span></code> を呼び出す際に</p>
+<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">call </span><span class="n">hello</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Albert&#39;</span><span class="p">)</span> <span class="c">! 標準エラー出力へ</span>
 <span class="k">call </span><span class="n">hello</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Einstein&#39;</span><span class="p">)</span>       <span class="c">! 標準出力へ</span>
 </pre></div>
 </td></tr></table></div>
-<p>のように引数を&#8221;仮引数名 = 値&#8221;という形式で渡すことで，引数の順番を意識せずに呼び出しが出来る．
-なお，この例では <code class="docutils literal"><span class="pre">unit</span></code> は <code class="docutils literal"><span class="pre">optional</span></code> 属性付きで宣言されているので省略することも出来る. <code class="docutils literal"><span class="pre">optional</span></code> 属性が無い引数については，キーワード引数を用いれば順番は気にしなくて良いが，全ての引数を指定する必要がある．</p>
-<p>なお，このようにキーワード引数の機能を用いるには <a class="reference internal" href="#id17">内部手続き</a> として宣言するか， <a href="#id51"><span class="problematic" id="id52">`外部手続き`_</span></a> の場合には <code class="docutils literal"><span class="pre">interface</span></code> 宣言で明示的に仮引数名を呼び出し側に知らせてやらなければならない．(やはり外部手続きは面倒である.)</p>
+<p>のように引数を&quot;仮引数名 = 値&quot;という形式で渡すことで，引数の順番を意識せずに呼び出しが出来る．
+なお，この例では <code class="docutils literal notranslate"><span class="pre">unit</span></code> は <code class="docutils literal notranslate"><span class="pre">optional</span></code> 属性付きで宣言されているので省略することも出来る. <code class="docutils literal notranslate"><span class="pre">optional</span></code> 属性が無い引数については，キーワード引数を用いれば順番は気にしなくて良いが，全ての引数を指定する必要がある．</p>
+<p>なお，このようにキーワード引数の機能を用いるには <a class="reference internal" href="#id17">内部手続き</a> として宣言するか， <a href="#id51"><span class="problematic" id="id52">`外部手続き`_</span></a> の場合には <code class="docutils literal notranslate"><span class="pre">interface</span></code> 宣言で明示的に仮引数名を呼び出し側に知らせてやらなければならない．(やはり外部手続きは面倒である.)</p>
 </div>
 </div>
 <div class="section" id="recursive">
 <h2><a class="toc-backref" href="#id48">7.5. 再帰呼び出し(recursive) <sup>†</sup></a><a class="headerlink" href="#recursive" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
 <div><a class="reference internal" href="chap07_sample6.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
-<p>再帰呼び出しとは，関数やサブルーチンの中で自分自身を呼び出すことである．このような再帰手続は明示的に <code class="docutils literal"><span class="pre">recursive</span></code> を用いて関数やサブルーチンを定義しなければならない．なお，何も考えずに自分自身を呼び出すと簡単に無限ループになってしまうので，そうならないように注意しよう．例えば以下は階乗の計算をする例である．</p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<p>再帰呼び出しとは，関数やサブルーチンの中で自分自身を呼び出すことである．このような再帰手続は明示的に <code class="docutils literal notranslate"><span class="pre">recursive</span></code> を用いて関数やサブルーチンを定義しなければならない．なお，何も考えずに自分自身を呼び出すと簡単に無限ループになってしまうので，そうならないように注意しよう．例えば以下は階乗の計算をする例である．</p>
+<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -611,7 +599,7 @@ end subroutine サブルーチン名
 <span class="k">end function </span><span class="n">fact</span>
 </pre></div>
 </td></tr></table></div>
-<p>ここで <span class="math">\(n ! = n \times (n-1) !\)</span> という漸化式を用いている．ある種のアルゴリズムは再帰を使うと非常にスッキリと書くことができるので重宝することも多いだろう．ただし関数やサブルーチンの呼び出しそのものにもコスト(時間)がかかるので，不用意に用いるとパフォーマンスのボトルネックになることもあるため注意して欲しい．(基本的には再帰呼び出しを使わない方がパフォーマンスは良くなる場合が多い．)</p>
+<p>ここで <span class="math notranslate nohighlight">\(n ! = n \times (n-1) !\)</span> という漸化式を用いている．ある種のアルゴリズムは再帰を使うと非常にスッキリと書くことができるので重宝することも多いだろう．ただし関数やサブルーチンの呼び出しそのものにもコスト(時間)がかかるので，不用意に用いるとパフォーマンスのボトルネックになることもあるため注意して欲しい．(基本的には再帰呼び出しを使わない方がパフォーマンスは良くなる場合が多い．)</p>
 </div>
 <div class="section" id="c7-intext-procedure">
 <span id="id16"></span><h2><a class="toc-backref" href="#id49">7.6. 内部手続きと外部手続き <sup>†</sup></a><a class="headerlink" href="#c7-intext-procedure" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -620,8 +608,8 @@ end subroutine サブルーチン名
 <h3>7.6.1. 内部手続き<a class="headerlink" href="#id17" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <blockquote>
 <div><a class="reference internal" href="chap07_sample7.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
-<p>定義の仕方は <a class="reference internal" href="#c7-def-procedure"><span class="std std-ref">定義場所</span></a> を参照して欲しい．ここで注意しなければならないのは変数のスコープについてである．すなわち， <strong>メインプログラム中で宣言した変数には内部手続きからアクセスすることが出来る</strong> (ただし逆は出来ない)ことに注意して欲しい．以下の例では，内部手続き <code class="docutils literal"><span class="pre">sub</span></code> からメインプログラム中に定義された変数 <code class="docutils literal"><span class="pre">n</span></code> にアクセスしている．しかし，もし内部手続き <code class="docutils literal"><span class="pre">sub</span></code> 中で変数 <code class="docutils literal"><span class="pre">n</span></code> が定義されている場合(15行目のコメントを外した場合)には，この変数は <code class="docutils literal"><span class="pre">sub</span></code> 内部のみで有効な(メインプログラム中の <code class="docutils literal"><span class="pre">n</span></code> とは独立な)変数になる．一般的には，サブプログラムからメインプログラム中の変数を不用意に直接参照するのは間違いの基になりやすい．それよりは，引数や返値を通じて値のやり取りを明示的に行う方が分かりやすいプログラムとなることが多い．</p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<p>定義の仕方は <a class="reference internal" href="#c7-def-procedure"><span class="std std-ref">定義場所</span></a> を参照して欲しい．ここで注意しなければならないのは変数のスコープについてである．すなわち， <strong>メインプログラム中で宣言した変数には内部手続きからアクセスすることが出来る</strong> (ただし逆は出来ない)ことに注意して欲しい．以下の例では，内部手続き <code class="docutils literal notranslate"><span class="pre">sub</span></code> からメインプログラム中に定義された変数 <code class="docutils literal notranslate"><span class="pre">n</span></code> にアクセスしている．しかし，もし内部手続き <code class="docutils literal notranslate"><span class="pre">sub</span></code> 中で変数 <code class="docutils literal notranslate"><span class="pre">n</span></code> が定義されている場合(15行目のコメントを外した場合)には，この変数は <code class="docutils literal notranslate"><span class="pre">sub</span></code> 内部のみで有効な(メインプログラム中の <code class="docutils literal notranslate"><span class="pre">n</span></code> とは独立な)変数になる．一般的には，サブプログラムからメインプログラム中の変数を不用意に直接参照するのは間違いの基になりやすい．それよりは，引数や返値を通じて値のやり取りを明示的に行う方が分かりやすいプログラムとなることが多い．</p>
+<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -663,7 +651,7 @@ end subroutine サブルーチン名
 </pre></div>
 </td></tr></table></div>
 <p>例外としてはプログラム全体で共通に用いる定数が挙げられる．定数の場合は参照されるだけなので，問題にならない場合が多い．例えば</p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">! 16進数変換のためのテーブル (内部手続きからも参照される)</span>
@@ -673,7 +661,7 @@ end subroutine サブルーチン名
 </pre></div>
 </td></tr></table></div>
 <p>のようにメインプログラムで宣言された定数を，内部手続きから</p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -712,8 +700,8 @@ end subroutine サブルーチン名
 <h3>7.6.2. 外部手続き(非推奨)<a class="headerlink" href="#id18" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <blockquote>
 <div><a class="reference internal" href="chap07_sample8.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
-<p>外部手続きは <code class="docutils literal"><span class="pre">program</span></code> から <code class="docutils literal"><span class="pre">end</span> <span class="pre">program</span></code> で囲まれた範囲 <strong>以外</strong> に定義される．以下の例のように，定義する場所はメインプログラムの前でも後でもどちらでも良い．適切にコンパイル・リンクすれば別ファイルで定義したサブプログラムを用いることも可能である．(なお以下は関数の例であるが，サブルーチンについても全く同様である．)</p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<p>外部手続きは <code class="docutils literal notranslate"><span class="pre">program</span></code> から <code class="docutils literal notranslate"><span class="pre">end</span> <span class="pre">program</span></code> で囲まれた範囲 <strong>以外</strong> に定義される．以下の例のように，定義する場所はメインプログラムの前でも後でもどちらでも良い．適切にコンパイル・リンクすれば別ファイルで定義したサブプログラムを用いることも可能である．(なお以下は関数の例であるが，サブルーチンについても全く同様である．)</p>
+<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -745,7 +733,7 @@ end subroutine サブルーチン名
 </pre></div>
 </td></tr></table></div>
 <p>内部手続きとは異なり，外部手続きは使うことを明示的に宣言する必要がある．これは例えば以下の様なものである．</p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -782,7 +770,7 @@ end subroutine サブルーチン名
   <span class="k">end program </span><span class="n">sample</span>
 </pre></div>
 </td></tr></table></div>
-<p>このように外部手続では <code class="docutils literal"><span class="pre">interface</span></code> によって関数やサブルーチンの呼び出し形式を予め宣言してから呼び出すことになる <a class="footnote-reference" href="#id39" id="id19">[6]</a>．実はもう少しサボった書き方(上の例では <code class="docutils literal"><span class="pre">square_ext2</span></code> のように <code class="docutils literal"><span class="pre">external</span></code> を用いる) も出来てしまうのだが, <code class="docutils literal"><span class="pre">interface</span></code> を使うこと強く推奨する．なぜなら，メインプログラムの外で定義された関数やサブルーチンについてはコンパイラが(引数の数や型などの)呼び出し形式を知る方法が無いため，間違った呼び出し方をしていてもコンパイルが通ってしまう．しかし不正な呼び出しをしているため，当然実行時にはエラーが発生してプログラムが異常終了することになる．一般的に実行時のエラーの方がコンパイルエラーよりも厄介でデバッグにも時間がかかるため，コンパイル時にチェックが可能な <code class="docutils literal"><span class="pre">interface</span></code> による宣言の方が良いのである <a class="footnote-reference" href="#id40" id="id20">[7]</a>．
+<p>このように外部手続では <code class="docutils literal notranslate"><span class="pre">interface</span></code> によって関数やサブルーチンの呼び出し形式を予め宣言してから呼び出すことになる <a class="footnote-reference" href="#id39" id="id19">[6]</a>．実はもう少しサボった書き方(上の例では <code class="docutils literal notranslate"><span class="pre">square_ext2</span></code> のように <code class="docutils literal notranslate"><span class="pre">external</span></code> を用いる) も出来てしまうのだが, <code class="docutils literal notranslate"><span class="pre">interface</span></code> を使うこと強く推奨する．なぜなら，メインプログラムの外で定義された関数やサブルーチンについてはコンパイラが(引数の数や型などの)呼び出し形式を知る方法が無いため，間違った呼び出し方をしていてもコンパイルが通ってしまう．しかし不正な呼び出しをしているため，当然実行時にはエラーが発生してプログラムが異常終了することになる．一般的に実行時のエラーの方がコンパイルエラーよりも厄介でデバッグにも時間がかかるため，コンパイル時にチェックが可能な <code class="docutils literal notranslate"><span class="pre">interface</span></code> による宣言の方が良いのである <a class="footnote-reference" href="#id40" id="id20">[7]</a>．
 (内部手続きでは文字通りメインプログラムの内部に定義されているので，コンパイラがメインプログラムをコンパイルする際に呼び出し形式のチェックが可能である.)</p>
 <p>とにかく外部手続きは(行儀よく使おうと思うと)面倒なので，特に理由が無い限りは内部手続きを用いる方が良い．どうしてもメインプログラムの外で手続きを定義する必要がある場合には後で学ぶモジュールを用いる方が間違いが圧倒的に少ないのである．</p>
 </div>
@@ -795,12 +783,12 @@ end subroutine サブルーチン名
 </div>
 <div class="section" id="id23">
 <h3>7.7.2. 課題2<a class="headerlink" href="#id23" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>与えられた倍精度実数 <span class="math">\(a (&gt; 0)\)</span> の平方根の近似値を返す関数を実装せよ．ただし平方根は以下のような逐次近似で計算するものとする．</p>
-<div class="math">
+<p>与えられた倍精度実数 <span class="math notranslate nohighlight">\(a (&gt; 0)\)</span> の平方根の近似値を返す関数を実装せよ．ただし平方根は以下のような逐次近似で計算するものとする．</p>
+<div class="math notranslate nohighlight">
 \[x_{n+1} = \frac{1}{2} \left( \frac{a}{x_{n}} + x_{n} \right)\]</div>
-<p>ここで <span class="math">\(x_{n}\)</span> は <span class="math">\(\sqrt{a}\)</span> の <span class="math">\(n\)</span> 番目の近似値である．初期値としては <span class="math">\(x_{0} = a\)</span> を与え，反復は例えば <span class="math">\(\epsilon = 10^{-5}\)</span> に対して， <span class="math">\(\|x_{n+1} - x_{n}\| &lt; \epsilon \|x_{n}\|\)</span> となるまで繰り返せば良い．</p>
-<p>実装した関数と組み込み関数 <code class="docutils literal"><span class="pre">sqrt</span></code> の結果を比較し， <span class="math">\(\epsilon\)</span> で与えた精度の範囲内で正しいことを確認すること．例えば，以下は標準入力から与えられた数値(この例では2.0)の平方根を計算して表示する例である．</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span> $ ./a.out
+<p>ここで <span class="math notranslate nohighlight">\(x_{n}\)</span> は <span class="math notranslate nohighlight">\(\sqrt{a}\)</span> の <span class="math notranslate nohighlight">\(n\)</span> 番目の近似値である．初期値としては <span class="math notranslate nohighlight">\(x_{0} = a\)</span> を与え，反復は例えば <span class="math notranslate nohighlight">\(\epsilon = 10^{-5}\)</span> に対して， <span class="math notranslate nohighlight">\(\|x_{n+1} - x_{n}\| &lt; \epsilon \|x_{n}\|\)</span> となるまで繰り返せば良い．</p>
+<p>実装した関数と組み込み関数 <code class="docutils literal notranslate"><span class="pre">sqrt</span></code> の結果を比較し， <span class="math notranslate nohighlight">\(\epsilon\)</span> で与えた精度の範囲内で正しいことを確認すること．例えば，以下は標準入力から与えられた数値(この例では2.0)の平方根を計算して表示する例である．</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span> $ ./a.out
 <span class="m">2</span>.0
  sqrt<span class="o">(</span>x<span class="o">)</span> <span class="o">=</span>    <span class="m">1</span>.4142135623730951
  <span class="nv">approx</span>  <span class="o">=</span>    <span class="m">1</span>.4142135623746899
@@ -809,17 +797,8 @@ end subroutine サブルーチン名
 </div>
 <div class="section" id="id24">
 <h3>7.7.3. 課題3<a class="headerlink" href="#id24" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>テストの点数が整数配列から与えられた時にヒストグラムを作成するサブルーチン <code class="docutils literal"><span class="pre">histogram</span></code> を実装せよ．例えば点数配列とビン幅を入力とし，作成されたヒストグラムの各ビンの中央値，各ビン内の人数を出力とする以下の様な形式のサブルーチンを作成すればよい．ただし，与える整数は <span class="math">\(0 \leq n &lt; 100\)</span> とするが，もしこの範囲を超えた入力があった場合にはエラーを表示して終了すること．</p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">subroutine </span><span class="n">histogram</span><span class="p">(</span><span class="n">score</span><span class="p">,</span> <span class="n">binw</span><span class="p">,</span> <span class="n">binc</span><span class="p">,</span> <span class="n">hist</span><span class="p">)</span>
+<p>テストの点数が整数配列から与えられた時にヒストグラムを作成するサブルーチン <code class="docutils literal notranslate"><span class="pre">histogram</span></code> を実装せよ．例えば点数配列とビン幅を入力とし，作成されたヒストグラムの各ビンの中央値，各ビン内の人数を出力とする以下の様な形式のサブルーチンを作成すればよい．ただし，与える整数は <span class="math notranslate nohighlight">\(0 \leq n &lt; 100\)</span> とするが，もしこの範囲を超えた入力があった場合にはエラーを表示して終了すること．</p>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">subroutine </span><span class="n">histogram</span><span class="p">(</span><span class="n">score</span><span class="p">,</span> <span class="n">binw</span><span class="p">,</span> <span class="n">binc</span><span class="p">,</span> <span class="n">hist</span><span class="p">)</span>
   <span class="k">implicit none</span>
 <span class="k">  </span><span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>  <span class="kd">::</span> <span class="n">score</span><span class="p">(:)</span>  <span class="c">! 点数(人数分)</span>
   <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>  <span class="kd">::</span> <span class="n">binw</span>      <span class="c">! ビンの幅(例えば10点)</span>
@@ -830,14 +809,14 @@ end subroutine サブルーチン名
 
 <span class="k">end subroutine </span><span class="n">histogram</span>
 </pre></div>
-</td></tr></table></div>
-<p>この場合のように固定幅のビンでヒストグラムを作成するのは簡単である． <code class="docutils literal"><span class="pre">i</span></code> 番目の点数がヒストグラムの <code class="docutils literal"><span class="pre">j</span></code> 番目の要素に入るとすると， <code class="docutils literal"><span class="pre">j</span></code> は</p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">j</span> <span class="o">=</span> <span class="n">score</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">/</span> <span class="n">binw</span> <span class="o">+</span> <span class="mi">1</span>
+</div>
+<p>この場合のように固定幅のビンでヒストグラムを作成するのは簡単である． <code class="docutils literal notranslate"><span class="pre">i</span></code> 番目の点数がヒストグラムの <code class="docutils literal notranslate"><span class="pre">j</span></code> 番目の要素に入るとすると， <code class="docutils literal notranslate"><span class="pre">j</span></code> は</p>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="n">j</span> <span class="o">=</span> <span class="n">score</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">/</span> <span class="n">binw</span> <span class="o">+</span> <span class="mi">1</span>
 </pre></div>
-</td></tr></table></div>
-<p>のように求められる(複雑なif文による分岐は必要ない!)．このインデックスが配列 <code class="docutils literal"><span class="pre">hist</span></code> の上限と下限の間に収まっていなければエラーとすれば良い．</p>
-<p>このサブルーチンを用いて， <a class="reference external" href="data/score2.dat">score2.dat</a> からデータを読み込みヒストグラム作成するプログラムを作成せよ．またその結果をgnuplotで図示せよ( <code class="docutils literal"><span class="pre">with</span> <span class="pre">boxes</span></code> を用いると良い)．出力結果は例えばビン幅を10とした場合には以下のようになる．</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>$ ./a.out &lt; score2.dat
+</div>
+<p>のように求められる(複雑なif文による分岐は必要ない!)．このインデックスが配列 <code class="docutils literal notranslate"><span class="pre">hist</span></code> の上限と下限の間に収まっていなければエラーとすれば良い．</p>
+<p>このサブルーチンを用いて， <a class="reference external" href="data/score2.dat">score2.dat</a> からデータを読み込みヒストグラム作成するプログラムを作成せよ．またその結果をgnuplotで図示せよ( <code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">boxes</span></code> を用いると良い)．出力結果は例えばビン幅を10とした場合には以下のようになる．</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ./a.out &lt; score2.dat
   <span class="m">5</span>.0000000000000000                <span class="m">0</span>
   <span class="m">15</span>.000000000000000                <span class="m">3</span>
   <span class="m">25</span>.000000000000000               <span class="m">26</span>
@@ -852,7 +831,7 @@ end subroutine サブルーチン名
 </div>
 <p>なお <a class="reference external" href="data/score2.dat">score2.dat</a> の形式は <a class="reference internal" href="chap05_kadai.html#score-format"><span class="std std-ref">5章の課題3</span></a> の <a class="reference external" href="data/score1.dat">score1.dat</a> と同じであるが，データは異なるものになっている．</p>
 <p>同様に範囲外のデータを含む <a class="reference external" href="data/score3.dat">score3.dat</a> を読みこませると</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>$ ./a.out &lt; score3.dat
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ./a.out &lt; score3.dat
   Invalid input
 </pre></div>
 </div>
@@ -860,19 +839,13 @@ end subroutine サブルーチン名
 </div>
 <div class="section" id="id26">
 <h3>7.7.4. 課題4<a class="headerlink" href="#id26" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>データ <span class="math">\(x_1, x_2, \ldots, x_n\)</span> を大きさの順に並べ替える処理をソートという．ソートのアルゴリズムの中でも一番簡単なのがバブルソートと呼ばれるものである．これは以下の処理を <span class="math">\(n-1\)</span> 回繰り返すことで実現される．</p>
+<p>データ <span class="math notranslate nohighlight">\(x_1, x_2, \ldots, x_n\)</span> を大きさの順に並べ替える処理をソートという．ソートのアルゴリズムの中でも一番簡単なのがバブルソートと呼ばれるものである．これは以下の処理を <span class="math notranslate nohighlight">\(n-1\)</span> 回繰り返すことで実現される．</p>
 <blockquote>
-<div><span class="math">\(i=1, \ldots, n-1\)</span> まで順に <span class="math">\(x_{i}\)</span> と <span class="math">\(x_{i+1}\)</span> の大小を比較し, <span class="math">\(x_{i} &gt; x_{i+1}\)</span> なら順番を入れ替える</div></blockquote>
-<p>この処理を <span class="math">\(k\)</span> 回行うと <span class="math">\(x_{i}\)</span> のうち <span class="math">\(k\)</span> 番目に大きい要素が <span class="math">\(x_{n-k+1}\)</span> に配置されるので， <span class="math">\(n-1\)</span> 回繰り返すことで全ての要素を並び替えることが出来る．</p>
-<p>ただし1回目の処理が終了した時点で最大値が <span class="math">\(x_n\)</span> になっており，この要素については並べ替えの必要がない．従って2回目は <span class="math">\(x_1, \ldots, x_{n-2}\)</span> までを処理すれば十分である．同様に <span class="math">\(m\)</span> 回目の処理が終了した時点で <span class="math">\(x_{n-m+1}, \ldots, x_{n}\)</span> までの位置は確定しているので， <span class="math">\(m+1\)</span> 回目には <span class="math">\(x_1, \ldots, x_{n-m}\)</span> までの処理を行えばよい．これによって比較回数を <span class="math">\((n-1)^2\)</span> 回から半分に減らすことができる．</p>
-<p>このバブルソートによって整数配列をソートするサブルーチン <code class="docutils literal"><span class="pre">bsort</span></code> を実装せよ．これは例えば以下のような形になるだろう．</p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">subroutine </span><span class="n">bsort</span><span class="p">(</span><span class="k">array</span><span class="p">)</span>
+<div><span class="math notranslate nohighlight">\(i=1, \ldots, n-1\)</span> まで順に <span class="math notranslate nohighlight">\(x_{i}\)</span> と <span class="math notranslate nohighlight">\(x_{i+1}\)</span> の大小を比較し, <span class="math notranslate nohighlight">\(x_{i} &gt; x_{i+1}\)</span> なら順番を入れ替える</div></blockquote>
+<p>この処理を <span class="math notranslate nohighlight">\(k\)</span> 回行うと <span class="math notranslate nohighlight">\(x_{i}\)</span> のうち <span class="math notranslate nohighlight">\(k\)</span> 番目に大きい要素が <span class="math notranslate nohighlight">\(x_{n-k+1}\)</span> に配置されるので， <span class="math notranslate nohighlight">\(n-1\)</span> 回繰り返すことで全ての要素を並び替えることが出来る．</p>
+<p>ただし1回目の処理が終了した時点で最大値が <span class="math notranslate nohighlight">\(x_n\)</span> になっており，この要素については並べ替えの必要がない．従って2回目は <span class="math notranslate nohighlight">\(x_1, \ldots, x_{n-2}\)</span> までを処理すれば十分である．同様に <span class="math notranslate nohighlight">\(m\)</span> 回目の処理が終了した時点で <span class="math notranslate nohighlight">\(x_{n-m+1}, \ldots, x_{n}\)</span> までの位置は確定しているので， <span class="math notranslate nohighlight">\(m+1\)</span> 回目には <span class="math notranslate nohighlight">\(x_1, \ldots, x_{n-m}\)</span> までの処理を行えばよい．これによって比較回数を <span class="math notranslate nohighlight">\((n-1)^2\)</span> 回から半分に減らすことができる．</p>
+<p>このバブルソートによって整数配列をソートするサブルーチン <code class="docutils literal notranslate"><span class="pre">bsort</span></code> を実装せよ．これは例えば以下のような形になるだろう．</p>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">subroutine </span><span class="n">bsort</span><span class="p">(</span><span class="k">array</span><span class="p">)</span>
   <span class="k">implicit none</span>
 <span class="k">  </span><span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="k">array</span><span class="p">(:)</span> <span class="c">! 配列にはソートされた結果が代入される</span>
 
@@ -880,31 +853,31 @@ end subroutine サブルーチン名
 
 <span class="k">end subroutine </span><span class="n">bsort</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>作成したプログラムを用いて <a class="reference external" href="data/rand.dat">rand.dat</a> のデータをソートし，結果が正しいことを確認せよ．ここでもデータファイルの形式は上の <a class="reference external" href="data/score2.dat">score2.dat</a> と同一である．従って同様にリダイレクトで</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>$ ./a.out &lt; rand.dat
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ./a.out &lt; rand.dat
 </pre></div>
 </div>
 <p>のように読みこませれば良い．</p>
 </div>
 <div class="section" id="id28">
 <h3>7.7.5. 課題5<a class="headerlink" href="#id28" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>データ <span class="math">\(x_1, x_2, \ldots, x_n\)</span> からある値 <span class="math">\(X\)</span> に等しいものを探しだす処理を探索という．その中でも以下は二分探索と呼ばれるアルゴリズムである．</p>
+<p>データ <span class="math notranslate nohighlight">\(x_1, x_2, \ldots, x_n\)</span> からある値 <span class="math notranslate nohighlight">\(X\)</span> に等しいものを探しだす処理を探索という．その中でも以下は二分探索と呼ばれるアルゴリズムである．</p>
 <blockquote>
 <div><ul class="simple">
-<li>まず <span class="math">\(x_i (i=1,\ldots,n)\)</span> をソートする．</li>
-<li><span class="math">\(l = 1, r = n\)</span> として以下の処理を繰り返す．<ol class="arabic">
-<li><span class="math">\(l &gt; r\)</span> ならば失敗(見つからなかったので処理を終える)．</li>
-<li><span class="math">\(m = (l + r)/2\)</span> とし,
-<span class="math">\(X = x_{m}\)</span> なら成功(見つかったので処理を終える)．</li>
-<li><span class="math">\(X &gt; x_{m}\)</span> なら <span class="math">\(l = m + 1\)</span> ， <span class="math">\(X &lt; x_{m}\)</span> なら <span class="math">\(r = m - 1\)</span> として[1]に戻る．</li>
+<li>まず <span class="math notranslate nohighlight">\(x_i (i=1,\ldots,n)\)</span> をソートする．</li>
+<li><span class="math notranslate nohighlight">\(l = 1, r = n\)</span> として以下の処理を繰り返す．<ol class="arabic">
+<li><span class="math notranslate nohighlight">\(l &gt; r\)</span> ならば失敗(見つからなかったので処理を終える)．</li>
+<li><span class="math notranslate nohighlight">\(m = (l + r)/2\)</span> とし,
+<span class="math notranslate nohighlight">\(X = x_{m}\)</span> なら成功(見つかったので処理を終える)．</li>
+<li><span class="math notranslate nohighlight">\(X &gt; x_{m}\)</span> なら <span class="math notranslate nohighlight">\(l = m + 1\)</span> ， <span class="math notranslate nohighlight">\(X &lt; x_{m}\)</span> なら <span class="math notranslate nohighlight">\(r = m - 1\)</span> として[1]に戻る．</li>
 </ol>
 </li>
 </ul>
 </div></blockquote>
-<p>これをサブルーチン <code class="docutils literal"><span class="pre">bsearch</span></code> として実装せよ．</p>
-<p>また <code class="docutils literal"><span class="pre">open</span></code> 文で <a class="reference external" href="data/rand.dat">rand.dat</a> からデータを読み込み， <code class="docutils literal"><span class="pre">bsort</span></code> で配列をソートした後に <code class="docutils literal"><span class="pre">bsearch</span></code> で実際に適当な値の探索を行うプログラムを作成せよ．例えば標準入力から与えられた値をソート後の配列から探索を行い，結果を表示するようにすれば良い．この時の実行結果は以下のようになる．(この例では10や2004が入力値である．)</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>$ ./a.out
+<p>これをサブルーチン <code class="docutils literal notranslate"><span class="pre">bsearch</span></code> として実装せよ．</p>
+<p>また <code class="docutils literal notranslate"><span class="pre">open</span></code> 文で <a class="reference external" href="data/rand.dat">rand.dat</a> からデータを読み込み， <code class="docutils literal notranslate"><span class="pre">bsort</span></code> で配列をソートした後に <code class="docutils literal notranslate"><span class="pre">bsearch</span></code> で実際に適当な値の探索を行うプログラムを作成せよ．例えば標準入力から与えられた値をソート後の配列から探索を行い，結果を表示するようにすれば良い．この時の実行結果は以下のようになる．(この例では10や2004が入力値である．)</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ./a.out
 Input an integer : <span class="m">10</span>    <span class="c1"># キーボード入力</span>
       <span class="m">10</span> was not found !
 
@@ -913,16 +886,8 @@ Input an integer : <span class="m">2004</span>  <span class="c1"># キーボー�
     <span class="m">2004</span> was found at index      <span class="m">100</span>
 </pre></div>
 </div>
-<p>なおサブルーチン <code class="docutils literal"><span class="pre">bsearch</span></code> は例えば以下のような形式とすればよい．見つかった場合には探しだす値と等しい値が格納されている配列のインデックスを，見つからなかった場合には <code class="docutils literal"><span class="pre">-1</span></code> を仮引数 <code class="docutils literal"><span class="pre">idx</span></code> に代入して返すようにするとよいだろう．</p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">subroutine </span><span class="n">bsearch</span><span class="p">(</span><span class="k">array</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">idx</span><span class="p">)</span>
+<p>なおサブルーチン <code class="docutils literal notranslate"><span class="pre">bsearch</span></code> は例えば以下のような形式とすればよい．見つかった場合には探しだす値と等しい値が格納されている配列のインデックスを，見つからなかった場合には <code class="docutils literal notranslate"><span class="pre">-1</span></code> を仮引数 <code class="docutils literal notranslate"><span class="pre">idx</span></code> に代入して返すようにするとよいだろう．</p>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">subroutine </span><span class="n">bsearch</span><span class="p">(</span><span class="k">array</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">idx</span><span class="p">)</span>
   <span class="k">implicit none</span>
 <span class="k">  </span><span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>  <span class="kd">::</span> <span class="k">array</span><span class="p">(:)</span> <span class="c">! ソートされた配列</span>
   <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>  <span class="kd">::</span> <span class="n">var</span>      <span class="c">! 探したい値</span>
@@ -932,35 +897,35 @@ Input an integer : <span class="m">2004</span>  <span class="c1"># キーボー�
 
 <span class="k">end subroutine </span><span class="n">bsearch</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 </div>
 <div class="section" id="id30">
 <h3>7.7.6. 課題6<a class="headerlink" href="#id30" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>1行に1つの英単語が記述されているファイルを読み込み，英単語を辞書順にソートして出力するプログラムを作成せよ．空白行かファイルの終端に達するまで全ての単語を読み込むこと．ただし英単語は10文字以下，また読み込む単語の数は100個以下であると仮定してよい． <a class="reference external" href="data/words.txt">words.txt</a> を入力として作成したプログラムの動作を確認せよ．</p>
-<p>実行結果は例えば以下のようになるだろう．(空白行の後の <code class="docutils literal"><span class="pre">NOT_TO_BE_READ</span></code> は読まれていないことに注意!)</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span> $ ./a.out &lt; words.txt
+<p>実行結果は例えば以下のようになるだろう．(空白行の後の <code class="docutils literal notranslate"><span class="pre">NOT_TO_BE_READ</span></code> は読まれていないことに注意!)</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span> $ ./a.out &lt; words.txt
 *** before sort ***
  tomato     banana     apple      grape      watermelon plum
 *** after sort ***
  apple      banana     grape      plum       tomato     watermelon
 </pre></div>
 </div>
-<p>なお，文字列の大小比較は辞書順となる(例えば <code class="docutils literal"><span class="pre">'apple'</span> <span class="pre">&lt;</span> <span class="pre">'banana'</span></code>)ので， <code class="docutils literal"><span class="pre">bsort</span></code> を一部修正するだけで文字列のソートが出来る．文字型変数の配列は例えば</p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="kd">::</span> <span class="n">char_array</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<p>なお，文字列の大小比較は辞書順となる(例えば <code class="docutils literal notranslate"><span class="pre">'apple'</span> <span class="pre">&lt;</span> <span class="pre">'banana'</span></code>)ので， <code class="docutils literal notranslate"><span class="pre">bsort</span></code> を一部修正するだけで文字列のソートが出来る．文字型変数の配列は例えば</p>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="kd">::</span> <span class="n">char_array</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 </pre></div>
-</td></tr></table></div>
-<p>などのように宣言すれば良い．ここで <code class="docutils literal"><span class="pre">char_array</span></code> は10文字分の文字列を保持する長さ100の配列である．</p>
+</div>
+<p>などのように宣言すれば良い．ここで <code class="docutils literal notranslate"><span class="pre">char_array</span></code> は10文字分の文字列を保持する長さ100の配列である．</p>
 </div>
 <div class="section" id="id31">
 <h3>7.7.7. 課題7 <sup>†</sup><a class="headerlink" href="#id31" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>与えられたファイルに含まれるアルファベットの各文字の出現回数をヒストグラムとして標準出力に表示するプログラムを作成せよ．ファイルの長さは任意とする．即ちファイルの終端まで全ての文字を読み込まなければならない(空白行があっても読み込み続ける)．ただし以下の条件を満たすこと．</p>
 <ul class="simple">
-<li>アルファベット <code class="docutils literal"><span class="pre">a-z,</span> <span class="pre">A-Z</span></code> 以外は無視してよい．</li>
+<li>アルファベット <code class="docutils literal notranslate"><span class="pre">a-z,</span> <span class="pre">A-Z</span></code> 以外は無視してよい．</li>
 <li>大文字と小文字は区別しない．</li>
 <li>文字数があまりに多い時にはヒストグラムを適当に規格化すること．</li>
 </ul>
-<p><a class="reference external" href="data/wikipedia.txt">wikipedia.txt</a>  (<a class="reference external" href="http://en.wikipedia.org/wiki/Fortran">Wikipedia</a> より引用)を処理した時には例えば以下のような出力となるだろう．この例では最大で60個の <code class="docutils literal"><span class="pre">'o'</span></code> が出力されるように規格化してある．各アルファベットの後の括弧内の数字は文字数を表している．( <a class="reference external" href="data/wikipedia.txt">wikipedia.txt</a> で試す前に <a class="reference external" href="data/words.txt">words.txt</a> などの小さいデータで試した方が良いだろう．)</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>$ ./a.out &lt; wikipedia.txt
+<p><a class="reference external" href="data/wikipedia.txt">wikipedia.txt</a>  (<a class="reference external" href="http://en.wikipedia.org/wiki/Fortran">Wikipedia</a> より引用)を処理した時には例えば以下のような出力となるだろう．この例では最大で60個の <code class="docutils literal notranslate"><span class="pre">'o'</span></code> が出力されるように規格化してある．各アルファベットの後の括弧内の数字は文字数を表している．( <a class="reference external" href="data/wikipedia.txt">wikipedia.txt</a> で試す前に <a class="reference external" href="data/words.txt">words.txt</a> などの小さいデータで試した方が良いだろう．)</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ./a.out &lt; wikipedia.txt
 A<span class="o">(</span> <span class="m">110</span><span class="o">)</span>:oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 B<span class="o">(</span>   <span class="m">9</span><span class="o">)</span>:ooooo
 C<span class="o">(</span>  <span class="m">44</span><span class="o">)</span>:oooooooooooooooooooooooo
@@ -989,7 +954,7 @@ Y<span class="o">(</span>  <span class="m">15</span><span class="o">)</span>:ooo
 Z<span class="o">(</span>   <span class="m">0</span><span class="o">)</span>:
 </pre></div>
 </div>
-<p>組込み関数 <code class="docutils literal"><span class="pre">ichar</span></code> ， <code class="docutils literal"><span class="pre">char</span></code> を用いるとよい．また規格化の際には四捨五入をする関数 <code class="docutils literal"><span class="pre">nint</span></code> を用いることが出来る．</p>
+<p>組込み関数 <code class="docutils literal notranslate"><span class="pre">ichar</span></code> ， <code class="docutils literal notranslate"><span class="pre">char</span></code> を用いるとよい．また規格化の際には四捨五入をする関数 <code class="docutils literal notranslate"><span class="pre">nint</span></code> を用いることが出来る．</p>
 <p>特に仕様は限定しないが，関数やサブルーチンを使った分り易いプログラムを目指すこと．</p>
 <hr class="docutils" />
 <table class="docutils footnote" frame="void" id="id34" rules="none">
@@ -1013,7 +978,7 @@ Z<span class="o">(</span>   <span class="m">0</span><span class="o">)</span>:
 <table class="docutils footnote" frame="void" id="id37" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id12">[4]</a></td><td>内部手続き以外の例外としてはFortran 77の <code class="docutils literal"><span class="pre">common</span></code> を用いる場合が挙げられるが，とりあえずはこのように理解して欲しい．</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id12">[4]</a></td><td>内部手続き以外の例外としてはFortran 77の <code class="docutils literal notranslate"><span class="pre">common</span></code> を用いる場合が挙げられるが，とりあえずはこのように理解して欲しい．</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="id38" rules="none">
@@ -1025,7 +990,7 @@ Z<span class="o">(</span>   <span class="m">0</span><span class="o">)</span>:
 <table class="docutils footnote" frame="void" id="id39" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id19">[6]</a></td><td>初心者の頃はコンパイルエラーに辟易とすることが常であるが，コンパイルエラーでは一応コンパイラが(大変分かりにくくはあるものの)エラーメッセージを出力してくれるのに対して，実行時のエラーは通常何のヒントにもならない無情な <code class="docutils literal"><span class="pre">Segmentation</span> <span class="pre">fault</span></code> のみである．</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id19">[6]</a></td><td>初心者の頃はコンパイルエラーに辟易とすることが常であるが，コンパイルエラーでは一応コンパイラが(大変分かりにくくはあるものの)エラーメッセージを出力してくれるのに対して，実行時のエラーは通常何のヒントにもならない無情な <code class="docutils literal notranslate"><span class="pre">Segmentation</span> <span class="pre">fault</span></code> のみである．</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="id40" rules="none">
@@ -1100,7 +1065,7 @@ Z<span class="o">(</span>   <span class="m">0</span><span class="o">)</span>:
           
     <div class="footer" role="contentinfo">
         &#169; Copyright 2018, Takanobu Amano.
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.6 で生成しました。
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.9 で生成しました。
     </div>
         </div>
         <div class="clearer"></div>

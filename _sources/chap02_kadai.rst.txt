@@ -1,8 +1,5 @@
 .. -*- coding: utf-8 -*-
 
-.. highlight:: fortran
-  :linenothreshold: 1
-
 演習課題
 ========
 

@@ -1,8 +1,5 @@
 .. -*- coding: utf-8 -*-
 
-.. highlight:: fortran
-  :linenothreshold: 1
-
 演習課題
 ========
 
@@ -39,7 +36,7 @@
 
 テストの点数が整数配列から与えられた時にヒストグラムを作成するサブルーチン ``histogram`` を実装せよ．例えば点数配列とビン幅を入力とし，作成されたヒストグラムの各ビンの中央値，各ビン内の人数を出力とする以下の様な形式のサブルーチンを作成すればよい．ただし，与える整数は :math:`0 \leq n < 100` とするが，もしこの範囲を超えた入力があった場合にはエラーを表示して終了すること．
 
-::
+.. code-block:: fortran
 
       subroutine histogram(score, binw, binc, hist)
         implicit none
@@ -54,7 +51,7 @@
 
 この場合のように固定幅のビンでヒストグラムを作成するのは簡単である． ``i`` 番目の点数がヒストグラムの ``j`` 番目の要素に入るとすると， ``j`` は
 
-::
+.. code-block:: fortran
 
      j = score(i) / binw + 1
 
@@ -103,7 +100,7 @@
 
 このバブルソートによって整数配列をソートするサブルーチン ``bsort`` を実装せよ．これは例えば以下のような形になるだろう．
 
-::
+.. code-block:: fortran
 
       subroutine bsort(array)
         implicit none
@@ -151,7 +148,7 @@
 
 なおサブルーチン ``bsearch`` は例えば以下のような形式とすればよい．見つかった場合には探しだす値と等しい値が格納されている配列のインデックスを，見つからなかった場合には ``-1`` を仮引数 ``idx`` に代入して返すようにするとよいだろう．
 
-::
+.. code-block:: fortran
 
       subroutine bsearch(array, var, idx)
         implicit none
@@ -181,7 +178,7 @@
 
 なお，文字列の大小比較は辞書順となる(例えば ``'apple' < 'banana'``)ので， ``bsort`` を一部修正するだけで文字列のソートが出来る．文字型変数の配列は例えば
 
-::
+.. code-block:: fortran
 
       character(len=10) :: char_array(100)
 

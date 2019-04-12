@@ -1,31 +1,20 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>演習課題 &#8212; Fortran演習(地球惑星物理学演習)</title>
-    
     <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '2018',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
 <script>
@@ -39,8 +28,7 @@
 
 </script>
 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
@@ -68,13 +56,13 @@
 </div>
 <div class="section" id="id3">
 <h2>課題2<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>2次方程式 <span class="math">\(a x^2 + b x + c = 0\)</span>
+<p>2次方程式 <span class="math notranslate nohighlight">\(a x^2 + b x + c = 0\)</span>
 の解は以下の解の公式を用いて求めることが出来る．</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[x = \frac{-b \pm \sqrt{b^2 - 4 a c}}{2 a}\]</div>
-<p>しかしこの公式を単純に用いた場合には <span class="math">\(b^2 \gg 4 a c\)</span> の時には，桁落ちによってどちらか一方の解の精度が悪くなってしまう．このことを実際に確認し，式変形によってその精度を改善せよ．</p>
-<p>例えば <span class="math">\(a = 1, b = -10^{9}, c = 1\)</span> とした時の解は</p>
-<div class="math">
+<p>しかしこの公式を単純に用いた場合には <span class="math notranslate nohighlight">\(b^2 \gg 4 a c\)</span> の時には，桁落ちによってどちらか一方の解の精度が悪くなってしまう．このことを実際に確認し，式変形によってその精度を改善せよ．</p>
+<p>例えば <span class="math notranslate nohighlight">\(a = 1, b = -10^{9}, c = 1\)</span> とした時の解は</p>
+<div class="math notranslate nohighlight">
 \[x \simeq 1.\underbrace{000000000000000}_{0が15個} \times 10^{9}, \quad
 1.\underbrace{000000000000000}_{0が15個} \times 10^{-9}\]</div>
 <p>であるが，解の公式を用いた場合と式変形によって桁落ち対策をした場合で数値解を比較せよ．</p>
@@ -82,39 +70,39 @@
 <div class="section" id="id4">
 <h2>課題3<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Newton法では関数の微分値を解析的に与えて用いるが，割線法(Secant
-method)と呼ばれる手法では連続した2つの近似解を用いて，微分を差分で近似する．即ち <span class="math">\(n\)</span> 番目の近似解を <span class="math">\(x_n\)</span> と書いたときに，Newton法の公式</p>
-<div class="math">
+method)と呼ばれる手法では連続した2つの近似解を用いて，微分を差分で近似する．即ち <span class="math notranslate nohighlight">\(n\)</span> 番目の近似解を <span class="math notranslate nohighlight">\(x_n\)</span> と書いたときに，Newton法の公式</p>
+<div class="math notranslate nohighlight">
 \[x_{n+1} = x_{n} - \frac{f(x_{n})}{f'(x_{n})}\]</div>
 <p>において，微分値を以下のように近似する．</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[f'(x_n) \simeq \frac{f(x_{n}) - f(x_{n-1})}{x_{n} - x_{n-1}}\]</div>
 <p>(この手法では微分値の計算をする必要がないため，反復1回あたりの計算量が少なくなる可能性があるが，収束はNewton法よりも少し遅くなる．)</p>
 <p>この割線法を実装し，以下の方程式</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[f(x) = \frac{1-x}{\sqrt{M}} - \exp(x)\]</div>
-<p>を数値的に解くことで，その収束の速さを二分法およびNewton法と比較せよ．ただし <span class="math">\(M= 1836\)</span> とする．なお解は <span class="math">\(x \simeq -2.5\)</span> なので二分法ではこの前後に2つの初期値を指定すればよい．割線法も2つ初期値が必要になるが，(この関数に関しては)初期値には敏感ではないので，例えば0と1を初期値として用いればよい．ここでは収束の速さを比較すればよいので，各反復ごとの収束判定はせずに20回程度の反復を行い誤差の減少の様子をgnuplotを用いて図示せよ．ただし連続する2つの近似解の差を誤差と定義する．</p>
+<p>を数値的に解くことで，その収束の速さを二分法およびNewton法と比較せよ．ただし <span class="math notranslate nohighlight">\(M= 1836\)</span> とする．なお解は <span class="math notranslate nohighlight">\(x \simeq -2.5\)</span> なので二分法ではこの前後に2つの初期値を指定すればよい．割線法も2つ初期値が必要になるが，(この関数に関しては)初期値には敏感ではないので，例えば0と1を初期値として用いればよい．ここでは収束の速さを比較すればよいので，各反復ごとの収束判定はせずに20回程度の反復を行い誤差の減少の様子をgnuplotを用いて図示せよ．ただし連続する2つの近似解の差を誤差と定義する．</p>
 </div>
 <div class="section" id="id5">
 <h2>課題4<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><span class="math">\(f(x) = \dfrac{4}{\pi} \dfrac{1}{1 + x^2}\)</span> および <span class="math">\(f(x) = (n+1) \ x^{n} \ (n = 0, \ldots, 5)\)</span> のそれぞれについて</p>
-<div class="math">
+<p><span class="math notranslate nohighlight">\(f(x) = \dfrac{4}{\pi} \dfrac{1}{1 + x^2}\)</span> および <span class="math notranslate nohighlight">\(f(x) = (n+1) \ x^{n} \ (n = 0, \ldots, 5)\)</span> のそれぞれについて</p>
+<div class="math notranslate nohighlight">
 \[\int_{0}^{1} f(x) dx\]</div>
-<p>の積分を台形公式およびSimpsonの公式で数値的に行い，誤差の分割数に対する依存性をgnuplotを用いて図示せよ．例えば分割数を <span class="math">\(2^{n} (n=1, 2, \ldots, 16)\)</span> の範囲で変えて依存性を調べれば良い．またそのような依存性となるのはなぜか?</p>
+<p>の積分を台形公式およびSimpsonの公式で数値的に行い，誤差の分割数に対する依存性をgnuplotを用いて図示せよ．例えば分割数を <span class="math notranslate nohighlight">\(2^{n} (n=1, 2, \ldots, 16)\)</span> の範囲で変えて依存性を調べれば良い．またそのような依存性となるのはなぜか?</p>
 </div>
 <div class="section" id="id6">
 <h2>課題5<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>一様乱数を用いてある確率分布に従う乱数を発生させるために逆関数を用いる方法(変換法や逆関数法などと呼ばれる)を考える．区間 <span class="math">\([0, 1]\)</span> での一様乱数 <span class="math">\(x\)</span> およびその確率分布 <span class="math">\(f(x)\)</span> ，また必要な乱数 <span class="math">\(y\)</span> とその確率分布 <span class="math">\(g(y)\)</span> とする． <span class="math">\(y\)</span> を <span class="math">\(x\)</span> から何らかの変換で <span class="math">\(y = P(x)\)</span> のように表すとき，確率密度の保存から</p>
-<div class="math">
+<p>一様乱数を用いてある確率分布に従う乱数を発生させるために逆関数を用いる方法(変換法や逆関数法などと呼ばれる)を考える．区間 <span class="math notranslate nohighlight">\([0, 1]\)</span> での一様乱数 <span class="math notranslate nohighlight">\(x\)</span> およびその確率分布 <span class="math notranslate nohighlight">\(f(x)\)</span> ，また必要な乱数 <span class="math notranslate nohighlight">\(y\)</span> とその確率分布 <span class="math notranslate nohighlight">\(g(y)\)</span> とする． <span class="math notranslate nohighlight">\(y\)</span> を <span class="math notranslate nohighlight">\(x\)</span> から何らかの変換で <span class="math notranslate nohighlight">\(y = P(x)\)</span> のように表すとき，確率密度の保存から</p>
+<div class="math notranslate nohighlight">
 \[g(y) d y = f(x) dx = d x\]</div>
 <p>が成り立つ．(最後の等式は一様乱数であることから自明である．)
 この両辺を積分して</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[x = \int^{y} g(y') d y' \equiv G(y)\]</div>
 <p>(この時の積分定数は適当にとれば良い．) これより</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[y = G^{-1} (x)\]</div>
-<p>を得る．即ち， <span class="math">\(G^{-1} (x)\)</span> を解析的に求めることができれば，一様乱数 <span class="math">\(x\)</span> を用いて必要な確率分布 <span class="math">\(g(y)\)</span> に従う乱数を作ることができる．このことを用いて指数分布</p>
-<div class="math">
+<p>を得る．即ち， <span class="math notranslate nohighlight">\(G^{-1} (x)\)</span> を解析的に求めることができれば，一様乱数 <span class="math notranslate nohighlight">\(x\)</span> を用いて必要な確率分布 <span class="math notranslate nohighlight">\(g(y)\)</span> に従う乱数を作ることができる．このことを用いて指数分布</p>
+<div class="math notranslate nohighlight">
 \[g(y; \lambda) = \lambda \exp(-\lambda y)\]</div>
 <p>に従う乱数分布を発生させるプログラムを作成せよ．また分布のヒストグラムを作成し，gnuplotを用いてヒストグラムを解析的な分布と共に図示し，乱数の発生数を増やした時に乱数分布が真の分布に近づくことを確かめよ．</p>
 </div>
@@ -169,7 +157,7 @@ method)と呼ばれる手法では連続した2つの近似解を用いて，微
           
     <div class="footer" role="contentinfo">
         &#169; Copyright 2018, Takanobu Amano.
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.6 で生成しました。
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.9 で生成しました。
     </div>
         </div>
         <div class="clearer"></div>

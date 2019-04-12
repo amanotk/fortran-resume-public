@@ -1,31 +1,20 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>演習課題 &#8212; Fortran演習(地球惑星物理学演習)</title>
-    
     <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '2018',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
 <script>
@@ -39,8 +28,7 @@
 
 </script>
 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
@@ -69,13 +57,12 @@
 <div class="section" id="id3">
 <h2>課題2<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>与えられた月日(例えば4月1日であれば4と1)を標準入力から読み込み，その日が1年のうちで何日目かを表示するプログラムを作成せよ．ただし閏年は無視して考えて良い．以下のような配列を用いるとよいだろう．</p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">integer</span><span class="p">,</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">days</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="o">=</span> <span class="p">&amp;</span>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">integer</span><span class="p">,</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">days</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="o">=</span> <span class="p">&amp;</span>
      <span class="p">&amp;</span> <span class="p">(</span><span class="o">/</span><span class="mi">31</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="o">/</span><span class="p">)</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>実行結果は例えば以下のようなものである．</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>$ ./a.out
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ./a.out
  Input month and day :
 <span class="m">4</span>    <span class="c1"># キーボード入力</span>
 <span class="m">1</span>    <span class="c1"># キーボード入力</span>
@@ -85,36 +72,36 @@
 </div>
 <div class="section" id="score-format">
 <span id="id4"></span><h2>課題3<a class="headerlink" href="#score-format" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>学生のテストの点数を自動的に処理するプログラムを作成せよ．すなわち，標準入力から学生の人数および人数分のテストの点を順に読み込み，最高点，最低点，平均点，標準偏差をそれぞれ表示するプログラムを作成せよ．ただし標準偏差はデータ数 <span class="math">\(N\)</span> ，各データの値 <span class="math">\(x_i (i=1,\ldots,N)\)</span> ，平均値 <span class="math">\(\bar{x}\)</span> を用いて</p>
-<div class="math">
+<p>学生のテストの点数を自動的に処理するプログラムを作成せよ．すなわち，標準入力から学生の人数および人数分のテストの点を順に読み込み，最高点，最低点，平均点，標準偏差をそれぞれ表示するプログラムを作成せよ．ただし標準偏差はデータ数 <span class="math notranslate nohighlight">\(N\)</span> ，各データの値 <span class="math notranslate nohighlight">\(x_i (i=1,\ldots,N)\)</span> ，平均値 <span class="math notranslate nohighlight">\(\bar{x}\)</span> を用いて</p>
+<div class="math notranslate nohighlight">
 \[\sigma = \sqrt{\frac{1}{N} \sum_{i=1}^{N} (x_i - \bar{x})^2}\]</div>
 <p>と定義される．</p>
 <p>データファイル <a class="reference external" href="data/score1.dat">score1.dat</a> を手元にコピーして，以下のようにリダイレクトによって作成したプログラムに読み込ませ，結果を確認せよ．</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>$ ./a.out &lt; score1.dat
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ./a.out &lt; score1.dat
  Best               :           <span class="m">98</span>
  Worst              :            <span class="m">6</span>
  Average            :    <span class="m">46</span>.399999999999999
  Standard deviation :    <span class="m">25</span>.115201240152015
 </pre></div>
 </div>
-<p>なおデータファイルには，1行目にデータ数 <span class="math">\(N\)</span> ，それ以降に各データ <span class="math">\(x_i\)</span> が記述されているので，まずはデータ数を読み込み配列のメモリを <code class="docutils literal"><span class="pre">allocate</span></code> した後に各データを読み込めば良い．</p>
+<p>なおデータファイルには，1行目にデータ数 <span class="math notranslate nohighlight">\(N\)</span> ，それ以降に各データ <span class="math notranslate nohighlight">\(x_i\)</span> が記述されているので，まずはデータ数を読み込み配列のメモリを <code class="docutils literal notranslate"><span class="pre">allocate</span></code> した後に各データを読み込めば良い．</p>
 </div>
 <div class="section" id="id5">
 <h2>課題4<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>標準入力から2つのベクトルを読み込み，両者の内積を計算し表示するプログラムを作成せよ． <code class="docutils literal"><span class="pre">do</span></code> ループを用いて地道に計算した結果と組込み関数 <code class="docutils literal"><span class="pre">dot_product</span></code> を用いた結果を比較すること．</p>
+<p>標準入力から2つのベクトルを読み込み，両者の内積を計算し表示するプログラムを作成せよ． <code class="docutils literal notranslate"><span class="pre">do</span></code> ループを用いて地道に計算した結果と組込み関数 <code class="docutils literal notranslate"><span class="pre">dot_product</span></code> を用いた結果を比較すること．</p>
 <p>以下はデータファイル <a class="reference external" href="data/vector.dat">vector.dat</a> を入力とした場合の結果である．</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>$ ./a.out &lt; vector.dat
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ./a.out &lt; vector.dat
  Inner product with <span class="k">do</span> loop     :    <span class="m">5</span>.4454054113084460E-017
  Inner product with dot_product :    <span class="m">9</span>.8770817913429454E-017
 </pre></div>
 </div>
-<p>ただしデータは，ベクトルの長さ <span class="math">\(N\)</span> ，1つ目のベクトルの要素( <span class="math">\(N\)</span> 個)，2つ目のベクトルの各要素( <span class="math">\(N\)</span> 個)，の順に並んでいるものとする．</p>
+<p>ただしデータは，ベクトルの長さ <span class="math notranslate nohighlight">\(N\)</span> ，1つ目のベクトルの要素( <span class="math notranslate nohighlight">\(N\)</span> 個)，2つ目のベクトルの各要素( <span class="math notranslate nohighlight">\(N\)</span> 個)，の順に並んでいるものとする．</p>
 </div>
 <div class="section" id="id6">
 <h2>課題5<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>標準入力からベクトルと行列を読み込み，積を計算して表示するプログラムを作成せよ．これについても2重<code class="docutils literal"><span class="pre">do</span></code> ループを用いて地道に計算した結果と，組込み関数 <code class="docutils literal"><span class="pre">matmul</span></code> を用いた結果を比較すること．</p>
+<p>標準入力からベクトルと行列を読み込み，積を計算して表示するプログラムを作成せよ．これについても2重<code class="docutils literal notranslate"><span class="pre">do</span></code> ループを用いて地道に計算した結果と，組込み関数 <code class="docutils literal notranslate"><span class="pre">matmul</span></code> を用いた結果を比較すること．</p>
 <p>以下はデータファイル <a class="reference external" href="data/matvec.dat">matvec.dat</a> を入力とした場合の結果である．</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>$ /a.out &lt; matvec.dat
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ /a.out &lt; matvec.dat
  Matrix-vector product with <span class="k">do</span> loop
    <span class="m">1</span>.0000000000000000
   -1.0000000000000000
@@ -135,23 +122,23 @@
   -1.0000000000000000
 </pre></div>
 </div>
-<p>データは，ベクトルの長さ <span class="math">\(N\)</span> ，ベクトルの要素( <span class="math">\(N\)</span> 個)，行列の各要素( <span class="math">\(N^2\)</span> 個)，が順に並んでいるものとする．また行列の要素は <span class="math">\(a_{11}, a_{21}, a_{31} \ldots\)</span> の順に読み込まれることと，ベクトルと行列の積 <span class="math">\(b_{i} = \sum_{j} a_{i,j} x_{j}\)</span> の添字の順番に注意せよ．</p>
+<p>データは，ベクトルの長さ <span class="math notranslate nohighlight">\(N\)</span> ，ベクトルの要素( <span class="math notranslate nohighlight">\(N\)</span> 個)，行列の各要素( <span class="math notranslate nohighlight">\(N^2\)</span> 個)，が順に並んでいるものとする．また行列の要素は <span class="math notranslate nohighlight">\(a_{11}, a_{21}, a_{31} \ldots\)</span> の順に読み込まれることと，ベクトルと行列の積 <span class="math notranslate nohighlight">\(b_{i} = \sum_{j} a_{i,j} x_{j}\)</span> の添字の順番に注意せよ．</p>
 </div>
 <div class="section" id="id7">
 <h2>課題6<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>標準入力から与えられた整数 <span class="math">\(n ( \ge 2)\)</span> 以下の全ての素数( <span class="math">\(1\)</span> は素数に含めない)を表示するプログラムを作成せよ．以下のエラトステネスのふるいと呼ばれるアルゴリズムを用いるとよい．</p>
-<p>各整数 <span class="math">\(i=2,\ldots,n\)</span> について順に</p>
+<p>標準入力から与えられた整数 <span class="math notranslate nohighlight">\(n ( \ge 2)\)</span> 以下の全ての素数( <span class="math notranslate nohighlight">\(1\)</span> は素数に含めない)を表示するプログラムを作成せよ．以下のエラトステネスのふるいと呼ばれるアルゴリズムを用いるとよい．</p>
+<p>各整数 <span class="math notranslate nohighlight">\(i=2,\ldots,n\)</span> について順に</p>
 <blockquote>
 <div><ul class="simple">
-<li><span class="math">\(i\)</span> が素数でなければ無視( <span class="math">\(i+1\)</span> の処理へ)</li>
-<li><span class="math">\(i\)</span> が素数であれば <span class="math">\(i\)</span> から <span class="math">\(n\)</span> の整数のうち <span class="math">\(i\)</span> の倍数のものを消去(素数以外と判定)</li>
+<li><span class="math notranslate nohighlight">\(i\)</span> が素数でなければ無視( <span class="math notranslate nohighlight">\(i+1\)</span> の処理へ)</li>
+<li><span class="math notranslate nohighlight">\(i\)</span> が素数であれば <span class="math notranslate nohighlight">\(i\)</span> から <span class="math notranslate nohighlight">\(n\)</span> の整数のうち <span class="math notranslate nohighlight">\(i\)</span> の倍数のものを消去(素数以外と判定)</li>
 </ul>
 </div></blockquote>
-<p>の処理を行う．なお各整数が素数かどうかを判定するには長さ <span class="math">\(n\)</span> の論理型配列を用いれば良い．この配列を全て <code class="docutils literal"><span class="pre">.true.</span></code> に初期化し，素数でないと判定されたものは <code class="docutils literal"><span class="pre">.false.</span></code> を代入して消去する．</p>
+<p>の処理を行う．なお各整数が素数かどうかを判定するには長さ <span class="math notranslate nohighlight">\(n\)</span> の論理型配列を用いれば良い．この配列を全て <code class="docutils literal notranslate"><span class="pre">.true.</span></code> に初期化し，素数でないと判定されたものは <code class="docutils literal notranslate"><span class="pre">.false.</span></code> を代入して消去する．</p>
 </div>
 <div class="section" id="id8">
 <h2>課題7<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>標準入力から3つの整数 <span class="math">\(L, M, N\)</span> を読み込み， <code class="docutils literal"><span class="pre">integer</span></code> の <span class="math">\(L \times M \times N\)</span> の3次元配列のメモリを確保せよ．その配列に対して，組み込み関数 <code class="docutils literal"><span class="pre">size</span></code>, <code class="docutils literal"><span class="pre">shape</span></code>, <code class="docutils literal"><span class="pre">lbound</span></code>, <code class="docutils literal"><span class="pre">ubound</span></code> を呼び出すことでその動作を確認せよ．( <span class="math">\(L, M, N\)</span> の値はそれぞれせいぜい100程度かそれ以下にしておいた方が良い．)</p>
+<p>標準入力から3つの整数 <span class="math notranslate nohighlight">\(L, M, N\)</span> を読み込み， <code class="docutils literal notranslate"><span class="pre">integer</span></code> の <span class="math notranslate nohighlight">\(L \times M \times N\)</span> の3次元配列のメモリを確保せよ．その配列に対して，組み込み関数 <code class="docutils literal notranslate"><span class="pre">size</span></code>, <code class="docutils literal notranslate"><span class="pre">shape</span></code>, <code class="docutils literal notranslate"><span class="pre">lbound</span></code>, <code class="docutils literal notranslate"><span class="pre">ubound</span></code> を呼び出すことでその動作を確認せよ．( <span class="math notranslate nohighlight">\(L, M, N\)</span> の値はそれぞれせいぜい100程度かそれ以下にしておいた方が良い．)</p>
 </div>
 </div>
 
@@ -204,7 +191,7 @@
           
     <div class="footer" role="contentinfo">
         &#169; Copyright 2018, Takanobu Amano.
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.6 で生成しました。
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.9 で生成しました。
     </div>
         </div>
         <div class="clearer"></div>

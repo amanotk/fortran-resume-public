@@ -1,8 +1,5 @@
 .. -*- coding: utf-8 -*-
 
-.. highlight:: fortran
-  :linenothreshold: 1
-
 演習課題
 ========
 
@@ -74,7 +71,7 @@
 
 なお，このバイナリファイルは ``form='unformatted'`` で ``open`` したファイルに(その装置番号を10として)
 
-::
+.. code-block:: fortran
 
       write(10) x
       write(10) y
@@ -83,7 +80,7 @@
 
 のように出力したものである． ただしここで， ``x``, ``y``, ``z`` はそれぞれ長さ32の倍精度の実数配列である．すなわち
 
-::
+.. code-block:: fortran
 
       real(8) :: x(32), y(32), z(32)
 

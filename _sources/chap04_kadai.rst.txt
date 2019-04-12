@@ -1,8 +1,5 @@
 .. -*- coding: utf-8 -*-
 
-.. highlight:: fortran
-  :linenothreshold: 1
-
 演習課題
 ========
 
@@ -71,7 +68,7 @@
 
 なお，組み込み関数 ``mod`` を用いて
 
-::
+.. code-block:: fortran
 
     r = mod(m, n)
 

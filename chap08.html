@@ -1,31 +1,20 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>8. 数値解析の基礎 &#8212; Fortran演習(地球惑星物理学演習)</title>
-    
     <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '2018',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
     <link rel="next" title="9. モジュールと構造型" href="chap09.html" />
@@ -41,8 +30,7 @@
 
 </script>
 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
@@ -100,11 +88,11 @@
 <div class="section" id="id5">
 <h3>8.1.1. 浮動小数点数の表現<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>実数は計算機の内部では浮動小数点数と呼ばれる形式になっており，</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[x = \underbrace{(-1)^{s}}_{\mbox{符号}} \times
     \underbrace{(1.f)}_{\mbox{仮数部(2進表現)}} \times
     \underbrace{(2^{e-127})}_{\mbox{指数部}}\]</div>
-<p>のような表現で表される．仮数部は有効桁を決める部分であり，指数部は絶対値を調整するためのものである． 仮数部が <span class="math">\(1.f\)</span> となっているのは(最上位ビットは常に1なので)実質1ビット分だけ精度を稼ぐためである(これをケチ表現と呼ぶ)． 例えば標準的な規格(IEEE754規格)では単精度の場合，符号部に1ビット，仮数部に23ビット，指数部に8ビットが割り当てられている． 指数部が8ビットであることから，<span class="math">\(e=0, 1, \ldots, 255\)</span> であり，即ち絶対値の範囲としては <span class="math">\(2^{-127} \sim 10^{-38} \lesssim x \lesssim 2^{127} \sim 10^{+38}\)</span> 程度以内の数値しか表現できない． また <span class="math">\(\log_{10} (2^{23 + 1}) \sim 7.2\)</span> なので10進での有効桁数は7桁程度である． 同様に倍精度では符号部に1ビット，仮数部に52ビット，指数部に11ビットが割り当てられていることから絶対値の範囲は <span class="math">\(2^{-1024} \sim 10^{-308} \lesssim x \lesssim 2^{+1024} \sim 10^{+308}\)</span>，有効桁数は <span class="math">\(\log_{10} (2^{52+1}) \sim 15.9\)</span> となり10進での有効桁数は16桁程度である．</p>
+<p>のような表現で表される．仮数部は有効桁を決める部分であり，指数部は絶対値を調整するためのものである． 仮数部が <span class="math notranslate nohighlight">\(1.f\)</span> となっているのは(最上位ビットは常に1なので)実質1ビット分だけ精度を稼ぐためである(これをケチ表現と呼ぶ)． 例えば標準的な規格(IEEE754規格)では単精度の場合，符号部に1ビット，仮数部に23ビット，指数部に8ビットが割り当てられている． 指数部が8ビットであることから，<span class="math notranslate nohighlight">\(e=0, 1, \ldots, 255\)</span> であり，即ち絶対値の範囲としては <span class="math notranslate nohighlight">\(2^{-127} \sim 10^{-38} \lesssim x \lesssim 2^{127} \sim 10^{+38}\)</span> 程度以内の数値しか表現できない． また <span class="math notranslate nohighlight">\(\log_{10} (2^{23 + 1}) \sim 7.2\)</span> なので10進での有効桁数は7桁程度である． 同様に倍精度では符号部に1ビット，仮数部に52ビット，指数部に11ビットが割り当てられていることから絶対値の範囲は <span class="math notranslate nohighlight">\(2^{-1024} \sim 10^{-308} \lesssim x \lesssim 2^{+1024} \sim 10^{+308}\)</span>，有効桁数は <span class="math notranslate nohighlight">\(\log_{10} (2^{52+1}) \sim 15.9\)</span> となり10進での有効桁数は16桁程度である．</p>
 </div>
 <div class="section" id="id6">
 <h3>8.1.2. 丸め誤差<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -112,13 +100,13 @@
 <ul>
 <li><p class="first">桁落ち</p>
 <p>絶対値の非常に近い2つの数の差を計算すると絶対値が非常に小さくなり，その分だけ相対誤差が大きくなってしまう．これを桁落ちと呼ぶ．</p>
-<p>例えば <span class="math">\(\sqrt{1 + x} - 1\)</span> のような演算は <span class="math">\(x\)</span> が非常に小さい場合にはその誤差が無視できない．簡単のため10進数で有効桁数が5桁の場合を考えよう． <span class="math">\(x=0.001\)</span> とすると， この精度の範囲では <span class="math">\(\sqrt{1 + x} \approx 1.0005\)</span> なので， <span class="math">\(\sqrt{1 + x} - 1 \approx 0.0005\)</span> となり有効桁数が1桁に低下してしまう．これは例えば以下のような式変形によって減算を無くすことで回避が可能である．</p>
-<div class="math">
+<p>例えば <span class="math notranslate nohighlight">\(\sqrt{1 + x} - 1\)</span> のような演算は <span class="math notranslate nohighlight">\(x\)</span> が非常に小さい場合にはその誤差が無視できない．簡単のため10進数で有効桁数が5桁の場合を考えよう． <span class="math notranslate nohighlight">\(x=0.001\)</span> とすると， この精度の範囲では <span class="math notranslate nohighlight">\(\sqrt{1 + x} \approx 1.0005\)</span> なので， <span class="math notranslate nohighlight">\(\sqrt{1 + x} - 1 \approx 0.0005\)</span> となり有効桁数が1桁に低下してしまう．これは例えば以下のような式変形によって減算を無くすことで回避が可能である．</p>
+<div class="math notranslate nohighlight">
 \[\sqrt{1 + x} - 1 = \frac{x}{\sqrt{1 + x} + 1}\]</div>
 </li>
 <li><p class="first">情報落ち</p>
 <p>絶対値の大きい数に小さい数を加えてもほとんど変化が無い．これを情報落ちと呼ぶ．</p>
-<p>同様に有効桁数が5桁の場合を考えよう．<span class="math">\(a = 1.0000\)</span>， <span class="math">\(b = 1.0000 \times 10^{-5}\)</span> はどちらとも5桁の有効桁数を持つが， <span class="math">\(a + b = 1.00001\)</span> の小数点第5位は精度は有効桁数の範囲外となるため，情報が失われてしまう．例えば，総和計算の際に非常に大きな数と小さな数を多数加える場合にはこれが問題となることがある．このときには小さい方から順に和を計算することで回避できる．</p>
+<p>同様に有効桁数が5桁の場合を考えよう．<span class="math notranslate nohighlight">\(a = 1.0000\)</span>， <span class="math notranslate nohighlight">\(b = 1.0000 \times 10^{-5}\)</span> はどちらとも5桁の有効桁数を持つが， <span class="math notranslate nohighlight">\(a + b = 1.00001\)</span> の小数点第5位は精度は有効桁数の範囲外となるため，情報が失われてしまう．例えば，総和計算の際に非常に大きな数と小さな数を多数加える場合にはこれが問題となることがある．このときには小さい方から順に和を計算することで回避できる．</p>
 </li>
 </ul>
 <p>丸め誤差の影響を調べるのに一番安直だが確実な方法は単精度から倍精度，倍精度から4倍精度に精度を上げてみて結果が変わらないことを確認することである．</p>
@@ -127,24 +115,24 @@
 <div class="section" id="id7">
 <h2><a class="toc-backref" href="#id24">8.2. 求根法</a><a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>解析的には解けない方程式(非線形方程式)の解を求める方法を考えよう．通常は右辺と左辺の両方に式があるわけだが，移項してしまって</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[f(x) = 0\]</div>
 <p>という一般的な形にして解くことにしよう．実はこの問題は意外と難しい問題であり，どんな問題にも使うことのできる汎用的で，かつ高速に解を求められるような手法は存在しない．と言うのはどんな手法であっても基本的には初期値として近似解のあたりを付けて，少しずつ真の解に近づけていく反復法だからである．初期値の選び方によっては正しい解に収束しない場合や，欲しい解(例えば物理的な解)に収束しないもあり得る <a class="footnote-reference" href="#id20" id="id8">[2]</a>．計算機は初期値までは面倒を見てくれないので，人間が適切な初期値を与えてあげなければならない．とりあえず初期値は与えられたとして，そこから近似解を反復によって求めるアルゴリズムを見ていこう．</p>
 <div class="section" id="id9">
 <h3>8.2.1. 二分法<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <blockquote>
 <div><a class="reference internal" href="chap08_sample2.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
-<p>もしある区間に解が1つあると分かっているならば，反復によって近似解が必ず真の解に収束する，二分法(bisection method)と呼ばれるアルゴリズムが知られいる．まず <span class="math">\([x_1, x_2] \ (x_1 &lt; x_2)\)</span> に対して <span class="math">\(f(x_1) &lt; 0, f(x_2) &gt; 0\)</span> ならばこのの区間に解があることが分かる．このとき，二分法によって近似解を求める手順は以下のようなものとなる．</p>
+<p>もしある区間に解が1つあると分かっているならば，反復によって近似解が必ず真の解に収束する，二分法(bisection method)と呼ばれるアルゴリズムが知られいる．まず <span class="math notranslate nohighlight">\([x_1, x_2] \ (x_1 &lt; x_2)\)</span> に対して <span class="math notranslate nohighlight">\(f(x_1) &lt; 0, f(x_2) &gt; 0\)</span> ならばこのの区間に解があることが分かる．このとき，二分法によって近似解を求める手順は以下のようなものとなる．</p>
 <blockquote>
 <div><ol class="arabic simple">
-<li><span class="math">\(x = (x_1 + x_2)/2\)</span> を近似解とする．</li>
-<li><span class="math">\(f(x) &lt; 0\)</span> なら <span class="math">\(x_1 = x\)</span>，
-<span class="math">\(f(x) &gt; 0\)</span> なら <span class="math">\(x_2 = x\)</span> とし，(1)に戻る．</li>
+<li><span class="math notranslate nohighlight">\(x = (x_1 + x_2)/2\)</span> を近似解とする．</li>
+<li><span class="math notranslate nohighlight">\(f(x) &lt; 0\)</span> なら <span class="math notranslate nohighlight">\(x_1 = x\)</span>，
+<span class="math notranslate nohighlight">\(f(x) &gt; 0\)</span> なら <span class="math notranslate nohighlight">\(x_2 = x\)</span> とし，(1)に戻る．</li>
 </ol>
 </div></blockquote>
-<p>この手順を解が収束するまで繰り返せばよい．収束判定は例えば許容誤差を <span class="math">\(\epsilon\)</span> として <span class="math">\(|x_2 - x_1| &lt; \epsilon\)</span> (区間の幅が許容誤差よりも小さい)などとすればよい．</p>
-<p>実際には <span class="math">\(f(x_1) &gt; 0, f(x_2) &lt; 0\)</span> の場合も考慮しなければならないが，組み込み関数 <code class="docutils literal"><span class="pre">sign</span></code> を用いてこれは簡単に実現出来る．以下のコードには二分法の実装例を示している．ただし <code class="docutils literal"><span class="pre">f</span></code> は関数として定義されているものとする．</p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<p>この手順を解が収束するまで繰り返せばよい．収束判定は例えば許容誤差を <span class="math notranslate nohighlight">\(\epsilon\)</span> として <span class="math notranslate nohighlight">\(|x_2 - x_1| &lt; \epsilon\)</span> (区間の幅が許容誤差よりも小さい)などとすればよい．</p>
+<p>実際には <span class="math notranslate nohighlight">\(f(x_1) &gt; 0, f(x_2) &lt; 0\)</span> の場合も考慮しなければならないが，組み込み関数 <code class="docutils literal notranslate"><span class="pre">sign</span></code> を用いてこれは簡単に実現出来る．以下のコードには二分法の実装例を示している．ただし <code class="docutils literal notranslate"><span class="pre">f</span></code> は関数として定義されているものとする．</p>
+<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -184,14 +172,14 @@
 <h3>8.2.2. Newton法<a class="headerlink" href="#newton" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <blockquote>
 <div><a class="reference internal" href="chap08_sample3.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
-<p>二分法は解の含まれる範囲を正しく指定すれば必ず収束するという利点はあるものの，あまり収束の速いアルゴリズムではなかった．一方で，初期値によっては収束しないかもしれないが，収束するならばその収束自体は速いというアルゴリズムも考えられる．それがここで紹介するNewton法と呼ばれるものである．これは <span class="math">\(f(x)\)</span> に加えてその微分 <span class="math">\(f'(x)\)</span> も用いるのが特徴である．すなわち，近似解 <span class="math">\(x\)</span> が与えられたときに <span class="math">\(x\)</span> の周りでのテイラー展開した</p>
-<div class="math">
+<p>二分法は解の含まれる範囲を正しく指定すれば必ず収束するという利点はあるものの，あまり収束の速いアルゴリズムではなかった．一方で，初期値によっては収束しないかもしれないが，収束するならばその収束自体は速いというアルゴリズムも考えられる．それがここで紹介するNewton法と呼ばれるものである．これは <span class="math notranslate nohighlight">\(f(x)\)</span> に加えてその微分 <span class="math notranslate nohighlight">\(f'(x)\)</span> も用いるのが特徴である．すなわち，近似解 <span class="math notranslate nohighlight">\(x\)</span> が与えられたときに <span class="math notranslate nohighlight">\(x\)</span> の周りでのテイラー展開した</p>
+<div class="math notranslate nohighlight">
 \[f(x + \delta) \simeq f(x) + \delta f'(x) + O(\delta^2)\]</div>
-<p>を用いて， <span class="math">\(f(x + \delta) = 0\)</span> とすると</p>
-<div class="math">
+<p>を用いて， <span class="math notranslate nohighlight">\(f(x + \delta) = 0\)</span> とすると</p>
+<div class="math notranslate nohighlight">
 \[\delta = - \frac{f(x)}{f'(x)}\]</div>
-<p>を得る．即ち <span class="math">\(x - f(x)/f'(x)\)</span> を新しい近似解として採用すればよい．大きな特徴は関数の値だけではなく，その微分値(接線)も用いて収束を加速している点である．しかし，当然ながら初期値によっては収束しないことも十分に考えられる(どういった場合であろうか？)．以下のコードはNewton法のアルゴリズムを実装したものである．プログラムの構造は二分法の場合とほぼ同様であるが，微分値を返す関数 <code class="docutils literal"><span class="pre">df</span></code> も用いている．</p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<p>を得る．即ち <span class="math notranslate nohighlight">\(x - f(x)/f'(x)\)</span> を新しい近似解として採用すればよい．大きな特徴は関数の値だけではなく，その微分値(接線)も用いて収束を加速している点である．しかし，当然ながら初期値によっては収束しないことも十分に考えられる(どういった場合であろうか？)．以下のコードはNewton法のアルゴリズムを実装したものである．プログラムの構造は二分法の場合とほぼ同様であるが，微分値を返す関数 <code class="docutils literal notranslate"><span class="pre">df</span></code> も用いている．</p>
+<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -223,27 +211,27 @@
 <blockquote>
 <div><a class="reference internal" href="chap08_sample4.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>次に関数の積分</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[S = \int_{a}^{b} f(x) d x\]</div>
-<p>の数値的な評価を考えよう．区分求積法の原理を思い出せば，積分領域 <span class="math">\([a, b]\)</span> を小さな領域 <span class="math">\(h = (b-a)/N\)</span> に分割し，積分を微小区間の積分の総和で近似すればよいことが分かるだろう．ここで分割数 <span class="math">\(N\)</span> を十分大きくとることができれば，近似式の誤差は十分小さく抑えることができる．<span class="math">\(x_j = a + j h\)</span> とし，微小区間の端点 <span class="math">\([x_{i}, x_{i+1}]\)</span> で与えられた関数値 <span class="math">\(f_{i}, f_{i+1}\)</span> から，関数系を</p>
-<div class="math">
+<p>の数値的な評価を考えよう．区分求積法の原理を思い出せば，積分領域 <span class="math notranslate nohighlight">\([a, b]\)</span> を小さな領域 <span class="math notranslate nohighlight">\(h = (b-a)/N\)</span> に分割し，積分を微小区間の積分の総和で近似すればよいことが分かるだろう．ここで分割数 <span class="math notranslate nohighlight">\(N\)</span> を十分大きくとることができれば，近似式の誤差は十分小さく抑えることができる．<span class="math notranslate nohighlight">\(x_j = a + j h\)</span> とし，微小区間の端点 <span class="math notranslate nohighlight">\([x_{i}, x_{i+1}]\)</span> で与えられた関数値 <span class="math notranslate nohighlight">\(f_{i}, f_{i+1}\)</span> から，関数系を</p>
+<div class="math notranslate nohighlight">
 \[f(x) = \frac{f_{i+1} - f_{i}}{h} (x - x_{i}) + f_{i}\]</div>
 <p>のように線形近似することで，以下の <strong>台形公式</strong> が得られる．</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[S = \frac{h}{2} \left[ f(x_0) +
                       2 \sum_{j=1}^{N-1} f (x_{j}) + f(x_N) \right]
 + O(h^2).\]</div>
-<p>ここで <span class="math">\(O(h^2)\)</span> は誤差が刻み幅 <span class="math">\(h\)</span> の2乗で小さくなることを意味する．ただし例外として，元の関数系が線形であれば，当然この評価は厳密な積分値を与える．</p>
-<p>この考え方をさらに発展させ， <span class="math">\(x_{i-1}, x_{i}, x_{i+1}\)</span> の3点の関数値 <span class="math">\(f_{i-1}, f_{i}, f_{i+1}\)</span> から関数系を2次関数で近似すれば，以下の <em>Simpsonの公式</em> が得られる．</p>
-<div class="math">
+<p>ここで <span class="math notranslate nohighlight">\(O(h^2)\)</span> は誤差が刻み幅 <span class="math notranslate nohighlight">\(h\)</span> の2乗で小さくなることを意味する．ただし例外として，元の関数系が線形であれば，当然この評価は厳密な積分値を与える．</p>
+<p>この考え方をさらに発展させ， <span class="math notranslate nohighlight">\(x_{i-1}, x_{i}, x_{i+1}\)</span> の3点の関数値 <span class="math notranslate nohighlight">\(f_{i-1}, f_{i}, f_{i+1}\)</span> から関数系を2次関数で近似すれば，以下の <em>Simpsonの公式</em> が得られる．</p>
+<div class="math notranslate nohighlight">
 \[S = \frac{h}{3}
  \left[ f(x_0) + 4 \sum_{j=1}^{N/2} f(x_{2j-1}) +
   2 \sum_{j=1}^{N/2-1} f(x_{2j}) + f(x_N)
  \right]
 + O(h^4).\]</div>
-<p>ここでSimpsonの公式の誤差は <span class="math">\(h\)</span> の4乗に比例する．当然ながら同じ精度を実現するために必要な計算量はSimpsonの公式の方が台形公式よりも小さくて済む．</p>
-<p>Fortranプログラム中では <span class="math">\(f(x)\)</span> を関数として定義し，分割数 <span class="math">\(N\)</span> を適当に定めれば <code class="docutils literal"><span class="pre">do</span></code> ループによって総和計算をすることで積分値は簡単に求まる．例えば台形公式は以下のように実装することが出来る．</p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<p>ここでSimpsonの公式の誤差は <span class="math notranslate nohighlight">\(h\)</span> の4乗に比例する．当然ながら同じ精度を実現するために必要な計算量はSimpsonの公式の方が台形公式よりも小さくて済む．</p>
+<p>Fortranプログラム中では <span class="math notranslate nohighlight">\(f(x)\)</span> を関数として定義し，分割数 <span class="math notranslate nohighlight">\(N\)</span> を適当に定めれば <code class="docutils literal notranslate"><span class="pre">do</span></code> ループによって総和計算をすることで積分値は簡単に求まる．例えば台形公式は以下のように実装することが出来る．</p>
+<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -254,26 +242,26 @@
 <span class="n">integral</span> <span class="o">=</span> <span class="n">integral</span> <span class="o">*</span> <span class="n">dx</span>
 </pre></div>
 </td></tr></table></div>
-<p>ただし，ここで <code class="docutils literal"><span class="pre">f(x)</span></code> は被積分関数である．</p>
+<p>ただし，ここで <code class="docutils literal notranslate"><span class="pre">f(x)</span></code> は被積分関数である．</p>
 </div>
 <div class="section" id="id11">
 <h2><a class="toc-backref" href="#id26">8.4. 乱数</a><a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
 <div><a class="reference internal" href="chap08_sample5.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>確率的な現象を計算機を用いて模擬する際には乱数を用いることになる．ただし計算機で用いることのできる乱数は擬似乱数と呼ばれ，乱数のように見えるが実際には決定論的な手法に基づき生成される数列である．従って質の良い(周期の長い)乱数を用いなければ，用途によっては乱数とみなすことのできない場合もあるため注意が必要である．</p>
-<p>Fortranには乱数を発生させる組込みのサブルーチン <code class="docutils literal"><span class="pre">random_number</span></code> が存在する．</p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">call </span><span class="nb">random_number</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<p>Fortranには乱数を発生させる組込みのサブルーチン <code class="docutils literal notranslate"><span class="pre">random_number</span></code> が存在する．</p>
+<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">call </span><span class="nb">random_number</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>とすれば <code class="docutils literal"><span class="pre">x</span></code> に区間 <span class="math">\([0,1)\)</span> の一様乱数が代入される．<code class="docutils literal"><span class="pre">x</span></code> は実数型(単精度もしくは倍精度)であれば配列でも良い．配列の場合は全ての要素に一様乱数が代入される．</p>
-<p>擬似乱数は決定論的な数列であることは既に述べた通りであるが，その初期値を指定することも出来る．これは乱数のシード(seed)と呼ばれ，組込みのサブルーチン <code class="docutils literal"><span class="pre">random_seed</span></code> を用いて行うことが出来る．使い方は</p>
+<p>とすれば <code class="docutils literal notranslate"><span class="pre">x</span></code> に区間 <span class="math notranslate nohighlight">\([0,1)\)</span> の一様乱数が代入される．<code class="docutils literal notranslate"><span class="pre">x</span></code> は実数型(単精度もしくは倍精度)であれば配列でも良い．配列の場合は全ての要素に一様乱数が代入される．</p>
+<p>擬似乱数は決定論的な数列であることは既に述べた通りであるが，その初期値を指定することも出来る．これは乱数のシード(seed)と呼ばれ，組込みのサブルーチン <code class="docutils literal notranslate"><span class="pre">random_seed</span></code> を用いて行うことが出来る．使い方は</p>
 <ol class="arabic simple">
 <li>シードを格納領域のサイズを取得(サイズはコンパイラ依存)</li>
-<li>必要な領域を確保( <code class="docutils literal"><span class="pre">allocate</span></code> を用いる)</li>
+<li>必要な領域を確保( <code class="docutils literal notranslate"><span class="pre">allocate</span></code> を用いる)</li>
 <li>シードを指定</li>
 </ol>
-<p>といった流れとなる．以下のサブルーチン <code class="docutils literal"><span class="pre">random_seed_clock</span></code> は計算機の時刻 <a class="footnote-reference" href="#id21" id="id12">[3]</a> に応じてシードを指定するものであり，これを用いれば実行する度に(時刻が異なるので)得られる乱数値が異なることが保証される．逆に固定のシードを用いるようにしておくと毎回同じ結果が得られるため，乱数を用いるプログラムをデバッグする際には都合が良い．</p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<p>といった流れとなる．以下のサブルーチン <code class="docutils literal notranslate"><span class="pre">random_seed_clock</span></code> は計算機の時刻 <a class="footnote-reference" href="#id21" id="id12">[3]</a> に応じてシードを指定するものであり，これを用いれば実行する度に(時刻が異なるので)得られる乱数値が異なることが保証される．逆に固定のシードを用いるようにしておくと毎回同じ結果が得られるため，乱数を用いるプログラムをデバッグする際には都合が良い．</p>
+<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -315,13 +303,13 @@
 </div>
 <div class="section" id="id15">
 <h3>8.5.2. 課題2<a class="headerlink" href="#id15" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>2次方程式 <span class="math">\(a x^2 + b x + c = 0\)</span>
+<p>2次方程式 <span class="math notranslate nohighlight">\(a x^2 + b x + c = 0\)</span>
 の解は以下の解の公式を用いて求めることが出来る．</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[x = \frac{-b \pm \sqrt{b^2 - 4 a c}}{2 a}\]</div>
-<p>しかしこの公式を単純に用いた場合には <span class="math">\(b^2 \gg 4 a c\)</span> の時には，桁落ちによってどちらか一方の解の精度が悪くなってしまう．このことを実際に確認し，式変形によってその精度を改善せよ．</p>
-<p>例えば <span class="math">\(a = 1, b = -10^{9}, c = 1\)</span> とした時の解は</p>
-<div class="math">
+<p>しかしこの公式を単純に用いた場合には <span class="math notranslate nohighlight">\(b^2 \gg 4 a c\)</span> の時には，桁落ちによってどちらか一方の解の精度が悪くなってしまう．このことを実際に確認し，式変形によってその精度を改善せよ．</p>
+<p>例えば <span class="math notranslate nohighlight">\(a = 1, b = -10^{9}, c = 1\)</span> とした時の解は</p>
+<div class="math notranslate nohighlight">
 \[x \simeq 1.\underbrace{000000000000000}_{0が15個} \times 10^{9}, \quad
 1.\underbrace{000000000000000}_{0が15個} \times 10^{-9}\]</div>
 <p>であるが，解の公式を用いた場合と式変形によって桁落ち対策をした場合で数値解を比較せよ．</p>
@@ -329,39 +317,39 @@
 <div class="section" id="id16">
 <h3>8.5.3. 課題3<a class="headerlink" href="#id16" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>Newton法では関数の微分値を解析的に与えて用いるが，割線法(Secant
-method)と呼ばれる手法では連続した2つの近似解を用いて，微分を差分で近似する．即ち <span class="math">\(n\)</span> 番目の近似解を <span class="math">\(x_n\)</span> と書いたときに，Newton法の公式</p>
-<div class="math">
+method)と呼ばれる手法では連続した2つの近似解を用いて，微分を差分で近似する．即ち <span class="math notranslate nohighlight">\(n\)</span> 番目の近似解を <span class="math notranslate nohighlight">\(x_n\)</span> と書いたときに，Newton法の公式</p>
+<div class="math notranslate nohighlight">
 \[x_{n+1} = x_{n} - \frac{f(x_{n})}{f'(x_{n})}\]</div>
 <p>において，微分値を以下のように近似する．</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[f'(x_n) \simeq \frac{f(x_{n}) - f(x_{n-1})}{x_{n} - x_{n-1}}\]</div>
 <p>(この手法では微分値の計算をする必要がないため，反復1回あたりの計算量が少なくなる可能性があるが，収束はNewton法よりも少し遅くなる．)</p>
 <p>この割線法を実装し，以下の方程式</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[f(x) = \frac{1-x}{\sqrt{M}} - \exp(x)\]</div>
-<p>を数値的に解くことで，その収束の速さを二分法およびNewton法と比較せよ．ただし <span class="math">\(M= 1836\)</span> とする．なお解は <span class="math">\(x \simeq -2.5\)</span> なので二分法ではこの前後に2つの初期値を指定すればよい．割線法も2つ初期値が必要になるが，(この関数に関しては)初期値には敏感ではないので，例えば0と1を初期値として用いればよい．ここでは収束の速さを比較すればよいので，各反復ごとの収束判定はせずに20回程度の反復を行い誤差の減少の様子をgnuplotを用いて図示せよ．ただし連続する2つの近似解の差を誤差と定義する．</p>
+<p>を数値的に解くことで，その収束の速さを二分法およびNewton法と比較せよ．ただし <span class="math notranslate nohighlight">\(M= 1836\)</span> とする．なお解は <span class="math notranslate nohighlight">\(x \simeq -2.5\)</span> なので二分法ではこの前後に2つの初期値を指定すればよい．割線法も2つ初期値が必要になるが，(この関数に関しては)初期値には敏感ではないので，例えば0と1を初期値として用いればよい．ここでは収束の速さを比較すればよいので，各反復ごとの収束判定はせずに20回程度の反復を行い誤差の減少の様子をgnuplotを用いて図示せよ．ただし連続する2つの近似解の差を誤差と定義する．</p>
 </div>
 <div class="section" id="id17">
 <h3>8.5.4. 課題4<a class="headerlink" href="#id17" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p><span class="math">\(f(x) = \dfrac{4}{\pi} \dfrac{1}{1 + x^2}\)</span> および <span class="math">\(f(x) = (n+1) \ x^{n} \ (n = 0, \ldots, 5)\)</span> のそれぞれについて</p>
-<div class="math">
+<p><span class="math notranslate nohighlight">\(f(x) = \dfrac{4}{\pi} \dfrac{1}{1 + x^2}\)</span> および <span class="math notranslate nohighlight">\(f(x) = (n+1) \ x^{n} \ (n = 0, \ldots, 5)\)</span> のそれぞれについて</p>
+<div class="math notranslate nohighlight">
 \[\int_{0}^{1} f(x) dx\]</div>
-<p>の積分を台形公式およびSimpsonの公式で数値的に行い，誤差の分割数に対する依存性をgnuplotを用いて図示せよ．例えば分割数を <span class="math">\(2^{n} (n=1, 2, \ldots, 16)\)</span> の範囲で変えて依存性を調べれば良い．またそのような依存性となるのはなぜか?</p>
+<p>の積分を台形公式およびSimpsonの公式で数値的に行い，誤差の分割数に対する依存性をgnuplotを用いて図示せよ．例えば分割数を <span class="math notranslate nohighlight">\(2^{n} (n=1, 2, \ldots, 16)\)</span> の範囲で変えて依存性を調べれば良い．またそのような依存性となるのはなぜか?</p>
 </div>
 <div class="section" id="id18">
 <h3>8.5.5. 課題5<a class="headerlink" href="#id18" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>一様乱数を用いてある確率分布に従う乱数を発生させるために逆関数を用いる方法(変換法や逆関数法などと呼ばれる)を考える．区間 <span class="math">\([0, 1]\)</span> での一様乱数 <span class="math">\(x\)</span> およびその確率分布 <span class="math">\(f(x)\)</span> ，また必要な乱数 <span class="math">\(y\)</span> とその確率分布 <span class="math">\(g(y)\)</span> とする． <span class="math">\(y\)</span> を <span class="math">\(x\)</span> から何らかの変換で <span class="math">\(y = P(x)\)</span> のように表すとき，確率密度の保存から</p>
-<div class="math">
+<p>一様乱数を用いてある確率分布に従う乱数を発生させるために逆関数を用いる方法(変換法や逆関数法などと呼ばれる)を考える．区間 <span class="math notranslate nohighlight">\([0, 1]\)</span> での一様乱数 <span class="math notranslate nohighlight">\(x\)</span> およびその確率分布 <span class="math notranslate nohighlight">\(f(x)\)</span> ，また必要な乱数 <span class="math notranslate nohighlight">\(y\)</span> とその確率分布 <span class="math notranslate nohighlight">\(g(y)\)</span> とする． <span class="math notranslate nohighlight">\(y\)</span> を <span class="math notranslate nohighlight">\(x\)</span> から何らかの変換で <span class="math notranslate nohighlight">\(y = P(x)\)</span> のように表すとき，確率密度の保存から</p>
+<div class="math notranslate nohighlight">
 \[g(y) d y = f(x) dx = d x\]</div>
 <p>が成り立つ．(最後の等式は一様乱数であることから自明である．)
 この両辺を積分して</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[x = \int^{y} g(y') d y' \equiv G(y)\]</div>
 <p>(この時の積分定数は適当にとれば良い．) これより</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[y = G^{-1} (x)\]</div>
-<p>を得る．即ち， <span class="math">\(G^{-1} (x)\)</span> を解析的に求めることができれば，一様乱数 <span class="math">\(x\)</span> を用いて必要な確率分布 <span class="math">\(g(y)\)</span> に従う乱数を作ることができる．このことを用いて指数分布</p>
-<div class="math">
+<p>を得る．即ち， <span class="math notranslate nohighlight">\(G^{-1} (x)\)</span> を解析的に求めることができれば，一様乱数 <span class="math notranslate nohighlight">\(x\)</span> を用いて必要な確率分布 <span class="math notranslate nohighlight">\(g(y)\)</span> に従う乱数を作ることができる．このことを用いて指数分布</p>
+<div class="math notranslate nohighlight">
 \[g(y; \lambda) = \lambda \exp(-\lambda y)\]</div>
 <p>に従う乱数分布を発生させるプログラムを作成せよ．また分布のヒストグラムを作成し，gnuplotを用いてヒストグラムを解析的な分布と共に図示し，乱数の発生数を増やした時に乱数分布が真の分布に近づくことを確かめよ．</p>
 <hr class="docutils" />
@@ -447,7 +435,7 @@ method)と呼ばれる手法では連続した2つの近似解を用いて，微
           
     <div class="footer" role="contentinfo">
         &#169; Copyright 2018, Takanobu Amano.
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.6 で生成しました。
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.9 で生成しました。
     </div>
         </div>
         <div class="clearer"></div>

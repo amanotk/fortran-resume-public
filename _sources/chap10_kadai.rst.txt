@@ -1,8 +1,5 @@
 .. -*- coding: utf-8 -*-
 
-.. highlight:: fortran
-  :linenothreshold: 1
-
 演習課題
 ========
 
@@ -31,7 +28,7 @@
 
 -  代入演算子が配列を受け取れるようにせよ．即ち，
 
-::
+.. code-block:: fortran
 
       a = (/0, 1, 2/)
 
@@ -39,7 +36,7 @@
 
 -  サンプルでは\ ``append``\ によって単一の値をリストの終端に追加しているが，配列を与えた場合にはその各要素をリストに追加するように拡張せよ．ただしオーバーロードを用いることで，どちらも同じサブルーチン名\ ``append``\ で行うようにせよ．
 
-::
+.. code-block:: fortran
 
       call append(a, 3)
       call append(a, (/4, 5/))
@@ -48,7 +45,7 @@
 
 -  同様にinsertでも配列を追加できるようにせよ．
 
-::
+.. code-block:: fortran
 
       call insert(a, 1, -1)
       call insert(a, 1, (/-3, -2/))
