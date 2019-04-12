@@ -55,7 +55,7 @@
           <div class="body" role="main">
             
   <div class="section" id="id1">
-<h1><a class="toc-backref" href="#id31">2. プログラムの作成と実行</a><a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1><a class="toc-backref" href="#id32">2. プログラムの作成と実行</a><a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>まずは計算機が実行するプログラムの作成および実行する方法を学び，Fortranプログラムの基本的な構造について理解しよう．</p>
 <blockquote>
 <div><p>サンプルプログラム</p>
@@ -69,17 +69,17 @@
 <div class="contents topic" id="id2">
 <p class="topic-title first">この章の内容</p>
 <ul class="simple">
-<li><a class="reference internal" href="#id1" id="id31">プログラムの作成と実行</a><ul>
-<li><a class="reference internal" href="#hello-world" id="id32">Hello, world !</a></li>
-<li><a class="reference internal" href="#id5" id="id33">ソースコードの基本</a></li>
-<li><a class="reference internal" href="#id12" id="id34">ソースコード編集にまつわるエトセトラ <sup>†</sup></a></li>
-<li><a class="reference internal" href="#id20" id="id35">演習課題</a></li>
+<li><a class="reference internal" href="#id1" id="id32">プログラムの作成と実行</a><ul>
+<li><a class="reference internal" href="#hello-world" id="id33">Hello, world !</a></li>
+<li><a class="reference internal" href="#id5" id="id34">ソースコードの基本</a></li>
+<li><a class="reference internal" href="#id12" id="id35">ソースコード編集にまつわるエトセトラ <sup>†</sup></a></li>
+<li><a class="reference internal" href="#id20" id="id36">第2章 演習課題</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="hello-world">
-<h2><a class="toc-backref" href="#id32">2.1. Hello, world !</a><a class="headerlink" href="#hello-world" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><a class="toc-backref" href="#id33">2.1. Hello, world !</a><a class="headerlink" href="#hello-world" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
 <div><a class="reference internal" href="chap02_sample1.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>プログラミング言語を学ぶ時には &quot;Hello, world !&quot; を表示するプログラムから始めるのが慣例になっている．以下に示したものがその最初のプログラムである．</p>
@@ -92,7 +92,7 @@
 <span class="k">end program </span><span class="n">sample</span>
 </pre></div>
 </td></tr></table></div>
-<p>これはソースコードと呼ばれ，人間が読める形式で記述されるテキストファイルである．拡張子はFortran 90/95の場合は <code class="docutils literal notranslate"><span class="pre">.f90</span></code> とする <a class="footnote-reference" href="#id23" id="id3">[1]</a>．プログラムを実行するには，これをコンパイラと呼ばれるプログラムを用いて実行形式(計算機が読み込んで実行することができる形式)に変換してやる必要がある．これをコンパイルと言う．この演習ではgfortranというコンパイラを用いることにしよう．(Intel製のifortというコンパイラがLinux環境では個人利用では無償で使うことが出来ていたのだが，Intelの方針転換で最近は使えなくなってしまったようだ．) カレントディレクトリに <code class="docutils literal notranslate"><span class="pre">sample1.f90</span></code> というファイルがあることを確認して，ターミナルで以下のコマンドを実行しよう．</p>
+<p>これはソースコードと呼ばれ，人間が読める形式で記述されるテキストファイルである．拡張子はFortran 90/95の場合は <code class="docutils literal notranslate"><span class="pre">.f90</span></code> とする <a class="footnote-reference" href="#id24" id="id3">[1]</a>．プログラムを実行するには，これをコンパイラと呼ばれるプログラムを用いて実行形式(計算機が読み込んで実行することができる形式)に変換してやる必要がある．これをコンパイルと言う．この演習ではgfortranというコンパイラを用いることにしよう．(Intel製のifortというコンパイラがLinux環境では個人利用では無償で使うことが出来ていたのだが，Intelの方針転換で最近は使えなくなってしまったようだ．) カレントディレクトリに <code class="docutils literal notranslate"><span class="pre">sample1.f90</span></code> というファイルがあることを確認して，ターミナルで以下のコマンドを実行しよう．</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ gfortran sample1.f90
 $ ./a.out
 Hello, world !
@@ -107,10 +107,10 @@ Hello, world !
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ man gfortran
 </pre></div>
 </div>
-<p>で調べて欲しい．まあよく使うようなオプションはせいぜい数個程度であろう．このように，どんなプログラムであっても基本的にはemacsやvi等のエディタでソースコードを編集し，コンパイル，最後に実行という流れになる <a class="footnote-reference" href="#id24" id="id4">[2]</a>．</p>
+<p>で調べて欲しい．まあよく使うようなオプションはせいぜい数個程度であろう．このように，どんなプログラムであっても基本的にはemacsやvi等のエディタでソースコードを編集し，コンパイル，最後に実行という流れになる <a class="footnote-reference" href="#id25" id="id4">[2]</a>．</p>
 </div>
 <div class="section" id="id5">
-<h2><a class="toc-backref" href="#id33">2.2. ソースコードの基本</a><a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><a class="toc-backref" href="#id34">2.2. ソースコードの基本</a><a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
 <div><a class="reference internal" href="chap02_sample2.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>以下に示すサンプルを例にとってFortranのソースコードの基本的な構造を説明しよう．</p>
@@ -163,7 +163,7 @@ Hello, world !
 </div>
 <div class="section" id="id7">
 <h3>2.2.2. コメント<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>ソースコードには計算機に実行させる命令だけでなくコメント(注釈)を含めることができる．Fortranでは &quot;!&quot; から行末までがコメントとみなされる．コメントはプログラムの実行とは無関係であり，コンパイル時には単純に無視される．ソースコードはプログラミング言語固有のキーワードなどで記述されているため人間には理解しづらいのに対して，コメントには人間が理解できるように自由に説明を加えることができる．コメントはソースコードの可読性を良くするものなので積極的に活用すべきである <a class="footnote-reference" href="#id25" id="id8">[3]</a>．なおコメントには日本語を用いても問題ないが，それ以外の部分に日本語を使うとコンパイル時にエラーとなる．特に気づきにくいのがソースコード中に全角スペースが混じってしまってコンパイルが通らないという現象である．エディタにemacsを用いている場合は，後に見るように設定によってこの問題を回避出来る．</p>
+<p>ソースコードには計算機に実行させる命令だけでなくコメント(注釈)を含めることができる．Fortranでは &quot;!&quot; から行末までがコメントとみなされる．コメントはプログラムの実行とは無関係であり，コンパイル時には単純に無視される．ソースコードはプログラミング言語固有のキーワードなどで記述されているため人間には理解しづらいのに対して，コメントには人間が理解できるように自由に説明を加えることができる．コメントはソースコードの可読性を良くするものなので積極的に活用すべきである <a class="footnote-reference" href="#id26" id="id8">[3]</a>．なおコメントには日本語を用いても問題ないが，それ以外の部分に日本語を使うとコンパイル時にエラーとなる．特に気づきにくいのがソースコード中に全角スペースが混じってしまってコンパイルが通らないという現象である．エディタにemacsを用いている場合は，後に見るように設定によってこの問題を回避出来る．</p>
 </div>
 <div class="section" id="id9">
 <h3>2.2.3. プログラムの構造<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -189,11 +189,11 @@ Hello, world !
 </div>
 <div class="section" id="id10">
 <h3>2.2.4. 継続行<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Fortranでは1行が132文字以下でなければいけないという制限が課せられている．1行に収まらない長い文を記述するには行の最後に <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> を記述することで，次の行へと継続することが出来る．実際には80文字とか100文字とか(要するにエディタの表示範囲で)改行する方がプログラムが読みやすくなる．サンプルの16-17行目のような形で記述すればよい．17行目の <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> は必ずしも必要では無いが，あった方が読みやすいので入れておくことを推奨する．なおemacsでは改行したい位置で <code class="docutils literal notranslate"><span class="pre">C-c</span> <span class="pre">RET</span></code> と打つと <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> を自動で挿入して字下げまでしてくれる <a class="footnote-reference" href="#id26" id="id11">[4]</a>．</p>
+<p>Fortranでは1行が132文字以下でなければいけないという制限が課せられている．1行に収まらない長い文を記述するには行の最後に <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> を記述することで，次の行へと継続することが出来る．実際には80文字とか100文字とか(要するにエディタの表示範囲で)改行する方がプログラムが読みやすくなる．サンプルの16-17行目のような形で記述すればよい．17行目の <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> は必ずしも必要では無いが，あった方が読みやすいので入れておくことを推奨する．なおemacsでは改行したい位置で <code class="docutils literal notranslate"><span class="pre">C-c</span> <span class="pre">RET</span></code> と打つと <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> を自動で挿入して字下げまでしてくれる <a class="footnote-reference" href="#id27" id="id11">[4]</a>．</p>
 </div>
 </div>
 <div class="section" id="id12">
-<h2><a class="toc-backref" href="#id34">2.3. ソースコード編集にまつわるエトセトラ <sup>†</sup></a><a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><a class="toc-backref" href="#id35">2.3. ソースコード編集にまつわるエトセトラ <sup>†</sup></a><a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>ソースコードの編集に用いるソフトウェアはテキスト形式のファイルが編集できるものであればどんなものであっても構わない．しかし世の中には専用に開発された便利なものがあるので利用しない手は無い．この演習ではemacsの使用を推奨することにする．Visual Studio や Eclipse などを使ったことのある人にはビックリするほど簡易な環境ではあるが，リモートマシンでソースコードの編集をする機会が多い人間にはその方が良いのである．ちなみに emacs はそのようないわゆる統合開発環境に負けないくらいの機能も有している．ただ単に使いこなすのが難しいだけなので，興味のある人は自分でどんどん調べてカスタマイズしていくと良い．</p>
 <p>以下ではemacsで(Fortranに限らず)ソースコードを編集する際に知っておいた方が良いことや，便利な設定などをほんの一部だけ紹介する．知らなくても効率が悪くなるだけで何かが出来なくなるわけではないので興味のない人は無視してもらって構わない．</p>
 <div class="section" id="control-capslock-setxkbmap">
@@ -226,7 +226,7 @@ add <span class="nv">Control</span> <span class="o">=</span> Control_L
 </div>
 <div class="section" id="id13">
 <h3>2.3.3. 基本的な編集作業<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>まずマウスを使わずに作業できるようになることを目標にしよう．なぜなら将来リモートマシンにログインして作業する際にはマウスを使うことは出来ないからだ <a class="footnote-reference" href="#id27" id="id14">[5]</a>．</p>
+<p>まずマウスを使わずに作業できるようになることを目標にしよう．なぜなら将来リモートマシンにログインして作業する際にはマウスを使うことは出来ないからだ <a class="footnote-reference" href="#id28" id="id14">[5]</a>．</p>
 <p>既にこれまでの演習で学んだことだとは思うがemacsでは( <code class="docutils literal notranslate"><span class="pre">Control</span></code> キーと <code class="docutils literal notranslate"><span class="pre">CapsLock</span></code> を交換しておけば)キーボードのホームポジションから手を動かさずに全ての作業が出来るようになっている．これにはカーソルキーに対応する <code class="docutils literal notranslate"><span class="pre">C-n</span></code> (↓ <code class="docutils literal notranslate"><span class="pre">next-line</span></code>)，<code class="docutils literal notranslate"><span class="pre">C-p</span></code> (↑ <code class="docutils literal notranslate"><span class="pre">previous-line</span></code>)，<code class="docutils literal notranslate"><span class="pre">C-f</span></code> (→ <code class="docutils literal notranslate"><span class="pre">forward-char</span></code>)，<code class="docutils literal notranslate"><span class="pre">C-b</span></code> (← <code class="docutils literal notranslate"><span class="pre">backward-char</span></code>)，と <code class="docutils literal notranslate"><span class="pre">Delete</span></code> キーに対応する <code class="docutils literal notranslate"><span class="pre">C-h</span></code> は必須である．また <code class="docutils literal notranslate"><span class="pre">C-a</span></code> (行頭へ移動)，<code class="docutils literal notranslate"><span class="pre">C-e</span></code> (行末へ移動) や，<code class="docutils literal notranslate"><span class="pre">C-k</span></code> (カーソルから行末までを削除) もよく使うので覚えておこう．ちなみにemacsとは関係無いが，多くの環境で Alt-Tabによってウィンドウの切り替えが出来る．またターミナルでのコマンドライン編集時にもemacsと同じキーバインドが使える場合が多いので，これらを覚えておくだけでマウスの使用頻度が激減すること請け合いである．</p>
 <p>viユーザーの名誉のために述べておくと，当然のようにviでも( <code class="docutils literal notranslate"><span class="pre">Escape</span></code> の場所を適切にしておけば)ホームポジションから一切手を動かす必要が無い．更に言うとviでは片手でコーヒーを飲みながらカーソル移動が出来るので，少なくともこの点ではviの方が優れている(なので余裕があればviも勉強しよう)．</p>
 </div>
@@ -255,21 +255,21 @@ add <span class="nv">Control</span> <span class="o">=</span> Control_L
 </pre></div>
 </div>
 <p>なお上の設定では行末のスペースやタブなども表示するように設定されているが，このあたりは完全に好みである．以下はemacsでソースコードを編集中のスクリーンショットである．</p>
-<div class="figure" id="id29">
+<div class="figure" id="id30">
 <img alt="_images/emacs.png" src="_images/emacs.png" />
 <p class="caption"><span class="caption-text">Emacsのスクリーンショット</span></p>
 </div>
 </div>
 <div class="section" id="id17">
 <h3>2.3.7. 複数ファイルの編集<a class="headerlink" href="#id17" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>真のemacs使いはいちいちemacsを立ち上げたり終了したりはしない．常にemacsを立ち上げておき，複数のファイル(emacsではバッファと呼ぶ)を縦横無尽に切り替えながら編集するのである <a class="footnote-reference" href="#id28" id="id18">[6]</a>．<code class="docutils literal notranslate"><span class="pre">C-x</span> <span class="pre">f</span></code> で新しいファイルを開くことは当然出来るとして，過去に編集していたバッファに切り替える方法を覚えておこう．<code class="docutils literal notranslate"><span class="pre">C-x</span> <span class="pre">b</span></code> でミニバッファに既に開いているバッファ名(ファイル名)を入力するとそのバッファに移ることが出来る．またTabによる補完も使うことが出来る．<code class="docutils literal notranslate"><span class="pre">C-x</span> <span class="pre">C-b</span></code> では現在開いているバッファの一覧が表示され，選択することでそのバッファに移ることが出来る．</p>
+<p>真のemacs使いはいちいちemacsを立ち上げたり終了したりはしない．常にemacsを立ち上げておき，複数のファイル(emacsではバッファと呼ぶ)を縦横無尽に切り替えながら編集するのである <a class="footnote-reference" href="#id29" id="id18">[6]</a>．<code class="docutils literal notranslate"><span class="pre">C-x</span> <span class="pre">f</span></code> で新しいファイルを開くことは当然出来るとして，過去に編集していたバッファに切り替える方法を覚えておこう．<code class="docutils literal notranslate"><span class="pre">C-x</span> <span class="pre">b</span></code> でミニバッファに既に開いているバッファ名(ファイル名)を入力するとそのバッファに移ることが出来る．またTabによる補完も使うことが出来る．<code class="docutils literal notranslate"><span class="pre">C-x</span> <span class="pre">C-b</span></code> では現在開いているバッファの一覧が表示され，選択することでそのバッファに移ることが出来る．</p>
 <p>なお最近ではemacsにもタブ(タブブラウザのあれである)を導入することが出来るらしい．興味のある人は <code class="docutils literal notranslate"><span class="pre">tabbar.el</span></code> で調べてみよう．</p>
 </div>
 <div class="section" id="id19">
 <h3>2.3.8. まとめ<a class="headerlink" href="#id19" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>細かいことはどうでもいいという実践派の人は以下の表を頭に入れておけばよい．正確には体が勝手に覚えるものなのだが．</p>
-<table border="1" class="colwidths-given docutils" id="id30">
-<caption><span class="caption-text">これだけは知っとけemacsのキーバインド</span><a class="headerlink" href="#id30" title="このテーブルへのパーマリンク">¶</a></caption>
+<table border="1" class="colwidths-given docutils" id="id31">
+<caption><span class="caption-text">これだけは知っとけemacsのキーバインド</span><a class="headerlink" href="#id31" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col width="33%" />
 <col width="67%" />
@@ -354,7 +354,7 @@ add <span class="nv">Control</span> <span class="o">=</span> Control_L
 </div>
 </div>
 <div class="section" id="id20">
-<h2><a class="toc-backref" href="#id35">2.4. 演習課題</a><a class="headerlink" href="#id20" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><a class="toc-backref" href="#id36">2.4. 第2章 演習課題</a><a class="headerlink" href="#id20" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="id21">
 <h3>2.4.1. 課題1<a class="headerlink" href="#id21" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>サンプルプログラムをコンパイル・実行して動作を確認せよ．</p>
@@ -362,38 +362,55 @@ add <span class="nv">Control</span> <span class="o">=</span> Control_L
 <div class="section" id="id22">
 <h3>2.4.2. 課題2<a class="headerlink" href="#id22" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>サンプルプログラムをエディタで修正，コンパイルし、実行して結果を確認せよ．例えば <a class="reference internal" href="chap02_sample1.html"><span class="doc">sample1.f90</span></a> の出力を <code class="docutils literal notranslate"><span class="pre">Hello,</span> <span class="pre">Fortran</span> <span class="pre">!</span></code> に変更して出力を確認せよ．</p>
+</div>
+<div class="section" id="id23">
+<h3>2.4.3. 課題3 <sup>†</sup><a class="headerlink" href="#id23" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>本演習では扱わないが，C言語やPythonの場合についてもプログラムの実行の方法も知っておこう．</p>
+<p>C言語はFortranと同じようにコンパイル言語なので，ソースをコンパイルして実行する．C言語のコンパイラとしては <code class="docutils literal notranslate"><span class="pre">gcc</span></code> を用いることが出来る．ここでは <a class="reference external" href="sample/chap02/hello.c">chap02/hello.c</a> をコンパイル，実行してみよう．</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ gcc hello.c
+$ ./a.out
+Hello, world !
+</pre></div>
+</div>
+<p>このように，コンパイラのコマンドとして <code class="docutils literal notranslate"><span class="pre">gcc</span></code> を使うこと以外は基本的に同じである．</p>
+<p>Pythonはスクリプト言語と呼ばれ，コンパイルが必要なく，直接ソースから実行することが出来る．ここでは <a class="reference external" href="sample/chap02/hello.py">chap02/hello.py</a> を実行してみよう．</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ./hello.py
+Hello, world !
+</pre></div>
+</div>
+<p>プログラムの規模が大きくなってくると，次第にコンパイルにも時間がかかるようになってくるが，Pythonのような言語ではコンパイルの必要がないことが大きな利点となる．一方で実行速度は（書き方に大きく依存するものの）C言語やFortranの方が一般には高速である．</p>
 <hr class="docutils" />
-<table class="docutils footnote" frame="void" id="id23" rules="none">
+<table class="docutils footnote" frame="void" id="id24" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id3">[1]</a></td><td>Fortran 77では <code class="docutils literal notranslate"><span class="pre">.f</span></code> である．</td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id24" rules="none">
+<table class="docutils footnote" frame="void" id="id25" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id4">[2]</a></td><td>そうでない場合もあるのだが，とりあえず今は気にしないことにしよう．</td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id25" rules="none">
+<table class="docutils footnote" frame="void" id="id26" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id8">[3]</a></td><td>自分が3日前に書いたコードが何をしているか理解できないというのは日常茶飯事である．</td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id26" rules="none">
+<table class="docutils footnote" frame="void" id="id27" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id11">[4]</a></td><td>このようにキーバインドを表す際には <code class="docutils literal notranslate"><span class="pre">C</span></code> がControl，<code class="docutils literal notranslate"><span class="pre">M</span></code> がMetaキーを表す．例えば <code class="docutils literal notranslate"><span class="pre">C-x</span></code> はControlキーを押しながら <code class="docutils literal notranslate"><span class="pre">x</span></code> キーを押すことを，<code class="docutils literal notranslate"><span class="pre">M-x</span></code> はEscapeキーを押して <em>離してから</em> <code class="docutils literal notranslate"><span class="pre">x</span></code> キーを押すことを意味する．</td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id27" rules="none">
+<table class="docutils footnote" frame="void" id="id28" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id14">[5]</a></td><td>出来ないことも無いのだが，やっぱり何をするのにも遅くてイライラするので．</td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id28" rules="none">
+<table class="docutils footnote" frame="void" id="id29" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id18">[6]</a></td><td>emacs上でコンパイルしたり，emacsをターミナル代わりに使う人もいるのだが少しばかりマニアックな話題なので各自で調べて欲しい．</td></tr>
@@ -416,7 +433,7 @@ add <span class="nv">Control</span> <span class="o">=</span> Control_L
 <li class="toctree-l2"><a class="reference internal" href="#hello-world">2.1. Hello, world !</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id5">2.2. ソースコードの基本</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id12">2.3. ソースコード編集にまつわるエトセトラ <sup>†</sup></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id20">2.4. 演習課題</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id20">2.4. 第2章 演習課題</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="chap03.html">3. 変数・データ型・基本的な計算</a></li>

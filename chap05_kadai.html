@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>演習課題 &#8212; Fortran演習(地球惑星物理学演習)</title>
+    <title>第5章 演習課題 &#8212; Fortran演習(地球惑星物理学演習)</title>
     <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -49,7 +49,7 @@
           <div class="body" role="main">
             
   <div class="section" id="id1">
-<h1>演習課題<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>第5章 演習課題<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="id2">
 <h2>課題1<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>サンプルプログラムをコンパイル・実行して動作を確認せよ．さらに，適宜修正してその実行結果を確認せよ．</p>
@@ -84,7 +84,7 @@
  Standard deviation :    <span class="m">25</span>.115201240152015
 </pre></div>
 </div>
-<p>なおデータファイルには，1行目にデータ数 <span class="math notranslate nohighlight">\(N\)</span> ，それ以降に各データ <span class="math notranslate nohighlight">\(x_i\)</span> が記述されているので，まずはデータ数を読み込み配列のメモリを <code class="docutils literal notranslate"><span class="pre">allocate</span></code> した後に各データを読み込めば良い．</p>
+<p>なおデータファイルには，1行目にデータ数 <span class="math notranslate nohighlight">\(N\)</span> ，それ以降に各データ <span class="math notranslate nohighlight">\(x_i\)</span> が記述されているので，まずはデータ数を読み込み配列のメモリを <code class="docutils literal notranslate"><span class="pre">allocate</span></code> した後に各データを読み込めば良い．( <a class="reference internal" href="chap05_sample3.html"><span class="doc">sample3.f90</span></a> を参照せよ．)</p>
 </div>
 <div class="section" id="id5">
 <h2>課題4<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -100,29 +100,56 @@
 <div class="section" id="id6">
 <h2>課題5<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>標準入力からベクトルと行列を読み込み，積を計算して表示するプログラムを作成せよ．これについても2重<code class="docutils literal notranslate"><span class="pre">do</span></code> ループを用いて地道に計算した結果と，組込み関数 <code class="docutils literal notranslate"><span class="pre">matmul</span></code> を用いた結果を比較すること．</p>
-<p>以下はデータファイル <a class="reference external" href="data/matvec.dat">matvec.dat</a> を入力とした場合の結果である．</p>
+<p>以下はデータファイル <a class="reference external" href="data/matvec.dat">matvec.dat</a> を入力とした場合の結果である．これと同じ結果が得られることを確認せよ．</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ /a.out &lt; matvec.dat
  Matrix-vector product with <span class="k">do</span> loop
-   <span class="m">1</span>.0000000000000000
-  -1.0000000000000000
+ -0.10000000000000001
+ -0.89999999999999991
  -0.50000000000000000
   <span class="m">0</span>.50000000000000000
-  -1.5000000000000000
-   <span class="m">1</span>.5000000000000000
-   <span class="m">1</span>.0000000000000000
-  -1.0000000000000000
+ -1.5000000000000000
+  <span class="m">1</span>.5000000000000000
+  <span class="m">1</span>.2000000000000000
+ -2.3999999999999999
  Matrix-vector product with matmul
-   <span class="m">1</span>.0000000000000000
-  -1.0000000000000000
+ -0.10000000000000001
+ -0.89999999999999991
  -0.50000000000000000
   <span class="m">0</span>.50000000000000000
-  -1.5000000000000000
-   <span class="m">1</span>.5000000000000000
-   <span class="m">1</span>.0000000000000000
-  -1.0000000000000000
+ -1.5000000000000000
+  <span class="m">1</span>.5000000000000000
+  <span class="m">1</span>.2000000000000002
+ -2.3999999999999999
 </pre></div>
 </div>
 <p>データは，ベクトルの長さ <span class="math notranslate nohighlight">\(N\)</span> ，ベクトルの要素( <span class="math notranslate nohighlight">\(N\)</span> 個)，行列の各要素( <span class="math notranslate nohighlight">\(N^2\)</span> 個)，が順に並んでいるものとする．また行列の要素は <span class="math notranslate nohighlight">\(a_{11}, a_{21}, a_{31} \ldots\)</span> の順に読み込まれることと，ベクトルと行列の積 <span class="math notranslate nohighlight">\(b_{i} = \sum_{j} a_{i,j} x_{j}\)</span> の添字の順番に注意せよ．</p>
+<p><code class="docutils literal notranslate"><span class="pre">matvec.dat</span></code> は以下のようなファイルになっているが，行列の部分をFortranで読み込むとあたかも転置行列を読み込んだような形になることに注意せよ．（実際に読み込んで確かめてみよ．）</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ cat matvec.dat
+ <span class="m">8</span>
+
+   <span class="m">0</span>.1
+   <span class="m">1</span>.0
+   <span class="m">1</span>.0
+   <span class="m">0</span>.5
+   <span class="m">0</span>.5
+  -1.0
+  -1.0
+   <span class="m">0</span>.2
+
+  -1.0    <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0
+   <span class="m">1</span>.0   -2.0    <span class="m">1</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0
+   <span class="m">0</span>.0    <span class="m">1</span>.0   -2.0    <span class="m">1</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0
+   <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">1</span>.0   -2.0    <span class="m">1</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0
+   <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">1</span>.0   -2.0    <span class="m">1</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0
+   <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">1</span>.0   -2.0    <span class="m">1</span>.0    <span class="m">0</span>.0
+   <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">1</span>.0   -2.0    <span class="m">1</span>.0
+   <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">2</span>.0   -2.0
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">Fortranの入力は数学的な「ベクトル」や「行列」を読んでいる訳ではなく，単なる数値の羅列を決められた順番で読み込む．それをどのように「ベクトル」や「行列」として解釈するのかはプログラムを書く人間が決めることである．( <a class="reference internal" href="chap05.html#c5-array-io"><span class="std std-ref">配列の入出力</span></a> を理解するまで熟読せよ．)</p>
+</div>
 </div>
 <div class="section" id="id7">
 <h2>課題6<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>

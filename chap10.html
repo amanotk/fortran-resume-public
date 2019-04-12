@@ -80,7 +80,7 @@
 <li><a class="reference internal" href="#id17" id="id40">デバッグのテクニック <sup>†</sup></a></li>
 <li><a class="reference internal" href="#c" id="id41">C言語とのリンク <sup>†</sup></a></li>
 <li><a class="reference internal" href="#fortran-77" id="id42">Fortran 77について <sup>†</sup></a></li>
-<li><a class="reference internal" href="#id22" id="id43">演習課題</a></li>
+<li><a class="reference internal" href="#id22" id="id43">第10章 演習課題</a></li>
 </ul>
 </li>
 </ul>
@@ -701,14 +701,14 @@ CPU Time [sec] :   0.8601E+00
 <p>To be written.</p>
 </div>
 <div class="section" id="id22">
-<h2><a class="toc-backref" href="#id43">10.8. 演習課題</a><a class="headerlink" href="#id22" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><a class="toc-backref" href="#id43">10.8. 第10章 演習課題</a><a class="headerlink" href="#id22" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="id23">
 <h3>10.8.1. 課題1<a class="headerlink" href="#id23" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>サンプルプログラムをコンパイル・実行して動作を確認せよ．さらに，適宜修正してその実行結果を確認せよ．</p>
 </div>
 <div class="section" id="id24">
 <h3>10.8.2. 課題2<a class="headerlink" href="#id24" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>任意の1変数関数<span class="math notranslate nohighlight">\(f(x)\)</span>およびその微分値を返す関数<span class="math notranslate nohighlight">\(f'(x)\)</span>を引数として受け取り，<span class="math notranslate nohighlight">\(f(x) = 0\)</span>の近似解をNewton法により求めるサブルーチンを実装し，その動作を確認せよ．ただし以下の条件を満たすこと．</p>
+<p>任意の1変数関数 <span class="math notranslate nohighlight">\(f(x)\)</span> およびその微分値を返す関数 <span class="math notranslate nohighlight">\(f'(x)\)</span> を引数として受け取り， <span class="math notranslate nohighlight">\(f(x) = 0\)</span> の近似解をNewton法により求めるサブルーチンを実装し，その動作を確認せよ．ただし以下の条件を満たすこと．</p>
 <ul class="simple">
 <li>初期値を引数として受け取る．</li>
 <li>無限ループにならないように最大の反復回数を引数として受け取る．</li>
@@ -717,20 +717,20 @@ CPU Time [sec] :   0.8601E+00
 <li>収束判定のステータスを返す．</li>
 <li>求まった近似解を返す(収束しなかった場合は最後の反復後の解の近似値)．</li>
 </ul>
-<p>(二分法のモジュール``bisection.f90``の<code class="docutils literal notranslate"><span class="pre">mod_bisection</span></code>を参考にすればよい．)</p>
+<p>(二分法のモジュール``bisection.f90`` の <code class="docutils literal notranslate"><span class="pre">mod_bisection</span></code> を参考にすればよい．)</p>
 </div>
 <div class="section" id="id25">
 <h3>10.8.3. 課題3 <sup>†</sup><a class="headerlink" href="#id25" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">list.f90</span></code>で定義されているリストを実装したモジュール<code class="docutils literal notranslate"><span class="pre">mod_list</span></code>へ以下の様な機能追加を試みよ．以下では<code class="docutils literal notranslate"><span class="pre">a</span></code>はリスト(<code class="docutils literal notranslate"><span class="pre">type(list_type)</span></code>)のポインタであるとする．</p>
+<p><code class="docutils literal notranslate"><span class="pre">list.f90</span></code> で定義されているリストを実装したモジュール <code class="docutils literal notranslate"><span class="pre">mod_list</span></code> へ以下の様な機能追加を試みよ．以下では <code class="docutils literal notranslate"><span class="pre">a</span></code> はリスト( <code class="docutils literal notranslate"><span class="pre">type(list_type)</span></code>)のポインタであるとする．</p>
 <ul class="simple">
 <li>代入演算子が配列を受け取れるようにせよ．即ち，</li>
 </ul>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">/</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>のようにリストに配列を代入すると元のリストを破棄し(正しく<code class="docutils literal notranslate"><span class="pre">deallocate</span></code>し)，与えられた配列でリストを初期化すること．</p>
+<p>のようにリストに配列を代入すると元のリストを破棄し(正しく <code class="docutils literal notranslate"><span class="pre">deallocate</span></code> し)，与えられた配列でリストを初期化すること．</p>
 <ul class="simple">
-<li>サンプルでは<code class="docutils literal notranslate"><span class="pre">append</span></code>によって単一の値をリストの終端に追加しているが，配列を与えた場合にはその各要素をリストに追加するように拡張せよ．ただしオーバーロードを用いることで，どちらも同じサブルーチン名<code class="docutils literal notranslate"><span class="pre">append</span></code>で行うようにせよ．</li>
+<li>サンプルでは <code class="docutils literal notranslate"><span class="pre">append</span></code> によって単一の値をリストの終端に追加しているが，配列を与えた場合にはその各要素をリストに追加するように拡張せよ．ただしオーバーロードを用いることで，どちらも同じサブルーチン名 <code class="docutils literal notranslate"><span class="pre">append</span></code> で行うようにせよ．</li>
 </ul>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">call </span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="k">call </span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">(</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="o">/</span><span class="p">))</span>
@@ -823,7 +823,7 @@ CPU Time [sec] :   0.8601E+00
 <li class="toctree-l2"><a class="reference internal" href="#id17">10.5. デバッグのテクニック <sup>†</sup></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#c">10.6. C言語とのリンク <sup>†</sup></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#fortran-77">10.7. Fortran 77について <sup>†</sup></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id22">10.8. 演習課題</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id22">10.8. 第10章 演習課題</a></li>
 </ul>
 </li>
 </ul>

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>演習課題 &#8212; Fortran演習(地球惑星物理学演習)</title>
+    <title>第7章 演習課題 &#8212; Fortran演習(地球惑星物理学演習)</title>
     <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -49,7 +49,7 @@
           <div class="body" role="main">
             
   <div class="section" id="id1">
-<h1>演習課題<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>第7章 演習課題<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="id2">
 <h2>課題1<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>サンプルプログラムをコンパイル・実行して動作を確認せよ．さらに，適宜修正してその実行結果を確認せよ．</p>
@@ -61,10 +61,10 @@
 \[x_{n+1} = \frac{1}{2} \left( \frac{a}{x_{n}} + x_{n} \right)\]</div>
 <p>ここで <span class="math notranslate nohighlight">\(x_{n}\)</span> は <span class="math notranslate nohighlight">\(\sqrt{a}\)</span> の <span class="math notranslate nohighlight">\(n\)</span> 番目の近似値である．初期値としては <span class="math notranslate nohighlight">\(x_{0} = a\)</span> を与え，反復は例えば <span class="math notranslate nohighlight">\(\epsilon = 10^{-5}\)</span> に対して， <span class="math notranslate nohighlight">\(\|x_{n+1} - x_{n}\| &lt; \epsilon \|x_{n}\|\)</span> となるまで繰り返せば良い．</p>
 <p>実装した関数と組み込み関数 <code class="docutils literal notranslate"><span class="pre">sqrt</span></code> の結果を比較し， <span class="math notranslate nohighlight">\(\epsilon\)</span> で与えた精度の範囲内で正しいことを確認すること．例えば，以下は標準入力から与えられた数値(この例では2.0)の平方根を計算して表示する例である．</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span> $ ./a.out
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ./a.out
 <span class="m">2</span>.0
- sqrt<span class="o">(</span>x<span class="o">)</span> <span class="o">=</span>    <span class="m">1</span>.4142135623730951
- <span class="nv">approx</span>  <span class="o">=</span>    <span class="m">1</span>.4142135623746899
+sqrt<span class="o">(</span>x<span class="o">)</span> <span class="o">=</span>    <span class="m">1</span>.4142135623730951
+<span class="nv">approx</span>  <span class="o">=</span>    <span class="m">1</span>.4142135623746899
 </pre></div>
 </div>
 </div>
@@ -176,11 +176,11 @@ Input an integer : <span class="m">2004</span>  <span class="c1"># キーボー�
 <h2>課題6<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>1行に1つの英単語が記述されているファイルを読み込み，英単語を辞書順にソートして出力するプログラムを作成せよ．空白行かファイルの終端に達するまで全ての単語を読み込むこと．ただし英単語は10文字以下，また読み込む単語の数は100個以下であると仮定してよい． <a class="reference external" href="data/words.txt">words.txt</a> を入力として作成したプログラムの動作を確認せよ．</p>
 <p>実行結果は例えば以下のようになるだろう．(空白行の後の <code class="docutils literal notranslate"><span class="pre">NOT_TO_BE_READ</span></code> は読まれていないことに注意!)</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span> $ ./a.out &lt; words.txt
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ./a.out &lt; words.txt
 *** before sort ***
- tomato     banana     apple      grape      watermelon plum
+tomato     banana     apple      grape      watermelon plum
 *** after sort ***
- apple      banana     grape      plum       tomato     watermelon
+apple      banana     grape      plum       tomato     watermelon
 </pre></div>
 </div>
 <p>なお，文字列の大小比較は辞書順となる(例えば <code class="docutils literal notranslate"><span class="pre">'apple'</span> <span class="pre">&lt;</span> <span class="pre">'banana'</span></code>)ので， <code class="docutils literal notranslate"><span class="pre">bsort</span></code> を一部修正するだけで文字列のソートが出来る．文字型変数の配列は例えば</p>

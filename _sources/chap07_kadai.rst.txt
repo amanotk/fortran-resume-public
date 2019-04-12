@@ -1,7 +1,7 @@
 .. -*- coding: utf-8 -*-
 
-演習課題
-========
+第7章 演習課題
+==============
 
 課題1
 -----
@@ -26,7 +26,7 @@
 .. code-block:: sh
 
      $ ./a.out
-    2.0
+     2.0
      sqrt(x) =    1.4142135623730951
      approx  =    1.4142135623746899
 
@@ -171,9 +171,9 @@
 .. code-block:: sh
 
      $ ./a.out < words.txt
-    *** before sort ***
+     *** before sort ***
      tomato     banana     apple      grape      watermelon plum
-    *** after sort ***
+     *** after sort ***
      apple      banana     grape      plum       tomato     watermelon
 
 なお，文字列の大小比較は辞書順となる(例えば ``'apple' < 'banana'``)ので， ``bsort`` を一部修正するだけで文字列のソートが出来る．文字型変数の配列は例えば
