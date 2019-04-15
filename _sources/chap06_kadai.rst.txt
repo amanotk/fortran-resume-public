@@ -13,7 +13,7 @@
 
 以下のように掛け算九九の表を標準出力にキレイに表示するプログラムを作成せよ．
 
-.. code-block:: sh
+.. code-block:: bash
 
     $ ./a.out
        1   2   3   4   5   6   7   8   9
@@ -31,7 +31,7 @@
 
 `helix1.dat <data/helix1.dat>`_ から実数データ :math:`x_i, y_i, z_i (i=1, \ldots, 32)` を読み込み，全く同じフォーマットで標準出力に表示するプログラムを作成せよ．以下のようにリダイレクトでファイルに出力し， ``diff`` コマンドによってフォーマットが同じかどうかを確かめよ．
 
-.. code-block:: sh
+.. code-block:: bash
 
     $ ./a.out > test.dat
     $ diff helix1.dat test.dat
@@ -47,7 +47,7 @@
 
 このとき以下のコマンドによって結果を確認できる．
 
-.. code-block:: sh
+.. code-block:: bash
 
     $ paste -d" " x.dat y.dat z.dat > test.dat
     $ diff helix1.dat test.dat
@@ -62,7 +62,7 @@
 
 作成したプログラムを
 
-.. code-block:: sh
+.. code-block:: bash
 
     $ ./a.out > test.dat
     $ diff helix1.dat test.dat
@@ -95,7 +95,7 @@ Fortranのソースコードから，何らかのFortranの命令文を含む行
 
 入力はリダイレクトによって
 
-.. code-block:: sh
+.. code-block:: bash
 
     $ ./a.out < chap06/sample5.f90
      Number of lines with valid fortran statement :           24
@@ -103,3 +103,51 @@ Fortranのソースコードから，何らかのFortranの命令文を含む行
 のようにすれば良い． (チェックが出来ればファイル名は何でもよい．)
 
 なお，コメントのみの行は最初の空白以外の文字が " ``!`` "である行，空白行は空白のみで表される行であるとして判定すれば良い．組込み関数 ``adjustl`` を用いると良い．
+
+
+課題7 :sup:`†`
+---------------
+
+Fortranの通常の ``unformatted`` バイナリファイルは一般には他の言語と互換性が無いが， :ref:`ストリーム入出力 <c6_stream_io>` を使うことで他の言語と同様にバイナリファイルを扱うことが出来る．ここではC言語で
+
+.. code-block:: c
+
+      // 配列サイズ
+      const int N = 10;
+
+      // 倍精度実数の配列
+      double x[N];
+
+      // xには1.0から5.5まで0.5刻みでデータを格納
+
+      // xに格納された倍精度実数をN個分ファイルにバイナリで出力
+      fwrite(x, sizeof(double), N, fp);
+
+
+のように生成した `cbinary.dat <data/cbinary.dat>`_ をFortranから読み込むプログラムを作成せよ．
+実行結果は例えば以下のようになる．
+
+.. code-block:: bash
+
+    $ ./a.out
+    data read from binary.dat in stream access
+    1.00
+    1.50
+    2.00
+    2.50
+    3.00
+    3.50
+    4.00
+    4.50
+    5.00
+    5.50
+
+なおこのデータを作るのに用いたC言語のコードは `mkbin.c <sample/chap06/mkbin.c>`_ である．
+
+
+課題8 :sup:`†`
+---------------
+
+Fortranの ``unformatted`` バイナリファイル `helix2.dat <data/helix2.dat>`_ をストリーム入出力を用いて読み込み，課題5と同様に出力するプログラムを作成せよ．ここで多くのコンパイラが ``unformatted`` の場合には実際のデータの前後に4バイトずつヘッダーとフッター（データのバイト数を表す整数）を付与するので，これらを読み飛ばす必要があることに注意せよ．
+
+これを理解しておけば多言語からもデータの読み書きが可能である．例えば，C言語では `helix.c <sample/chap06/helix.c>`_ ， Pythonでは `helix.py <sample/chap06/helix.py>`_ が同じ動作をするプログラムになっている．(Pythonの場合は `scipy <https://scipy.org/>`_ がインストールされていれば ``scipy.io.FortranFile`` を使って簡単に読み込むことが出来る．)

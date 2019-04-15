@@ -9,6 +9,7 @@
     <title>第4章 演習課題 &#8212; Fortran演習(地球惑星物理学演習)</title>
     <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
@@ -16,18 +17,7 @@
     <script type="text/javascript" src="_static/translations.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="索引" href="genindex.html" />
-    <link rel="search" title="検索" href="search.html" />
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-99010794-2', 'auto');
-  ga('send', 'pageview');
-
-</script>
-
+    <link rel="search" title="検索" href="search.html" /> 
   </head><body>
     <div class="header-wrapper" role="banner">
       <div class="header">
@@ -57,11 +47,11 @@
 <div class="section" id="id3">
 <h2>課題2<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>標準入力から2つの整数( <span class="math notranslate nohighlight">\(n, m\)</span> とする)を読み込み，その大小を比較するプログラムを作成せよ．例えば <span class="math notranslate nohighlight">\(n = 1, m = 2\)</span> なら以下のように <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">is</span> <span class="pre">smaller</span> <span class="pre">than</span> <span class="pre">2</span></code> と表示する．</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$./a.out
- Input two integers:
-<span class="m">1</span>    <span class="c1"># キーボード入力</span>
-<span class="m">2</span>    <span class="c1"># キーボード入力</span>
-           <span class="m">1</span>  is smaller than            <span class="m">2</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">$./a.out</span>
+<span class="err"> Input two integers:</span>
+<span class="err">1    # キーボード入力</span>
+<span class="err">2    # キーボード入力</span>
+<span class="err">           1  is smaller than            2</span>
 </pre></div>
 </div>
 <p>同様に <span class="math notranslate nohighlight">\(n = 2, m = 1\)</span> なら <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">is</span> <span class="pre">larger</span> <span class="pre">than</span> <span class="pre">1</span></code>, <span class="math notranslate nohighlight">\(n = m = 1\)</span> なら <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">is</span> <span class="pre">equal</span> <span class="pre">to</span> <span class="pre">1</span></code> などと表示するものとする．</p>
@@ -69,21 +59,21 @@
 <div class="section" id="id4">
 <h2>課題3<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><span class="math notranslate nohighlight">\(0^\circ\)</span> から <span class="math notranslate nohighlight">\(180^\circ\)</span> まで <span class="math notranslate nohighlight">\(10^\circ\)</span> 刻みの <span class="math notranslate nohighlight">\(\theta\)</span> および， <span class="math notranslate nohighlight">\(\sin \theta\)</span>, <span class="math notranslate nohighlight">\(\cos \theta\)</span> を標準出力に表示するプログラムを作成せよ(以下のように各 <span class="math notranslate nohighlight">\(\theta\)</span> の値ごとに改行せよ)．またこの結果をリダイレクトを用いてファイルとして記録し，gnuplotを用いてこのファイルのデータとgnuplotに組み込みの三角関数を共に図示せよ．なお三角関数の引数はラジアン単位であることに注意せよ．プログラムの出力結果は以下のようなものとなる．</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ./a.out
-  <span class="m">0</span>.0000000000000000        <span class="m">0</span>.0000000000000000        <span class="m">1</span>.0000000000000000
-  <span class="m">10</span>.000000000000000        ...                       ...
-  <span class="m">20</span>.000000000000000        ...                       ...
-  ...                       ...                       ...
-  <span class="m">180</span>.00000000000000        ...                       ...
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">$ ./a.out</span>
+<span class="err">  0.0000000000000000        0.0000000000000000        1.0000000000000000</span>
+<span class="err">  10.000000000000000        ...                       ...</span>
+<span class="err">  20.000000000000000        ...                       ...</span>
+<span class="err">  ...                       ...                       ...</span>
+<span class="err">  180.00000000000000        ...                       ...</span>
 </pre></div>
 </div>
 <p>なおリダイレクトでデータファイルを作成するには</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ./a.out &gt; data.dat
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">$ ./a.out &gt; data.dat</span>
 </pre></div>
 </div>
 <p>とすれば良い．gnuplotでは</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt; plot   <span class="s1">&#39;data.dat&#39;</span> using <span class="m">1</span>:2 w lp, sin<span class="o">(</span>x/180*pi<span class="o">)</span>
-&gt; replot <span class="s1">&#39;data.dat&#39;</span> using <span class="m">1</span>:3 w lp, cos<span class="o">(</span>x/180*pi<span class="o">)</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">&gt; plot   &#39;data.dat&#39; using 1:2 w lp, sin(x/180*pi)</span>
+<span class="err">&gt; replot &#39;data.dat&#39; using 1:3 w lp, cos(x/180*pi)</span>
 </pre></div>
 </div>
 <p>などとすれば結果を確認出来る．(忘れている人は復習せよ!)</p>
@@ -119,14 +109,14 @@
 </ul>
 </div></blockquote>
 <p>出力のイメージとしては例えば以下のようなものである．</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ./a.out
-<span class="m">10</span>          <span class="c1"># キーボード入力</span>
-<span class="m">1</span>.0e-8      <span class="c1"># キーボード入力</span>
- Did not converge !
- N                  :           <span class="m">10</span>
- Exact value        :    <span class="m">2</span>.7182818284590451
- Approximated value :    <span class="m">2</span>.7182818011463845
- Error              :   <span class="m">1</span>.00477663102110533E-008
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">$ ./a.out</span>
+<span class="err">10          # キーボード入力</span>
+<span class="err">1.0e-8      # キーボード入力</span>
+<span class="err"> Did not converge !</span>
+<span class="err"> N                  :           10</span>
+<span class="err"> Exact value        :    2.7182818284590451</span>
+<span class="err"> Approximated value :    2.7182818011463845</span>
+<span class="err"> Error              :   1.00477663102110533E-008</span>
 </pre></div>
 </div>
 </div>
@@ -136,23 +126,35 @@
 <code class="docutils literal notranslate"><span class="pre">apple</span></code>, <code class="docutils literal notranslate"><span class="pre">orange</span></code>, <code class="docutils literal notranslate"><span class="pre">banana</span></code>, <code class="docutils literal notranslate"><span class="pre">dog</span></code>, <code class="docutils literal notranslate"><span class="pre">cat</span></code>, <code class="docutils literal notranslate"><span class="pre">lion</span></code>, <code class="docutils literal notranslate"><span class="pre">car</span></code>,
 <code class="docutils literal notranslate"><span class="pre">airplane</span></code>, <code class="docutils literal notranslate"><span class="pre">motorcycle</span></code> ．</p>
 <p>実行結果は例えば以下のような出力になるだろう．</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ./a.out
-apple    <span class="c1"># キーボード入力</span>
- food
-cat      <span class="c1"># キーボード入力</span>
- animal
-car      <span class="c1"># キーボード入力</span>
- vehicle
-dog      <span class="c1"># キーボード入力</span>
- animal
-airplane <span class="c1"># キーボード入力</span>
- vehicle
-bike     <span class="c1"># キーボード入力</span>
- others
-<span class="nb">exit</span>     <span class="c1"># キーボード入力</span>
- Now <span class="nb">exit</span> program...
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">$ ./a.out</span>
+<span class="err">apple    # キーボード入力</span>
+<span class="err"> food</span>
+<span class="err">cat      # キーボード入力</span>
+<span class="err"> animal</span>
+<span class="err">car      # キーボード入力</span>
+<span class="err"> vehicle</span>
+<span class="err">dog      # キーボード入力</span>
+<span class="err"> animal</span>
+<span class="err">airplane # キーボード入力</span>
+<span class="err"> vehicle</span>
+<span class="err">bike     # キーボード入力</span>
+<span class="err"> others</span>
+<span class="err">exit     # キーボード入力</span>
+<span class="err"> Now exit program...</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="id8">
+<h2>課題7 <sup>†</sup><a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>以下の漸化式</p>
+<div class="math notranslate nohighlight">
+\[p_{n+1} = p_n + \alpha p_n (1 - p_n)\]</div>
+<p>で定義される数列 <span class="math notranslate nohighlight">\(p_n (n=0, 1, \ldots)\)</span> を考える．初期値 <span class="math notranslate nohighlight">\(p_0 = 0.9\)</span> から数列を生成し，そのうち <span class="math notranslate nohighlight">\(n=100, \ldots, 200\)</span> までを <span class="math notranslate nohighlight">\(\alpha\)</span> の関数として <span class="math notranslate nohighlight">\(1 &lt; \alpha &lt; 3\)</span> の範囲でプロットせよ． <span class="math notranslate nohighlight">\(\alpha\)</span> を <span class="math notranslate nohighlight">\(10^{-3}\)</span> 刻みで変えながらプロットすると結果は以下のようになるだろう．</p>
+<div class="figure align-center" id="id9">
+<a class="reference internal image-reference" href="_images/logistic.png"><img alt="_images/logistic.png" src="_images/logistic.png" style="width: 480px;" /></a>
+<p class="caption"><span class="caption-text">ロジスティック写像</span></p>
+</div>
+<p>このような写像はロジスティック写像と呼ばれ，非常に単純な式ながら一定の条件を満たすときにはカオスを生み出すことが知られている．</p>
 </div>
 </div>
 
@@ -204,7 +206,7 @@ bike     <span class="c1"># キーボード入力</span>
         <div class="right">
           
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2018, Takanobu Amano.
+        &#169; Copyright 2019, Takanobu Amano.
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.9 で生成しました。
     </div>
         </div>

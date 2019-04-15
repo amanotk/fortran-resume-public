@@ -9,6 +9,7 @@
     <title>8. 数値解析の基礎 &#8212; Fortran演習(地球惑星物理学演習)</title>
     <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
@@ -18,18 +19,7 @@
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
     <link rel="next" title="9. モジュールと構造型" href="chap09.html" />
-    <link rel="prev" title="7. 関数とサブルーチン" href="chap07.html" />
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-99010794-2', 'auto');
-  ga('send', 'pageview');
-
-</script>
-
+    <link rel="prev" title="7. 関数とサブルーチン" href="chap07.html" /> 
   </head><body>
     <div class="header-wrapper" role="banner">
       <div class="header">
@@ -55,8 +45,8 @@
           <div class="body" role="main">
             
   <div class="section" id="id1">
-<h1><a class="toc-backref" href="#id22">8. 数値解析の基礎</a><a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>これまでは主にプログラミングの作法を学んできた．基本的には現在までの知識を組み合わせれば原理的にはどんな問題にも対応できるようになっている <a class="footnote-reference" href="#id19" id="id2">[1]</a>．そこで，これまでに学んだ知識を用いてもう少し実践的な内容に取り組もう．具体的には非線形方程式の求根法や，関数の数値積分，また乱数の使い方などを扱う．</p>
+<h1><a class="toc-backref" href="#id27">8. 数値解析の基礎</a><a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>これまでは主にプログラミングの作法を学んできた．基本的には現在までの知識を組み合わせれば原理的にはどんな問題にも対応できるようになっている <a class="footnote-reference" href="#id20" id="id2">[1]</a>．そこで，これまでに学んだ知識を用いてもう少し実践的な内容に取り組もう．具体的には非線形方程式の求根法や，関数の数値積分，また乱数の使い方などを扱う．</p>
 <blockquote>
 <div><p>サンプルプログラム</p>
 <ul class="simple">
@@ -70,18 +60,18 @@
 <div class="contents topic" id="id3">
 <p class="topic-title first">この章の内容</p>
 <ul class="simple">
-<li><a class="reference internal" href="#id1" id="id22">数値解析の基礎</a><ul>
-<li><a class="reference internal" href="#c8-float-precision" id="id23">実数の精度と誤差</a></li>
-<li><a class="reference internal" href="#id7" id="id24">求根法</a></li>
-<li><a class="reference internal" href="#c8-numerical-integration" id="id25">数値積分</a></li>
-<li><a class="reference internal" href="#id11" id="id26">乱数</a></li>
-<li><a class="reference internal" href="#id13" id="id27">第8章 演習課題</a></li>
+<li><a class="reference internal" href="#id1" id="id27">数値解析の基礎</a><ul>
+<li><a class="reference internal" href="#c8-float-precision" id="id28">実数の精度と誤差</a></li>
+<li><a class="reference internal" href="#id7" id="id29">求根法</a></li>
+<li><a class="reference internal" href="#c8-numerical-integration" id="id30">数値積分</a></li>
+<li><a class="reference internal" href="#id11" id="id31">乱数</a></li>
+<li><a class="reference internal" href="#id13" id="id32">第8章 演習課題</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="c8-float-precision">
-<span id="id4"></span><h2><a class="toc-backref" href="#id23">8.1. 実数の精度と誤差</a><a class="headerlink" href="#c8-float-precision" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id4"></span><h2><a class="toc-backref" href="#id28">8.1. 実数の精度と誤差</a><a class="headerlink" href="#c8-float-precision" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
 <div><a class="reference internal" href="chap08_sample1.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>これまで何気なく用いてきた実数型だが，数値解析を始める前に計算機における実数の取り扱いやその誤差について理解しておこう．</p>
@@ -113,11 +103,11 @@
 </div>
 </div>
 <div class="section" id="id7">
-<h2><a class="toc-backref" href="#id24">8.2. 求根法</a><a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><a class="toc-backref" href="#id29">8.2. 求根法</a><a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>解析的には解けない方程式(非線形方程式)の解を求める方法を考えよう．通常は右辺と左辺の両方に式があるわけだが，移項してしまって</p>
 <div class="math notranslate nohighlight">
 \[f(x) = 0\]</div>
-<p>という一般的な形にして解くことにしよう．実はこの問題は意外と難しい問題であり，どんな問題にも使うことのできる汎用的で，かつ高速に解を求められるような手法は存在しない．と言うのはどんな手法であっても基本的には初期値として近似解のあたりを付けて，少しずつ真の解に近づけていく反復法だからである．初期値の選び方によっては正しい解に収束しない場合や，欲しい解(例えば物理的な解)に収束しないもあり得る <a class="footnote-reference" href="#id20" id="id8">[2]</a>．計算機は初期値までは面倒を見てくれないので，人間が適切な初期値を与えてあげなければならない．とりあえず初期値は与えられたとして，そこから近似解を反復によって求めるアルゴリズムを見ていこう．</p>
+<p>という一般的な形にして解くことにしよう．実はこの問題は意外と難しい問題であり，どんな問題にも使うことのできる汎用的で，かつ高速に解を求められるような手法は存在しない．と言うのはどんな手法であっても基本的には初期値として近似解のあたりを付けて，少しずつ真の解に近づけていく反復法だからである．初期値の選び方によっては正しい解に収束しない場合や，欲しい解(例えば物理的な解)に収束しないもあり得る <a class="footnote-reference" href="#id21" id="id8">[2]</a>．計算機は初期値までは面倒を見てくれないので，人間が適切な初期値を与えてあげなければならない．とりあえず初期値は与えられたとして，そこから近似解を反復によって求めるアルゴリズムを見ていこう．</p>
 <div class="section" id="id9">
 <h3>8.2.1. 二分法<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <blockquote>
@@ -207,7 +197,7 @@
 </div>
 </div>
 <div class="section" id="c8-numerical-integration">
-<span id="id10"></span><h2><a class="toc-backref" href="#id25">8.3. 数値積分</a><a class="headerlink" href="#c8-numerical-integration" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id10"></span><h2><a class="toc-backref" href="#id30">8.3. 数値積分</a><a class="headerlink" href="#c8-numerical-integration" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
 <div><a class="reference internal" href="chap08_sample4.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>次に関数の積分</p>
@@ -245,7 +235,7 @@
 <p>ただし，ここで <code class="docutils literal notranslate"><span class="pre">f(x)</span></code> は被積分関数である．</p>
 </div>
 <div class="section" id="id11">
-<h2><a class="toc-backref" href="#id26">8.4. 乱数</a><a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><a class="toc-backref" href="#id31">8.4. 乱数</a><a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
 <div><a class="reference internal" href="chap08_sample5.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>確率的な現象を計算機を用いて模擬する際には乱数を用いることになる．ただし計算機で用いることのできる乱数は擬似乱数と呼ばれ，乱数のように見えるが実際には決定論的な手法に基づき生成される数列である．従って質の良い(周期の長い)乱数を用いなければ，用途によっては乱数とみなすことのできない場合もあるため注意が必要である．</p>
@@ -260,7 +250,7 @@
 <li>必要な領域を確保( <code class="docutils literal notranslate"><span class="pre">allocate</span></code> を用いる)</li>
 <li>シードを指定</li>
 </ol>
-<p>といった流れとなる．以下のサブルーチン <code class="docutils literal notranslate"><span class="pre">random_seed_clock</span></code> は計算機の時刻 <a class="footnote-reference" href="#id21" id="id12">[3]</a> に応じてシードを指定するものであり，これを用いれば実行する度に(時刻が異なるので)得られる乱数値が異なることが保証される．逆に固定のシードを用いるようにしておくと毎回同じ結果が得られるため，乱数を用いるプログラムをデバッグする際には都合が良い．</p>
+<p>といった流れとなる．以下のサブルーチン <code class="docutils literal notranslate"><span class="pre">random_seed_clock</span></code> は計算機の時刻 <a class="footnote-reference" href="#id22" id="id12">[3]</a> に応じてシードを指定するものであり，これを用いれば実行する度に(時刻が異なるので)得られる乱数値が異なることが保証される．逆に固定のシードを用いるようにしておくと毎回同じ結果が得られるため，乱数を用いるプログラムをデバッグする際には都合が良い．</p>
 <div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -296,7 +286,7 @@
 </td></tr></table></div>
 </div>
 <div class="section" id="id13">
-<h2><a class="toc-backref" href="#id27">8.5. 第8章 演習課題</a><a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><a class="toc-backref" href="#id32">8.5. 第8章 演習課題</a><a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="id14">
 <h3>8.5.1. 課題1<a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>サンプルプログラムをコンパイル・実行して動作を確認せよ．さらに，適宜修正してその実行結果を確認せよ．</p>
@@ -312,12 +302,11 @@
 <div class="math notranslate nohighlight">
 \[x \simeq 1.\underbrace{000000000000000}_{0が15個} \times 10^{9}, \quad
 1.\underbrace{000000000000000}_{0が15個} \times 10^{-9}\]</div>
-<p>であるが，解の公式を用いた場合と式変形によって桁落ち対策をした場合で数値解を比較せよ．</p>
+<p>であるが，解の公式を用いた場合と式変形によって桁落ち対策をした場合で数値解を比較せよ．(桁落ち対策が必要なのはどちらか一方の解のみである．)</p>
 </div>
 <div class="section" id="id16">
 <h3>8.5.3. 課題3<a class="headerlink" href="#id16" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Newton法では関数の微分値を解析的に与えて用いるが，割線法(Secant
-method)と呼ばれる手法では連続した2つの近似解を用いて，微分を差分で近似する．即ち <span class="math notranslate nohighlight">\(n\)</span> 番目の近似解を <span class="math notranslate nohighlight">\(x_n\)</span> と書いたときに，Newton法の公式</p>
+<p>Newton法では関数の微分値を解析的に与えて用いるが，割線法(Secant method)と呼ばれる手法では連続した2つの近似解を用いて，微分を差分で近似する．即ち <span class="math notranslate nohighlight">\(n\)</span> 番目の近似解を <span class="math notranslate nohighlight">\(x_n\)</span> と書いたときに，Newton法の公式</p>
 <div class="math notranslate nohighlight">
 \[x_{n+1} = x_{n} - \frac{f(x_{n})}{f'(x_{n})}\]</div>
 <p>において，微分値を以下のように近似する．</p>
@@ -328,44 +317,93 @@ method)と呼ばれる手法では連続した2つの近似解を用いて，微
 <div class="math notranslate nohighlight">
 \[f(x) = \frac{1-x}{\sqrt{M}} - \exp(x)\]</div>
 <p>を数値的に解くことで，その収束の速さを二分法およびNewton法と比較せよ．ただし <span class="math notranslate nohighlight">\(M= 1836\)</span> とする．なお解は <span class="math notranslate nohighlight">\(x \simeq -2.5\)</span> なので二分法ではこの前後に2つの初期値を指定すればよい．割線法も2つ初期値が必要になるが，(この関数に関しては)初期値には敏感ではないので，例えば0と1を初期値として用いればよい．ここでは収束の速さを比較すればよいので，各反復ごとの収束判定はせずに20回程度の反復を行い誤差の減少の様子をgnuplotを用いて図示せよ．ただし連続する2つの近似解の差を誤差と定義する．</p>
+<p>結果は以下の例ようになるであろう．</p>
+<div class="figure align-center" id="id23">
+<a class="reference internal image-reference" href="_images/rootfind.png"><img alt="_images/rootfind.png" src="_images/rootfind.png" style="width: 75%;" /></a>
+<p class="caption"><span class="caption-text">求根法の収束比較</span></p>
+</div>
 </div>
 <div class="section" id="id17">
 <h3>8.5.4. 課題4<a class="headerlink" href="#id17" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><span class="math notranslate nohighlight">\(f(x) = \dfrac{4}{\pi} \dfrac{1}{1 + x^2}\)</span> および <span class="math notranslate nohighlight">\(f(x) = (n+1) \ x^{n} \ (n = 0, \ldots, 5)\)</span> のそれぞれについて</p>
 <div class="math notranslate nohighlight">
 \[\int_{0}^{1} f(x) dx\]</div>
-<p>の積分を台形公式およびSimpsonの公式で数値的に行い，誤差の分割数に対する依存性をgnuplotを用いて図示せよ．例えば分割数を <span class="math notranslate nohighlight">\(2^{n} (n=1, 2, \ldots, 16)\)</span> の範囲で変えて依存性を調べれば良い．またそのような依存性となるのはなぜか?</p>
+<p>の積分を台形公式およびSimpsonの公式で数値的に行い，誤差の分割数に対する依存性をgnuplotを用いて図示せよ．例えば分割数を <span class="math notranslate nohighlight">\(2^{n} (n=1, 2, \ldots, 16)\)</span> の範囲で変えて依存性を調べれば良い．</p>
+<p>結果は以下の例ようになるであろう．</p>
+<div class="figure align-center" id="id24">
+<a class="reference internal image-reference" href="_images/integration.png"><img alt="_images/integration.png" src="_images/integration.png" style="width: 75%;" /></a>
+<p class="caption"><span class="caption-text">数値積分誤差の分割数依存性</span></p>
+</div>
+<p>このような依存性となるのはなぜか?</p>
 </div>
 <div class="section" id="id18">
 <h3>8.5.5. 課題5<a class="headerlink" href="#id18" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>一様乱数を用いてある確率分布に従う乱数を発生させるために逆関数を用いる方法(変換法や逆関数法などと呼ばれる)を考える．区間 <span class="math notranslate nohighlight">\([0, 1]\)</span> での一様乱数 <span class="math notranslate nohighlight">\(x\)</span> およびその確率分布 <span class="math notranslate nohighlight">\(f(x)\)</span> ，また必要な乱数 <span class="math notranslate nohighlight">\(y\)</span> とその確率分布 <span class="math notranslate nohighlight">\(g(y)\)</span> とする． <span class="math notranslate nohighlight">\(y\)</span> を <span class="math notranslate nohighlight">\(x\)</span> から何らかの変換で <span class="math notranslate nohighlight">\(y = P(x)\)</span> のように表すとき，確率密度の保存から</p>
+<p>一様乱数を用いてある確率分布に従う乱数を発生させるために逆関数を用いる方法(変換法や逆関数法などと呼ばれる)を考える．区間 <span class="math notranslate nohighlight">\([0, 1)\)</span> での一様乱数 <span class="math notranslate nohighlight">\(x\)</span> およびその確率分布 <span class="math notranslate nohighlight">\(f(x)\)</span> ，また必要な乱数 <span class="math notranslate nohighlight">\(y\)</span> とその確率分布 <span class="math notranslate nohighlight">\(g(y)\)</span> とする．ただし乱数の値域は <span class="math notranslate nohighlight">\(a \leq y &lt; b\)</span> とする． <span class="math notranslate nohighlight">\(y\)</span> を <span class="math notranslate nohighlight">\(x\)</span> から何らかの変換で <span class="math notranslate nohighlight">\(y = P(x)\)</span> のように表すとき，確率密度の保存から</p>
 <div class="math notranslate nohighlight">
 \[g(y) d y = f(x) dx = d x\]</div>
 <p>が成り立つ．(最後の等式は一様乱数であることから自明である．)
 この両辺を積分して</p>
 <div class="math notranslate nohighlight">
-\[x = \int^{y} g(y') d y' \equiv G(y)\]</div>
-<p>(この時の積分定数は適当にとれば良い．) これより</p>
+\[x = \frac
+{ \int^{y}_{a} g(y') d y' }
+{ \int^{b}_{a} g(y') d y' }
+\equiv G(y)\]</div>
+<p>によって関数 <span class="math notranslate nohighlight">\(G(y)\)</span> を定義する．ただし <span class="math notranslate nohighlight">\(G(a) = 0\)</span> ， <span class="math notranslate nohighlight">\(G(b) = 1\)</span> となるように規格化した．これより</p>
 <div class="math notranslate nohighlight">
 \[y = G^{-1} (x)\]</div>
-<p>を得る．即ち， <span class="math notranslate nohighlight">\(G^{-1} (x)\)</span> を解析的に求めることができれば，一様乱数 <span class="math notranslate nohighlight">\(x\)</span> を用いて必要な確率分布 <span class="math notranslate nohighlight">\(g(y)\)</span> に従う乱数を作ることができる．このことを用いて指数分布</p>
+<p>を得る．即ち， <span class="math notranslate nohighlight">\(G^{-1} (x)\)</span> を解析的に求めることができれば，一様乱数 <span class="math notranslate nohighlight">\(x\)</span> を用いて必要な確率分布 <span class="math notranslate nohighlight">\(g(y)\)</span> に従う乱数を作ることができる．（以下の図を参照）</p>
+<div class="figure align-center" id="id25">
+<a class="reference internal image-reference" href="_images/inversefunc.png"><img alt="_images/inversefunc.png" src="_images/inversefunc.png" style="width: 480px;" /></a>
+<p class="caption"><span class="caption-text">逆関数法の概念図</span></p>
+</div>
+<p>このことを用いて指数分布</p>
 <div class="math notranslate nohighlight">
 \[g(y; \lambda) = \lambda \exp(-\lambda y)\]</div>
 <p>に従う乱数分布を発生させるプログラムを作成せよ．また分布のヒストグラムを作成し，gnuplotを用いてヒストグラムを解析的な分布と共に図示し，乱数の発生数を増やした時に乱数分布が真の分布に近づくことを確かめよ．</p>
+<p>以下は60000個の乱数を発生させた場合のヒストグラムの例である．</p>
+<div class="figure align-center" id="id26">
+<a class="reference internal image-reference" href="_images/expdist.png"><img alt="_images/expdist.png" src="_images/expdist.png" style="width: 480px;" /></a>
+<p class="caption"><span class="caption-text">指数分布のヒストグラム</span></p>
+</div>
+</div>
+<div class="section" id="id19">
+<h3>8.5.6. 課題6 <sup>†</sup><a class="headerlink" href="#id19" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>乱数を利用した数値積分法としてモンテカルロ法が知られている．これを用いて <span class="math notranslate nohighlight">\(n\)</span> 次元ユークリッド空間における単位超球の体積 <span class="math notranslate nohighlight">\(V_n\)</span> を求めるプログラムを作成せよ．</p>
+<p>ただし <span class="math notranslate nohighlight">\(n\)</span> 次元超球の体積は <span class="math notranslate nohighlight">\(n\)</span> 次元空間の座標を <span class="math notranslate nohighlight">\(x_i \, (i=1, \ldots, n)\)</span> とし，</p>
+<div class="math notranslate nohighlight">
+\[\sum_{i=1}^{n} x_i^{2} \leq 1\]</div>
+<p>なる領域の体積と定義される．ここで対称性から <span class="math notranslate nohighlight">\(0 \leq x_i \leq 1\)</span> の領域のみを考えれば，この体積は <span class="math notranslate nohighlight">\(V_n / 2^{n}\)</span> となる．従って <span class="math notranslate nohighlight">\(n\)</span> 個の一様乱数 <span class="math notranslate nohighlight">\(0 \leq x_i &lt; 1 \, (i=1, \ldots, n)\)</span> を発生させ，上式の条件を満足するかどうかを調べる試行を多数回行い，その確率を求めることによって <span class="math notranslate nohighlight">\(V_n / 2^{n}\)</span> を推定すればよい．</p>
+<p>なお真の値は</p>
+<div class="math notranslate nohighlight">
+\[V_n = \frac{ \pi^{n/2} }{ \Gamma(n/2 + 1) }\]</div>
+<p>によって与えられる．</p>
+<p>例えば次元数と試行回数を標準入力から与える形式のプログラムの実行結果は以下のようになる．この例のように誤差は試行回数 <span class="math notranslate nohighlight">\(m\)</span> に対して， <span class="math notranslate nohighlight">\(1/\sqrt{m}\)</span> に比例して減少する．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">$ ./a.out</span>
+<span class="err">2 1000    # キーボード入力(2次元，試行回数1000回)</span>
+<span class="err">approximation  =       0.32240000E+01</span>
+<span class="err">exact value    =       0.31415927E+01</span>
+<span class="err">relative error =       0.26231044E-01</span>
+<span class="err">$ ./a.out</span>
+<span class="err">2 100000  # キーボード入力(2次元，試行回数100000回)</span>
+<span class="err">approximation  =       0.31430400E+01</span>
+<span class="err">exact value    =       0.31415927E+01</span>
+<span class="err">relative error =       0.46067683E-03</span>
+</pre></div>
+</div>
 <hr class="docutils" />
-<table class="docutils footnote" frame="void" id="id19" rules="none">
+<table class="docutils footnote" frame="void" id="id20" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td>もちろん数学や物理，更には数値解析の知識は必要になってくるわけだが，それはこれから学んでいくことになる．</td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id20" rules="none">
+<table class="docutils footnote" frame="void" id="id21" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id8">[2]</a></td><td>1変数ならまだ良いのだが，多変数関数に拡張するとほとんどお手上げである．</td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id21" rules="none">
+<table class="docutils footnote" frame="void" id="id22" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id12">[3]</a></td><td>Unix系OSの場合は1970年1月1日からの経過時間．</td></tr>
@@ -434,7 +472,7 @@ method)と呼ばれる手法では連続した2つの近似解を用いて，微
         <div class="right">
           
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2018, Takanobu Amano.
+        &#169; Copyright 2019, Takanobu Amano.
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.9 で生成しました。
     </div>
         </div>

@@ -19,11 +19,11 @@
 
      x_{n+1} = \frac{1}{2} \left( \frac{a}{x_{n}} + x_{n} \right)
 
-ここで :math:`x_{n}` は :math:`\sqrt{a}` の :math:`n` 番目の近似値である．初期値としては :math:`x_{0} = a` を与え，反復は例えば :math:`\epsilon = 10^{-5}` に対して， :math:`\|x_{n+1} - x_{n}\| < \epsilon \|x_{n}\|` となるまで繰り返せば良い．
+ここで :math:`x_{n}` は :math:`\sqrt{a}` の :math:`n` 番目の近似値である．初期値としては :math:`x_{0} = a` を与え，反復は例えば :math:`\epsilon = 10^{-5}` に対して， :math:`\|x_{n+1} - x_{n}\| < \epsilon \|x_{n}\|` となるまで繰り返せば良い．（反復の途中結果は必要ないので :math:`x_{n}` に配列を使う必要はないことに注意せよ．）
 
 実装した関数と組み込み関数 ``sqrt`` の結果を比較し， :math:`\epsilon` で与えた精度の範囲内で正しいことを確認すること．例えば，以下は標準入力から与えられた数値(この例では2.0)の平方根を計算して表示する例である．
 
-.. code-block:: sh
+.. code-block:: bash
 
      $ ./a.out
      2.0
@@ -59,7 +59,7 @@
 
 このサブルーチンを用いて， `score2.dat <data/score2.dat>`_ からデータを読み込みヒストグラム作成するプログラムを作成せよ．またその結果をgnuplotで図示せよ( ``with boxes`` を用いると良い)．出力結果は例えばビン幅を10とした場合には以下のようになる．
 
-.. code-block:: sh
+.. code-block:: bash
 
      $ ./a.out < score2.dat
        5.0000000000000000                0
@@ -77,7 +77,7 @@
 
 同様に範囲外のデータを含む `score3.dat <data/score3.dat>`_ を読みこませると
 
-.. code-block:: sh
+.. code-block:: bash
 
      $ ./a.out < score3.dat
        Invalid input
@@ -112,7 +112,7 @@
 
 作成したプログラムを用いて `rand.dat <data/rand.dat>`_ のデータをソートし，結果が正しいことを確認せよ．ここでもデータファイルの形式は上の `score2.dat <data/score2.dat>`_ と同一である．従って同様にリダイレクトで
 
-.. code-block:: sh
+.. code-block:: bash
 
      $ ./a.out < rand.dat
 
@@ -136,7 +136,7 @@
 
 また ``open`` 文で `rand.dat <data/rand.dat>`_ からデータを読み込み， ``bsort`` で配列をソートした後に ``bsearch`` で実際に適当な値の探索を行うプログラムを作成せよ．例えば標準入力から与えられた値をソート後の配列から探索を行い，結果を表示するようにすれば良い．この時の実行結果は以下のようになる．(この例では10や2004が入力値である．)
 
-.. code-block:: sh
+.. code-block:: bash
 
     $ ./a.out
     Input an integer : 10    # キーボード入力
@@ -168,7 +168,7 @@
 
 実行結果は例えば以下のようになるだろう．(空白行の後の ``NOT_TO_BE_READ`` は読まれていないことに注意!)
 
-.. code-block:: sh
+.. code-block:: bash
 
      $ ./a.out < words.txt
      *** before sort ***
@@ -196,7 +196,7 @@
 
 `wikipedia.txt <data/wikipedia.txt>`_  (`Wikipedia <http://en.wikipedia.org/wiki/Fortran>`_ より引用)を処理した時には例えば以下のような出力となるだろう．この例では最大で60個の ``'o'`` が出力されるように規格化してある．各アルファベットの後の括弧内の数字は文字数を表している．( `wikipedia.txt <data/wikipedia.txt>`_ で試す前に `words.txt <data/words.txt>`_ などの小さいデータで試した方が良いだろう．)
 
-.. code-block:: sh
+.. code-block:: bash
 
     $ ./a.out < wikipedia.txt
     A( 110):oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo

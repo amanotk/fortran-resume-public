@@ -32,7 +32,7 @@ Hello, world !
 
 これはソースコードと呼ばれ，人間が読める形式で記述されるテキストファイルである．拡張子はFortran 90/95の場合は ``.f90`` とする [#]_．プログラムを実行するには，これをコンパイラと呼ばれるプログラムを用いて実行形式(計算機が読み込んで実行することができる形式)に変換してやる必要がある．これをコンパイルと言う．この演習ではgfortranというコンパイラを用いることにしよう．(Intel製のifortというコンパイラがLinux環境では個人利用では無償で使うことが出来ていたのだが，Intelの方針転換で最近は使えなくなってしまったようだ．) カレントディレクトリに ``sample1.f90`` というファイルがあることを確認して，ターミナルで以下のコマンドを実行しよう．
 
-.. code-block:: sh
+.. code-block:: bash
 
     $ gfortran sample1.f90
     $ ./a.out
@@ -42,13 +42,13 @@ Hello, world !
 
 ちなみに
 
-.. code-block:: sh
+.. code-block:: bash
 
     $ gfortran sample1.f90 -o hello
 
 のように ``-o`` オプションを使って作成される実行形式のファイル名を指定することが出来る．上の場合は ``hello`` というファイルが作成されるのでこれを実行すると先ほどと同じ結果が得られるはずである．なおコンパイラに渡すことの出来るオプションは他にも山ほど存在するので，興味がある人は
 
-.. code-block:: sh
+.. code-block:: bash
 
     $ man gfortran
 
@@ -116,7 +116,7 @@ Fortranでは1行が132文字以下でなければいけないという制限が
 
 まずemacsでは ``Control`` をかなり多様するので ``A`` のキーの左の ``CapsLock`` を ``Control`` と交換して使用する人がほとんどである(多分)．最近のLinux系のOS環境では ``CapsLock`` と ``Control`` を交換するには
 
-.. code-block:: sh
+.. code-block:: bash
 
     $ setxkbmap -option ctrl:swapcaps
 
@@ -133,7 +133,7 @@ Fortranでは1行が132文字以下でなければいけないという制限が
 
 Linux系の環境では ``xmodmap`` というコマンドでキーボードのカスタマイズが出来る．ホームディレクトリに ``.Xmodmap`` というファイルを作り，以下の様な内容で保存する．
 
-.. code-block:: sh
+.. code-block:: bash
 
     remove Lock = Caps_Lock
     remove Control = Control_L
@@ -144,7 +144,7 @@ Linux系の環境では ``xmodmap`` というコマンドでキーボードの�
 
 そして
 
-.. code-block:: sh
+.. code-block:: bash
 
     $ xmodmap ~/.Xmodmap
 
@@ -194,6 +194,8 @@ Tabの利用
 なお上の設定では行末のスペースやタブなども表示するように設定されているが，このあたりは完全に好みである．以下はemacsでソースコードを編集中のスクリーンショットである．
 
 .. figure:: figure/emacs.png
+   :align: center
+   :width: 480px
 
    Emacsのスクリーンショット
 

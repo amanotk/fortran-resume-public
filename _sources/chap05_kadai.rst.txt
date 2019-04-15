@@ -20,7 +20,7 @@
 
 実行結果は例えば以下のようなものである．
 
-.. code-block:: sh
+.. code-block:: bash
 
     $ ./a.out
      Input month and day :
@@ -45,7 +45,7 @@
 
 データファイル `score1.dat <data/score1.dat>`_ を手元にコピーして，以下のようにリダイレクトによって作成したプログラムに読み込ませ，結果を確認せよ．
 
-.. code-block:: sh
+.. code-block:: bash
 
     $ ./a.out < score1.dat
      Best               :           98
@@ -63,7 +63,7 @@
 
 以下はデータファイル `vector.dat <data/vector.dat>`_ を入力とした場合の結果である．
 
-.. code-block:: sh
+.. code-block:: bash
 
     $ ./a.out < vector.dat
      Inner product with do loop     :    5.4454054113084460E-017
@@ -79,7 +79,7 @@
 
 以下はデータファイル `matvec.dat <data/matvec.dat>`_ を入力とした場合の結果である．これと同じ結果が得られることを確認せよ．
 
-.. code-block:: sh
+.. code-block:: bash
 
     $ /a.out < matvec.dat
      Matrix-vector product with do loop
@@ -105,7 +105,7 @@
 
 ``matvec.dat`` は以下のようなファイルになっているが，行列の部分をFortranで読み込むとあたかも転置行列を読み込んだような形になることに注意せよ．（実際に読み込んで確かめてみよ．）
 
-.. code-block:: sh
+.. code-block:: bash
 
     $ cat matvec.dat
      8

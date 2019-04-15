@@ -23,7 +23,7 @@
 
 C言語はFortranと同じようにコンパイル言語なので，ソースをコンパイルして実行する．C言語のコンパイラとしては ``gcc`` を用いることが出来る．ここでは `chap02/hello.c <sample/chap02/hello.c>`_ をコンパイル，実行してみよう．
 
-.. code-block:: sh
+.. code-block:: bash
 
     $ gcc hello.c
     $ ./a.out
@@ -33,7 +33,7 @@ C言語はFortranと同じようにコンパイル言語なので，ソースを
 
 Pythonはスクリプト言語と呼ばれ，コンパイルが必要なく，直接ソースから実行することが出来る．ここでは `chap02/hello.py <sample/chap02/hello.py>`_ を実行してみよう．
 
-.. code-block:: sh
+.. code-block:: bash
 
     $ ./hello.py
     Hello, world !

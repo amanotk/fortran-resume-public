@@ -9,6 +9,7 @@
     <title>6. 書式指定・ファイル入出力・文字列処理 &#8212; Fortran演習(地球惑星物理学演習)</title>
     <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
@@ -18,18 +19,7 @@
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
     <link rel="next" title="7. 関数とサブルーチン" href="chap07.html" />
-    <link rel="prev" title="5. 配列" href="chap05.html" />
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-99010794-2', 'auto');
-  ga('send', 'pageview');
-
-</script>
-
+    <link rel="prev" title="5. 配列" href="chap05.html" /> 
   </head><body>
     <div class="header-wrapper" role="banner">
       <div class="header">
@@ -55,7 +45,7 @@
           <div class="body" role="main">
             
   <div class="section" id="id1">
-<h1><a class="toc-backref" href="#id36">6. 書式指定・ファイル入出力・文字列処理</a><a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1><a class="toc-backref" href="#id39">6. 書式指定・ファイル入出力・文字列処理</a><a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>ここではこれまではオマジナイとして使ってきた <code class="docutils literal notranslate"><span class="pre">write(*,*)</span></code> や <code class="docutils literal notranslate"><span class="pre">read(*,*)</span></code> の意味を理解し，ファイル入出力や，出力時の書式指定の仕方，さらには文字列処理の方法について学ぼう．</p>
 <blockquote>
 <div><p>サンプルプログラム</p>
@@ -71,18 +61,18 @@
 <div class="contents topic" id="id2">
 <p class="topic-title first">この章の内容</p>
 <ul class="simple">
-<li><a class="reference internal" href="#id1" id="id36">書式指定・ファイル入出力・文字列処理</a><ul>
-<li><a class="reference internal" href="#id3" id="id37">書式指定</a></li>
-<li><a class="reference internal" href="#c6-file-io" id="id38">ファイル入出力</a></li>
-<li><a class="reference internal" href="#id14" id="id39">文字列処理</a></li>
-<li><a class="reference internal" href="#id20" id="id40">ファイル終端までの逐次処理</a></li>
-<li><a class="reference internal" href="#id21" id="id41">第6章 演習課題</a></li>
+<li><a class="reference internal" href="#id1" id="id39">書式指定・ファイル入出力・文字列処理</a><ul>
+<li><a class="reference internal" href="#id3" id="id40">書式指定</a></li>
+<li><a class="reference internal" href="#c6-file-io" id="id41">ファイル入出力</a></li>
+<li><a class="reference internal" href="#id14" id="id42">文字列処理</a></li>
+<li><a class="reference internal" href="#id20" id="id43">ファイル終端までの逐次処理</a></li>
+<li><a class="reference internal" href="#id21" id="id44">第6章 演習課題</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="id3">
-<h2><a class="toc-backref" href="#id37">6.1. 書式指定</a><a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><a class="toc-backref" href="#id40">6.1. 書式指定</a><a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
 <div><a class="reference internal" href="chap06_sample1.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>実は <code class="docutils literal notranslate"><span class="pre">write(*,*)</span></code> の2つめの引数は出力される値の書式を表す <strong>編集記述子</strong> を指定するためのもので，&quot;<code class="docutils literal notranslate"><span class="pre">*</span></code> &quot;はデフォルトの書式を意味している(従って一般にコンパイラによって出力の書式は異なる)．ここに決められた形式で書式を指定することで桁を揃えたりして，綺麗な出力を得ることが出来る．例えば</p>
@@ -102,9 +92,9 @@
 </pre></div>
 </td></tr></table></div>
 <p>のように <code class="docutils literal notranslate"><span class="pre">*</span></code> の代わりの編集記述子(ここでは <code class="docutils literal notranslate"><span class="pre">'(i6)'</span></code> や <code class="docutils literal notranslate"><span class="pre">fmt</span></code>)を指定することになる．4行目のように直接指定しても良いし，7行目のように文字型の変数を用いてもどちらでも構わない．</p>
-<p>さて，問題は書式の指定の仕方(上の例では <code class="docutils literal notranslate"><span class="pre">i6</span></code>)についてである．書式指定の詳細については適宜他の文献 <a class="footnote-reference" href="#id29" id="id4">[1]</a> を参照してもらうとして，ここでは以下の表に挙げる典型的な例を理解しておけば良い．</p>
-<table border="1" class="colwidths-given docutils" id="id35">
-<caption><span class="caption-text">編集記述子の使い方の例</span><a class="headerlink" href="#id35" title="このテーブルへのパーマリンク">¶</a></caption>
+<p>さて，問題は書式の指定の仕方(上の例では <code class="docutils literal notranslate"><span class="pre">i6</span></code>)についてである．書式指定の詳細については適宜他の文献 <a class="footnote-reference" href="#id32" id="id4">[1]</a> を参照してもらうとして，ここでは以下の表に挙げる典型的な例を理解しておけば良い．</p>
+<table border="1" class="colwidths-given docutils" id="id38">
+<caption><span class="caption-text">編集記述子の使い方の例</span><a class="headerlink" href="#id38" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col width="11%" />
 <col width="11%" />
@@ -138,7 +128,7 @@
 <tr class="row-odd"><td>&#160;</td>
 <td><code class="docutils literal notranslate"><span class="pre">E</span></code></td>
 <td><code class="docutils literal notranslate"><span class="pre">e20.7</span></code></td>
-<td>科学的表記 <a class="footnote-reference" href="#id30" id="id5">[2]</a> の20桁で出力，うち7桁が小数点以下．</td>
+<td>科学的表記 <a class="footnote-reference" href="#id33" id="id5">[2]</a> の20桁で出力，うち7桁が小数点以下．</td>
 </tr>
 <tr class="row-even"><td>文字型</td>
 <td><code class="docutils literal notranslate"><span class="pre">A</span></code></td>
@@ -202,14 +192,14 @@
 </pre></div>
 </td></tr></table></div>
 <p>のように <code class="docutils literal notranslate"><span class="pre">'(a)'</span></code> を指定しないとスペースまでの文字列が <code class="docutils literal notranslate"><span class="pre">text</span></code> に取り込まれてしまう．これはFortranがデフォルトでスペースや改行などを変数の区切りとして読み込んでしまうからである．</p>
-<p>また書式指定は <code class="docutils literal notranslate"><span class="pre">write(*,</span> <span class="pre">fmt='(a)')</span></code> のように行うこともできる <a class="footnote-reference" href="#id31" id="id6">[3]</a>．他には改行を抑制するために <code class="docutils literal notranslate"><span class="pre">advance='no'</span></code> のような指定も使うことがしばしばあるので覚えておいて損はない．Fortranでは通常 <code class="docutils literal notranslate"><span class="pre">write</span></code> 文によって最後に自動的に改行が挿入されてしまうが,</p>
+<p>また書式指定は <code class="docutils literal notranslate"><span class="pre">write(*,</span> <span class="pre">fmt='(a)')</span></code> のように行うこともできる <a class="footnote-reference" href="#id34" id="id6">[3]</a>．他には改行を抑制するために <code class="docutils literal notranslate"><span class="pre">advance='no'</span></code> のような指定も使うことがしばしばあるので覚えておいて損はない．Fortranでは通常 <code class="docutils literal notranslate"><span class="pre">write</span></code> 文によって最後に自動的に改行が挿入されてしまうが,</p>
 <div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(a)&#39;</span><span class="p">,</span> <span class="n">advance</span><span class="o">=</span><span class="s1">&#39;no&#39;</span><span class="p">)</span> <span class="s1">&#39;Input some text : &#39;</span>
 </pre></div>
 </td></tr></table></div>
 <p>のようにすれば <code class="docutils literal notranslate"><span class="pre">'Input</span> <span class="pre">some</span> <span class="pre">text</span> <span class="pre">:</span> <span class="pre">'</span></code> が表示された後に改行されない．</p>
 </div>
 <div class="section" id="c6-file-io">
-<span id="id7"></span><h2><a class="toc-backref" href="#id38">6.2. ファイル入出力</a><a class="headerlink" href="#c6-file-io" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id7"></span><h2><a class="toc-backref" href="#id41">6.2. ファイル入出力</a><a class="headerlink" href="#c6-file-io" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="open-close">
 <h3>6.2.1. <code class="docutils literal notranslate"><span class="pre">open</span></code> と <code class="docutils literal notranslate"><span class="pre">close</span></code><a class="headerlink" href="#open-close" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <blockquote>
@@ -245,7 +235,7 @@
 <span class="k">end if</span>
 </pre></div>
 </td></tr></table></div>
-<p>いちいちチェックするのは面倒なようだが，プログラミングにおいてこのようなエラーチェックは非常に大切なのでいつもチェックする癖をつけよう．プログラム作成の際にその半分がエラーチェックになるというのもよくある話である <a class="footnote-reference" href="#id32" id="id8">[4]</a>．</p>
+<p>いちいちチェックするのは面倒なようだが，プログラミングにおいてこのようなエラーチェックは非常に大切なのでいつもチェックする癖をつけよう．プログラム作成の際にその半分がエラーチェックになるというのもよくある話である <a class="footnote-reference" href="#id35" id="id8">[4]</a>．</p>
 <p>以下にいくつかよく使う例を挙げておこう．(念の為に言っておくと <code class="docutils literal notranslate"><span class="pre">open</span></code> に渡す引数の詳細を覚えておく必要は無い．大まかな使い方さえ知っておけば，後はgoogleで検索する方が早い．)</p>
 <ul class="simple">
 <li>ファイルを新規作成する．ただしファイルが既に存在する場合にはその中身を破棄する(上書き)．</li>
@@ -331,7 +321,7 @@
 </div>
 <div class="section" id="c6-stream-io">
 <span id="id12"></span><h3>6.2.5. ストリーム入出力 <sup>†</sup><a class="headerlink" href="#c6-stream-io" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Fortranの <code class="docutils literal notranslate"><span class="pre">unformatted</span></code> のバイナリデータは一般にはC言語の <code class="docutils literal notranslate"><span class="pre">fread</span></code>，<code class="docutils literal notranslate"><span class="pre">fwrite</span></code> による入出力と互換性が無い．これはFortranは各 <code class="docutils literal notranslate"><span class="pre">write</span></code> 文で出力されるデータの前後に余計なデータ(ヘッダーおよびフッター)を付加するためである <a class="footnote-reference" href="#id33" id="id13">[5]</a>．新しいFortran 2003規格ではストリーム入出力というC言語の <code class="docutils literal notranslate"><span class="pre">fread</span></code>，<code class="docutils literal notranslate"><span class="pre">fwrite</span></code> と同じ(余計なデータを付加しない)読み書きが出来るようになっている．これには以下のように <code class="docutils literal notranslate"><span class="pre">access='stream'</span></code> を指定してファイルを開く．</p>
+<p>Fortranの <code class="docutils literal notranslate"><span class="pre">unformatted</span></code> のバイナリデータは一般にはC言語の <code class="docutils literal notranslate"><span class="pre">fread</span></code>，<code class="docutils literal notranslate"><span class="pre">fwrite</span></code> による入出力と互換性が無い．これはFortranは各 <code class="docutils literal notranslate"><span class="pre">write</span></code> 文で出力されるデータの前後に余計なデータ(ヘッダーおよびフッター)を付加するためである <a class="footnote-reference" href="#id36" id="id13">[5]</a>．新しいFortran 2003規格ではストリーム入出力というC言語の <code class="docutils literal notranslate"><span class="pre">fread</span></code>，<code class="docutils literal notranslate"><span class="pre">fwrite</span></code> と同じ(余計なデータを付加しない)読み書きが出来るようになっている．これには以下のように <code class="docutils literal notranslate"><span class="pre">access='stream'</span></code> を指定してファイルを開く．</p>
 <div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">open</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="k">file</span><span class="o">=</span><span class="s1">&#39;binary.dat&#39;</span><span class="p">,</span> <span class="nb">access</span><span class="o">=</span><span class="s1">&#39;stream&#39;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="s1">&#39;unformatted&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
@@ -351,7 +341,7 @@
 </div>
 </div>
 <div class="section" id="id14">
-<h2><a class="toc-backref" href="#id39">6.3. 文字列処理</a><a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><a class="toc-backref" href="#id42">6.3. 文字列処理</a><a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
 <div><a class="reference internal" href="chap06_sample5.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <div class="section" id="id15">
@@ -364,7 +354,7 @@
 <div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;initialization by this string&#39;</span>
 </pre></div>
 </td></tr></table></div>
-<p>のように <code class="docutils literal notranslate"><span class="pre">len=*</span></code> を指定して初期化すると，自動的に初期化文字列の長さを持った文字型変数となる <a class="footnote-reference" href="#id34" id="id16">[6]</a>．</p>
+<p>のように <code class="docutils literal notranslate"><span class="pre">len=*</span></code> を指定して初期化すると，自動的に初期化文字列の長さを持った文字型変数となる <a class="footnote-reference" href="#id37" id="id16">[6]</a>．</p>
 </div>
 <div class="section" id="id17">
 <h3>6.3.2. 結合と代入<a class="headerlink" href="#id17" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -387,7 +377,7 @@
 </pre></div>
 </td></tr></table></div>
 <p>とした場合には，<code class="docutils literal notranslate"><span class="pre">a</span></code>，<code class="docutils literal notranslate"><span class="pre">b</span></code>，<code class="docutils literal notranslate"><span class="pre">c</span></code>，<code class="docutils literal notranslate"><span class="pre">d</span></code> のどれも16文字の文字列であるので，16文字に満たない部分は全て空白で埋められている．従って <code class="docutils literal notranslate"><span class="pre">//</span></code> で結合しても空白は取り除かれずに残ることになり，実行結果の出力は以下のようになるだろう．</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>This            is              a               pen
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">This            is              a               pen</span>
 </pre></div>
 </div>
 <p>文字列の前後の空白文字を除去するには <code class="docutils literal notranslate"><span class="pre">trim</span></code> という組み込み関数を用いれば良い．空白を除去して各文字列間に1文字分ずつ空白を入れて出力するには</p>
@@ -395,7 +385,7 @@
 </pre></div>
 </td></tr></table></div>
 <p>などとすれば良い．これによって以下の様な出力が得られる．</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>This is a pen
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">This is a pen</span>
 </pre></div>
 </div>
 </div>
@@ -451,7 +441,7 @@
 </div>
 </div>
 <div class="section" id="id20">
-<h2><a class="toc-backref" href="#id40">6.4. ファイル終端までの逐次処理</a><a class="headerlink" href="#id20" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><a class="toc-backref" href="#id43">6.4. ファイル終端までの逐次処理</a><a class="headerlink" href="#id20" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
 <div><a class="reference internal" href="chap06_sample6.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>文字列処理ではファイルの中身を一行ずつ読み込んで何らかの処理を行うことが多い．以下のサンプルコードは標準入力から1行ずつ順に読み込み処理をする例である．(従ってリダイレクトによってファイルを与えれば良い)．ファイルが終端に達したかどうかを調べるには <code class="docutils literal notranslate"><span class="pre">read</span></code> の終了ステータス <code class="docutils literal notranslate"><span class="pre">iostat</span></code> を取得すれば良い．正常に読み込みが実行された時には <code class="docutils literal notranslate"><span class="pre">iostat</span></code> が0となり，これが負の場合にはファイルの終端，正の場合には何らかのエラーが発生したことを意味する．なお，実際にはこのような処理はシェルスクリプトやPerl，Python，Rubyなどを使って実装する方が圧倒的に簡単である．(何でもかんでもFortranでやろうとするのは無駄が多い．)</p>
@@ -482,7 +472,7 @@
 </td></tr></table></div>
 </div>
 <div class="section" id="id21">
-<h2><a class="toc-backref" href="#id41">6.5. 第6章 演習課題</a><a class="headerlink" href="#id21" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><a class="toc-backref" href="#id44">6.5. 第6章 演習課題</a><a class="headerlink" href="#id21" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="id22">
 <h3>6.5.1. 課題1<a class="headerlink" href="#id22" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>サンプルプログラムをコンパイル・実行して動作を確認せよ．さらに，適宜修正してその実行結果を確認せよ．</p>
@@ -490,24 +480,24 @@
 <div class="section" id="id23">
 <h3>6.5.2. 課題2<a class="headerlink" href="#id23" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>以下のように掛け算九九の表を標準出力にキレイに表示するプログラムを作成せよ．</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ./a.out
-   <span class="m">1</span>   <span class="m">2</span>   <span class="m">3</span>   <span class="m">4</span>   <span class="m">5</span>   <span class="m">6</span>   <span class="m">7</span>   <span class="m">8</span>   <span class="m">9</span>
-   <span class="m">2</span>   <span class="m">4</span>   <span class="m">6</span>   <span class="m">8</span>  <span class="m">10</span>  <span class="m">12</span>  <span class="m">14</span>  <span class="m">16</span>  <span class="m">18</span>
-   <span class="m">3</span>   <span class="m">6</span>   <span class="m">9</span>  <span class="m">12</span>  <span class="m">15</span>  <span class="m">18</span>  <span class="m">21</span>  <span class="m">24</span>  <span class="m">27</span>
-   <span class="m">4</span>   <span class="m">8</span>  <span class="m">12</span>  <span class="m">16</span>  <span class="m">20</span>  <span class="m">24</span>  <span class="m">28</span>  <span class="m">32</span>  <span class="m">36</span>
-   <span class="m">5</span>  <span class="m">10</span>  <span class="m">15</span>  <span class="m">20</span>  <span class="m">25</span>  <span class="m">30</span>  <span class="m">35</span>  <span class="m">40</span>  <span class="m">45</span>
-   <span class="m">6</span>  <span class="m">12</span>  <span class="m">18</span>  <span class="m">24</span>  <span class="m">30</span>  <span class="m">36</span>  <span class="m">42</span>  <span class="m">48</span>  <span class="m">54</span>
-   <span class="m">7</span>  <span class="m">14</span>  <span class="m">21</span>  <span class="m">28</span>  <span class="m">35</span>  <span class="m">42</span>  <span class="m">49</span>  <span class="m">56</span>  <span class="m">63</span>
-   <span class="m">8</span>  <span class="m">16</span>  <span class="m">24</span>  <span class="m">32</span>  <span class="m">40</span>  <span class="m">48</span>  <span class="m">56</span>  <span class="m">64</span>  <span class="m">72</span>
-   <span class="m">9</span>  <span class="m">18</span>  <span class="m">27</span>  <span class="m">36</span>  <span class="m">45</span>  <span class="m">54</span>  <span class="m">63</span>  <span class="m">72</span>  <span class="m">81</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">$ ./a.out</span>
+<span class="err">   1   2   3   4   5   6   7   8   9</span>
+<span class="err">   2   4   6   8  10  12  14  16  18</span>
+<span class="err">   3   6   9  12  15  18  21  24  27</span>
+<span class="err">   4   8  12  16  20  24  28  32  36</span>
+<span class="err">   5  10  15  20  25  30  35  40  45</span>
+<span class="err">   6  12  18  24  30  36  42  48  54</span>
+<span class="err">   7  14  21  28  35  42  49  56  63</span>
+<span class="err">   8  16  24  32  40  48  56  64  72</span>
+<span class="err">   9  18  27  36  45  54  63  72  81</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id24">
 <h3>6.5.3. 課題3<a class="headerlink" href="#id24" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><a class="reference external" href="data/helix1.dat">helix1.dat</a> から実数データ <span class="math notranslate nohighlight">\(x_i, y_i, z_i (i=1, \ldots, 32)\)</span> を読み込み，全く同じフォーマットで標準出力に表示するプログラムを作成せよ．以下のようにリダイレクトでファイルに出力し， <code class="docutils literal notranslate"><span class="pre">diff</span></code> コマンドによってフォーマットが同じかどうかを確かめよ．</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ./a.out &gt; test.dat
-$ diff helix1.dat test.dat
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">$ ./a.out &gt; test.dat</span>
+<span class="err">$ diff helix1.dat test.dat</span>
 </pre></div>
 </div>
 <p>上記の <code class="docutils literal notranslate"><span class="pre">diff</span></code> コマンドを実行して，出力が何も無ければファイルが同一であることを意味する．</p>
@@ -517,8 +507,8 @@ $ diff helix1.dat test.dat
 <h3>6.5.4. 課題4<a class="headerlink" href="#id25" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>課題3と同様に読み込んだデータ <span class="math notranslate nohighlight">\(x_i, y_i, z_i\)</span> をそれぞれ別のファイル(例えば <code class="docutils literal notranslate"><span class="pre">x.dat</span></code>, <code class="docutils literal notranslate"><span class="pre">y.dat</span></code>, <code class="docutils literal notranslate"><span class="pre">z.dat</span></code>)にアスキー形式で出力せよ．各データの書式は <a class="reference external" href="data/helix1.dat">helix1.dat</a> のものと同一とする．</p>
 <p>このとき以下のコマンドによって結果を確認できる．</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ paste -d<span class="s2">&quot; &quot;</span> x.dat y.dat z.dat &gt; test.dat
-$ diff helix1.dat test.dat
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">$ paste -d&quot; &quot; x.dat y.dat z.dat &gt; test.dat</span>
+<span class="err">$ diff helix1.dat test.dat</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">helix1.dat</span></code> と <code class="docutils literal notranslate"><span class="pre">test.dat</span></code> が同一ファイルになっていれば( <code class="docutils literal notranslate"><span class="pre">diff</span></code> コマンドが何も出力しなければ)良い．</p>
@@ -527,8 +517,8 @@ $ diff helix1.dat test.dat
 <h3>6.5.5. 課題5<a class="headerlink" href="#id27" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>バイナリファイル <a class="reference external" href="data/helix2.dat">helix2.dat</a> を <code class="docutils literal notranslate"><span class="pre">open</span></code> を用いて開き，実数データ <span class="math notranslate nohighlight">\(x_i, y_i, z_i (i=1, \ldots, 32)\)</span> を読み込み，先ほどの <code class="docutils literal notranslate"><span class="pre">helix1.dat</span></code> と全く同じフォーマットで標準出力に表示するプログラムを作成せよ．</p>
 <p>作成したプログラムを</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ./a.out &gt; test.dat
-$ diff helix1.dat test.dat
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">$ ./a.out &gt; test.dat</span>
+<span class="err">$ diff helix1.dat test.dat</span>
 </pre></div>
 </div>
 <p>のように実行し，結果が <code class="docutils literal notranslate"><span class="pre">helix1.dat</span></code> と同じになることを <code class="docutils literal notranslate"><span class="pre">diff</span></code> コマンドによって確かめよ．</p>
@@ -548,44 +538,82 @@ $ diff helix1.dat test.dat
 <h3>6.5.6. 課題6<a class="headerlink" href="#id28" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>Fortranのソースコードから，何らかのFortranの命令文を含む行数(コメントのみの行および空白行を除いた行数)を数えるプログラムを作成せよ．</p>
 <p>入力はリダイレクトによって</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ./a.out &lt; chap06/sample5.f90
- Number of lines with valid fortran statement :           <span class="m">24</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">$ ./a.out &lt; chap06/sample5.f90</span>
+<span class="err"> Number of lines with valid fortran statement :           24</span>
 </pre></div>
 </div>
 <p>のようにすれば良い． (チェックが出来ればファイル名は何でもよい．)</p>
 <p>なお，コメントのみの行は最初の空白以外の文字が &quot; <code class="docutils literal notranslate"><span class="pre">!</span></code> &quot;である行，空白行は空白のみで表される行であるとして判定すれば良い．組込み関数 <code class="docutils literal notranslate"><span class="pre">adjustl</span></code> を用いると良い．</p>
+</div>
+<div class="section" id="id29">
+<h3>6.5.7. 課題7 <sup>†</sup><a class="headerlink" href="#id29" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Fortranの通常の <code class="docutils literal notranslate"><span class="pre">unformatted</span></code> バイナリファイルは一般には他の言語と互換性が無いが， <a class="reference internal" href="#c6-stream-io"><span class="std std-ref">ストリーム入出力</span></a> を使うことで他の言語と同様にバイナリファイルを扱うことが出来る．ここではC言語で</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// 配列サイズ</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+<span class="c1">// 倍精度実数の配列</span>
+<span class="kt">double</span> <span class="n">x</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>
+
+<span class="c1">// xには1.0から5.5まで0.5刻みでデータを格納</span>
+
+<span class="c1">// xに格納された倍精度実数をN個分ファイルにバイナリで出力</span>
+<span class="n">fwrite</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">),</span> <span class="n">N</span><span class="p">,</span> <span class="n">fp</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>のように生成した <a class="reference external" href="data/cbinary.dat">cbinary.dat</a> をFortranから読み込むプログラムを作成せよ．
+実行結果は例えば以下のようになる．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">$ ./a.out</span>
+<span class="err">data read from binary.dat in stream access</span>
+<span class="err">1.00</span>
+<span class="err">1.50</span>
+<span class="err">2.00</span>
+<span class="err">2.50</span>
+<span class="err">3.00</span>
+<span class="err">3.50</span>
+<span class="err">4.00</span>
+<span class="err">4.50</span>
+<span class="err">5.00</span>
+<span class="err">5.50</span>
+</pre></div>
+</div>
+<p>なおこのデータを作るのに用いたC言語のコードは <a class="reference external" href="sample/chap06/mkbin.c">mkbin.c</a> である．</p>
+</div>
+<div class="section" id="id30">
+<h3>6.5.8. 課題8 <sup>†</sup><a class="headerlink" href="#id30" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Fortranの <code class="docutils literal notranslate"><span class="pre">unformatted</span></code> バイナリファイル <a class="reference external" href="data/helix2.dat">helix2.dat</a> をストリーム入出力を用いて読み込み，課題5と同様に出力するプログラムを作成せよ．ここで多くのコンパイラが <code class="docutils literal notranslate"><span class="pre">unformatted</span></code> の場合には実際のデータの前後に4バイトずつヘッダーとフッター（データのバイト数を表す整数）を付与するので，これらを読み飛ばす必要があることに注意せよ．</p>
+<p>これを理解しておけば多言語からもデータの読み書きが可能である．例えば，C言語では <a class="reference external" href="sample/chap06/helix.c">helix.c</a> ， Pythonでは <a class="reference external" href="sample/chap06/helix.py">helix.py</a> が同じ動作をするプログラムになっている．(Pythonの場合は <a class="reference external" href="https://scipy.org/">scipy</a> がインストールされていれば <code class="docutils literal notranslate"><span class="pre">scipy.io.FortranFile</span></code> を使って簡単に読み込むことが出来る．)</p>
 <hr class="docutils" />
-<table class="docutils footnote" frame="void" id="id29" rules="none">
+<table class="docutils footnote" frame="void" id="id32" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id4">[1]</a></td><td>高木(2009，8章)が詳しい．</td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id30" rules="none">
+<table class="docutils footnote" frame="void" id="id33" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id5">[2]</a></td><td>科学的表記とは <span class="math notranslate nohighlight">\(3 \times 10^{10}\)</span> のような表記法のことである．Fortranの出力では <code class="docutils literal notranslate"><span class="pre">0.3e+11</span></code> のような形になる．</td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id31" rules="none">
+<table class="docutils footnote" frame="void" id="id34" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id6">[3]</a></td><td>このような引数の渡し方はこの後の <code class="docutils literal notranslate"><span class="pre">open</span></code> 文などでも出てくる．これは <a class="reference internal" href="chap07.html#c7-optional-keyword"><span class="std std-ref">optional属性とキーワード引数 †</span></a> と呼ばれ，これによって関数やサブルーチンに順番を気にすること無く引数を渡すことが出来る．</td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id32" rules="none">
+<table class="docutils footnote" frame="void" id="id35" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id8">[4]</a></td><td>書き殴りでその後2度と使わないようなコードの場合はそれほど気にする必要はないかもしれないが．</td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id33" rules="none">
+<table class="docutils footnote" frame="void" id="id36" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id13">[5]</a></td><td>ただしこれは慣習的にそうなっているだけで，標準化されているわけではなく，完全に処理系依存である．ヘッダーやフッターは4バイトのこともあるし8バイトのこともある．同じコンパイラであってもオプションで変更することも出来る．ここで扱うストリーム入出力であればバイトオーダーさえ把握していればヘッダーやフッターのことを気にする必要が無い．</td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id34" rules="none">
+<table class="docutils footnote" frame="void" id="id37" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id16">[6]</a></td><td>後述の関数やサブルーチンの仮引数でもこの形式が使える．</td></tr>
@@ -654,7 +682,7 @@ $ diff helix1.dat test.dat
         <div class="right">
           
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2018, Takanobu Amano.
+        &#169; Copyright 2019, Takanobu Amano.
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.9 で生成しました。
     </div>
         </div>

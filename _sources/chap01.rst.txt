@@ -32,7 +32,7 @@ https://amanotk.github.io/fortran-resume-public/sample.tar.gz
 
 ちなみに，``.tar.gz`` 形式のファイルの解凍はUnix系のマシンではコマンドラインで
 
-.. code-block:: sh
+.. code-block:: bash
 
      $ tar -zxvf sample.tar.gz
 

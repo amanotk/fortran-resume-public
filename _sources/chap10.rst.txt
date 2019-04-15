@@ -36,7 +36,7 @@
 
 これまでは例えば
 
-::
+.. code-block:: bash
 
      $ gfortran sample.f90
 
@@ -44,7 +44,7 @@
 
 コンパイルとはソースファイルを解釈し，機械語に変換する作業である．機械語に変換されたファイルを **オブジェクトファイル** と呼び，通常は拡張子 ``.o`` が用いられる．オブジェクトファイルを生成するには
 
-::
+.. code-block:: bash
 
      $ gfortran -c sample.f90
 
@@ -52,7 +52,7 @@
 
 オブジェクトファイルをリンクするには
 
-::
+.. code-block:: bash
 
      $ gfortran sample.o
 
@@ -60,13 +60,13 @@
 
 次に複数のファイルからなるプログラムの場合を考えよう．例えばメインプログラムが定義されている ``sample1.f90`` が ``sample1a.f90`` に，また ``sample1a.f90`` が ``sample1b.f90`` に依存している場合には
 
-::
+.. code-block:: bash
 
      $ gfortran sample1b.f90 sample1a.f90 sample1.f90
 
 のようにすれば，コンパイルとリンクを1つのコマンドで同時に実行することができる(順番に注意)．これは実際には以下のように各ファイルを個別にコンパイルし，最後に全体をリンクする作業に相当する．
 
-::
+.. code-block:: bash
 
      $ gfortran -c sample1b.f90
      $ gfortran -c sample1a.f90
@@ -79,7 +79,7 @@
 
 なお，Fortranでモジュールを用いる場合は ``gfortran -c`` によるコンパイルで ``.mod`` という拡張子のファイル(例えばモジュール名が ``test`` なら ``test.mod`` )が生成される．別ファイルのモジュールを利用する際には，この ``.mod`` ファイルが無いとコンパイル出来ないので注意しよう [#]_．また他のディレクトリに ``.mod`` ファイルがある場合には，``-I`` オプションを用いてコンパイラが ``.mod`` ファイルを探す場所を指定することが出来る [#]_．
 
-::
+.. code-block:: bash
 
      $ gfortran -c -I../module sample.f90
 
@@ -92,13 +92,13 @@
 
 ライブラリは通常(Unix系のOSでは) ``libABC.a`` や ``libXYZ.so`` といったファイル名になっている(これらをアーカイブとも呼ぶ)．基本的には実行形式のファイルを作成するリンク時にこれらのライブラリともリンクするように指定してやれば良い．例えば
 
-::
+.. code-block:: bash
 
      $ gfortran main.o -lABC -lXYZ
 
 とすれば ``libABC.a``，``libXYZ.so`` の両方とリンクすることが出来る．このようにライブラリとリンクするには，拡張子とファイル先頭の ``lib`` を除いたライブラリ名を ``-l`` オプションに渡せば良い．ただし，ライブラリファイルがあるディレクトリがカレントディレクトリや標準の場所(通常 ``/usr/lib`` や ``/usr/local/lib`` など)以外の場合にはその場所を ``-L`` オプションで明示的に指定してやらなければならない．以下の例では ``libABC.a`` が ``../lib`` にあるの場合に，それを明示的に指定してリンクを実行する．
 
-::
+.. code-block:: bash
 
      $ gfortran main.o -L../lib -lABC
 
@@ -127,7 +127,7 @@ To be written.
 
 関数やサブルーチンの引数として，関数やサブルーチンを渡すことが出来る．これには以下のように引数として渡す関数やサブルーチンの形式を ``interface`` を用いて指定する．
 
-::
+.. code-block:: fortran
 
       subroutine writefunc(f, x)
         implicit none
@@ -149,7 +149,7 @@ To be written.
 
 なお，このサブルーチンでは最大の反復回数や許容誤差は ``optional`` 属性の引数となっていることにも着目して欲しい．これらが与えられない場合にはモジュール内で定義されたデフォルトの値を用いるようになっている．
 
-::
+.. code-block:: fortran
 
     module mod_bisection
       implicit none
@@ -204,7 +204,7 @@ To be written.
 
 なお ``bisection.f90`` で上記モジュールが定義されており，``sample3.f90`` がこれを用いるメインプログラムである．これをコンパイルするには
 
-::
+.. code-block:: bash
 
      $ gfortran -c bisection.f90
      $ gfortran -c sample3.f90
@@ -212,7 +212,7 @@ To be written.
 
 もしくは
 
-::
+.. code-block:: bash
 
      $ gfortran bisection.f90 sample3.f90
 
@@ -223,14 +223,14 @@ To be written.
 
 プログラム全体の実行時間はシェルコマンドで計測できる．例えば ``time`` コマンドを用いて以下のように実行すれば良い [#]_．realの行が実際の実行時間を示している．大雑把には全実行時間のうち，userが自分のプログラムの処理が動いていた時間，sysはOSの処理が動いていた時間を表す．
 
-::
+.. code-block:: bash
 
      $ /usr/bin/time ./a.out
             0.98 real         0.97 user         0.00 sys
 
 アルゴリズムによる実効速度の違いを検証したり，プログラムのチューニングをするようになってくると，プログラムのある特定の部分の実行時間を測定する必要が出てくる．ここでは ``cpu_time`` という組込みサブルーチンを使った時間計測のサンプルプログラムを以下に示す．
 
-::
+.. code-boock:: fortran
 
     program sample
       implicit none
@@ -255,7 +255,7 @@ To be written.
 
 実行結果は以下のようになる．
 
-::
+.. code-block:: bash
 
      $ ./a.out
      CPU Time [sec] :   0.8601E+00
@@ -280,7 +280,7 @@ To be written.
 
 ポインタを用いるには変数宣言に ``pointer`` 属性を指定すれば良い．またポインタが指し指すことの出来る変数(ターゲット変数)には ``target`` 属性を指定する必要がある．以下の例を考えよう．
 
-::
+.. code-block:: fortran
 
       integer, pointer :: iptr
       integer, target  :: i, j
@@ -304,7 +304,7 @@ To be written.
 
 なお ``nullify`` によってポインタ変数とターゲット変数との結合を解除することが出来る．またポインタは **無名領域** (他の変数によって指し示されていない領域)との結合も可能である．これは動的配列の場合と同様に ``allocate`` によって行い，この場合の結合の解除は( ``nullify`` では無く) ``deallocate`` によって行う．また，結合状態を検査するための組込み関数 ``associated`` も用意されている．この関数はポインタが結合状態であれば真，そうでなければ偽を返す．従って例えば以下のように使うことが出来る．
 
-::
+.. code-block:: fortran
 
       if( associated(iptr) ) then
         nullify(iptr)
@@ -320,7 +320,7 @@ To be written.
 
 ポインタ配列はターゲット配列と結合させることが出来る．ただし両者の次元は同じでなければならない．ポインタ配列は配列全体を指したり，部分配列を指したりすることが出来る．
 
-::
+.. code-block:: fortran
 
       integer :: i, j
       integer :: lb(2), ub(2)
@@ -359,6 +359,8 @@ To be written.
 その一方で，要素をある特定の位置に挿入したい場合にはそれ以降の要素を全てずらさなければならないし，サイズの変更が簡単には出来ないという短所がある．
 
 .. figure:: figure/list.png
+   :align: center
+   :width: 480px
    :alt: List構造．
 
    List構造．
@@ -367,7 +369,7 @@ To be written.
 
 例として，各要素の値が整数であるリストは以下のように構造型を用いて定義することになる．
 
-::
+.. code-block:: fortran
 
       type :: list_type
          type(list_type), pointer :: next
@@ -376,7 +378,7 @@ To be written.
 
 リストの実装( ``list.f90`` )は少し長くなるのでここには掲載しないが，地道にポインタを使ってアドレスを付け替えたりするだけである．以下の例は ``list.f90`` で実装したモジュール ``mod_list`` の使い方を示している．リストの伸長は ``append``，要素の挿入は ``insert``，削除は ``remove`` を用いてなどのモジュール内部手続きによって行うことが出来る．なお10行目ではモジュール内で定義した代入演算子を用いてリストを配列によって初期化している．
 
-::
+.. code-block:: fortran
 
     program sample
       use mod_list
@@ -422,7 +424,7 @@ To be written.
 
 このプログラムの実行結果は以下のようになる．正しくリストの操作が出来ていることが分かるかと思う．
 
-.. code-block:: sh
+.. code-block:: bash
 
       $ ./a.out
            initialize : List = [    1 ]
@@ -456,7 +458,7 @@ To be written.
 
 一時的に実行させたく無い処理については，上の例のように ``#if 0`` から ``#endif`` によって囲むことでコンパイラにその部分を無視させることが出来る．コンパイラに認識させたい時には ``0`` を ``1`` に変更するだけで良いので，特定の処理が結果に与える影響を簡単に調べることが出来る．さらに
 
-::
+.. code-block:: c
 
     #if 1
       処理A
@@ -468,7 +470,7 @@ To be written.
 
 プリプロセッサは基本的にC言語で用いられるものと同じなので，**マクロ** という機能も用いることが出来る．例えば
 
-::
+.. code-block:: c
 
     #ifdef _DEBUG
       デバッグ処理
@@ -476,13 +478,13 @@ To be written.
 
 となっている場合に
 
-::
+.. code-block:: bash
 
      $ gfortran -cpp -D_DEBUG sample.f90
 
 とすれば"デバッグ処理"がコンパイルされる．ここで ``-D_DEBUG`` は ``_DEBUG`` というマクロを定義するという意味である．マクロを用いたプリプロセッサには様々な機能があり，より複雑な指定も可能である．
 
-::
+.. code-block:: c
 
     #if   _DEBUG_MODE == 0
       デバッグモード0
@@ -494,7 +496,7 @@ To be written.
 
 のような場合には，``_DEBUG_MODE`` という名前のマクロの値 [#]_ によってコンパイルする処理を切り替えることが出来る．マクロの値もコマンドラインから明示的に与えることが出来る．例えば
 
-::
+.. code-block:: bash
 
      $ gfortran -cpp -D_DEBUG_MODE=1 sample.f90
 
@@ -507,7 +509,7 @@ printfデバッグ
 
 このデバッグ手法はプリプロセッサと組み合わせると便利である．例えば
 
-::
+.. code-block:: fortran
 
     #ifdef _DEBUG
     #define DEBUG_PRINT(a) write(*,*) (a)
@@ -517,7 +519,7 @@ printfデバッグ
 
 としておくと，任意の場所で
 
-::
+.. code-block:: c
 
       DEBUG_PRINT(出力したい変数)
 

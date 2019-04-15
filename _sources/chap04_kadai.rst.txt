@@ -14,7 +14,7 @@
 
 標準入力から2つの整数( :math:`n, m` とする)を読み込み，その大小を比較するプログラムを作成せよ．例えば :math:`n = 1, m = 2` なら以下のように ``1 is smaller than 2`` と表示する．
 
-.. code-block:: sh
+.. code-block:: bash
 
     $./a.out
      Input two integers:
@@ -32,7 +32,7 @@
 
 :math:`0^\circ` から :math:`180^\circ` まで :math:`10^\circ` 刻みの :math:`\theta` および， :math:`\sin \theta`, :math:`\cos \theta` を標準出力に表示するプログラムを作成せよ(以下のように各 :math:`\theta` の値ごとに改行せよ)．またこの結果をリダイレクトを用いてファイルとして記録し，gnuplotを用いてこのファイルのデータとgnuplotに組み込みの三角関数を共に図示せよ．なお三角関数の引数はラジアン単位であることに注意せよ．プログラムの出力結果は以下のようなものとなる．
 
-.. code-block:: sh
+.. code-block:: bash
 
      $ ./a.out
        0.0000000000000000        0.0000000000000000        1.0000000000000000
@@ -43,7 +43,7 @@
 
 なおリダイレクトでデータファイルを作成するには
 
-.. code-block:: sh
+.. code-block:: bash
 
      $ ./a.out > data.dat
 
@@ -94,7 +94,7 @@
 
 出力のイメージとしては例えば以下のようなものである．
 
-.. code-block:: sh
+.. code-block:: bash
 
     $ ./a.out
     10          # キーボード入力
@@ -115,7 +115,7 @@
 
 実行結果は例えば以下のような出力になるだろう．
 
-.. code-block:: sh
+.. code-block:: bash
 
     $ ./a.out
     apple    # キーボード入力
@@ -132,3 +132,23 @@
      others
     exit     # キーボード入力
      Now exit program...
+
+
+課題7 :sup:`†`
+---------------
+
+以下の漸化式
+
+.. math::
+
+   p_{n+1} = p_n + \alpha p_n (1 - p_n)
+
+で定義される数列 :math:`p_n (n=0, 1, \ldots)` を考える．初期値 :math:`p_0 = 0.9` から数列を生成し，そのうち :math:`n=100, \ldots, 200` までを :math:`\alpha` の関数として :math:`1 < \alpha < 3` の範囲でプロットせよ． :math:`\alpha` を :math:`10^{-3}` 刻みで変えながらプロットすると結果は以下のようになるだろう．
+
+.. figure:: figure/logistic.png
+    :align: center
+    :width: 480px
+
+    ロジスティック写像
+
+このような写像はロジスティック写像と呼ばれ，非常に単純な式ながら一定の条件を満たすときにはカオスを生み出すことが知られている．
