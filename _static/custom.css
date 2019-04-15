@@ -1,0 +1,30 @@
+table.highlighttable {
+    table-layout: fixed;
+    width: 100%;
+}
+
+table.highlighttable td.linenos {
+    width: 1em;
+}
+
+table.highlighttable td.linenos div.linenodiv {
+    text-align: right;
+}
+
+/* -*- customize pygments monokai style -*- */
+div.document div.highlight {
+    background-color: #272822;
+    font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
+}
+
+.highlight .err {
+    background-color: #272822;
+    color: #eeeeee;
+}
+.highlight .c { color: #eeeeee } /* Comment.Hashbang */
+.highlight .ch { color: #eeeeee } /* Comment.Hashbang */
+.highlight .cm { color: #eeeeee } /* Comment.Multiline */
+.highlight .cp { color: #eeeeee } /* Comment.Preproc */
+.highlight .cpf { color: #eeeeee } /* Comment.PreprocFile */
+.highlight .c1 { color: #eeeeee } /* Comment.Single */
+.highlight .cs { color: #eeeeee } /* Comment.Special */
