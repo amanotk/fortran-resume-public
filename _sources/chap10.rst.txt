@@ -547,7 +547,7 @@ To be written.
 .. 課題
 ..
 
-.. include:: chap10_kadai.rst
+.. include:: kadai/chap10_kadai.rst
 
 ----
 

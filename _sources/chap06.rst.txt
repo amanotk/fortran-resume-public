@@ -437,7 +437,7 @@ Fortranの ``unformatted`` のバイナリデータは一般にはC言語の ``f
 .. 課題
 ..
 
-.. include:: chap06_kadai.rst
+.. include:: kadai/chap06_kadai.rst
 
 
 ----

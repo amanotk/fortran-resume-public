@@ -377,7 +377,7 @@
 </pre></div>
 </td></tr></table></div>
 <p>とした場合には，<code class="docutils literal notranslate"><span class="pre">a</span></code>，<code class="docutils literal notranslate"><span class="pre">b</span></code>，<code class="docutils literal notranslate"><span class="pre">c</span></code>，<code class="docutils literal notranslate"><span class="pre">d</span></code> のどれも16文字の文字列であるので，16文字に満たない部分は全て空白で埋められている．従って <code class="docutils literal notranslate"><span class="pre">//</span></code> で結合しても空白は取り除かれずに残ることになり，実行結果の出力は以下のようになるだろう．</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">This            is              a               pen</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>This            is              a               pen
 </pre></div>
 </div>
 <p>文字列の前後の空白文字を除去するには <code class="docutils literal notranslate"><span class="pre">trim</span></code> という組み込み関数を用いれば良い．空白を除去して各文字列間に1文字分ずつ空白を入れて出力するには</p>
@@ -385,7 +385,7 @@
 </pre></div>
 </td></tr></table></div>
 <p>などとすれば良い．これによって以下の様な出力が得られる．</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">This is a pen</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>This is a pen
 </pre></div>
 </div>
 </div>
@@ -480,24 +480,24 @@
 <div class="section" id="id23">
 <h3>6.5.2. 課題2<a class="headerlink" href="#id23" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>以下のように掛け算九九の表を標準出力にキレイに表示するプログラムを作成せよ．</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">$ ./a.out</span>
-<span class="err">   1   2   3   4   5   6   7   8   9</span>
-<span class="err">   2   4   6   8  10  12  14  16  18</span>
-<span class="err">   3   6   9  12  15  18  21  24  27</span>
-<span class="err">   4   8  12  16  20  24  28  32  36</span>
-<span class="err">   5  10  15  20  25  30  35  40  45</span>
-<span class="err">   6  12  18  24  30  36  42  48  54</span>
-<span class="err">   7  14  21  28  35  42  49  56  63</span>
-<span class="err">   8  16  24  32  40  48  56  64  72</span>
-<span class="err">   9  18  27  36  45  54  63  72  81</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out
+   <span class="m">1</span>   <span class="m">2</span>   <span class="m">3</span>   <span class="m">4</span>   <span class="m">5</span>   <span class="m">6</span>   <span class="m">7</span>   <span class="m">8</span>   <span class="m">9</span>
+   <span class="m">2</span>   <span class="m">4</span>   <span class="m">6</span>   <span class="m">8</span>  <span class="m">10</span>  <span class="m">12</span>  <span class="m">14</span>  <span class="m">16</span>  <span class="m">18</span>
+   <span class="m">3</span>   <span class="m">6</span>   <span class="m">9</span>  <span class="m">12</span>  <span class="m">15</span>  <span class="m">18</span>  <span class="m">21</span>  <span class="m">24</span>  <span class="m">27</span>
+   <span class="m">4</span>   <span class="m">8</span>  <span class="m">12</span>  <span class="m">16</span>  <span class="m">20</span>  <span class="m">24</span>  <span class="m">28</span>  <span class="m">32</span>  <span class="m">36</span>
+   <span class="m">5</span>  <span class="m">10</span>  <span class="m">15</span>  <span class="m">20</span>  <span class="m">25</span>  <span class="m">30</span>  <span class="m">35</span>  <span class="m">40</span>  <span class="m">45</span>
+   <span class="m">6</span>  <span class="m">12</span>  <span class="m">18</span>  <span class="m">24</span>  <span class="m">30</span>  <span class="m">36</span>  <span class="m">42</span>  <span class="m">48</span>  <span class="m">54</span>
+   <span class="m">7</span>  <span class="m">14</span>  <span class="m">21</span>  <span class="m">28</span>  <span class="m">35</span>  <span class="m">42</span>  <span class="m">49</span>  <span class="m">56</span>  <span class="m">63</span>
+   <span class="m">8</span>  <span class="m">16</span>  <span class="m">24</span>  <span class="m">32</span>  <span class="m">40</span>  <span class="m">48</span>  <span class="m">56</span>  <span class="m">64</span>  <span class="m">72</span>
+   <span class="m">9</span>  <span class="m">18</span>  <span class="m">27</span>  <span class="m">36</span>  <span class="m">45</span>  <span class="m">54</span>  <span class="m">63</span>  <span class="m">72</span>  <span class="m">81</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id24">
 <h3>6.5.3. 課題3<a class="headerlink" href="#id24" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><a class="reference external" href="data/helix1.dat">helix1.dat</a> から実数データ <span class="math notranslate nohighlight">\(x_i, y_i, z_i (i=1, \ldots, 32)\)</span> を読み込み，全く同じフォーマットで標準出力に表示するプログラムを作成せよ．以下のようにリダイレクトでファイルに出力し， <code class="docutils literal notranslate"><span class="pre">diff</span></code> コマンドによってフォーマットが同じかどうかを確かめよ．</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">$ ./a.out &gt; test.dat</span>
-<span class="err">$ diff helix1.dat test.dat</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out &gt; test.dat
+$ diff helix1.dat test.dat
 </pre></div>
 </div>
 <p>上記の <code class="docutils literal notranslate"><span class="pre">diff</span></code> コマンドを実行して，出力が何も無ければファイルが同一であることを意味する．</p>
@@ -507,8 +507,8 @@
 <h3>6.5.4. 課題4<a class="headerlink" href="#id25" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>課題3と同様に読み込んだデータ <span class="math notranslate nohighlight">\(x_i, y_i, z_i\)</span> をそれぞれ別のファイル(例えば <code class="docutils literal notranslate"><span class="pre">x.dat</span></code>, <code class="docutils literal notranslate"><span class="pre">y.dat</span></code>, <code class="docutils literal notranslate"><span class="pre">z.dat</span></code>)にアスキー形式で出力せよ．各データの書式は <a class="reference external" href="data/helix1.dat">helix1.dat</a> のものと同一とする．</p>
 <p>このとき以下のコマンドによって結果を確認できる．</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">$ paste -d&quot; &quot; x.dat y.dat z.dat &gt; test.dat</span>
-<span class="err">$ diff helix1.dat test.dat</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ paste -d<span class="s2">&quot; &quot;</span> x.dat y.dat z.dat &gt; test.dat
+$ diff helix1.dat test.dat
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">helix1.dat</span></code> と <code class="docutils literal notranslate"><span class="pre">test.dat</span></code> が同一ファイルになっていれば( <code class="docutils literal notranslate"><span class="pre">diff</span></code> コマンドが何も出力しなければ)良い．</p>
@@ -517,8 +517,8 @@
 <h3>6.5.5. 課題5<a class="headerlink" href="#id27" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>バイナリファイル <a class="reference external" href="data/helix2.dat">helix2.dat</a> を <code class="docutils literal notranslate"><span class="pre">open</span></code> を用いて開き，実数データ <span class="math notranslate nohighlight">\(x_i, y_i, z_i (i=1, \ldots, 32)\)</span> を読み込み，先ほどの <code class="docutils literal notranslate"><span class="pre">helix1.dat</span></code> と全く同じフォーマットで標準出力に表示するプログラムを作成せよ．</p>
 <p>作成したプログラムを</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">$ ./a.out &gt; test.dat</span>
-<span class="err">$ diff helix1.dat test.dat</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out &gt; test.dat
+$ diff helix1.dat test.dat
 </pre></div>
 </div>
 <p>のように実行し，結果が <code class="docutils literal notranslate"><span class="pre">helix1.dat</span></code> と同じになることを <code class="docutils literal notranslate"><span class="pre">diff</span></code> コマンドによって確かめよ．</p>
@@ -538,8 +538,8 @@
 <h3>6.5.6. 課題6<a class="headerlink" href="#id28" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>Fortranのソースコードから，何らかのFortranの命令文を含む行数(コメントのみの行および空白行を除いた行数)を数えるプログラムを作成せよ．</p>
 <p>入力はリダイレクトによって</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">$ ./a.out &lt; chap06/sample5.f90</span>
-<span class="err"> Number of lines with valid fortran statement :           24</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out &lt; chap06/sample5.f90
+ Number of lines with valid fortran statement :           <span class="m">24</span>
 </pre></div>
 </div>
 <p>のようにすれば良い． (チェックが出来ればファイル名は何でもよい．)</p>
@@ -562,18 +562,18 @@
 </div>
 <p>のように生成した <a class="reference external" href="data/cbinary.dat">cbinary.dat</a> をFortranから読み込むプログラムを作成せよ．
 実行結果は例えば以下のようになる．</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">$ ./a.out</span>
-<span class="err">data read from binary.dat in stream access</span>
-<span class="err">1.00</span>
-<span class="err">1.50</span>
-<span class="err">2.00</span>
-<span class="err">2.50</span>
-<span class="err">3.00</span>
-<span class="err">3.50</span>
-<span class="err">4.00</span>
-<span class="err">4.50</span>
-<span class="err">5.00</span>
-<span class="err">5.50</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out
+data <span class="nb">read</span> from binary.dat in stream access
+<span class="m">1</span>.00
+<span class="m">1</span>.50
+<span class="m">2</span>.00
+<span class="m">2</span>.50
+<span class="m">3</span>.00
+<span class="m">3</span>.50
+<span class="m">4</span>.00
+<span class="m">4</span>.50
+<span class="m">5</span>.00
+<span class="m">5</span>.50
 </pre></div>
 </div>
 <p>なおこのデータを作るのに用いたC言語のコードは <a class="reference external" href="sample/chap06/mkbin.c">mkbin.c</a> である．</p>

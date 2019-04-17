@@ -293,7 +293,7 @@ Tabの利用
 .. 課題
 ..
 
-.. include:: chap02_kadai.rst
+.. include:: kadai/chap02_kadai.rst
 
 ----
 

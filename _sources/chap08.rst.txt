@@ -255,7 +255,7 @@ Fortranには乱数を発生させる組込みのサブルーチン ``random_num
 .. 課題
 ..
 
-.. include:: chap08_kadai.rst
+.. include:: kadai/chap08_kadai.rst
 
 ----
 

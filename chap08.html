@@ -378,16 +378,16 @@
 \[V_n = \frac{ \pi^{n/2} }{ \Gamma(n/2 + 1) }\]</div>
 <p>によって与えられる．</p>
 <p>例えば次元数と試行回数を標準入力から与える形式のプログラムの実行結果は以下のようになる．この例のように誤差は試行回数 <span class="math notranslate nohighlight">\(m\)</span> に対して， <span class="math notranslate nohighlight">\(1/\sqrt{m}\)</span> に比例して減少する．</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">$ ./a.out</span>
-<span class="err">2 1000    # キーボード入力(2次元，試行回数1000回)</span>
-<span class="err">approximation  =       0.32240000E+01</span>
-<span class="err">exact value    =       0.31415927E+01</span>
-<span class="err">relative error =       0.26231044E-01</span>
-<span class="err">$ ./a.out</span>
-<span class="err">2 100000  # キーボード入力(2次元，試行回数100000回)</span>
-<span class="err">approximation  =       0.31430400E+01</span>
-<span class="err">exact value    =       0.31415927E+01</span>
-<span class="err">relative error =       0.46067683E-03</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out
+<span class="m">2</span> <span class="m">1000</span>    <span class="c1"># キーボード入力(2次元，試行回数1000回)</span>
+<span class="nv">approximation</span>  <span class="o">=</span>       <span class="m">0</span>.32240000E+01
+exact <span class="nv">value</span>    <span class="o">=</span>       <span class="m">0</span>.31415927E+01
+relative <span class="nv">error</span> <span class="o">=</span>       <span class="m">0</span>.26231044E-01
+$ ./a.out
+<span class="m">2</span> <span class="m">100000</span>  <span class="c1"># キーボード入力(2次元，試行回数100000回)</span>
+<span class="nv">approximation</span>  <span class="o">=</span>       <span class="m">0</span>.31430400E+01
+exact <span class="nv">value</span>    <span class="o">=</span>       <span class="m">0</span>.31415927E+01
+relative <span class="nv">error</span> <span class="o">=</span>       <span class="m">0</span>.46067683E-03
 </pre></div>
 </div>
 <hr class="docutils" />

@@ -319,27 +319,27 @@
 </pre></div>
 </td></tr></table></div>
 <p>例えば上の例で2-4行目と7行目は同じ処理をする．なおFortranはデフォルトで空白，Tab，カンマ，改行などを各要素の区切りとして解釈することに注意をして欲しい．すなわち</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">1.0, 2.0, ... 9.0, 10.0</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">1</span>.0, <span class="m">2</span>.0, ... <span class="m">9</span>.0, <span class="m">10</span>.0
 </pre></div>
 </div>
 <p>と</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">1.0</span>
-<span class="err">2.0</span>
-<span class="err">...</span>
-<span class="err">9.0</span>
-<span class="err">10.0</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">1</span>.0
+<span class="m">2</span>.0
+...
+<span class="m">9</span>.0
+<span class="m">10</span>.0
 </pre></div>
 </div>
 <p>のどちらでも同じように(正しく)読み込まれることになる．ちなみに復習しておくと，予め存在するファイルの内容を上のような処理によって読み込むにはリダイレクトを使って</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">$ ./a.out &lt; data.dat</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out &lt; data.dat
 </pre></div>
 </div>
 <p>のようにすれば良い．(この例ではdata.datの内容をa.outに渡している．)</p>
 <p>多次元配列の読み込みについては少し注意が必要である．例えば</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err"> 1.0  2.0  3.0</span>
-<span class="err"> 4.0  5.0  6.0</span>
-<span class="err"> 7.0  8.0  9.0</span>
-<span class="err">10.0 11.0 12.0</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span> <span class="m">1</span>.0  <span class="m">2</span>.0  <span class="m">3</span>.0
+ <span class="m">4</span>.0  <span class="m">5</span>.0  <span class="m">6</span>.0
+ <span class="m">7</span>.0  <span class="m">8</span>.0  <span class="m">9</span>.0
+<span class="m">10</span>.0 <span class="m">11</span>.0 <span class="m">12</span>.0
 </pre></div>
 </div>
 <p>というファイルを標準入力へのリダイレクトから3x4の2次元配列として読み込む場合に</p>
@@ -583,18 +583,18 @@
 <div class="section" id="id15">
 <h3>5.9.1. メモリ領域<a class="headerlink" href="#id15" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>Fortranの通常の静的配列(static array)の場合はメモリはスタック(stack)と呼ばれる領域に保持される．環境によっては(おそらく多くのLinux環境のデフォルトでは)スタックに大きなメモリ領域を保持できないようになっている．この設定は例えばsh系のシェル(bashなど)では以下のように <code class="docutils literal notranslate"><span class="pre">ulimit</span></code> コマンド(csh系のシェルならば <code class="docutils literal notranslate"><span class="pre">limit</span></code>)で確認することが出来る．</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">$ ulimit -a</span>
-<span class="err">core file size          (blocks, -c) 0</span>
-<span class="err">data seg size           (kbytes, -d) unlimited</span>
-<span class="err">file size               (blocks, -f) unlimited</span>
-<span class="err">max locked memory       (kbytes, -l) unlimited</span>
-<span class="err">max memory size         (kbytes, -m) unlimited</span>
-<span class="err">open files                      (-n) 256</span>
-<span class="err">pipe size            (512 bytes, -p) 1</span>
-<span class="err">stack size              (kbytes, -s) 8192</span>
-<span class="err">cpu time               (seconds, -t) unlimited</span>
-<span class="err">max user processes              (-u) 709</span>
-<span class="err">virtual memory          (kbytes, -v) unlimited</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">ulimit</span> -a
+core file size          <span class="o">(</span>blocks, -c<span class="o">)</span> <span class="m">0</span>
+data seg size           <span class="o">(</span>kbytes, -d<span class="o">)</span> unlimited
+file size               <span class="o">(</span>blocks, -f<span class="o">)</span> unlimited
+max locked memory       <span class="o">(</span>kbytes, -l<span class="o">)</span> unlimited
+max memory size         <span class="o">(</span>kbytes, -m<span class="o">)</span> unlimited
+open files                      <span class="o">(</span>-n<span class="o">)</span> <span class="m">256</span>
+pipe size            <span class="o">(</span><span class="m">512</span> bytes, -p<span class="o">)</span> <span class="m">1</span>
+stack size              <span class="o">(</span>kbytes, -s<span class="o">)</span> <span class="m">8192</span>
+cpu <span class="nb">time</span>               <span class="o">(</span>seconds, -t<span class="o">)</span> unlimited
+max user processes              <span class="o">(</span>-u<span class="o">)</span> <span class="m">709</span>
+virtual memory          <span class="o">(</span>kbytes, -v<span class="o">)</span> unlimited
 </pre></div>
 </div>
 <p>上の <code class="docutils literal notranslate"><span class="pre">ulimit</span></code> コマンドの出力結果から，この環境ではスタック領域が8MBに制限されているので大きな静的配列を確保することが出来ないことが分かる．プログラムの実行直後に原因不明の <code class="docutils literal notranslate"><span class="pre">Segmentation</span> <span class="pre">fault</span></code> などのエラーで終了してしまう場合はスタック領域が足りずにメモリが確保出来なかったことが原因かもしれない．</p>
@@ -676,10 +676,10 @@
 </pre></div>
 </td></tr></table></div>
 <p>例えば上のソースコードをcheck.f90として保存し，コンパイル・実行した結果は以下のようになる．</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err"> $ gfortran -fbounds-check check.f90</span>
-<span class="err"> $ ./a.out</span>
-<span class="err">At line 7 of file check.f90</span>
-<span class="err">Fortran runtime error: Index &#39;11&#39; of dimension 1 of array &#39;x&#39; above upper bound of 10</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span> $ gfortran -fbounds-check check.f90
+ $ ./a.out
+At line <span class="m">7</span> of file check.f90
+Fortran runtime error: Index <span class="s1">&#39;11&#39;</span> of dimension <span class="m">1</span> of array <span class="s1">&#39;x&#39;</span> above upper bound of <span class="m">10</span>
 </pre></div>
 </div>
 <p>配列 <code class="docutils literal notranslate"><span class="pre">x</span></code> の上限(10)を超えた11番目の要素にアクセスしているのでエラーが表示されているのが分かる．ただし，このようなチェックを逐一行うことで，当然実行時のパフォーマンスは犠牲になる．従って，デバッグの段階でこのような配列境界チェックを行い，時間のかかる計算を実行する際にはこのオプションは外しておこう．</p>
@@ -699,11 +699,11 @@
 </pre></div>
 </div>
 <p>実行結果は例えば以下のようなものである．</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">$ ./a.out</span>
-<span class="err"> Input month and day :</span>
-<span class="err">4    # キーボード入力</span>
-<span class="err">1    # キーボード入力</span>
-<span class="err"> day of year :           91</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out
+ Input month and day :
+<span class="m">4</span>    <span class="c1"># キーボード入力</span>
+<span class="m">1</span>    <span class="c1"># キーボード入力</span>
+ day of year :           <span class="m">91</span>
 </pre></div>
 </div>
 </div>
@@ -714,11 +714,11 @@
 \[\sigma = \sqrt{\frac{1}{N} \sum_{i=1}^{N} (x_i - \bar{x})^2}\]</div>
 <p>と定義される．</p>
 <p>データファイル <a class="reference external" href="data/score1.dat">score1.dat</a> を手元にコピーして，以下のようにリダイレクトによって作成したプログラムに読み込ませ，結果を確認せよ．</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">$ ./a.out &lt; score1.dat</span>
-<span class="err"> Best               :           98</span>
-<span class="err"> Worst              :            6</span>
-<span class="err"> Average            :    46.399999999999999</span>
-<span class="err"> Standard deviation :    25.115201240152015</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out &lt; score1.dat
+ Best               :           <span class="m">98</span>
+ Worst              :            <span class="m">6</span>
+ Average            :    <span class="m">46</span>.399999999999999
+ Standard deviation :    <span class="m">25</span>.115201240152015
 </pre></div>
 </div>
 <p>なおデータファイルには，1行目にデータ数 <span class="math notranslate nohighlight">\(N\)</span> ，それ以降に各データ <span class="math notranslate nohighlight">\(x_i\)</span> が記述されているので，まずはデータ数を読み込み配列のメモリを <code class="docutils literal notranslate"><span class="pre">allocate</span></code> した後に各データを読み込めば良い．( <a class="reference internal" href="chap05_sample3.html"><span class="doc">sample3.f90</span></a> を参照せよ．)</p>
@@ -727,9 +727,9 @@
 <h3>5.10.4. 課題4<a class="headerlink" href="#id22" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>標準入力から2つのベクトルを読み込み，両者の内積を計算し表示するプログラムを作成せよ． <code class="docutils literal notranslate"><span class="pre">do</span></code> ループを用いて地道に計算した結果と組込み関数 <code class="docutils literal notranslate"><span class="pre">dot_product</span></code> を用いた結果を比較すること．</p>
 <p>以下はデータファイル <a class="reference external" href="data/vector.dat">vector.dat</a> を入力とした場合の結果である．</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">$ ./a.out &lt; vector.dat</span>
-<span class="err"> Inner product with do loop     :    5.4454054113084460E-017</span>
-<span class="err"> Inner product with dot_product :    9.8770817913429454E-017</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out &lt; vector.dat
+ Inner product with <span class="k">do</span> loop     :    <span class="m">5</span>.4454054113084460E-017
+ Inner product with dot_product :    <span class="m">9</span>.8770817913429454E-017
 </pre></div>
 </div>
 <p>ただしデータは，ベクトルの長さ <span class="math notranslate nohighlight">\(N\)</span> ，1つ目のベクトルの要素( <span class="math notranslate nohighlight">\(N\)</span> 個)，2つ目のベクトルの各要素( <span class="math notranslate nohighlight">\(N\)</span> 個)，の順に並んでいるものとする．</p>
@@ -738,49 +738,49 @@
 <h3>5.10.5. 課題5<a class="headerlink" href="#id23" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>標準入力からベクトルと行列を読み込み，積を計算して表示するプログラムを作成せよ．これについても2重<code class="docutils literal notranslate"><span class="pre">do</span></code> ループを用いて地道に計算した結果と，組込み関数 <code class="docutils literal notranslate"><span class="pre">matmul</span></code> を用いた結果を比較すること．</p>
 <p>以下はデータファイル <a class="reference external" href="data/matvec.dat">matvec.dat</a> を入力とした場合の結果である．これと同じ結果が得られることを確認せよ．</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">$ /a.out &lt; matvec.dat</span>
-<span class="err"> Matrix-vector product with do loop</span>
-<span class="err"> -0.10000000000000001</span>
-<span class="err"> -0.89999999999999991</span>
-<span class="err"> -0.50000000000000000</span>
-<span class="err">  0.50000000000000000</span>
-<span class="err"> -1.5000000000000000</span>
-<span class="err">  1.5000000000000000</span>
-<span class="err">  1.2000000000000000</span>
-<span class="err"> -2.3999999999999999</span>
-<span class="err"> Matrix-vector product with matmul</span>
-<span class="err"> -0.10000000000000001</span>
-<span class="err"> -0.89999999999999991</span>
-<span class="err"> -0.50000000000000000</span>
-<span class="err">  0.50000000000000000</span>
-<span class="err"> -1.5000000000000000</span>
-<span class="err">  1.5000000000000000</span>
-<span class="err">  1.2000000000000002</span>
-<span class="err"> -2.3999999999999999</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ /a.out &lt; matvec.dat
+ Matrix-vector product with <span class="k">do</span> loop
+ -0.10000000000000001
+ -0.89999999999999991
+ -0.50000000000000000
+  <span class="m">0</span>.50000000000000000
+ -1.5000000000000000
+  <span class="m">1</span>.5000000000000000
+  <span class="m">1</span>.2000000000000000
+ -2.3999999999999999
+ Matrix-vector product with matmul
+ -0.10000000000000001
+ -0.89999999999999991
+ -0.50000000000000000
+  <span class="m">0</span>.50000000000000000
+ -1.5000000000000000
+  <span class="m">1</span>.5000000000000000
+  <span class="m">1</span>.2000000000000002
+ -2.3999999999999999
 </pre></div>
 </div>
 <p>データは，ベクトルの長さ <span class="math notranslate nohighlight">\(N\)</span> ，ベクトルの要素( <span class="math notranslate nohighlight">\(N\)</span> 個)，行列の各要素( <span class="math notranslate nohighlight">\(N^2\)</span> 個)，が順に並んでいるものとする．また行列の要素は <span class="math notranslate nohighlight">\(a_{11}, a_{21}, a_{31} \ldots\)</span> の順に読み込まれることと，ベクトルと行列の積 <span class="math notranslate nohighlight">\(b_{i} = \sum_{j} a_{i,j} x_{j}\)</span> の添字の順番に注意せよ．</p>
 <p><code class="docutils literal notranslate"><span class="pre">matvec.dat</span></code> は以下のようなファイルになっているが，行列の部分をFortranで読み込むとあたかも転置行列を読み込んだような形になることに注意せよ．（実際に読み込んで確かめてみよ．）</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">$ cat matvec.dat</span>
-<span class="err"> 8</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cat matvec.dat
+ <span class="m">8</span>
 
-<span class="err">   0.1</span>
-<span class="err">   1.0</span>
-<span class="err">   1.0</span>
-<span class="err">   0.5</span>
-<span class="err">   0.5</span>
-<span class="err">  -1.0</span>
-<span class="err">  -1.0</span>
-<span class="err">   0.2</span>
+   <span class="m">0</span>.1
+   <span class="m">1</span>.0
+   <span class="m">1</span>.0
+   <span class="m">0</span>.5
+   <span class="m">0</span>.5
+  -1.0
+  -1.0
+   <span class="m">0</span>.2
 
-<span class="err">  -1.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0</span>
-<span class="err">   1.0   -2.0    1.0    0.0    0.0    0.0    0.0    0.0</span>
-<span class="err">   0.0    1.0   -2.0    1.0    0.0    0.0    0.0    0.0</span>
-<span class="err">   0.0    0.0    1.0   -2.0    1.0    0.0    0.0    0.0</span>
-<span class="err">   0.0    0.0    0.0    1.0   -2.0    1.0    0.0    0.0</span>
-<span class="err">   0.0    0.0    0.0    0.0    1.0   -2.0    1.0    0.0</span>
-<span class="err">   0.0    0.0    0.0    0.0    0.0    1.0   -2.0    1.0</span>
-<span class="err">   0.0    0.0    0.0    0.0    0.0    0.0    2.0   -2.0</span>
+  -1.0    <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0
+   <span class="m">1</span>.0   -2.0    <span class="m">1</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0
+   <span class="m">0</span>.0    <span class="m">1</span>.0   -2.0    <span class="m">1</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0
+   <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">1</span>.0   -2.0    <span class="m">1</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0
+   <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">1</span>.0   -2.0    <span class="m">1</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0
+   <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">1</span>.0   -2.0    <span class="m">1</span>.0    <span class="m">0</span>.0
+   <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">1</span>.0   -2.0    <span class="m">1</span>.0
+   <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">0</span>.0    <span class="m">2</span>.0   -2.0
 </pre></div>
 </div>
 <div class="admonition note">

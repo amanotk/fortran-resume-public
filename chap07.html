@@ -778,10 +778,10 @@ end subroutine サブルーチン名
 \[x_{n+1} = \frac{1}{2} \left( \frac{a}{x_{n}} + x_{n} \right)\]</div>
 <p>ここで <span class="math notranslate nohighlight">\(x_{n}\)</span> は <span class="math notranslate nohighlight">\(\sqrt{a}\)</span> の <span class="math notranslate nohighlight">\(n\)</span> 番目の近似値である．初期値としては <span class="math notranslate nohighlight">\(x_{0} = a\)</span> を与え，反復は例えば <span class="math notranslate nohighlight">\(\epsilon = 10^{-5}\)</span> に対して， <span class="math notranslate nohighlight">\(\|x_{n+1} - x_{n}\| &lt; \epsilon \|x_{n}\|\)</span> となるまで繰り返せば良い．（反復の途中結果は必要ないので <span class="math notranslate nohighlight">\(x_{n}\)</span> に配列を使う必要はないことに注意せよ．）</p>
 <p>実装した関数と組み込み関数 <code class="docutils literal notranslate"><span class="pre">sqrt</span></code> の結果を比較し， <span class="math notranslate nohighlight">\(\epsilon\)</span> で与えた精度の範囲内で正しいことを確認すること．例えば，以下は標準入力から与えられた数値(この例では2.0)の平方根を計算して表示する例である．</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">$ ./a.out</span>
-<span class="err">2.0</span>
-<span class="err">sqrt(x) =    1.4142135623730951</span>
-<span class="err">approx  =    1.4142135623746899</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out
+<span class="m">2</span>.0
+sqrt<span class="o">(</span>x<span class="o">)</span> <span class="o">=</span>    <span class="m">1</span>.4142135623730951
+<span class="nv">approx</span>  <span class="o">=</span>    <span class="m">1</span>.4142135623746899
 </pre></div>
 </div>
 </div>
@@ -806,23 +806,23 @@ end subroutine サブルーチン名
 </div>
 <p>のように求められる(複雑なif文による分岐は必要ない!)．このインデックスが配列 <code class="docutils literal notranslate"><span class="pre">hist</span></code> の上限と下限の間に収まっていなければエラーとすれば良い．</p>
 <p>このサブルーチンを用いて， <a class="reference external" href="data/score2.dat">score2.dat</a> からデータを読み込みヒストグラム作成するプログラムを作成せよ．またその結果をgnuplotで図示せよ( <code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">boxes</span></code> を用いると良い)．出力結果は例えばビン幅を10とした場合には以下のようになる．</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">$ ./a.out &lt; score2.dat</span>
-<span class="err">  5.0000000000000000                0</span>
-<span class="err">  15.000000000000000                3</span>
-<span class="err">  25.000000000000000               26</span>
-<span class="err">  35.000000000000000               63</span>
-<span class="err">  45.000000000000000              152</span>
-<span class="err">  55.000000000000000              248</span>
-<span class="err">  65.000000000000000              254</span>
-<span class="err">  75.000000000000000              159</span>
-<span class="err">  85.000000000000000               80</span>
-<span class="err">  95.000000000000000               15</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out &lt; score2.dat
+  <span class="m">5</span>.0000000000000000                <span class="m">0</span>
+  <span class="m">15</span>.000000000000000                <span class="m">3</span>
+  <span class="m">25</span>.000000000000000               <span class="m">26</span>
+  <span class="m">35</span>.000000000000000               <span class="m">63</span>
+  <span class="m">45</span>.000000000000000              <span class="m">152</span>
+  <span class="m">55</span>.000000000000000              <span class="m">248</span>
+  <span class="m">65</span>.000000000000000              <span class="m">254</span>
+  <span class="m">75</span>.000000000000000              <span class="m">159</span>
+  <span class="m">85</span>.000000000000000               <span class="m">80</span>
+  <span class="m">95</span>.000000000000000               <span class="m">15</span>
 </pre></div>
 </div>
-<p>なお <a class="reference external" href="data/score2.dat">score2.dat</a> の形式は <a class="reference internal" href="chap05_kadai.html#score-format"><span class="std std-ref">5章の課題3</span></a> の <a class="reference external" href="data/score1.dat">score1.dat</a> と同じであるが，データは異なるものになっている．</p>
+<p>なお <a class="reference external" href="data/score2.dat">score2.dat</a> の形式は <a class="reference internal" href="kadai/chap05_kadai.html#score-format"><span class="std std-ref">5章の課題3</span></a> の <a class="reference external" href="data/score1.dat">score1.dat</a> と同じであるが，データは異なるものになっている．</p>
 <p>同様に範囲外のデータを含む <a class="reference external" href="data/score3.dat">score3.dat</a> を読みこませると</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">$ ./a.out &lt; score3.dat</span>
-<span class="err">  Invalid input</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out &lt; score3.dat
+  Invalid input
 </pre></div>
 </div>
 <p>のようなエラーを表示するように実装せよ．</p>
@@ -845,7 +845,7 @@ end subroutine サブルーチン名
 </pre></div>
 </div>
 <p>作成したプログラムを用いて <a class="reference external" href="data/rand.dat">rand.dat</a> のデータをソートし，結果が正しいことを確認せよ．ここでもデータファイルの形式は上の <a class="reference external" href="data/score2.dat">score2.dat</a> と同一である．従って同様にリダイレクトで</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">$ ./a.out &lt; rand.dat</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out &lt; rand.dat
 </pre></div>
 </div>
 <p>のように読みこませれば良い．</p>
@@ -867,13 +867,13 @@ end subroutine サブルーチン名
 </div></blockquote>
 <p>これをサブルーチン <code class="docutils literal notranslate"><span class="pre">bsearch</span></code> として実装せよ．</p>
 <p>また <code class="docutils literal notranslate"><span class="pre">open</span></code> 文で <a class="reference external" href="data/rand.dat">rand.dat</a> からデータを読み込み， <code class="docutils literal notranslate"><span class="pre">bsort</span></code> で配列をソートした後に <code class="docutils literal notranslate"><span class="pre">bsearch</span></code> で実際に適当な値の探索を行うプログラムを作成せよ．例えば標準入力から与えられた値をソート後の配列から探索を行い，結果を表示するようにすれば良い．この時の実行結果は以下のようになる．(この例では10や2004が入力値である．)</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">$ ./a.out</span>
-<span class="err">Input an integer : 10    # キーボード入力</span>
-<span class="err">      10 was not found !</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out
+Input an integer : <span class="m">10</span>    <span class="c1"># キーボード入力</span>
+      <span class="m">10</span> was not found !
 
-<span class="err">$ ./a.out</span>
-<span class="err">Input an integer : 2004  # キーボード入力</span>
-<span class="err">    2004 was found at index      100</span>
+$ ./a.out
+Input an integer : <span class="m">2004</span>  <span class="c1"># キーボード入力</span>
+    <span class="m">2004</span> was found at index      <span class="m">100</span>
 </pre></div>
 </div>
 <p>なおサブルーチン <code class="docutils literal notranslate"><span class="pre">bsearch</span></code> は例えば以下のような形式とすればよい．見つかった場合には探しだす値と等しい値が格納されている配列のインデックスを，見つからなかった場合には <code class="docutils literal notranslate"><span class="pre">-1</span></code> を仮引数 <code class="docutils literal notranslate"><span class="pre">idx</span></code> に代入して返すようにするとよいだろう．</p>
@@ -893,11 +893,11 @@ end subroutine サブルーチン名
 <h3>7.7.6. 課題6<a class="headerlink" href="#id30" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>1行に1つの英単語が記述されているファイルを読み込み，英単語を辞書順にソートして出力するプログラムを作成せよ．空白行かファイルの終端に達するまで全ての単語を読み込むこと．ただし英単語は10文字以下，また読み込む単語の数は100個以下であると仮定してよい． <a class="reference external" href="data/words.txt">words.txt</a> を入力として作成したプログラムの動作を確認せよ．</p>
 <p>実行結果は例えば以下のようになるだろう．(空白行の後の <code class="docutils literal notranslate"><span class="pre">NOT_TO_BE_READ</span></code> は読まれていないことに注意!)</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">$ ./a.out &lt; words.txt</span>
-<span class="err">*** before sort ***</span>
-<span class="err">tomato     banana     apple      grape      watermelon plum</span>
-<span class="err">*** after sort ***</span>
-<span class="err">apple      banana     grape      plum       tomato     watermelon</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out &lt; words.txt
+*** before sort ***
+tomato     banana     apple      grape      watermelon plum
+*** after sort ***
+apple      banana     grape      plum       tomato     watermelon
 </pre></div>
 </div>
 <p>なお，文字列の大小比較は辞書順となる(例えば <code class="docutils literal notranslate"><span class="pre">'apple'</span> <span class="pre">&lt;</span> <span class="pre">'banana'</span></code>)ので， <code class="docutils literal notranslate"><span class="pre">bsort</span></code> を一部修正するだけで文字列のソートが出来る．文字型変数の配列は例えば</p>
@@ -915,33 +915,33 @@ end subroutine サブルーチン名
 <li>文字数があまりに多い時にはヒストグラムを適当に規格化すること．</li>
 </ul>
 <p><a class="reference external" href="data/wikipedia.txt">wikipedia.txt</a>  (<a class="reference external" href="http://en.wikipedia.org/wiki/Fortran">Wikipedia</a> より引用)を処理した時には例えば以下のような出力となるだろう．この例では最大で60個の <code class="docutils literal notranslate"><span class="pre">'o'</span></code> が出力されるように規格化してある．各アルファベットの後の括弧内の数字は文字数を表している．( <a class="reference external" href="data/wikipedia.txt">wikipedia.txt</a> で試す前に <a class="reference external" href="data/words.txt">words.txt</a> などの小さいデータで試した方が良いだろう．)</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">$ ./a.out &lt; wikipedia.txt</span>
-<span class="err">A( 110):oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo</span>
-<span class="err">B(   9):ooooo</span>
-<span class="err">C(  44):oooooooooooooooooooooooo</span>
-<span class="err">D(  32):ooooooooooooooooo</span>
-<span class="err">E(  99):oooooooooooooooooooooooooooooooooooooooooooooooooooooo</span>
-<span class="err">F(  31):ooooooooooooooooo</span>
-<span class="err">G(  38):ooooooooooooooooooooo</span>
-<span class="err">H(  32):ooooooooooooooooo</span>
-<span class="err">I(  87):ooooooooooooooooooooooooooooooooooooooooooooooo</span>
-<span class="err">J(   2):o</span>
-<span class="err">K(   2):o</span>
-<span class="err">L(  38):ooooooooooooooooooooo</span>
-<span class="err">M(  49):ooooooooooooooooooooooooooo</span>
-<span class="err">N(  91):oooooooooooooooooooooooooooooooooooooooooooooooooo</span>
-<span class="err">O(  81):oooooooooooooooooooooooooooooooooooooooooooo</span>
-<span class="err">P(  39):ooooooooooooooooooooo</span>
-<span class="err">Q(   0):</span>
-<span class="err">R(  93):ooooooooooooooooooooooooooooooooooooooooooooooooooo</span>
-<span class="err">S(  63):oooooooooooooooooooooooooooooooooo</span>
-<span class="err">T(  79):ooooooooooooooooooooooooooooooooooooooooooo</span>
-<span class="err">U(  37):oooooooooooooooooooo</span>
-<span class="err">V(  14):oooooooo</span>
-<span class="err">W(   5):ooo</span>
-<span class="err">X(   1):o</span>
-<span class="err">Y(  15):oooooooo</span>
-<span class="err">Z(   0):</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out &lt; wikipedia.txt
+A<span class="o">(</span> <span class="m">110</span><span class="o">)</span>:oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+B<span class="o">(</span>   <span class="m">9</span><span class="o">)</span>:ooooo
+C<span class="o">(</span>  <span class="m">44</span><span class="o">)</span>:oooooooooooooooooooooooo
+D<span class="o">(</span>  <span class="m">32</span><span class="o">)</span>:ooooooooooooooooo
+E<span class="o">(</span>  <span class="m">99</span><span class="o">)</span>:oooooooooooooooooooooooooooooooooooooooooooooooooooooo
+F<span class="o">(</span>  <span class="m">31</span><span class="o">)</span>:ooooooooooooooooo
+G<span class="o">(</span>  <span class="m">38</span><span class="o">)</span>:ooooooooooooooooooooo
+H<span class="o">(</span>  <span class="m">32</span><span class="o">)</span>:ooooooooooooooooo
+I<span class="o">(</span>  <span class="m">87</span><span class="o">)</span>:ooooooooooooooooooooooooooooooooooooooooooooooo
+J<span class="o">(</span>   <span class="m">2</span><span class="o">)</span>:o
+K<span class="o">(</span>   <span class="m">2</span><span class="o">)</span>:o
+L<span class="o">(</span>  <span class="m">38</span><span class="o">)</span>:ooooooooooooooooooooo
+M<span class="o">(</span>  <span class="m">49</span><span class="o">)</span>:ooooooooooooooooooooooooooo
+N<span class="o">(</span>  <span class="m">91</span><span class="o">)</span>:oooooooooooooooooooooooooooooooooooooooooooooooooo
+O<span class="o">(</span>  <span class="m">81</span><span class="o">)</span>:oooooooooooooooooooooooooooooooooooooooooooo
+P<span class="o">(</span>  <span class="m">39</span><span class="o">)</span>:ooooooooooooooooooooo
+Q<span class="o">(</span>   <span class="m">0</span><span class="o">)</span>:
+R<span class="o">(</span>  <span class="m">93</span><span class="o">)</span>:ooooooooooooooooooooooooooooooooooooooooooooooooooo
+S<span class="o">(</span>  <span class="m">63</span><span class="o">)</span>:oooooooooooooooooooooooooooooooooo
+T<span class="o">(</span>  <span class="m">79</span><span class="o">)</span>:ooooooooooooooooooooooooooooooooooooooooooo
+U<span class="o">(</span>  <span class="m">37</span><span class="o">)</span>:oooooooooooooooooooo
+V<span class="o">(</span>  <span class="m">14</span><span class="o">)</span>:oooooooo
+W<span class="o">(</span>   <span class="m">5</span><span class="o">)</span>:ooo
+X<span class="o">(</span>   <span class="m">1</span><span class="o">)</span>:o
+Y<span class="o">(</span>  <span class="m">15</span><span class="o">)</span>:oooooooo
+Z<span class="o">(</span>   <span class="m">0</span><span class="o">)</span>:
 </pre></div>
 </div>
 <p>組込み関数 <code class="docutils literal notranslate"><span class="pre">ichar</span></code> ， <code class="docutils literal notranslate"><span class="pre">char</span></code> を用いるとよい．また規格化の際には四捨五入をする関数 <code class="docutils literal notranslate"><span class="pre">nint</span></code> を用いることが出来る．</p>

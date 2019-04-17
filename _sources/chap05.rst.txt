@@ -557,7 +557,7 @@ Column majorとRow major
 .. 課題
 ..
 
-.. include:: chap05_kadai.rst
+.. include:: kadai/chap05_kadai.rst
 
 
 ----

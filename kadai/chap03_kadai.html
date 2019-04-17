@@ -1,0 +1,154 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第3章 演習課題 &#8212; Fortran演習(地球惑星物理学演習)</title>
+    <link rel="stylesheet" href="../_static/agogo.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" /> 
+  </head><body>
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="../index.html">Fortran演習</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="id1">
+<h1>第3章 演習課題<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="id2">
+<h2>課題1<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>サンプルプログラムをコンパイル・実行して動作を確認せよ．さらに，適宜修正してその実行結果を確認せよ．</p>
+</div>
+<div class="section" id="id3">
+<h2>課題2<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>標準入力から三角形の底辺 <span class="math notranslate nohighlight">\(l\)</span> と高さ <span class="math notranslate nohighlight">\(h\)</span> を読み込み，三角形の面積を表示するプログラムを作成せよ．</p>
+</div>
+<div class="section" id="id4">
+<h2>課題3<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>単精度実数型 <code class="docutils literal notranslate"><span class="pre">real(4)</span></code> および倍精度実数型 <code class="docutils literal notranslate"><span class="pre">real(8)</span></code> で，それぞれ <span class="math notranslate nohighlight">\(\tan(\pi/4) = 1\)</span> なる関係式を用いて <span class="math notranslate nohighlight">\(\pi\)</span> の値を求めて表示し，その値の精度を確認せよ．(組み込み関数 <code class="docutils literal notranslate"><span class="pre">atan(x)</span></code> が数学の <span class="math notranslate nohighlight">\(\tan^{-1}(x)\)</span> に対応している．)
+なお，精度を確認する際には4倍精度実数型 <code class="docutils literal notranslate"><span class="pre">real(16)</span></code> でも同様に <span class="math notranslate nohighlight">\(\pi\)</span> の値を求め，これを正確な値(真値)とみなし，それとの相対誤差を確認すること．
+ただし相対誤差は <span class="math notranslate nohighlight">\(|1 - 近似値/真値|\)</span> で評価せよ．(絶対値を返す関数 <code class="docutils literal notranslate"><span class="pre">abs(x)</span></code> を用いよ．)</p>
+<p>例えば以下のような結果が得られる．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out
+<span class="m">3</span>.14159274101257324218750000000000000         <span class="m">2</span>.78275351528562301296177532160895165E-0008
+<span class="m">3</span>.14159265358979311599796346854418516         <span class="m">3</span>.89817183251937544615814478114900845E-0017
+<span class="m">3</span>.14159265358979323846264338327950280
+</pre></div>
+</div>
+<p>結果は上から，単精度の <span class="math notranslate nohighlight">\(\pi\)</span> とその精度，倍精度の <span class="math notranslate nohighlight">\(\pi\)</span> とその精度， 4倍精度の <span class="math notranslate nohighlight">\(\pi\)</span> をそれぞれ表している．ただし細かい数値は結果は環境依存である．
+（ここで，例えば <code class="docutils literal notranslate"><span class="pre">2.7E-0008</span></code> は <span class="math notranslate nohighlight">\(2.7 \times 10^{-8}\)</span> を表すのでとても小さい値であることを意味する．）</p>
+</div>
+<div class="section" id="id5">
+<h2>課題4<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>標準入力から複素数 <span class="math notranslate nohighlight">\(z (= x + i y)\)</span> を読み込み， <span class="math notranslate nohighlight">\(e^z\)</span> および <span class="math notranslate nohighlight">\(e^x \left( \cos y + i \sin y \right)\)</span> をそれぞれ計算し，その結果が等しいことを確認せよ
+(組み込み関数 <code class="docutils literal notranslate"><span class="pre">exp(x)</span></code> および <code class="docutils literal notranslate"><span class="pre">sin(x)</span></code> ， <code class="docutils literal notranslate"><span class="pre">cos(x)</span></code> を用いればよい)．ただし倍精度の複素数型 <code class="docutils literal notranslate"><span class="pre">complex(8)</span></code> を用いること．なお複素数 <code class="docutils literal notranslate"><span class="pre">z</span></code> の実部は <code class="docutils literal notranslate"><span class="pre">real(z)</span></code> ，虚部は <code class="docutils literal notranslate"><span class="pre">aimag(z)</span></code> という組み込み関数でそれぞれ求めることができる．またキーボードから複素数の入力は <code class="docutils literal notranslate"><span class="pre">(実部,</span> <span class="pre">虚部)</span></code> という形式となることに注意せよ．例えば <span class="math notranslate nohighlight">\(z = 1 + i\)</span> について <span class="math notranslate nohighlight">\(\exp(z)\)</span> を求めるには</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out
+<span class="o">(</span><span class="m">1</span>.0, <span class="m">1</span>.0<span class="o">)</span> <span class="c1"># キーボード入力</span>
+<span class="o">(</span>  <span class="m">1</span>.4686939399158851     ,  <span class="m">2</span>.2873552871788423     <span class="o">)</span>
+<span class="o">(</span>  <span class="m">1</span>.4686939399158851     ,  <span class="m">2</span>.2873552871788423     <span class="o">)</span>
+</pre></div>
+</div>
+<p>のように <code class="docutils literal notranslate"><span class="pre">(実部,</span> <span class="pre">虚部)</span></code> という形式で入力すれば良い．</p>
+</div>
+<div class="section" id="id6">
+<h2>課題5<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>テイラー展開の公式</p>
+<div class="math notranslate nohighlight">
+\[\sin x = x - \frac{x^3}{3 !} + \frac{x^5}{5 !} - \frac{x^7}{7 !} \cdots\]</div>
+<p>を適当な次数(例えば2次とか3次)で打ち切り， <span class="math notranslate nohighlight">\(\sin x\)</span> の近似値を例えば <span class="math notranslate nohighlight">\(x = 0.01，0.1，0.2\)</span> などについて求め，組み込み関数 <code class="docutils literal notranslate"><span class="pre">sin(x)</span></code> で求めた値と比較せよ．</p>
+<p>例えば以下のような結果が得られればよい</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out
+<span class="m">0</span>.2                    <span class="c1"># キーボード入力</span>
+ <span class="m">0</span>.20000000000000001   <span class="c1"># 1次近似</span>
+ <span class="m">0</span>.19866666666666669   <span class="c1"># 3次近似</span>
+ <span class="m">0</span>.19866933333333336   <span class="c1"># 5次近似</span>
+ <span class="m">0</span>.19866933079365082   <span class="c1"># 7次近似</span>
+ <span class="m">0</span>.19866933079506122   <span class="c1"># 組み込み関数</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          <h3>目次</h3>
+          <ul>
+<li class="toctree-l1"><a class="reference internal" href="../chap01.html">1. はじめに</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chap02.html">2. プログラムの作成と実行</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chap03.html">3. 変数・データ型・基本的な計算</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chap04.html">4. 制御構造</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chap05.html">5. 配列</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chap06.html">6. 書式指定・ファイル入出力・文字列処理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chap07.html">7. 関数とサブルーチン</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chap08.html">8. 数値解析の基礎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chap09.html">9. モジュールと構造型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chap10.html">10. 付録</a></li>
+</ul>
+
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">検索</h3>
+            <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="検索" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+          </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="../genindex.html" title="総合索引"
+              >索引</a>
+          </div>
+          <div role="note" aria-label="source link">
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Takanobu Amano.
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.9 で生成しました。
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

@@ -599,7 +599,7 @@ Fortran 90以降では，この問題を解決するために，内部手続き�
 .. 課題
 ..
 
-.. include:: chap09_kadai.rst
+.. include:: kadai/chap09_kadai.rst
 
 ----
 

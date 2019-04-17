@@ -83,18 +83,18 @@
 </pre></div>
 </td></tr></table></div>
 <p>これはソースコードと呼ばれ，人間が読める形式で記述されるテキストファイルである．拡張子はFortran 90/95の場合は <code class="docutils literal notranslate"><span class="pre">.f90</span></code> とする <a class="footnote-reference" href="#id24" id="id3">[1]</a>．プログラムを実行するには，これをコンパイラと呼ばれるプログラムを用いて実行形式(計算機が読み込んで実行することができる形式)に変換してやる必要がある．これをコンパイルと言う．この演習ではgfortranというコンパイラを用いることにしよう．(Intel製のifortというコンパイラがLinux環境では個人利用では無償で使うことが出来ていたのだが，Intelの方針転換で最近は使えなくなってしまったようだ．) カレントディレクトリに <code class="docutils literal notranslate"><span class="pre">sample1.f90</span></code> というファイルがあることを確認して，ターミナルで以下のコマンドを実行しよう．</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">$ gfortran sample1.f90</span>
-<span class="err">$ ./a.out</span>
-<span class="err">Hello, world !</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ gfortran sample1.f90
+$ ./a.out
+Hello, world !
 </pre></div>
 </div>
 <p>1行目でgfortranコマンドによってコンパイルを実行している．コンパイルが成功すると <code class="docutils literal notranslate"><span class="pre">a.out</span></code> という名前の実行形式のファイルが作成される．2行目で作成された <code class="docutils literal notranslate"><span class="pre">a.out</span></code> を実行し，結果が3行目に表示されている．このように&quot;Hello, world !&quot;が表示されれば成功である．</p>
 <p>ちなみに</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">$ gfortran sample1.f90 -o hello</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ gfortran sample1.f90 -o hello
 </pre></div>
 </div>
 <p>のように <code class="docutils literal notranslate"><span class="pre">-o</span></code> オプションを使って作成される実行形式のファイル名を指定することが出来る．上の場合は <code class="docutils literal notranslate"><span class="pre">hello</span></code> というファイルが作成されるのでこれを実行すると先ほどと同じ結果が得られるはずである．なおコンパイラに渡すことの出来るオプションは他にも山ほど存在するので，興味がある人は</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">$ man gfortran</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ man gfortran
 </pre></div>
 </div>
 <p>で調べて欲しい．まあよく使うようなオプションはせいぜい数個程度であろう．このように，どんなプログラムであっても基本的にはemacsやvi等のエディタでソースコードを編集し，コンパイル，最後に実行という流れになる <a class="footnote-reference" href="#id25" id="id4">[2]</a>．</p>
@@ -189,7 +189,7 @@
 <div class="section" id="control-capslock-setxkbmap">
 <h3>2.3.1. <code class="docutils literal notranslate"><span class="pre">Control</span></code> と <code class="docutils literal notranslate"><span class="pre">CapsLock</span></code> の交換 (setxkbmap)<a class="headerlink" href="#control-capslock-setxkbmap" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>まずemacsでは <code class="docutils literal notranslate"><span class="pre">Control</span></code> をかなり多様するので <code class="docutils literal notranslate"><span class="pre">A</span></code> のキーの左の <code class="docutils literal notranslate"><span class="pre">CapsLock</span></code> を <code class="docutils literal notranslate"><span class="pre">Control</span></code> と交換して使用する人がほとんどである(多分)．最近のLinux系のOS環境では <code class="docutils literal notranslate"><span class="pre">CapsLock</span></code> と <code class="docutils literal notranslate"><span class="pre">Control</span></code> を交換するには</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">$ setxkbmap -option ctrl:swapcaps</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ setxkbmap -option ctrl:swapcaps
 </pre></div>
 </div>
 <p>とするのが手っ取り早い．</p>
@@ -200,16 +200,16 @@
 <h3>2.3.2. <code class="docutils literal notranslate"><span class="pre">Control</span></code> と <code class="docutils literal notranslate"><span class="pre">CapsLock</span></code> の交換 (古い方法)<a class="headerlink" href="#control-capslock" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>以下の方法は古典的な方法で，最近の環境では必要ない(というか紛らわしい)情報かもしれないが，念のため残しておく．</p>
 <p>Linux系の環境では <code class="docutils literal notranslate"><span class="pre">xmodmap</span></code> というコマンドでキーボードのカスタマイズが出来る．ホームディレクトリに <code class="docutils literal notranslate"><span class="pre">.Xmodmap</span></code> というファイルを作り，以下の様な内容で保存する．</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">remove Lock = Caps_Lock</span>
-<span class="err">remove Control = Control_L</span>
-<span class="err">keycode 37 = Caps_Lock</span>
-<span class="err">keycode 66 = Control_L</span>
-<span class="err">add Lock = Caps_Lock</span>
-<span class="err">add Control = Control_L</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>remove <span class="nv">Lock</span> <span class="o">=</span> Caps_Lock
+remove <span class="nv">Control</span> <span class="o">=</span> Control_L
+keycode <span class="nv">37</span> <span class="o">=</span> Caps_Lock
+keycode <span class="nv">66</span> <span class="o">=</span> Control_L
+add <span class="nv">Lock</span> <span class="o">=</span> Caps_Lock
+add <span class="nv">Control</span> <span class="o">=</span> Control_L
 </pre></div>
 </div>
 <p>そして</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">$ xmodmap ~/.Xmodmap</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ xmodmap ~/.Xmodmap
 </pre></div>
 </div>
 <p>というコマンドを実行すると <code class="docutils literal notranslate"><span class="pre">CapsLock</span></code> と 左の <code class="docutils literal notranslate"><span class="pre">Control</span></code> キーが交換されたハズだ．ログイン時に自動でこのコマンドを実行するように設定しておけば便利である．</p>
@@ -357,15 +357,15 @@
 <h3>2.4.3. 課題3 <sup>†</sup><a class="headerlink" href="#id23" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>本演習では扱わないが，C言語やPythonの場合についてもプログラムの実行の方法も知っておこう．</p>
 <p>C言語はFortranと同じようにコンパイル言語なので，ソースをコンパイルして実行する．C言語のコンパイラとしては <code class="docutils literal notranslate"><span class="pre">gcc</span></code> を用いることが出来る．ここでは <a class="reference external" href="sample/chap02/hello.c">chap02/hello.c</a> をコンパイル，実行してみよう．</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">$ gcc hello.c</span>
-<span class="err">$ ./a.out</span>
-<span class="err">Hello, world !</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ gcc hello.c
+$ ./a.out
+Hello, world !
 </pre></div>
 </div>
 <p>このように，コンパイラのコマンドとして <code class="docutils literal notranslate"><span class="pre">gcc</span></code> を使うこと以外は基本的に同じである．</p>
 <p>Pythonはスクリプト言語と呼ばれ，コンパイルが必要なく，直接ソースから実行することが出来る．ここでは <a class="reference external" href="sample/chap02/hello.py">chap02/hello.py</a> を実行してみよう．</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">$ ./hello.py</span>
-<span class="err">Hello, world !</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./hello.py
+Hello, world !
 </pre></div>
 </div>
 <p>プログラムの規模が大きくなってくると，次第にコンパイルにも時間がかかるようになってくるが，Pythonのような言語ではコンパイルの必要がないことが大きな利点となる．一方で実行速度は（書き方に大きく依存するものの）C言語やFortranの方が一般には高速である．</p>

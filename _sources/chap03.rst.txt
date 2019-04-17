@@ -311,7 +311,7 @@ Fortranには標準で使える関数が多く用意されており，組込み�
 .. 課題
 ..
 
-.. include:: chap03_kadai.rst
+.. include:: kadai/chap03_kadai.rst
 
 ----
 

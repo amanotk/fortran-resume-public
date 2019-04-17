@@ -588,7 +588,7 @@ optional属性とキーワード引数 :sup:`†`
 .. 課題
 ..
 
-.. include:: chap07_kadai.rst
+.. include:: kadai/chap07_kadai.rst
 
 
 ----

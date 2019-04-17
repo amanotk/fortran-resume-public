@@ -335,7 +335,7 @@
 .. 課題
 ..
 
-.. include:: chap04_kadai.rst
+.. include:: kadai/chap04_kadai.rst
 
 ----
 
