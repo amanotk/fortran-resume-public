@@ -50,11 +50,11 @@
 <blockquote>
 <div><p>サンプルプログラム</p>
 <ul class="simple">
-<li><a class="reference internal" href="chap04_sample1.html"><span class="doc">sample1.f90</span></a> : 条件分岐(if)</li>
-<li><a class="reference internal" href="chap04_sample2.html"><span class="doc">sample2.f90</span></a> : 反復処理(doループ1)</li>
-<li><a class="reference internal" href="chap04_sample3.html"><span class="doc">sample3.f90</span></a> : 反復処理(doループ2)</li>
-<li><a class="reference internal" href="chap04_sample4.html"><span class="doc">sample4.f90</span></a> : 反復処理(doループ3)</li>
-<li><a class="reference internal" href="chap04_sample5.html"><span class="doc">sample5.f90</span></a> : 条件分岐(select)</li>
+<li><a class="reference internal" href="chap04_sample1_f90.html"><span class="doc">sample1.f90</span></a> : 条件分岐(if)</li>
+<li><a class="reference internal" href="chap04_sample2_f90.html"><span class="doc">sample2.f90</span></a> : 反復処理(doループ1)</li>
+<li><a class="reference internal" href="chap04_sample3_f90.html"><span class="doc">sample3.f90</span></a> : 反復処理(doループ2)</li>
+<li><a class="reference internal" href="chap04_sample4_f90.html"><span class="doc">sample4.f90</span></a> : 反復処理(doループ3)</li>
+<li><a class="reference internal" href="chap04_sample5_f90.html"><span class="doc">sample5.f90</span></a> : 条件分岐(select)</li>
 </ul>
 </div></blockquote>
 <div class="contents topic" id="id2">
@@ -72,7 +72,7 @@
 <div class="section" id="if">
 <h2><a class="toc-backref" href="#id18">4.1. 条件分岐(if)</a><a class="headerlink" href="#if" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
-<div><a class="reference internal" href="chap04_sample1.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
+<div><a class="reference internal" href="chap04_sample1_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">if</span></code> による条件分岐は例えばユーザーの入力によって動作を変更する場合などに用いる．典型的な使い方は以下のようなものである．</p>
 <div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -232,7 +232,7 @@
 <div class="section" id="do">
 <span id="c4-do"></span><h3>4.2.1. 決まった回数の繰り返し(do)<a class="headerlink" href="#do" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <blockquote>
-<div><a class="reference internal" href="chap04_sample2.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
+<div><a class="reference internal" href="chap04_sample2_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>決まった繰り返しの処理をするために用いるのが <code class="docutils literal notranslate"><span class="pre">do</span></code> (従ってこの反復処理は <code class="docutils literal notranslate"><span class="pre">do</span></code> ループと呼ばれる)である．これも使い方は至ってシンプルである．</p>
 <div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -274,7 +274,7 @@
 <div class="section" id="do-while">
 <h3>4.2.2. 条件を指定した繰り返し(do while)<a class="headerlink" href="#do-while" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <blockquote>
-<div><a class="reference internal" href="chap04_sample3.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
+<div><a class="reference internal" href="chap04_sample3_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>繰り返しの処理には基本的に先ほどの <code class="docutils literal notranslate"><span class="pre">do</span></code> ループを用いれば良いのだが，これを少し違った形式で行う <code class="docutils literal notranslate"><span class="pre">do</span> <span class="pre">while</span></code> なる構文も用意されている．これは</p>
 <div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -316,7 +316,7 @@
 <div class="section" id="exitcycle">
 <h3>4.2.3. 複雑な処理(exitとcycle)<a class="headerlink" href="#exitcycle" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <blockquote>
-<div><a class="reference internal" href="chap04_sample4.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
+<div><a class="reference internal" href="chap04_sample4_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>単純な繰り返しだけでなく，より柔軟な制御を行うには <code class="docutils literal notranslate"><span class="pre">exit</span></code> や <code class="docutils literal notranslate"><span class="pre">cycle</span></code> を用いる．<code class="docutils literal notranslate"><span class="pre">exit</span></code> では <code class="docutils literal notranslate"><span class="pre">do</span></code> ループの中から途中で抜けることが出来，<code class="docutils literal notranslate"><span class="pre">cycle</span></code> ではループ内のそれ以降の処理を行わずにループ先頭に戻ることがで出来る．これらを用いると意図的に作った無限ループから条件を満たした時だけ抜け出すようなプログラムも簡単に作ることができる．例えば以下の例を見てみよう．</p>
 <div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -384,7 +384,7 @@
 <div class="section" id="select">
 <h2><a class="toc-backref" href="#id20">4.3. 条件分岐(select)</a><a class="headerlink" href="#select" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
-<div><a class="reference internal" href="chap04_sample5.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
+<div><a class="reference internal" href="chap04_sample5_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">select</span></code> 構文を用いても条件分岐を行うことも出来る．基本的には <code class="docutils literal notranslate"><span class="pre">if</span></code> を用いれば同じことは実現出来るのだが，場合によっては <code class="docutils literal notranslate"><span class="pre">select</span></code> を用いた方がよりスッキリとした形で書ける事があるので知っておいて損はない．典型的には整数や文字列の値で場合分けを制御する際に用いる(実数型には用いることは出来ない)．以下は入力された整数 <code class="docutils literal notranslate"><span class="pre">score</span></code> (テストの点だと思おう)の値によって場合分けをする例である．</p>
 <div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2

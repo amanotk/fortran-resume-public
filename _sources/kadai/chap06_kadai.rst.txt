@@ -142,7 +142,7 @@ Fortranの通常の ``unformatted`` バイナリファイルは一般には他�
     5.00
     5.50
 
-なおこのデータを作るのに用いたC言語のコードは `mkbin.c <sample/chap06/mkbin.c>`_ である．
+なおこのデータを作るのに用いたC言語のコードは :doc:`mkbin.c <chap06_mkbin_c>` である．
 
 
 課題8 :sup:`†`
@@ -150,4 +150,4 @@ Fortranの通常の ``unformatted`` バイナリファイルは一般には他�
 
 Fortranの ``unformatted`` バイナリファイル `helix2.dat <data/helix2.dat>`_ をストリーム入出力を用いて読み込み，課題5と同様に出力するプログラムを作成せよ．ここで多くのコンパイラが ``unformatted`` の場合には実際のデータの前後に4バイトずつヘッダーとフッター（データのバイト数を表す整数）を付与するので，これらを読み飛ばす必要があることに注意せよ．
 
-これを理解しておけば多言語からもデータの読み書きが可能である．例えば，C言語では `helix.c <sample/chap06/helix.c>`_ ， Pythonでは `helix.py <sample/chap06/helix.py>`_ が同じ動作をするプログラムになっている．(Pythonの場合は `scipy <https://scipy.org/>`_ がインストールされていれば ``scipy.io.FortranFile`` を使って簡単に読み込むことが出来る．)
+これを理解しておけば多言語からもデータの読み書きが可能である．例えば，C言語では :doc:`helix.c <chap06_helix_c>` ， Pythonでは :doc:`helix.py <chap06_helix_py>` が同じ動作をするプログラムになっている．(Pythonの場合は `scipy <https://scipy.org/>`_ がインストールされていれば ``scipy.io.FortranFile`` を使って簡単に読み込むことが出来る．)

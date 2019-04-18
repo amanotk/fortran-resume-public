@@ -51,11 +51,11 @@
 <blockquote>
 <div><p>サンプルプログラム</p>
 <ul class="simple">
-<li><a class="reference internal" href="chap09_sample1.html"><span class="doc">sample1.f90</span></a> : 定数や変数の参照</li>
-<li><a class="reference internal" href="chap09_sample2.html"><span class="doc">sample2.f90</span></a> : 内部手続き</li>
-<li><a class="reference internal" href="chap09_sample3.html"><span class="doc">sample3.f90</span></a> : 総称名</li>
-<li><a class="reference internal" href="chap09_sample4.html"><span class="doc">sample4.f90</span></a> : アクセス制限</li>
-<li><a class="reference internal" href="chap09_sample5.html"><span class="doc">sample5.f90</span></a> : 構造型と演算子オーバーロード</li>
+<li><a class="reference internal" href="chap09_sample1_f90.html"><span class="doc">sample1.f90</span></a> : 定数や変数の参照</li>
+<li><a class="reference internal" href="chap09_sample2_f90.html"><span class="doc">sample2.f90</span></a> : 内部手続き</li>
+<li><a class="reference internal" href="chap09_sample3_f90.html"><span class="doc">sample3.f90</span></a> : 総称名</li>
+<li><a class="reference internal" href="chap09_sample4_f90.html"><span class="doc">sample4.f90</span></a> : アクセス制限</li>
+<li><a class="reference internal" href="chap09_sample5_f90.html"><span class="doc">sample5.f90</span></a> : 構造型と演算子オーバーロード</li>
 </ul>
 </div></blockquote>
 <div class="contents topic" id="id2">
@@ -125,7 +125,7 @@
 <div class="section" id="c9-refer-variables">
 <span id="id4"></span><h2><a class="toc-backref" href="#id32">9.2. 変数や定数の参照</a><a class="headerlink" href="#c9-refer-variables" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
-<div><a class="reference internal" href="chap09_sample1.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
+<div><a class="reference internal" href="chap09_sample1_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>モジュールを用いると変数や定数の宣言を共通化し，異なるモジュールやメインプログラムから利用することが出来る．大規模プログラムで共通の変数が複数のモジュールなどから参照される場合には変数宣言を共通化しておくと良い．具体的には以下の例の様になる．</p>
 <div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -266,7 +266,7 @@
 <div class="section" id="c9-internal-procedure">
 <span id="id5"></span><h2><a class="toc-backref" href="#id33">9.3. 内部手続き</a><a class="headerlink" href="#c9-internal-procedure" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
-<div><a class="reference internal" href="chap09_sample2.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
+<div><a class="reference internal" href="chap09_sample2_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>メインプログラムと同様に，モジュールにも内部手続きを定義することが可能であり，またモジュールの内部手続きからモジュール内で定義された変数には自由にアクセスすることが出来る(これもメインプログラムの内部手続きと同様である)．<code class="docutils literal notranslate"><span class="pre">use</span></code> でモジュールの使用を宣言すると，モジュールの変数だけでなく内部手続きも同様に用いることが出来る．このようにモジュールは関連する変数と手続きをまとめることが出来るため，サブルーチンや関数よりも大きなプログラム単位を提供することになる．</p>
 <p>例えば以下のモジュール <code class="docutils literal notranslate"><span class="pre">mod_integrator</span></code> は予めサンプリングされた関数値の配列と刻み幅を受け取り，<a class="reference internal" href="chap08.html#c8-numerical-integration"><span class="std std-ref">数値積分</span></a> で扱った台形公式およびSimpsonの公式を用いて数値積分する関数を内部手続きとして実装したモジュールである．このように関連するサブプログラムをまとめてモジュールの内部手続きとして実装しておけば，<code class="docutils literal notranslate"><span class="pre">use</span> <span class="pre">mod_integrator</span></code> するだけで(外部手続きの時のように <code class="docutils literal notranslate"><span class="pre">interface</span></code> による準備をしなくても)安全に利用することが出来る．これから分かるように，<a class="reference internal" href="#c9-internal-procedure"><span class="std std-ref">内部手続き</span></a> で外部手続きを非推奨としたのは，単純に外部手続きを何らかのモジュールの中に入れて(内部手続きとして定義して)しまえば良いからである．これによって外部手続きの抱える問題は全て解決する．</p>
 <div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -388,7 +388,7 @@
 <div class="section" id="id6">
 <h2><a class="toc-backref" href="#id34">9.4. 総称名</a><a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
-<div><a class="reference internal" href="chap09_sample3.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
+<div><a class="reference internal" href="chap09_sample3_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>これまでは何も意識せずに単精度で宣言された <code class="docutils literal notranslate"><span class="pre">x</span></code> に対しても，倍精度で宣言された <code class="docutils literal notranslate"><span class="pre">x</span></code> に対しても <code class="docutils literal notranslate"><span class="pre">sin(x)</span></code> のように型の精度を気にせず組み込み関数を呼び出しをしてきたことと思う．しかし自分で定義した関数やサブルーチンについては，正確に宣言した型を引数として呼び出す必要があった．実はその昔のFortran 77の時代には単精度に対して <code class="docutils literal notranslate"><span class="pre">sin(x)</span></code>，倍精度に対しては <code class="docutils literal notranslate"><span class="pre">dsin(x)</span></code> というように，組み込み関数にも精度ごとに異なる関数が用意されていて，手動で使い分ける必要があった(ここで <code class="docutils literal notranslate"><span class="pre">d</span></code> は倍精度を表すdoubleの意味である)．これでは明らかに不便である．</p>
 <p>Fortran 90以降では，この問題を解決するために，内部手続きに対して総称名(オーバーロード)という便利な機能を用いることが出来るようになった <a class="footnote-reference" href="#id25" id="id7">[1]</a>．これを用いると，呼び出し形式(引数の数や型)が異なる複数の関数やサブルーチンを同じ名前で呼び出すことが出来る．先ほどの <code class="docutils literal notranslate"><span class="pre">sin(x)</span></code> の例で言えば，引数 <code class="docutils literal notranslate"><span class="pre">x</span></code> が単精度実数であれば単精度版を，倍精度であれば倍精度版の関数を自動的に選択して呼び出すことになる．自分で定義した関数やサブルーチンについても，この総称名の機能を用いることが出来る．</p>
 <p>これにはモジュールの変数宣言部分で</p>
@@ -470,7 +470,7 @@
 <div class="section" id="id8">
 <h2><a class="toc-backref" href="#id35">9.5. アクセス制限</a><a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
-<div><a class="reference internal" href="chap09_sample4.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
+<div><a class="reference internal" href="chap09_sample4_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>モジュールを用いるために <code class="docutils literal notranslate"><span class="pre">use</span></code> すると，モジュール内で定義された変数，関数，サブルーチンに自由にアクセスできるが，これは一般的にはあまり好ましいことでは無い．例えば，<a class="reference internal" href="#c9-refer-variables"><span class="std std-ref">変数や定数の参照</span></a> では不用意にグローバル変数を作るとバグの元になることを示した．これはモジュールの利用者がモジュール内部の詳細を知らないために起こる問題である．</p>
 <p>しかし，そもそもモジュールを利用する側はモジュール内部の詳細について知らないことが一般的であるし，そうあってしかるべきである．すなわち，モジュールを提供する側はそのモジュールと外部のインターフェースのみを提供し，内部の実装の詳細については公開しないという立場を取る方が懸命である．これには主に以下の2つの理由が挙げられる．</p>
 <ul class="simple">
@@ -722,7 +722,7 @@
 <div class="section" id="c9-structure">
 <span id="id13"></span><h2><a class="toc-backref" href="#id36">9.6. 構造型</a><a class="headerlink" href="#c9-structure" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
-<div><a class="reference internal" href="chap09_sample5.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
+<div><a class="reference internal" href="chap09_sample5_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>これまで扱ってきた <code class="docutils literal notranslate"><span class="pre">integer</span></code> や <code class="docutils literal notranslate"><span class="pre">real</span></code> のような組込み型だけで無く，新しいデータ型を自分で定義して用いることもできる．これを <strong>構造型</strong> と呼ぶ <a class="footnote-reference" href="#id28" id="id14">[4]</a>．構造型は組込み型やその配列はもちろん他の構造型を要素に持つことも出来る．</p>
 <div class="section" id="id15">
 <h3>9.6.1. 定義と使い方<a class="headerlink" href="#id15" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -904,11 +904,11 @@
 </div>
 <div class="section" id="id21">
 <h3>9.7.2. 課題2<a class="headerlink" href="#id21" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>サンプルプログラム <a class="reference internal" href="chap09_sample1.html"><span class="doc">sample1.f90</span></a> を参考にして，数学定数を定義するモジュールを作成せよ．メインプログラムも作成して，動作を確認すること．特に <code class="docutils literal notranslate"><span class="pre">use</span></code> によるモジュール参照， <code class="docutils literal notranslate"><span class="pre">only</span></code> の使い方などを理解し，定数値の書き換えが出来ない(コンパイルエラーとなる)ことを確かめよ．数学定数としては例えば <span class="math notranslate nohighlight">\(\pi\)</span>, <span class="math notranslate nohighlight">\(\sqrt{\pi}\)</span>, <span class="math notranslate nohighlight">\(e\)</span> などを定義すれば良い．</p>
+<p>サンプルプログラム <span class="xref std std-doc">sample1.f90</span> を参考にして，数学定数を定義するモジュールを作成せよ．メインプログラムも作成して，動作を確認すること．特に <code class="docutils literal notranslate"><span class="pre">use</span></code> によるモジュール参照， <code class="docutils literal notranslate"><span class="pre">only</span></code> の使い方などを理解し，定数値の書き換えが出来ない(コンパイルエラーとなる)ことを確かめよ．数学定数としては例えば <span class="math notranslate nohighlight">\(\pi\)</span>, <span class="math notranslate nohighlight">\(\sqrt{\pi}\)</span>, <span class="math notranslate nohighlight">\(e\)</span> などを定義すれば良い．</p>
 </div>
 <div class="section" id="id22">
 <h3>9.7.3. 課題3<a class="headerlink" href="#id22" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p><a class="reference internal" href="chap09_sample5.html"><span class="doc">sample5.f90</span></a> のモジュール <code class="docutils literal notranslate"><span class="pre">mod_vector</span></code> で定義されている2次元のベクトル構造型 <code class="docutils literal notranslate"><span class="pre">type(vector2)</span></code> を拡張し，以下の演算子を定義せよ．(以下で <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code> は共に <code class="docutils literal notranslate"><span class="pre">type(vector2)</span></code> で宣言されたものとする．)</p>
+<p><span class="xref std std-doc">sample5.f90</span> のモジュール <code class="docutils literal notranslate"><span class="pre">mod_vector</span></code> で定義されている2次元のベクトル構造型 <code class="docutils literal notranslate"><span class="pre">type(vector2)</span></code> を拡張し，以下の演算子を定義せよ．(以下で <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code> は共に <code class="docutils literal notranslate"><span class="pre">type(vector2)</span></code> で宣言されたものとする．)</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">-</span></code> 演算子:
 倍精度実数と <code class="docutils literal notranslate"><span class="pre">type(vector2)</span></code> の間で以下のような演算が出来るようにする．</li>

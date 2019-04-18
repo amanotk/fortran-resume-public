@@ -11,17 +11,17 @@
 
     サンプルプログラム
 
-    - :doc:`sample1.f90 <chap10_sample1>` : 分割コンパイル用サンプル
-    - :doc:`sample1a.f90 <chap10_sample1a>` : 分割コンパイル用サンプル(モジュールA)
-    - :doc:`sample1b.f90 <chap10_sample1b>` : 分割コンパイル用サンプル(モジュールB)
-    - :doc:`sample2.f90 <chap10_sample2>` : GUIライブラリの使い方
-    - :doc:`sample3.f90 <chap10_sample3>` : 二分法モジュール(mod_bisection)の使い方
-    - :doc:`bisection.f90 <chap10_bisection>` : 二分法モジュール(mod_bisection)の実装
-    - :doc:`sample4.f90 <chap10_sample4>` : 計算時間の測定
-    - :doc:`sample5.f90 <chap10_sample5>` : ポインタの使い方
-    - :doc:`sample6.f90 <chap10_sample6>` : リストモジュール(mod_list)の使い方
-    - :doc:`list.f90 <chap10_list>` : リストモジュール(mod_list)の実装
-    - :doc:`sample7.f90 <chap10_sample7>` : プリプロセッサの使い方
+    - :doc:`sample1.f90 <chap10_sample1_f90>` : 分割コンパイル用サンプル
+    - :doc:`sample1a.f90 <chap10_sample1a_f90>` : 分割コンパイル用サンプル(モジュールA)
+    - :doc:`sample1b.f90 <chap10_sample1b_f90>` : 分割コンパイル用サンプル(モジュールB)
+    - :doc:`sample2.f90 <chap10_sample2_f90>` : GUIライブラリの使い方
+    - :doc:`sample3.f90 <chap10_sample3_f90>` : 二分法モジュール(mod_bisection)の使い方
+    - :doc:`bisection.f90 <chap10_bisection_f90>` : 二分法モジュール(mod_bisection)の実装
+    - :doc:`sample4.f90 <chap10_sample4_f90>` : 計算時間の測定
+    - :doc:`sample5.f90 <chap10_sample5_f90>` : ポインタの使い方
+    - :doc:`sample6.f90 <chap10_sample6_f90>` : リストモジュール(mod_list)の使い方
+    - :doc:`list.f90 <chap10_list_f90>` : リストモジュール(mod_list)の実装
+    - :doc:`sample7.f90 <chap10_sample7_f90>` : プリプロセッサの使い方
 
 .. contents:: この章の内容
     :depth: 2

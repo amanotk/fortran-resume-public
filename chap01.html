@@ -62,7 +62,7 @@
 <p><a class="reference external" href="https://amanotk.github.io/fortran-resume-public/sample.tar.gz">https://amanotk.github.io/fortran-resume-public/sample.tar.gz</a></p>
 <p>にまとめて置いてあるものをダウンロードしても良い．各章ごとにディレクトリに分類して(例えば3章なら <code class="docutils literal notranslate"><span class="pre">sample/chap03</span></code> )置いてあるので適宜手元にコピーして参照して欲しい．</p>
 <p>ちなみに，<code class="docutils literal notranslate"><span class="pre">.tar.gz</span></code> 形式のファイルの解凍はUnix系のマシンではコマンドラインで</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="err">$ tar -zxvf sample.tar.gz</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ tar -zxvf sample.tar.gz
 </pre></div>
 </div>
 <p>などのように実行すれば良い．(イマドキのLinux環境であればダブルクリックでも解凍出来てしまうと思う．)</p>
@@ -78,14 +78,14 @@
 </div>
 <div class="section" id="id5">
 <h2>1.2. プログラミング言語について<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>これから学ぶのは正確にはFortran 90/95と呼ばれる規格の言語である．90とか95というのは1990年とか1995年に規格が定められたという意味である．Fortran 90とFortran 95ではあまり違いが無いのでこのように記述することが多い．10年ほど前まではFortran 77という規格が幅を効かせていたのだが，最近ではopen sourceのコンパイラ(後述)が普及したこともあって，今から勉強するならFortran 90/95が良い選択肢である．(より新しい規格としてFortran 2003も存在し，その主な違いはオブジェクト指向プログラミングのサポートである．これは明らかに本演習の範囲を超えているので扱わないことにする．) ただし太古の昔から脈々と受け継がれてきたプログラムなどは今でも古めかしいFortran 77のままで現役で使われている．そのようなプログラムに出会ってしまった時には諦めてFortran 77も勉強しよう．(実はそういうことは結構あるのだが，いくつかの違いさえ理解してしまえば，それほど難しいことでは無い．) 本演習では単にFortranと言った場合にはFortran 90/95を指している．</p>
+<p>これから学ぶのは正確にはFortran 90/95と呼ばれる規格の言語である．90とか95というのは1990年とか1995年に規格が定められたという意味である．Fortran 90とFortran 95ではあまり違いが無いのでこのように記述することが多い．2000年前後まではFortran 77という規格が幅を効かせていたのだが，最近ではopen sourceのコンパイラ(後述)が普及したこともあって，今から勉強するならFortran 90/95が良い選択肢である．(より新しい規格としてFortran 2003も存在し，その主な違いはオブジェクト指向プログラミングのサポートである．これは明らかに本演習の範囲を超えているので扱わないことにする．) ただし太古の昔から脈々と受け継がれてきたプログラムなどは今でも古めかしいFortran 77のままで現役で使われている．そのようなプログラムに出会ってしまった時には諦めてFortran 77も勉強しよう．(実はそういうことは結構あるのだが，いくつかの違いさえ理解してしまえば，それほど難しいことでは無い．) 本演習では単にFortranと言った場合にはFortran 90/95を指している．</p>
 <p>ちなみにプログラミング言語というのは星の数ほどあり，よく知られたものだけでも C/C++，C#，Java，Javascript，Perl，Python，Ruby，Lispなどがある．正直に言えば今更Fortranを学ぶのは時代遅れであると言っても良い．多くの言語の文法がC言語に近くできているのに対してFortranは仲間外れの部類である．また，C言語を習得した人がFortranを習得するのは比較的容易いが，その逆は必ずしも真ではない．しかし一応フォローしておくとFortranにもメリットはあって，分野にも依るが時代遅れと言われながらもしぶとく今でも現役で使われ続けている言語であり，この傾向はまだしばらく続くであろう <a class="footnote-reference" href="#id11" id="id6">[3]</a> ．また，Fortranは細かいことを考える必要があまり無い比較的簡単な言語でもあるので，初心者にはとっつきやすいと同時にプログラミングの専門家では無い科学者向きの言語であるとも言える．</p>
 <p>ただし基本的な考え方は他の言語でもあまり変わらないので，興味のある人はぜひ他の言語にも挑戦してもらいたい．おすすめは(少しとっつきにくいところはあるものの)比較的簡単な言語でありながら応用範囲の広いPythonである <a class="footnote-reference" href="#id12" id="id7">[4]</a> ．またC言語は教養として知っておくと非常に役に立つ．</p>
 <hr class="docutils" />
 <table class="docutils footnote" frame="void" id="id8" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td>解答例は演習時間中に公開の予定である．地球惑星物理学演習履修者以外の方で解答例が欲しい方は <a class="reference external" href="http://www-space.eps.s.u-tokyo.ac.jp/~amano/ja/index.html">筆者</a> まで連絡されたい．</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td>解答例は演習時間中に公開の予定である．地球惑星物理学演習履修者以外の方で解答例が欲しい方は <a class="reference external" href="https://amanotk.github.io/ja/">筆者</a> まで連絡されたい．</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="id10" rules="none">

@@ -11,8 +11,8 @@
 
     サンプルプログラム
 
-    - :doc:`sample1.f90 <chap02_sample1>` : Hello, world
-    - :doc:`sample2.f90 <chap02_sample2>` : Fortranプログラムの基本構造
+    - :doc:`sample1.f90 <chap02_sample1_f90>` : Hello, world
+    - :doc:`sample2.f90 <chap02_sample2_f90>` : Fortranプログラムの基本構造
     - `dot.Xmodmap <sample/chap02/dot.Xmodmap>`_ : CapsLockと左Controlの交換
     - `dot.emacs.el <sample/chap02/dot.emacs.el>`_ : emacsの設定
 

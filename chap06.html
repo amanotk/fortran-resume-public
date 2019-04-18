@@ -50,12 +50,12 @@
 <blockquote>
 <div><p>サンプルプログラム</p>
 <ul class="simple">
-<li><a class="reference internal" href="chap06_sample1.html"><span class="doc">sample1.f90</span></a> : 書式指定</li>
-<li><a class="reference internal" href="chap06_sample2.html"><span class="doc">sample2.f90</span></a> : ファイル入出力(openとclose)</li>
-<li><a class="reference internal" href="chap06_sample3.html"><span class="doc">sample3.f90</span></a> : ファイル入出力(アスキー形式)</li>
-<li><a class="reference internal" href="chap06_sample4.html"><span class="doc">sample4.f90</span></a> : ファイル入出力(バイナリ形式)</li>
-<li><a class="reference internal" href="chap06_sample5.html"><span class="doc">sample5.f90</span></a> : 文字列処理</li>
-<li><a class="reference internal" href="chap06_sample6.html"><span class="doc">sample6.f90</span></a> : ファイル各行の逐次処理</li>
+<li><a class="reference internal" href="chap06_sample1_f90.html"><span class="doc">sample1.f90</span></a> : 書式指定</li>
+<li><a class="reference internal" href="chap06_sample2_f90.html"><span class="doc">sample2.f90</span></a> : ファイル入出力(openとclose)</li>
+<li><a class="reference internal" href="chap06_sample3_f90.html"><span class="doc">sample3.f90</span></a> : ファイル入出力(アスキー形式)</li>
+<li><a class="reference internal" href="chap06_sample4_f90.html"><span class="doc">sample4.f90</span></a> : ファイル入出力(バイナリ形式)</li>
+<li><a class="reference internal" href="chap06_sample5_f90.html"><span class="doc">sample5.f90</span></a> : 文字列処理</li>
+<li><a class="reference internal" href="chap06_sample6_f90.html"><span class="doc">sample6.f90</span></a> : ファイル各行の逐次処理</li>
 </ul>
 </div></blockquote>
 <div class="contents topic" id="id2">
@@ -74,7 +74,7 @@
 <div class="section" id="id3">
 <h2><a class="toc-backref" href="#id40">6.1. 書式指定</a><a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
-<div><a class="reference internal" href="chap06_sample1.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
+<div><a class="reference internal" href="chap06_sample1_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>実は <code class="docutils literal notranslate"><span class="pre">write(*,*)</span></code> の2つめの引数は出力される値の書式を表す <strong>編集記述子</strong> を指定するためのもので，&quot;<code class="docutils literal notranslate"><span class="pre">*</span></code> &quot;はデフォルトの書式を意味している(従って一般にコンパイラによって出力の書式は異なる)．ここに決められた形式で書式を指定することで桁を揃えたりして，綺麗な出力を得ることが出来る．例えば</p>
 <div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -203,7 +203,7 @@
 <div class="section" id="open-close">
 <h3>6.2.1. <code class="docutils literal notranslate"><span class="pre">open</span></code> と <code class="docutils literal notranslate"><span class="pre">close</span></code><a class="headerlink" href="#open-close" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <blockquote>
-<div><a class="reference internal" href="chap06_sample2.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
+<div><a class="reference internal" href="chap06_sample2_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>これまではファイルから何らかのデータを読み込んだり，ファイルに出力する時にはシェルのリダイレクト機能を用いてきた．しかし，これだと例えば複数のファイルから別々に違うデータを読み込んだり，複数ファイルへの出力などの柔軟は処理はできない．このような場合にはソースコードの中で明示的に入出力に用いるファイルを指定し，そのファイルに対する入出力処理を行うように指定しなければならない．Fortranプログラムからファイルを開くには <code class="docutils literal notranslate"><span class="pre">open</span></code> 文を用いることになる．例えば以下の例は予め存在しないファイル <code class="docutils literal notranslate"><span class="pre">filename.dat</span></code> を新規作成して開く．(この例では，ファイルが既に存在している時にはエラーとなる．)</p>
 <div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">open</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">iostat</span><span class="o">=</span><span class="n">ios</span><span class="p">,</span> <span class="k">file</span><span class="o">=</span><span class="s1">&#39;filename.dat&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;write&#39;</span><span class="p">,</span> <span class="p">&amp;</span>
@@ -270,7 +270,7 @@
 <div class="section" id="id9">
 <h3>6.2.2. アスキー(書式付き)入出力<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <blockquote>
-<div><a class="reference internal" href="chap06_sample3.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
+<div><a class="reference internal" href="chap06_sample3_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>アスキー形式とかテキスト形式と呼ばれるファイルはテキストエディタや <code class="docutils literal notranslate"><span class="pre">cat</span></code> などのコマンドで人間が理解できる形で表示できるファイルである．アスキー形式でファイルを開くには <code class="docutils literal notranslate"><span class="pre">open</span></code> で <code class="docutils literal notranslate"><span class="pre">form='formatted'</span></code> と指定するのは既に説明した通りである．</p>
 <p>開いたファイルへの入出力をするには，<code class="docutils literal notranslate"><span class="pre">write</span></code> や <code class="docutils literal notranslate"><span class="pre">read</span></code> に装置番号を指定しなければならない．実はこれまで使ってきた <code class="docutils literal notranslate"><span class="pre">write(*,*)</span></code> や <code class="docutils literal notranslate"><span class="pre">read(*,*)</span></code> の1番目の引数は装置番号を意味するものである．ここでも&quot;<code class="docutils literal notranslate"><span class="pre">*</span></code> &quot;はデフォルトの装置番号を意味し，通常は <code class="docutils literal notranslate"><span class="pre">write</span></code> であれば標準出力の6，<code class="docutils literal notranslate"><span class="pre">read</span></code> であれば標準入力の5を指定したことと同じ意味となる．ここに <code class="docutils literal notranslate"><span class="pre">open</span></code> 文で指定した装置番号を代わりに指定することで，<code class="docutils literal notranslate"><span class="pre">write</span></code> の出力先，<code class="docutils literal notranslate"><span class="pre">read</span></code> の入力先ファイルが指定出来る．</p>
 <p>なお装置番号が何であっても2番目の引数には同じように編集記述子を指定すれば良い．従って例えば</p>
@@ -288,7 +288,7 @@
 <div class="section" id="id10">
 <h3>6.2.3. バイナリ(書式なし)入出力<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <blockquote>
-<div><a class="reference internal" href="chap06_sample4.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
+<div><a class="reference internal" href="chap06_sample4_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>バイナリ形式とは一般にテキスト形式以外の人間がそのままでは解釈できない形式のファイルの総称である．アスキー形式での入出力では計算機の内部表現(メモリ上のビット列)を人間に解釈できる形式に逐一変換して入出力を行っている．Fortranでは <code class="docutils literal notranslate"><span class="pre">open</span></code> で <code class="docutils literal notranslate"><span class="pre">form='unformatted'</span></code> を指定して開いたファイルに対してはこのような変換が行われず，メモリ上のビット列が(ほぼ)そのまま出力されることになる．アスキー形式への変換が行われないため，編集記述子は指定することは出来ず，<code class="docutils literal notranslate"><span class="pre">write(10)</span></code>，<code class="docutils literal notranslate"><span class="pre">read(20)</span></code> のような形で装置番号のみを指定して入出力を行う．</p>
 <p>バイナリ入出力を行うメリットとして，まず高速であることが挙げられる．これはテキスト形式への変換を行わないことに加えて，テキスト形式での入出力に比べてデータ量を少なく抑えることが出来るためである．また内部的に2進数で表されている実数は10進数では正確に表現出来ないことから，実数型のデータはアスキー形式への変換に伴い情報が失われてしまうが，バイナリ形式での入出力ではこの問題がない．</p>
 <p>デメリットは人間の目ではデータの中身が判別出来ないことである．従って，バイナリで出力されたデータを読み込むにはどのような形式で出力されたのかを予め正確に知っていなければならない．例えば,</p>
@@ -343,7 +343,7 @@
 <div class="section" id="id14">
 <h2><a class="toc-backref" href="#id42">6.3. 文字列処理</a><a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
-<div><a class="reference internal" href="chap06_sample5.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
+<div><a class="reference internal" href="chap06_sample5_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <div class="section" id="id15">
 <h3>6.3.1. 文字型変数の宣言<a class="headerlink" href="#id15" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>文字型変数の宣言は</p>
@@ -443,7 +443,7 @@
 <div class="section" id="id20">
 <h2><a class="toc-backref" href="#id43">6.4. ファイル終端までの逐次処理</a><a class="headerlink" href="#id20" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
-<div><a class="reference internal" href="chap06_sample6.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
+<div><a class="reference internal" href="chap06_sample6_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>文字列処理ではファイルの中身を一行ずつ読み込んで何らかの処理を行うことが多い．以下のサンプルコードは標準入力から1行ずつ順に読み込み処理をする例である．(従ってリダイレクトによってファイルを与えれば良い)．ファイルが終端に達したかどうかを調べるには <code class="docutils literal notranslate"><span class="pre">read</span></code> の終了ステータス <code class="docutils literal notranslate"><span class="pre">iostat</span></code> を取得すれば良い．正常に読み込みが実行された時には <code class="docutils literal notranslate"><span class="pre">iostat</span></code> が0となり，これが負の場合にはファイルの終端，正の場合には何らかのエラーが発生したことを意味する．なお，実際にはこのような処理はシェルスクリプトやPerl，Python，Rubyなどを使って実装する方が圧倒的に簡単である．(何でもかんでもFortranでやろうとするのは無駄が多い．)</p>
 <div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -576,12 +576,12 @@ data <span class="nb">read</span> from binary.dat in stream access
 <span class="m">5</span>.50
 </pre></div>
 </div>
-<p>なおこのデータを作るのに用いたC言語のコードは <a class="reference external" href="sample/chap06/mkbin.c">mkbin.c</a> である．</p>
+<p>なおこのデータを作るのに用いたC言語のコードは <a class="reference internal" href="chap06_mkbin_c.html"><span class="doc">mkbin.c</span></a> である．</p>
 </div>
 <div class="section" id="id30">
 <h3>6.5.8. 課題8 <sup>†</sup><a class="headerlink" href="#id30" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>Fortranの <code class="docutils literal notranslate"><span class="pre">unformatted</span></code> バイナリファイル <a class="reference external" href="data/helix2.dat">helix2.dat</a> をストリーム入出力を用いて読み込み，課題5と同様に出力するプログラムを作成せよ．ここで多くのコンパイラが <code class="docutils literal notranslate"><span class="pre">unformatted</span></code> の場合には実際のデータの前後に4バイトずつヘッダーとフッター（データのバイト数を表す整数）を付与するので，これらを読み飛ばす必要があることに注意せよ．</p>
-<p>これを理解しておけば多言語からもデータの読み書きが可能である．例えば，C言語では <a class="reference external" href="sample/chap06/helix.c">helix.c</a> ， Pythonでは <a class="reference external" href="sample/chap06/helix.py">helix.py</a> が同じ動作をするプログラムになっている．(Pythonの場合は <a class="reference external" href="https://scipy.org/">scipy</a> がインストールされていれば <code class="docutils literal notranslate"><span class="pre">scipy.io.FortranFile</span></code> を使って簡単に読み込むことが出来る．)</p>
+<p>これを理解しておけば多言語からもデータの読み書きが可能である．例えば，C言語では <a class="reference internal" href="chap06_helix_c.html"><span class="doc">helix.c</span></a> ， Pythonでは <a class="reference internal" href="chap06_helix_py.html"><span class="doc">helix.py</span></a> が同じ動作をするプログラムになっている．(Pythonの場合は <a class="reference external" href="https://scipy.org/">scipy</a> がインストールされていれば <code class="docutils literal notranslate"><span class="pre">scipy.io.FortranFile</span></code> を使って簡単に読み込むことが出来る．)</p>
 <hr class="docutils" />
 <table class="docutils footnote" frame="void" id="id32" rules="none">
 <colgroup><col class="label" /><col /></colgroup>

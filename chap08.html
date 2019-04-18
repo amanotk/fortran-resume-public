@@ -50,11 +50,11 @@
 <blockquote>
 <div><p>サンプルプログラム</p>
 <ul class="simple">
-<li><a class="reference internal" href="chap08_sample1.html"><span class="doc">sample1.f90</span></a> : 桁落ちと情報落ち</li>
-<li><a class="reference internal" href="chap08_sample2.html"><span class="doc">sample2.f90</span></a> : 二分法</li>
-<li><a class="reference internal" href="chap08_sample3.html"><span class="doc">sample3.f90</span></a> : Newton法</li>
-<li><a class="reference internal" href="chap08_sample4.html"><span class="doc">sample4.f90</span></a> : 数値積分</li>
-<li><a class="reference internal" href="chap08_sample5.html"><span class="doc">sample5.f90</span></a> : 乱数</li>
+<li><a class="reference internal" href="chap08_sample1_f90.html"><span class="doc">sample1.f90</span></a> : 桁落ちと情報落ち</li>
+<li><a class="reference internal" href="chap08_sample2_f90.html"><span class="doc">sample2.f90</span></a> : 二分法</li>
+<li><a class="reference internal" href="chap08_sample3_f90.html"><span class="doc">sample3.f90</span></a> : Newton法</li>
+<li><a class="reference internal" href="chap08_sample4_f90.html"><span class="doc">sample4.f90</span></a> : 数値積分</li>
+<li><a class="reference internal" href="chap08_sample5_f90.html"><span class="doc">sample5.f90</span></a> : 乱数</li>
 </ul>
 </div></blockquote>
 <div class="contents topic" id="id3">
@@ -73,7 +73,7 @@
 <div class="section" id="c8-float-precision">
 <span id="id4"></span><h2><a class="toc-backref" href="#id28">8.1. 実数の精度と誤差</a><a class="headerlink" href="#c8-float-precision" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
-<div><a class="reference internal" href="chap08_sample1.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
+<div><a class="reference internal" href="chap08_sample1_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>これまで何気なく用いてきた実数型だが，数値解析を始める前に計算機における実数の取り扱いやその誤差について理解しておこう．</p>
 <div class="section" id="id5">
 <h3>8.1.1. 浮動小数点数の表現<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -111,7 +111,7 @@
 <div class="section" id="id9">
 <h3>8.2.1. 二分法<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <blockquote>
-<div><a class="reference internal" href="chap08_sample2.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
+<div><a class="reference internal" href="chap08_sample2_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>もしある区間に解が1つあると分かっているならば，反復によって近似解が必ず真の解に収束する，二分法(bisection method)と呼ばれるアルゴリズムが知られいる．まず <span class="math notranslate nohighlight">\([x_1, x_2] \ (x_1 &lt; x_2)\)</span> に対して <span class="math notranslate nohighlight">\(f(x_1) &lt; 0, f(x_2) &gt; 0\)</span> ならばこのの区間に解があることが分かる．このとき，二分法によって近似解を求める手順は以下のようなものとなる．</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -161,7 +161,7 @@
 <div class="section" id="newton">
 <h3>8.2.2. Newton法<a class="headerlink" href="#newton" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <blockquote>
-<div><a class="reference internal" href="chap08_sample3.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
+<div><a class="reference internal" href="chap08_sample3_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>二分法は解の含まれる範囲を正しく指定すれば必ず収束するという利点はあるものの，あまり収束の速いアルゴリズムではなかった．一方で，初期値によっては収束しないかもしれないが，収束するならばその収束自体は速いというアルゴリズムも考えられる．それがここで紹介するNewton法と呼ばれるものである．これは <span class="math notranslate nohighlight">\(f(x)\)</span> に加えてその微分 <span class="math notranslate nohighlight">\(f'(x)\)</span> も用いるのが特徴である．すなわち，近似解 <span class="math notranslate nohighlight">\(x\)</span> が与えられたときに <span class="math notranslate nohighlight">\(x\)</span> の周りでのテイラー展開した</p>
 <div class="math notranslate nohighlight">
 \[f(x + \delta) \simeq f(x) + \delta f'(x) + O(\delta^2)\]</div>
@@ -199,7 +199,7 @@
 <div class="section" id="c8-numerical-integration">
 <span id="id10"></span><h2><a class="toc-backref" href="#id30">8.3. 数値積分</a><a class="headerlink" href="#c8-numerical-integration" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
-<div><a class="reference internal" href="chap08_sample4.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
+<div><a class="reference internal" href="chap08_sample4_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>次に関数の積分</p>
 <div class="math notranslate nohighlight">
 \[S = \int_{a}^{b} f(x) d x\]</div>
@@ -237,7 +237,7 @@
 <div class="section" id="id11">
 <h2><a class="toc-backref" href="#id31">8.4. 乱数</a><a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
-<div><a class="reference internal" href="chap08_sample5.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
+<div><a class="reference internal" href="chap08_sample5_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>確率的な現象を計算機を用いて模擬する際には乱数を用いることになる．ただし計算機で用いることのできる乱数は擬似乱数と呼ばれ，乱数のように見えるが実際には決定論的な手法に基づき生成される数列である．従って質の良い(周期の長い)乱数を用いなければ，用途によっては乱数とみなすことのできない場合もあるため注意が必要である．</p>
 <p>Fortranには乱数を発生させる組込みのサブルーチン <code class="docutils literal notranslate"><span class="pre">random_number</span></code> が存在する．</p>
 <div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">call </span><span class="nb">random_number</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>

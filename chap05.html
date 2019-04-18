@@ -50,13 +50,13 @@
 <blockquote>
 <div><p>サンプルプログラム</p>
 <ul class="simple">
-<li><a class="reference internal" href="chap05_sample1.html"><span class="doc">sample1.f90</span></a> : 配列の基本</li>
-<li><a class="reference internal" href="chap05_sample2.html"><span class="doc">sample2.f90</span></a> : 配列の定数と初期化</li>
-<li><a class="reference internal" href="chap05_sample3.html"><span class="doc">sample3.f90</span></a> : 動的配列</li>
-<li><a class="reference internal" href="chap05_sample4.html"><span class="doc">sample4.f90</span></a> : 多次元配列</li>
-<li><a class="reference internal" href="chap05_sample5.html"><span class="doc">sample5.f90</span></a> : 配列の入出力</li>
-<li><a class="reference internal" href="chap05_sample6.html"><span class="doc">sample6.f90</span></a> : 配列に関する組込み関数2</li>
-<li><a class="reference internal" href="chap05_sample7.html"><span class="doc">sample7.f90</span></a> : 部分配列と配列演算</li>
+<li><a class="reference internal" href="chap05_sample1_f90.html"><span class="doc">sample1.f90</span></a> : 配列の基本</li>
+<li><a class="reference internal" href="chap05_sample2_f90.html"><span class="doc">sample2.f90</span></a> : 配列の定数と初期化</li>
+<li><a class="reference internal" href="chap05_sample3_f90.html"><span class="doc">sample3.f90</span></a> : 動的配列</li>
+<li><a class="reference internal" href="chap05_sample4_f90.html"><span class="doc">sample4.f90</span></a> : 多次元配列</li>
+<li><a class="reference internal" href="chap05_sample5_f90.html"><span class="doc">sample5.f90</span></a> : 配列の入出力</li>
+<li><a class="reference internal" href="chap05_sample6_f90.html"><span class="doc">sample6.f90</span></a> : 配列に関する組込み関数2</li>
+<li><a class="reference internal" href="chap05_sample7_f90.html"><span class="doc">sample7.f90</span></a> : 部分配列と配列演算</li>
 </ul>
 </div></blockquote>
 <div class="contents topic" id="id2">
@@ -80,7 +80,7 @@
 <div class="section" id="id3">
 <h2><a class="toc-backref" href="#id34">5.1. 基本的な使い方</a><a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
-<div><a class="reference internal" href="chap05_sample1.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
+<div><a class="reference internal" href="chap05_sample1_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>配列とは <em>同じ型</em> の複数のデータを効率的に扱うために用いるデータ構造 <a class="footnote-reference" href="#id26" id="id4">[1]</a> である．配列も通常の変数と同じように宣言が必要であり，宣言時には配列であることを明示的に示さなければならない．配列を宣言すると計算機の <em>メモリ上の連続した領域</em> が確保され，それぞれのアドレスに添字を用いてアクセスできるようになる．具体的には以下のように宣言する．</p>
 <div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -124,7 +124,7 @@
 <div class="section" id="id5">
 <h2><a class="toc-backref" href="#id35">5.2. 配列の定数と初期化</a><a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
-<div><a class="reference internal" href="chap05_sample2.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
+<div><a class="reference internal" href="chap05_sample2_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>配列は宣言する時に同時に初期化することも可能である．例えば</p>
 <div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">integer</span> <span class="kd">::</span> <span class="n">a</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="o">/</span><span class="p">)</span> <span class="c">! 長さ5の配列を宣言時に初期化</span>
 </pre></div>
@@ -142,7 +142,7 @@
 <div class="section" id="id6">
 <h2><a class="toc-backref" href="#id36">5.3. 動的割付け</a><a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
-<div><a class="reference internal" href="chap05_sample3.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
+<div><a class="reference internal" href="chap05_sample3_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>通常の配列はコンパイル時に静的に配列のサイズが決定される．予め必要な領域(メモリ)サイズが分かっていればこれで良いのだが，実行してみるまで必要な領域サイズが分からない場合にはこれでは対処できない．このような時には <code class="docutils literal notranslate"><span class="pre">allocatable</span></code> 属性を用いることで，実行時に動的に配列用にメモリを割り付けることができる．具体的な使い方は以下のようになる．</p>
 <div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -200,7 +200,7 @@
 <div class="section" id="id8">
 <h2><a class="toc-backref" href="#id37">5.4. 多次元配列</a><a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
-<div><a class="reference internal" href="chap05_sample4.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
+<div><a class="reference internal" href="chap05_sample4_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>ここまで扱った配列は1次元配列と呼ばれるものであったが，多次元の配列も使うことができる．分り易い例として1次元配列はベクトル，2次元配列は行列と考えればよいだろう．多次元配列の宣言には次元の分だけ(各次元の)長さを指定すれば良い．</p>
 <div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -271,7 +271,7 @@
 <div class="section" id="c5-array-io">
 <span id="id9"></span><h2><a class="toc-backref" href="#id38">5.5. 配列の入出力</a><a class="headerlink" href="#c5-array-io" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
-<div><a class="reference internal" href="chap05_sample5.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
+<div><a class="reference internal" href="chap05_sample5_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>配列データの入出力についてもこれまでと同様に各要素を <code class="docutils literal notranslate"><span class="pre">read(*,*)</span></code> や <code class="docutils literal notranslate"><span class="pre">write(*,*)</span></code> に対する入出力リストとして与える方法もあるが，例えば配列全体を入出力リストとして与えることなども出来る．詳細は <a class="reference internal" href="chap06.html#c6-file-io"><span class="std std-ref">ファイル入出力</span></a> で説明するが，ここではとりあえずアスキー形式(人間の目で読める形式)のことだけを考えることにする．</p>
 <p>配列の各要素を出力するには，<code class="docutils literal notranslate"><span class="pre">do</span></code> ループを用いて例えば</p>
 <div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -384,7 +384,7 @@
 <div class="section" id="id10">
 <h2><a class="toc-backref" href="#id39">5.6. 配列に関する組込み関数</a><a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
-<div><a class="reference internal" href="chap05_sample6.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
+<div><a class="reference internal" href="chap05_sample6_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>Fortranにはいくつか配列に関する便利な組込み関数が用意されている．細かい使い方についてはサンプルコードや自分で実際にコードを書いてみて動作確認をしてみるのが一番の近道である．</p>
 <p>例えば以下の例ではベクトル同士の内積を計算する <code class="docutils literal notranslate"><span class="pre">dot_product</span></code> や行列同士もしくは行列とベクトルの積を計算する <code class="docutils literal notranslate"><span class="pre">matmul</span></code> の使い方を示している．</p>
 <div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -502,7 +502,7 @@
 <div class="section" id="id12">
 <h2><a class="toc-backref" href="#id40">5.7. 部分配列</a><a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
-<div><a class="reference internal" href="chap05_sample7.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
+<div><a class="reference internal" href="chap05_sample7_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>これまでは各要素に添字を用いて例えば <code class="docutils literal notranslate"><span class="pre">x(10)</span></code> のような形でアクセスしていた．Fortranではこれに加えて <em>部分配列</em> という便利な機能があり，配列の複数の要素にまとめてアクセスすることが出来る．これには添字の代わりに <code class="docutils literal notranslate"><span class="pre">x(lower:upper:stride)</span></code> のような形式を用いる．<code class="docutils literal notranslate"><span class="pre">lower</span></code>，<code class="docutils literal notranslate"><span class="pre">upper</span></code>，<code class="docutils literal notranslate"><span class="pre">stride</span></code> の意味は <code class="docutils literal notranslate"><span class="pre">do</span></code> 変数の指定方法(<a class="reference internal" href="chap04.html#c4-do"><span class="std std-ref">決まった回数の繰り返し(do)</span></a>)と同じである．従って例えば</p>
 <div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -516,7 +516,7 @@
 <div class="section" id="id13">
 <h2><a class="toc-backref" href="#id41">5.8. 配列演算</a><a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
-<div><a class="reference internal" href="chap05_sample7.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
+<div><a class="reference internal" href="chap05_sample7_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>さらに，Fortranには非常に強力な <em>配列演算</em> という機能が用意されている．例えば以下の例を見てみよう．</p>
 <div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -721,7 +721,7 @@ Fortran runtime error: Index <span class="s1">&#39;11&#39;</span> of dimension <
  Standard deviation :    <span class="m">25</span>.115201240152015
 </pre></div>
 </div>
-<p>なおデータファイルには，1行目にデータ数 <span class="math notranslate nohighlight">\(N\)</span> ，それ以降に各データ <span class="math notranslate nohighlight">\(x_i\)</span> が記述されているので，まずはデータ数を読み込み配列のメモリを <code class="docutils literal notranslate"><span class="pre">allocate</span></code> した後に各データを読み込めば良い．( <a class="reference internal" href="chap05_sample3.html"><span class="doc">sample3.f90</span></a> を参照せよ．)</p>
+<p>なおデータファイルには，1行目にデータ数 <span class="math notranslate nohighlight">\(N\)</span> ，それ以降に各データ <span class="math notranslate nohighlight">\(x_i\)</span> が記述されているので，まずはデータ数を読み込み配列のメモリを <code class="docutils literal notranslate"><span class="pre">allocate</span></code> した後に各データを読み込めば良い．( <span class="xref std std-doc">sample3.f90</span> を参照せよ．)</p>
 </div>
 <div class="section" id="id22">
 <h3>5.10.4. 課題4<a class="headerlink" href="#id22" title="このヘッドラインへのパーマリンク">¶</a></h3>

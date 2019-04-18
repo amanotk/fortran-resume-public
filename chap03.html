@@ -50,12 +50,12 @@
 <blockquote>
 <div><p>サンプルプログラム</p>
 <ul class="simple">
-<li><a class="reference internal" href="chap03_sample1.html"><span class="doc">sample1.f90</span></a> : 変数の基本</li>
-<li><a class="reference internal" href="chap03_sample2.html"><span class="doc">sample2.f90</span></a> : データ型と精度</li>
-<li><a class="reference internal" href="chap03_sample3.html"><span class="doc">sample3.f90</span></a> : 定数</li>
-<li><a class="reference internal" href="chap03_sample4.html"><span class="doc">sample4.f90</span></a> : <code class="docutils literal notranslate"><span class="pre">read</span></code> の使い方</li>
-<li><a class="reference internal" href="chap03_sample5.html"><span class="doc">sample5.f90</span></a> : 算術演算，代入，組込み関数</li>
-<li><a class="reference internal" href="chap03_sample6.html"><span class="doc">sample6.f90</span></a> : 型変換</li>
+<li><a class="reference internal" href="chap03_sample1_f90.html"><span class="doc">sample1.f90</span></a> : 変数の基本</li>
+<li><a class="reference internal" href="chap03_sample2_f90.html"><span class="doc">sample2.f90</span></a> : データ型と精度</li>
+<li><a class="reference internal" href="chap03_sample3_f90.html"><span class="doc">sample3.f90</span></a> : 定数</li>
+<li><a class="reference internal" href="chap03_sample4_f90.html"><span class="doc">sample4.f90</span></a> : <code class="docutils literal notranslate"><span class="pre">read</span></code> の使い方</li>
+<li><a class="reference internal" href="chap03_sample5_f90.html"><span class="doc">sample5.f90</span></a> : 算術演算，代入，組込み関数</li>
+<li><a class="reference internal" href="chap03_sample6_f90.html"><span class="doc">sample6.f90</span></a> : 型変換</li>
 </ul>
 </div></blockquote>
 <div class="contents topic" id="id2">
@@ -78,7 +78,7 @@
 <div class="section" id="id3">
 <h2><a class="toc-backref" href="#id29">3.1. 変数</a><a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
-<div><a class="reference internal" href="chap03_sample1.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
+<div><a class="reference internal" href="chap03_sample1_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>プログラム中で何らかの値を保持するためには変数を用いる必要がある．例えば一度には出来ないような複雑な計算の途中結果などは変数に格納することになる．要するにデータの入れ物である．変数を用いるにあたって,</p>
 <ul class="simple">
 <li>変数は宣言しなければならないこと</li>
@@ -111,7 +111,7 @@
 <div class="section" id="id5">
 <h2><a class="toc-backref" href="#id30">3.2. データ型と精度</a><a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
-<div><a class="reference internal" href="chap03_sample2.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
+<div><a class="reference internal" href="chap03_sample2_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>標準のFortranで用いることができるデータ型として以下のようなものがある．</p>
 <table border="1" class="colwidths-given docutils" id="id25">
 <caption><span class="caption-text">使用可能なデータ型</span><a class="headerlink" href="#id25" title="このテーブルへのパーマリンク">¶</a></caption>
@@ -218,7 +218,7 @@
 <div class="section" id="id8">
 <h2><a class="toc-backref" href="#id31">3.3. 定数</a><a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
-<div><a class="reference internal" href="chap03_sample3.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
+<div><a class="reference internal" href="chap03_sample3_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>数値などを直接ソースコードに記述するとそれは定数(定数リテラル)と呼ばれる．例えば <code class="docutils literal notranslate"><span class="pre">99</span></code> や <code class="docutils literal notranslate"><span class="pre">1.5</span></code> などのような表現である．定数に <code class="docutils literal notranslate"><span class="pre">_4</span></code> や <code class="docutils literal notranslate"><span class="pre">_8</span></code> などを付けることによって <code class="docutils literal notranslate"><span class="pre">kind</span></code> パラメータを指定することも出来る．先ほどの例では <code class="docutils literal notranslate"><span class="pre">99_4</span></code>，<code class="docutils literal notranslate"><span class="pre">1.5_8</span></code> などのように書くことが出来る．論理型の定数は <code class="docutils literal notranslate"><span class="pre">.true.</span></code> もしくは <code class="docutils literal notranslate"><span class="pre">.false.</span></code> のどちらかである．文字型の定数は既に最初のサンプルで見たように <code class="docutils literal notranslate"><span class="pre">'</span></code> (シングルクォート)もしくは <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> (ダブルクォート)で囲まれた文字列，例えば <code class="docutils literal notranslate"><span class="pre">'earth'</span></code> や <code class="docutils literal notranslate"><span class="pre">&quot;physics&quot;</span></code> などである．</p>
 <p>また <code class="docutils literal notranslate"><span class="pre">parameter</span></code> 属性を用いて定数の変数を使用することも可能である．これを名前付き定数と呼ぶ．</p>
 <div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -244,7 +244,7 @@
 <div class="section" id="id9">
 <h2><a class="toc-backref" href="#id32">3.4. 標準入力から変数への値の代入</a><a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
-<div><a class="reference internal" href="chap03_sample4.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
+<div><a class="reference internal" href="chap03_sample4_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>以下のように変数 <code class="docutils literal notranslate"><span class="pre">x</span></code> を宣言しておいて <code class="docutils literal notranslate"><span class="pre">read(*,*)</span></code> を用いると，プログラムの実行時にキーボードからの入力された内容を読み込み，変数(この場合は <code class="docutils literal notranslate"><span class="pre">x</span></code>)に代入することが出来る．</p>
 <div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -260,7 +260,7 @@
 <div class="section" id="id10">
 <h2><a class="toc-backref" href="#id33">3.5. 算術演算</a><a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
-<div><a class="reference internal" href="chap03_sample5.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
+<div><a class="reference internal" href="chap03_sample5_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>Fortranでは最も基本的な演算である四則演算およびべき乗を以下のように計算することが出来る．当然変数同士での演算も可能である．</p>
 <div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -278,7 +278,7 @@
 <div class="section" id="id11">
 <h2><a class="toc-backref" href="#id34">3.6. 代入</a><a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
-<div><a class="reference internal" href="chap03_sample5.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
+<div><a class="reference internal" href="chap03_sample5_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>既に学んだように <code class="docutils literal notranslate"><span class="pre">=</span></code> 演算子を用いて左辺で指定する変数に値を代入することが出来る．この時，右辺には任意の演算を含んでも良い．例えば</p>
 <div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -294,7 +294,7 @@
 <div class="section" id="id12">
 <h2><a class="toc-backref" href="#id35">3.7. 組込み関数</a><a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
-<div><a class="reference internal" href="chap03_sample5.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
+<div><a class="reference internal" href="chap03_sample5_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>Fortranには標準で使える関数が多く用意されており，組込み関数と呼ばれる．関数というと数学の関数を思い浮かべるかもしれないが，必ずしも数学関数ばかりではない．関数というのは単に入力値を受け取り何らかの値を返す機能(function)のことである．例えば数学では <span class="math notranslate nohighlight">\(f(x) = \sin(x)\)</span> と書いた時には <span class="math notranslate nohighlight">\(x\)</span> という入力に対して <span class="math notranslate nohighlight">\(\sin(x)\)</span> という値を返すことを意味する．Fortranでも以下のように入力値 <code class="docutils literal notranslate"><span class="pre">x</span></code> 対して <code class="docutils literal notranslate"><span class="pre">sin(x)</span></code> とすることで関数値を計算することが出来る．なお関数に渡すパラメータ(ここでは <code class="docutils literal notranslate"><span class="pre">x</span></code>)のことを <em>引数</em> と呼び，関数が返す値のことを <em>返値</em> と呼ぶ．</p>
 <div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -310,7 +310,7 @@
 <div class="section" id="id14">
 <h2><a class="toc-backref" href="#id36">3.8. 型変換</a><a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
-<div><a class="reference internal" href="chap03_sample6.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
+<div><a class="reference internal" href="chap03_sample6_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>異なる型同士の演算を行う場合や，代入する際に左辺と右辺で型が異なる場合には <em>より一般的な型へと変換された後に演算や代入が実行される</em>．この機能は便利なようで時に注意が必要な場合がある．</p>
 <p>例えば以下の例を考えよう．</p>
 <div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
