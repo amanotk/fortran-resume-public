@@ -18,15 +18,15 @@ program sample
   end if
 
   ! 配列に値を代入
-  do j = 1, 4
-     do i = 1, 8
+  do j = 1, 8 
+     do i = 1, 4
         c(i,j) = i*j
      end do
   end do
 
   ! 配列の中身を表示
-  do j = 1, 4
-     do i = 1, 8
+  do j = 1, 8 
+     do i = 1, 4
         write(*,*) c(i,j)
      end do
   end do
