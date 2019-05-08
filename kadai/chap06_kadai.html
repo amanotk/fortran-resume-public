@@ -1,24 +1,36 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
     <title>第6章 演習課題 &#8212; Fortran演習(地球惑星物理学演習)</title>
+    
     <link rel="stylesheet" href="../_static/agogo.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" /> 
-  </head><body>
+  </head>
+  <body role="document">
     <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
@@ -47,7 +59,7 @@
 <div class="section" id="id3">
 <h2>課題2<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>以下のように掛け算九九の表を標準出力にキレイに表示するプログラムを作成せよ．</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ ./a.out
    <span class="m">1</span>   <span class="m">2</span>   <span class="m">3</span>   <span class="m">4</span>   <span class="m">5</span>   <span class="m">6</span>   <span class="m">7</span>   <span class="m">8</span>   <span class="m">9</span>
    <span class="m">2</span>   <span class="m">4</span>   <span class="m">6</span>   <span class="m">8</span>  <span class="m">10</span>  <span class="m">12</span>  <span class="m">14</span>  <span class="m">16</span>  <span class="m">18</span>
    <span class="m">3</span>   <span class="m">6</span>   <span class="m">9</span>  <span class="m">12</span>  <span class="m">15</span>  <span class="m">18</span>  <span class="m">21</span>  <span class="m">24</span>  <span class="m">27</span>
@@ -62,41 +74,41 @@
 </div>
 <div class="section" id="id4">
 <h2>課題3<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference external" href="data/helix1.dat">helix1.dat</a> から実数データ <span class="math notranslate nohighlight">\(x_i, y_i, z_i (i=1, \ldots, 32)\)</span> を読み込み，全く同じフォーマットで標準出力に表示するプログラムを作成せよ．以下のようにリダイレクトでファイルに出力し， <code class="docutils literal notranslate"><span class="pre">diff</span></code> コマンドによってフォーマットが同じかどうかを確かめよ．</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out &gt; test.dat
+<p><a class="reference external" href="data/helix1.dat">helix1.dat</a> から実数データ <span class="math">\(x_i, y_i, z_i (i=1, \ldots, 32)\)</span> を読み込み，全く同じフォーマットで標準出力に表示するプログラムを作成せよ．以下のようにリダイレクトでファイルに出力し， <code class="docutils literal"><span class="pre">diff</span></code> コマンドによってフォーマットが同じかどうかを確かめよ．</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ ./a.out &gt; test.dat
 $ diff helix1.dat test.dat
 </pre></div>
 </div>
-<p>上記の <code class="docutils literal notranslate"><span class="pre">diff</span></code> コマンドを実行して，出力が何も無ければファイルが同一であることを意味する．</p>
-<p>データファイルには <span class="math notranslate nohighlight">\(i\)</span> 行目に <span class="math notranslate nohighlight">\(x_i\)</span>, <span class="math notranslate nohighlight">\(y_i\)</span>, <span class="math notranslate nohighlight">\(z_i\)</span> の3つの実数データが記述されている． <code class="docutils literal notranslate"><span class="pre">open</span></code> を用いて読み込むこと．</p>
+<p>上記の <code class="docutils literal"><span class="pre">diff</span></code> コマンドを実行して，出力が何も無ければファイルが同一であることを意味する．</p>
+<p>データファイルには <span class="math">\(i\)</span> 行目に <span class="math">\(x_i\)</span>, <span class="math">\(y_i\)</span>, <span class="math">\(z_i\)</span> の3つの実数データが記述されている． <code class="docutils literal"><span class="pre">open</span></code> を用いて読み込むこと．</p>
 </div>
 <div class="section" id="id5">
 <h2>課題4<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>課題3と同様に読み込んだデータ <span class="math notranslate nohighlight">\(x_i, y_i, z_i\)</span> をそれぞれ別のファイル(例えば <code class="docutils literal notranslate"><span class="pre">x.dat</span></code>, <code class="docutils literal notranslate"><span class="pre">y.dat</span></code>, <code class="docutils literal notranslate"><span class="pre">z.dat</span></code>)にアスキー形式で出力せよ．各データの書式は <a class="reference external" href="data/helix1.dat">helix1.dat</a> のものと同一とする．</p>
+<p>課題3と同様に読み込んだデータ <span class="math">\(x_i, y_i, z_i\)</span> をそれぞれ別のファイル(例えば <code class="docutils literal"><span class="pre">x.dat</span></code>, <code class="docutils literal"><span class="pre">y.dat</span></code>, <code class="docutils literal"><span class="pre">z.dat</span></code>)にアスキー形式で出力せよ．各データの書式は <a class="reference external" href="data/helix1.dat">helix1.dat</a> のものと同一とする．</p>
 <p>このとき以下のコマンドによって結果を確認できる．</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ paste -d<span class="s2">&quot; &quot;</span> x.dat y.dat z.dat &gt; test.dat
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ paste -d<span class="s2">&quot; &quot;</span> x.dat y.dat z.dat &gt; test.dat
 $ diff helix1.dat test.dat
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">helix1.dat</span></code> と <code class="docutils literal notranslate"><span class="pre">test.dat</span></code> が同一ファイルになっていれば( <code class="docutils literal notranslate"><span class="pre">diff</span></code> コマンドが何も出力しなければ)良い．</p>
+<p><code class="docutils literal"><span class="pre">helix1.dat</span></code> と <code class="docutils literal"><span class="pre">test.dat</span></code> が同一ファイルになっていれば( <code class="docutils literal"><span class="pre">diff</span></code> コマンドが何も出力しなければ)良い．</p>
 </div>
 <div class="section" id="id7">
 <h2>課題5<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>バイナリファイル <a class="reference external" href="data/helix2.dat">helix2.dat</a> を <code class="docutils literal notranslate"><span class="pre">open</span></code> を用いて開き，実数データ <span class="math notranslate nohighlight">\(x_i, y_i, z_i (i=1, \ldots, 32)\)</span> を読み込み，先ほどの <code class="docutils literal notranslate"><span class="pre">helix1.dat</span></code> と全く同じフォーマットで標準出力に表示するプログラムを作成せよ．</p>
+<p>バイナリファイル <a class="reference external" href="data/helix2.dat">helix2.dat</a> を <code class="docutils literal"><span class="pre">open</span></code> を用いて開き，実数データ <span class="math">\(x_i, y_i, z_i (i=1, \ldots, 32)\)</span> を読み込み，先ほどの <code class="docutils literal"><span class="pre">helix1.dat</span></code> と全く同じフォーマットで標準出力に表示するプログラムを作成せよ．</p>
 <p>作成したプログラムを</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out &gt; test.dat
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ ./a.out &gt; test.dat
 $ diff helix1.dat test.dat
 </pre></div>
 </div>
-<p>のように実行し，結果が <code class="docutils literal notranslate"><span class="pre">helix1.dat</span></code> と同じになることを <code class="docutils literal notranslate"><span class="pre">diff</span></code> コマンドによって確かめよ．</p>
-<p>なお，このバイナリファイルは <code class="docutils literal notranslate"><span class="pre">form='unformatted'</span></code> で <code class="docutils literal notranslate"><span class="pre">open</span></code> したファイルに(その装置番号を10として)</p>
-<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">write</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="n">x</span>
+<p>のように実行し，結果が <code class="docutils literal"><span class="pre">helix1.dat</span></code> と同じになることを <code class="docutils literal"><span class="pre">diff</span></code> コマンドによって確かめよ．</p>
+<p>なお，このバイナリファイルは <code class="docutils literal"><span class="pre">form='unformatted'</span></code> で <code class="docutils literal"><span class="pre">open</span></code> したファイルに(その装置番号を10として)</p>
+<div class="highlight-fortran"><div class="highlight"><pre><span></span><span class="k">write</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="n">x</span>
 <span class="k">write</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="n">y</span>
 <span class="k">write</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="n">z</span>
 </pre></div>
 </div>
-<p>のように出力したものである． ただしここで， <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">z</span></code> はそれぞれ長さ32の倍精度の実数配列である．すなわち</p>
-<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span><span class="p">(</span><span class="mi">32</span><span class="p">),</span> <span class="n">y</span><span class="p">(</span><span class="mi">32</span><span class="p">),</span> <span class="n">z</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+<p>のように出力したものである． ただしここで， <code class="docutils literal"><span class="pre">x</span></code>, <code class="docutils literal"><span class="pre">y</span></code>, <code class="docutils literal"><span class="pre">z</span></code> はそれぞれ長さ32の倍精度の実数配列である．すなわち</p>
+<div class="highlight-fortran"><div class="highlight"><pre><span></span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span><span class="p">(</span><span class="mi">32</span><span class="p">),</span> <span class="n">y</span><span class="p">(</span><span class="mi">32</span><span class="p">),</span> <span class="n">z</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>のように宣言されたものであると考えれば良い．</p>
@@ -105,17 +117,17 @@ $ diff helix1.dat test.dat
 <h2>課題6<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Fortranのソースコードから，何らかのFortranの命令文を含む行数(コメントのみの行および空白行を除いた行数)を数えるプログラムを作成せよ．</p>
 <p>入力はリダイレクトによって</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out &lt; chap06/sample5.f90
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ ./a.out &lt; chap06/sample5.f90
  Number of lines with valid fortran statement :           <span class="m">24</span>
 </pre></div>
 </div>
 <p>のようにすれば良い． (チェックが出来ればファイル名は何でもよい．)</p>
-<p>なお，コメントのみの行は最初の空白以外の文字が &quot; <code class="docutils literal notranslate"><span class="pre">!</span></code> &quot;である行，空白行は空白のみで表される行であるとして判定すれば良い．組込み関数 <code class="docutils literal notranslate"><span class="pre">adjustl</span></code> を用いると良い．</p>
+<p>なお，コメントのみの行は最初の空白以外の文字が &#8221; <code class="docutils literal"><span class="pre">!</span></code> &#8220;である行，空白行は空白のみで表される行であるとして判定すれば良い．組込み関数 <code class="docutils literal"><span class="pre">adjustl</span></code> を用いると良い．</p>
 </div>
 <div class="section" id="id9">
 <h2>課題7 <sup>†</sup><a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Fortranの通常の <code class="docutils literal notranslate"><span class="pre">unformatted</span></code> バイナリファイルは一般には他の言語と互換性が無いが， <a class="reference internal" href="../chap06.html#c6-stream-io"><span class="std std-ref">ストリーム入出力</span></a> を使うことで他の言語と同様にバイナリファイルを扱うことが出来る．ここではC言語で</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// 配列サイズ</span>
+<p>Fortranの通常の <code class="docutils literal"><span class="pre">unformatted</span></code> バイナリファイルは一般には他の言語と互換性が無いが， <a class="reference internal" href="../chap06.html#c6-stream-io"><span class="std std-ref">ストリーム入出力</span></a> を使うことで他の言語と同様にバイナリファイルを扱うことが出来る．ここではC言語で</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="c1">// 配列サイズ</span>
 <span class="k">const</span> <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
 
 <span class="c1">// 倍精度実数の配列</span>
@@ -129,7 +141,7 @@ $ diff helix1.dat test.dat
 </div>
 <p>のように生成した <a class="reference external" href="data/cbinary.dat">cbinary.dat</a> をFortranから読み込むプログラムを作成せよ．
 実行結果は例えば以下のようになる．</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ ./a.out
 data <span class="nb">read</span> from binary.dat in stream access
 <span class="m">1</span>.00
 <span class="m">1</span>.50
@@ -143,12 +155,12 @@ data <span class="nb">read</span> from binary.dat in stream access
 <span class="m">5</span>.50
 </pre></div>
 </div>
-<p>なおこのデータを作るのに用いたC言語のコードは <span class="xref std std-doc">mkbin.c</span> である．</p>
+<p>なおこのデータを作るのに用いたC言語のコードは <span class="xref doc">mkbin.c</span> である．</p>
 </div>
 <div class="section" id="id10">
 <h2>課題8 <sup>†</sup><a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Fortranの <code class="docutils literal notranslate"><span class="pre">unformatted</span></code> バイナリファイル <a class="reference external" href="data/helix2.dat">helix2.dat</a> をストリーム入出力を用いて読み込み，課題5と同様に出力するプログラムを作成せよ．ここで多くのコンパイラが <code class="docutils literal notranslate"><span class="pre">unformatted</span></code> の場合には実際のデータの前後に4バイトずつヘッダーとフッター（データのバイト数を表す整数）を付与するので，これらを読み飛ばす必要があることに注意せよ．</p>
-<p>これを理解しておけば多言語からもデータの読み書きが可能である．例えば，C言語では <span class="xref std std-doc">helix.c</span> ， Pythonでは <span class="xref std std-doc">helix.py</span> が同じ動作をするプログラムになっている．(Pythonの場合は <a class="reference external" href="https://scipy.org/">scipy</a> がインストールされていれば <code class="docutils literal notranslate"><span class="pre">scipy.io.FortranFile</span></code> を使って簡単に読み込むことが出来る．)</p>
+<p>Fortranの <code class="docutils literal"><span class="pre">unformatted</span></code> バイナリファイル <a class="reference external" href="data/helix2.dat">helix2.dat</a> をストリーム入出力を用いて読み込み，課題5と同様に出力するプログラムを作成せよ．ここで多くのコンパイラが <code class="docutils literal"><span class="pre">unformatted</span></code> の場合には実際のデータの前後に4バイトずつヘッダーとフッター（データのバイト数を表す整数）を付与するので，これらを読み飛ばす必要があることに注意せよ．</p>
+<p>これを理解しておけば多言語からもデータの読み書きが可能である．例えば，C言語では <span class="xref doc">helix.c</span> ， Pythonでは <span class="xref doc">helix.py</span> が同じ動作をするプログラムになっている．(Pythonの場合は <a class="reference external" href="https://scipy.org/">scipy</a> がインストールされていれば <code class="docutils literal"><span class="pre">scipy.io.FortranFile</span></code> を使って簡単に読み込むことが出来る．)</p>
 </div>
 </div>
 
@@ -201,7 +213,7 @@ data <span class="nb">read</span> from binary.dat in stream access
           
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019, Takanobu Amano.
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.9 で生成しました。
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.6 で生成しました。
     </div>
         </div>
         <div class="clearer"></div>

@@ -1,26 +1,38 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
     <title>1. はじめに &#8212; Fortran演習(地球惑星物理学演習)</title>
+    
     <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
     <link rel="next" title="2. プログラムの作成と実行" href="chap02.html" />
     <link rel="prev" title="Fortran演習 (地球惑星物理学演習)" href="index.html" /> 
-  </head><body>
+  </head>
+  <body role="document">
     <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
@@ -60,9 +72,9 @@
 </ol>
 <p>なおサンプルプログラム等は各章のリンクからダウンロードすることも出来るし,</p>
 <p><a class="reference external" href="https://amanotk.github.io/fortran-resume-public/sample.tar.gz">https://amanotk.github.io/fortran-resume-public/sample.tar.gz</a></p>
-<p>にまとめて置いてあるものをダウンロードしても良い．各章ごとにディレクトリに分類して(例えば3章なら <code class="docutils literal notranslate"><span class="pre">sample/chap03</span></code> )置いてあるので適宜手元にコピーして参照して欲しい．</p>
-<p>ちなみに，<code class="docutils literal notranslate"><span class="pre">.tar.gz</span></code> 形式のファイルの解凍はUnix系のマシンではコマンドラインで</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ tar -zxvf sample.tar.gz
+<p>にまとめて置いてあるものをダウンロードしても良い．各章ごとにディレクトリに分類して(例えば3章なら <code class="docutils literal"><span class="pre">sample/chap03</span></code> )置いてあるので適宜手元にコピーして参照して欲しい．</p>
+<p>ちなみに，<code class="docutils literal"><span class="pre">.tar.gz</span></code> 形式のファイルの解凍はUnix系のマシンではコマンドラインで</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ tar -zxvf sample.tar.gz
 </pre></div>
 </div>
 <p>などのように実行すれば良い．(イマドキのLinux環境であればダブルクリックでも解凍出来てしまうと思う．)</p>
@@ -70,7 +82,7 @@
 <div class="section" id="id4">
 <h2>1.1. プログラミングを学ぶ意義<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>いま</p>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[x = \cos x\]</div>
 <p>なる非線形方程式の解を知りたいとしよう．残念ながら解析的には解は得られない．しかし逐次近似など，繰り返し計算で近似解を求める方法は色々と知られている．だからと言って紙と鉛筆で計算するのは大変なので計算機に任せよう，というのが基本的な考え方である．とは言っても計算機は自分で考えることはできない．どのような処理を行うかを逐一丁寧に教えてやらなければならない．これがプログラミングというものである．計算機を使って処理の自動化をする際の作法と言ってもよい．</p>
 <p>もちろん，上の方程式の解を求めるだけなら何もプログラミングを学ぶ必要は無い．そのようなことをやってくれるソフトウェアは探せばいくらでも見つかるだろう．ところが汎用のソフトウェアは決められた計算をするには十分であるが，ちょっとでも違うことをやろうと思うと途端に困ってしまう．誰もやったことのないような最先端の仕事をするには結局のところ必要なものは自分で作らなければいけない．そのためにもここでプログラミングを学んでおくことは非常に重要である(と思う)．</p>
@@ -166,7 +178,7 @@
           
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019, Takanobu Amano.
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.9 で生成しました。
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.6 で生成しました。
     </div>
         </div>
         <div class="clearer"></div>

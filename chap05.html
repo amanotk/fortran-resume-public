@@ -1,26 +1,38 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
     <title>5. 配列 &#8212; Fortran演習(地球惑星物理学演習)</title>
+    
     <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
     <link rel="next" title="6. 書式指定・ファイル入出力・文字列処理" href="chap06.html" />
     <link rel="prev" title="4. 制御構造" href="chap04.html" /> 
-  </head><body>
+  </head>
+  <body role="document">
     <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
@@ -82,7 +94,7 @@
 <blockquote>
 <div><a class="reference internal" href="chap05_sample1_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>配列とは <em>同じ型</em> の複数のデータを効率的に扱うために用いるデータ構造 <a class="footnote-reference" href="#id26" id="id4">[1]</a> である．配列も通常の変数と同じように宣言が必要であり，宣言時には配列であることを明示的に示さなければならない．配列を宣言すると計算機の <em>メモリ上の連続した領域</em> が確保され，それぞれのアドレスに添字を用いてアクセスできるようになる．具体的には以下のように宣言する．</p>
-<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -95,14 +107,14 @@
 <span class="k">end do</span>
 </pre></div>
 </td></tr></table></div>
-<p>上の例では4-6行目で配列の各要素に添字 <code class="docutils literal notranslate"><span class="pre">i</span></code> を用いて <code class="docutils literal notranslate"><span class="pre">x(i)</span></code> のようにアクセスしており(ここでは各要素へ値の代入)，添字でアクセスした各要素については通常の変数のように扱うことができる．Fortranでは配列の添字は <code class="docutils literal notranslate"><span class="pre">1</span></code> から始まるので，例えば上の例では <code class="docutils literal notranslate"><span class="pre">x(1)</span></code> が最初の要素であり，<code class="docutils literal notranslate"><span class="pre">x(10)</span></code> が最後の要素ということになる．C言語を始めとする多くの言語では配列の添字は <code class="docutils literal notranslate"><span class="pre">0</span></code> から始まることになっているので注意して欲しい．ただしFortranでは，以下の2行目のような宣言によって宣言時に配列の添字の範囲を指定することができる．以下の例はどちらも長さ5の配列を宣言しているが，配列にアクセスするときの添字の範囲が異なる．</p>
-<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<p>上の例では4-6行目で配列の各要素に添字 <code class="docutils literal"><span class="pre">i</span></code> を用いて <code class="docutils literal"><span class="pre">x(i)</span></code> のようにアクセスしており(ここでは各要素へ値の代入)，添字でアクセスした各要素については通常の変数のように扱うことができる．Fortranでは配列の添字は <code class="docutils literal"><span class="pre">1</span></code> から始まるので，例えば上の例では <code class="docutils literal"><span class="pre">x(1)</span></code> が最初の要素であり，<code class="docutils literal"><span class="pre">x(10)</span></code> が最後の要素ということになる．C言語を始めとする多くの言語では配列の添字は <code class="docutils literal"><span class="pre">0</span></code> から始まることになっているので注意して欲しい．ただしFortranでは，以下の2行目のような宣言によって宣言時に配列の添字の範囲を指定することができる．以下の例はどちらも長さ5の配列を宣言しているが，配列にアクセスするときの添字の範囲が異なる．</p>
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">integer</span> <span class="kd">::</span> <span class="n">a</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>   <span class="c">! 長さ5の配列</span>
 <span class="kt">integer</span> <span class="kd">::</span> <span class="n">b</span><span class="p">(</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">)</span> <span class="c">! 長さ5の配列(ただし添字は0から4まで)</span>
 </pre></div>
 </td></tr></table></div>
-<p>また，以下に配列 <code class="docutils literal notranslate"><span class="pre">x</span></code> の総和を計算する例を示す．</p>
-<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<p>また，以下に配列 <code class="docutils literal"><span class="pre">x</span></code> の総和を計算する例を示す．</p>
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -119,23 +131,23 @@
 <span class="k">end do</span>
 </pre></div>
 </td></tr></table></div>
-<p>このように配列の各要素に対する処理には <code class="docutils literal notranslate"><span class="pre">do</span></code> ループを用いる事になる．</p>
+<p>このように配列の各要素に対する処理には <code class="docutils literal"><span class="pre">do</span></code> ループを用いる事になる．</p>
 </div>
 <div class="section" id="id5">
 <h2><a class="toc-backref" href="#id35">5.2. 配列の定数と初期化</a><a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
 <div><a class="reference internal" href="chap05_sample2_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>配列は宣言する時に同時に初期化することも可能である．例えば</p>
-<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">integer</span> <span class="kd">::</span> <span class="n">a</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="o">/</span><span class="p">)</span> <span class="c">! 長さ5の配列を宣言時に初期化</span>
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">integer</span> <span class="kd">::</span> <span class="n">a</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="o">/</span><span class="p">)</span> <span class="c">! 長さ5の配列を宣言時に初期化</span>
 </pre></div>
 </td></tr></table></div>
-<p>のようにすればよい．ここで宣言した配列の長さと右辺の要素数は同じになっていなければならない．これを用いると <code class="docutils literal notranslate"><span class="pre">parameter</span></code> 属性を付けて定数配列を宣言することも出来る．</p>
-<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">integer</span><span class="p">,</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">b</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="o">/-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="p">)</span> <span class="c">! 長さ3の定数配列を宣言</span>
+<p>のようにすればよい．ここで宣言した配列の長さと右辺の要素数は同じになっていなければならない．これを用いると <code class="docutils literal"><span class="pre">parameter</span></code> 属性を付けて定数配列を宣言することも出来る．</p>
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">integer</span><span class="p">,</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">b</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="o">/-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="p">)</span> <span class="c">! 長さ3の定数配列を宣言</span>
 </pre></div>
 </td></tr></table></div>
 <p>通常の定数変数と同じように，定数として宣言された配列は参照は出来るが値の変更は出来ないようになっている．</p>
-<p>配列名を指定せずに無名の定数配列を作ることも出来る．これには&quot;<code class="docutils literal notranslate"><span class="pre">(/</span></code> &quot;と&quot;<code class="docutils literal notranslate"><span class="pre">/)</span></code>&quot;で全体を，&quot;<code class="docutils literal notranslate"><span class="pre">,</span></code> &quot;で各要素を区切って記述する．例えば以下の例では長さ3の定数配列を出力する．</p>
-<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="p">(</span><span class="o">/</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">/</span><span class="p">)</span>
+<p>配列名を指定せずに無名の定数配列を作ることも出来る．これには&#8221;<code class="docutils literal"><span class="pre">(/</span></code> &#8220;と&#8221;<code class="docutils literal"><span class="pre">/)</span></code>&#8220;で全体を，&#8221;<code class="docutils literal"><span class="pre">,</span></code> &#8220;で各要素を区切って記述する．例えば以下の例では長さ3の定数配列を出力する．</p>
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="p">(</span><span class="o">/</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">/</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 </div>
@@ -143,8 +155,8 @@
 <h2><a class="toc-backref" href="#id36">5.3. 動的割付け</a><a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
 <div><a class="reference internal" href="chap05_sample3_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
-<p>通常の配列はコンパイル時に静的に配列のサイズが決定される．予め必要な領域(メモリ)サイズが分かっていればこれで良いのだが，実行してみるまで必要な領域サイズが分からない場合にはこれでは対処できない．このような時には <code class="docutils literal notranslate"><span class="pre">allocatable</span></code> 属性を用いることで，実行時に動的に配列用にメモリを割り付けることができる．具体的な使い方は以下のようになる．</p>
-<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<p>通常の配列はコンパイル時に静的に配列のサイズが決定される．予め必要な領域(メモリ)サイズが分かっていればこれで良いのだが，実行してみるまで必要な領域サイズが分からない場合にはこれでは対処できない．このような時には <code class="docutils literal"><span class="pre">allocatable</span></code> 属性を用いることで，実行時に動的に配列用にメモリを割り付けることができる．具体的な使い方は以下のようになる．</p>
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -171,8 +183,8 @@
 <span class="k">deallocate</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p><code class="docutils literal notranslate"><span class="pre">allocatable</span></code> 属性を付けた配列はコンパイル時には長さが未定なので，上の例の2行目のように <code class="docutils literal notranslate"><span class="pre">a(:)</span></code> という形式で宣言する．この例では5行目で標準入力から整数を読み込み，それを長さとするように8行目でメモリを割り付けている．<code class="docutils literal notranslate"><span class="pre">allocate</span></code> で確保したメモリは使い終わったらこの例のように <code class="docutils literal notranslate"><span class="pre">deallocate</span></code> で開放してやるのが作法である．いわゆるメモリリークという厄介なバグはこのような動的に割り付けたメモリの解放忘れによって発生するので気をつけよう <a class="footnote-reference" href="#id27" id="id7">[2]</a>．なおメモリが既に割りつけられているかどうかを確認するために <code class="docutils literal notranslate"><span class="pre">allocated</span></code> という関数も用意されている．この関数はメモリが割り付けられている場合には真を返すので，例えば</p>
-<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<p><code class="docutils literal"><span class="pre">allocatable</span></code> 属性を付けた配列はコンパイル時には長さが未定なので，上の例の2行目のように <code class="docutils literal"><span class="pre">a(:)</span></code> という形式で宣言する．この例では5行目で標準入力から整数を読み込み，それを長さとするように8行目でメモリを割り付けている．<code class="docutils literal"><span class="pre">allocate</span></code> で確保したメモリは使い終わったらこの例のように <code class="docutils literal"><span class="pre">deallocate</span></code> で開放してやるのが作法である．いわゆるメモリリークという厄介なバグはこのような動的に割り付けたメモリの解放忘れによって発生するので気をつけよう <a class="footnote-reference" href="#id27" id="id7">[2]</a>．なおメモリが既に割りつけられているかどうかを確認するために <code class="docutils literal"><span class="pre">allocated</span></code> という関数も用意されている．この関数はメモリが割り付けられている場合には真を返すので，例えば</p>
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -202,7 +214,7 @@
 <blockquote>
 <div><a class="reference internal" href="chap05_sample4_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>ここまで扱った配列は1次元配列と呼ばれるものであったが，多次元の配列も使うことができる．分り易い例として1次元配列はベクトル，2次元配列は行列と考えればよいだろう．多次元配列の宣言には次元の分だけ(各次元の)長さを指定すれば良い．</p>
-<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -219,7 +231,7 @@
 <span class="k">end do</span>
 </pre></div>
 </td></tr></table></div>
-<p>例えば上の例では2次元配列 <code class="docutils literal notranslate"><span class="pre">a(10,10)</span></code> を宣言して2重 <code class="docutils literal notranslate"><span class="pre">do</span></code> ループでその値を出力している．多次元配列の場合は配列の各要素にアクセスするために添字を次元の数だけ指定しなければならない．なお配列の次元数をrank，各次元の要素数の組をshape，全要素数をsizeなどと呼ぶことが一般的である．これらの言葉の意味は次の表を見てもらえばすぐに理解出来るであろう．</p>
+<p>例えば上の例では2次元配列 <code class="docutils literal"><span class="pre">a(10,10)</span></code> を宣言して2重 <code class="docutils literal"><span class="pre">do</span></code> ループでその値を出力している．多次元配列の場合は配列の各要素にアクセスするために添字を次元の数だけ指定しなければならない．なお配列の次元数をrank，各次元の要素数の組をshape，全要素数をsizeなどと呼ぶことが一般的である．これらの言葉の意味は次の表を見てもらえばすぐに理解出来るであろう．</p>
 <table border="1" class="colwidths-given docutils" id="id30">
 <caption><span class="caption-text">配列宣言の例</span><a class="headerlink" href="#id30" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
@@ -236,30 +248,30 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">a(10)</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">a(10)</span></code></td>
 <td>1</td>
 <td>(10,)</td>
 <td>10</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">b(2,</span> <span class="pre">5)</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">b(2,</span> <span class="pre">5)</span></code></td>
 <td>2</td>
 <td>(2, 5)</td>
 <td>10</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">c(10,10,10)</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">c(10,10,10)</span></code></td>
 <td>3</td>
 <td>(10,10,10)</td>
 <td>1000</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">d(0:9,0:99)</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">d(0:9,0:99)</span></code></td>
 <td>2</td>
 <td>(10, 100)</td>
 <td>1000</td>
 </tr>
 </tbody>
 </table>
-<p>多次元配列の場合も <code class="docutils literal notranslate"><span class="pre">allocatable</span></code> 属性を指定して動的にメモリを割り付けることも出来る．この際の配列宣言や <code class="docutils literal notranslate"><span class="pre">allocate</span></code> によるメモリ割り付けは</p>
-<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<p>多次元配列の場合も <code class="docutils literal"><span class="pre">allocatable</span></code> 属性を指定して動的にメモリを割り付けることも出来る．この際の配列宣言や <code class="docutils literal"><span class="pre">allocate</span></code> によるメモリ割り付けは</p>
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">x</span><span class="p">(:,:,:)</span>
 
@@ -272,9 +284,9 @@
 <span id="id9"></span><h2><a class="toc-backref" href="#id38">5.5. 配列の入出力</a><a class="headerlink" href="#c5-array-io" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
 <div><a class="reference internal" href="chap05_sample5_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
-<p>配列データの入出力についてもこれまでと同様に各要素を <code class="docutils literal notranslate"><span class="pre">read(*,*)</span></code> や <code class="docutils literal notranslate"><span class="pre">write(*,*)</span></code> に対する入出力リストとして与える方法もあるが，例えば配列全体を入出力リストとして与えることなども出来る．詳細は <a class="reference internal" href="chap06.html#c6-file-io"><span class="std std-ref">ファイル入出力</span></a> で説明するが，ここではとりあえずアスキー形式(人間の目で読める形式)のことだけを考えることにする．</p>
-<p>配列の各要素を出力するには，<code class="docutils literal notranslate"><span class="pre">do</span></code> ループを用いて例えば</p>
-<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<p>配列データの入出力についてもこれまでと同様に各要素を <code class="docutils literal"><span class="pre">read(*,*)</span></code> や <code class="docutils literal"><span class="pre">write(*,*)</span></code> に対する入出力リストとして与える方法もあるが，例えば配列全体を入出力リストとして与えることなども出来る．詳細は <a class="reference internal" href="chap06.html#c6-file-io"><span class="std std-ref">ファイル入出力</span></a> で説明するが，ここではとりあえずアスキー形式(人間の目で読める形式)のことだけを考えることにする．</p>
+<p>配列の各要素を出力するには，<code class="docutils literal"><span class="pre">do</span></code> ループを用いて例えば</p>
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -288,16 +300,16 @@
 </pre></div>
 </td></tr></table></div>
 <p>のような処理を行えば良い．この場合は各要素が出力された後に改行が挿入されるので結果の出力は10行になる．これに対して</p>
-<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">x</span>                    <span class="c">! 改行せずに1行に全要素を出力</span>
 <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>    <span class="c">! 同上</span>
 <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c">! 1つ飛ばしで出力</span>
 </pre></div>
 </td></tr></table></div>
-<p>などのように <code class="docutils literal notranslate"><span class="pre">do</span></code> ループと同じような書き方が可能であり，先ほどの例との違いは改行が挿入されるかどうかである．</p>
+<p>などのように <code class="docutils literal"><span class="pre">do</span></code> ループと同じような書き方が可能であり，先ほどの例との違いは改行が挿入されるかどうかである．</p>
 <p>配列の入力についても両方の書き方が可能である．</p>
-<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -319,11 +331,11 @@
 </pre></div>
 </td></tr></table></div>
 <p>例えば上の例で2-4行目と7行目は同じ処理をする．なおFortranはデフォルトで空白，Tab，カンマ，改行などを各要素の区切りとして解釈することに注意をして欲しい．すなわち</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">1</span>.0, <span class="m">2</span>.0, ... <span class="m">9</span>.0, <span class="m">10</span>.0
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="m">1</span>.0, <span class="m">2</span>.0, ... <span class="m">9</span>.0, <span class="m">10</span>.0
 </pre></div>
 </div>
 <p>と</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">1</span>.0
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="m">1</span>.0
 <span class="m">2</span>.0
 ...
 <span class="m">9</span>.0
@@ -331,36 +343,36 @@
 </pre></div>
 </div>
 <p>のどちらでも同じように(正しく)読み込まれることになる．ちなみに復習しておくと，予め存在するファイルの内容を上のような処理によって読み込むにはリダイレクトを使って</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out &lt; data.dat
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ ./a.out &lt; data.dat
 </pre></div>
 </div>
 <p>のようにすれば良い．(この例ではdata.datの内容をa.outに渡している．)</p>
 <p>多次元配列の読み込みについては少し注意が必要である．例えば</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span> <span class="m">1</span>.0  <span class="m">2</span>.0  <span class="m">3</span>.0
+<div class="highlight-bash"><div class="highlight"><pre><span></span> <span class="m">1</span>.0  <span class="m">2</span>.0  <span class="m">3</span>.0
  <span class="m">4</span>.0  <span class="m">5</span>.0  <span class="m">6</span>.0
  <span class="m">7</span>.0  <span class="m">8</span>.0  <span class="m">9</span>.0
 <span class="m">10</span>.0 <span class="m">11</span>.0 <span class="m">12</span>.0
 </pre></div>
 </div>
 <p>というファイルを標準入力へのリダイレクトから3x4の2次元配列として読み込む場合に</p>
-<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
 
 <span class="k">read</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">x</span>
 </pre></div>
 </td></tr></table></div>
-<p>とすると，<code class="docutils literal notranslate"><span class="pre">x(1,1),</span> <span class="pre">x(2,1),</span> <span class="pre">x(3,1),</span> <span class="pre">x(1,2),</span> <span class="pre">...</span></code> にそれぞれ <code class="docutils literal notranslate"><span class="pre">1.0,</span> <span class="pre">2.0,</span> <span class="pre">3.0,</span> <span class="pre">4.0,</span> <span class="pre">...</span></code> が代入されることになる．これは入力が先頭から順々に行われ，またFortranの多次元配列のメモリ並びがこの順番になっているためである(メモリ並びについては <a class="reference internal" href="#columnrow"><span class="std std-ref">Column majorとRow major</span></a> 参照)．配列の形状が何であってもかならずこの順番で読み込まれるため，例えば</p>
-<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<p>とすると，<code class="docutils literal"><span class="pre">x(1,1),</span> <span class="pre">x(2,1),</span> <span class="pre">x(3,1),</span> <span class="pre">x(1,2),</span> <span class="pre">...</span></code> にそれぞれ <code class="docutils literal"><span class="pre">1.0,</span> <span class="pre">2.0,</span> <span class="pre">3.0,</span> <span class="pre">4.0,</span> <span class="pre">...</span></code> が代入されることになる．これは入力が先頭から順々に行われ，またFortranの多次元配列のメモリ並びがこの順番になっているためである(メモリ並びについては <a class="reference internal" href="#columnrow"><span class="std std-ref">Column majorとRow major</span></a> 参照)．配列の形状が何であってもかならずこの順番で読み込まれるため，例えば</p>
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
 
 <span class="k">read</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">x</span>
 </pre></div>
 </td></tr></table></div>
-<p>であれば，<code class="docutils literal notranslate"><span class="pre">x(1,1),</span> <span class="pre">x(2,1),</span> <span class="pre">x(1,2),</span> <span class="pre">x(2,2),</span> <span class="pre">...</span></code> の順で <code class="docutils literal notranslate"><span class="pre">1.0,</span> <span class="pre">2.0,</span> <span class="pre">3.0,</span> <span class="pre">4.0,</span> <span class="pre">...</span></code> が代入されてしまう．このように多次元配列の読み込みは(初心者にとっては)必ずしも意図する結果にならないことがあるので注意して欲しい．</p>
-<p>また <code class="docutils literal notranslate"><span class="pre">read(*,*)</span></code> は一度に行末までを読み込むようになっているため，</p>
-<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<p>であれば，<code class="docutils literal"><span class="pre">x(1,1),</span> <span class="pre">x(2,1),</span> <span class="pre">x(1,2),</span> <span class="pre">x(2,2),</span> <span class="pre">...</span></code> の順で <code class="docutils literal"><span class="pre">1.0,</span> <span class="pre">2.0,</span> <span class="pre">3.0,</span> <span class="pre">4.0,</span> <span class="pre">...</span></code> が代入されてしまう．このように多次元配列の読み込みは(初心者にとっては)必ずしも意図する結果にならないことがあるので注意して欲しい．</p>
+<p>また <code class="docutils literal"><span class="pre">read(*,*)</span></code> は一度に行末までを読み込むようになっているため，</p>
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -386,8 +398,8 @@
 <blockquote>
 <div><a class="reference internal" href="chap05_sample6_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>Fortranにはいくつか配列に関する便利な組込み関数が用意されている．細かい使い方についてはサンプルコードや自分で実際にコードを書いてみて動作確認をしてみるのが一番の近道である．</p>
-<p>例えば以下の例ではベクトル同士の内積を計算する <code class="docutils literal notranslate"><span class="pre">dot_product</span></code> や行列同士もしくは行列とベクトルの積を計算する <code class="docutils literal notranslate"><span class="pre">matmul</span></code> の使い方を示している．</p>
-<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<p>例えば以下の例ではベクトル同士の内積を計算する <code class="docutils literal"><span class="pre">dot_product</span></code> や行列同士もしくは行列とベクトルの積を計算する <code class="docutils literal"><span class="pre">matmul</span></code> の使い方を示している．</p>
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -461,64 +473,64 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">dot_product(x,</span> <span class="pre">y)</span></code></td>
-<td>ベクトル(1次元配列) <code class="docutils literal notranslate"><span class="pre">x</span></code> と <code class="docutils literal notranslate"><span class="pre">y</span></code> の内積を返す</td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">dot_product(x,</span> <span class="pre">y)</span></code></td>
+<td>ベクトル(1次元配列) <code class="docutils literal"><span class="pre">x</span></code> と <code class="docutils literal"><span class="pre">y</span></code> の内積を返す</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">matmul(x,</span> <span class="pre">y)</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">matmul(x,</span> <span class="pre">y)</span></code></td>
 <td>行列(2次元配列)同士，もしくは行列とベクトル(1次元配列)の積を返す</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">transpose(x)</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">transpose(x)</span></code></td>
 <td>行列(2次元配列)の転置を返す</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">sum(x)</span></code></td>
-<td>配列 <code class="docutils literal notranslate"><span class="pre">x</span></code> の各要素の和を返す</td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">sum(x)</span></code></td>
+<td>配列 <code class="docutils literal"><span class="pre">x</span></code> の各要素の和を返す</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">product(x)</span></code></td>
-<td>配列 <code class="docutils literal notranslate"><span class="pre">x</span></code> の各要素の積を返す</td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">product(x)</span></code></td>
+<td>配列 <code class="docutils literal"><span class="pre">x</span></code> の各要素の積を返す</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">size(x)</span></code></td>
-<td>配列 <code class="docutils literal notranslate"><span class="pre">x</span></code> の全要素数(サイズ)を返す</td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">size(x)</span></code></td>
+<td>配列 <code class="docutils literal"><span class="pre">x</span></code> の全要素数(サイズ)を返す</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">shape(x)</span></code></td>
-<td>配列 <code class="docutils literal notranslate"><span class="pre">x</span></code> の形状を1次元の整数型配列として返す</td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">shape(x)</span></code></td>
+<td>配列 <code class="docutils literal"><span class="pre">x</span></code> の形状を1次元の整数型配列として返す</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">reshape(x,</span> <span class="pre">s)</span></code></td>
-<td>配列 <code class="docutils literal notranslate"><span class="pre">x</span></code> の形状を新しい形状 <code class="docutils literal notranslate"><span class="pre">s</span></code> に変換したものを返す</td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">reshape(x,</span> <span class="pre">s)</span></code></td>
+<td>配列 <code class="docutils literal"><span class="pre">x</span></code> の形状を新しい形状 <code class="docutils literal"><span class="pre">s</span></code> に変換したものを返す</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">maxval(x)</span></code></td>
-<td>配列 <code class="docutils literal notranslate"><span class="pre">x</span></code> の全要素の最大値を返す</td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">maxval(x)</span></code></td>
+<td>配列 <code class="docutils literal"><span class="pre">x</span></code> の全要素の最大値を返す</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">minval(x)</span></code></td>
-<td>配列 <code class="docutils literal notranslate"><span class="pre">x</span></code> の全要素の最小値を返す</td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">minval(x)</span></code></td>
+<td>配列 <code class="docutils literal"><span class="pre">x</span></code> の全要素の最小値を返す</td>
 </tr>
 </tbody>
 </table>
-<p>なお <code class="docutils literal notranslate"><span class="pre">reshape</span></code> を使うと多次元の配列定数を初期化することが出来る．以下はその例である．</p>
-<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">integer</span><span class="p">,</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">x</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="nb">reshape</span><span class="p">((</span><span class="o">/</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="o">/</span><span class="p">),</span> <span class="p">(</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">/</span><span class="p">))</span>
+<p>なお <code class="docutils literal"><span class="pre">reshape</span></code> を使うと多次元の配列定数を初期化することが出来る．以下はその例である．</p>
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">integer</span><span class="p">,</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">x</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="nb">reshape</span><span class="p">((</span><span class="o">/</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="o">/</span><span class="p">),</span> <span class="p">(</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">/</span><span class="p">))</span>
 </pre></div>
 </td></tr></table></div>
-<p><code class="docutils literal notranslate"><span class="pre">reshape</span></code> の第1引数は任意の配列であり，この配列の形状を変更したものを返す．第2引数には新しい配列の形状を指定している．ここでは左辺の配列の形状が <code class="docutils literal notranslate"><span class="pre">(2,3)</span></code> であるので <code class="docutils literal notranslate"><span class="pre">reshape</span></code> の第2引数は <code class="docutils literal notranslate"><span class="pre">(/2,</span> <span class="pre">3/)</span></code> と形状を1次元の整数配列として指定している．当然，元々の入力配列のサイズと新しい配列のサイズは同じでなければならない <a class="footnote-reference" href="#id28" id="id11">[3]</a>．</p>
+<p><code class="docutils literal"><span class="pre">reshape</span></code> の第1引数は任意の配列であり，この配列の形状を変更したものを返す．第2引数には新しい配列の形状を指定している．ここでは左辺の配列の形状が <code class="docutils literal"><span class="pre">(2,3)</span></code> であるので <code class="docutils literal"><span class="pre">reshape</span></code> の第2引数は <code class="docutils literal"><span class="pre">(/2,</span> <span class="pre">3/)</span></code> と形状を1次元の整数配列として指定している．当然，元々の入力配列のサイズと新しい配列のサイズは同じでなければならない <a class="footnote-reference" href="#id28" id="id11">[3]</a>．</p>
 </div>
 <div class="section" id="id12">
 <h2><a class="toc-backref" href="#id40">5.7. 部分配列</a><a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
 <div><a class="reference internal" href="chap05_sample7_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
-<p>これまでは各要素に添字を用いて例えば <code class="docutils literal notranslate"><span class="pre">x(10)</span></code> のような形でアクセスしていた．Fortranではこれに加えて <em>部分配列</em> という便利な機能があり，配列の複数の要素にまとめてアクセスすることが出来る．これには添字の代わりに <code class="docutils literal notranslate"><span class="pre">x(lower:upper:stride)</span></code> のような形式を用いる．<code class="docutils literal notranslate"><span class="pre">lower</span></code>，<code class="docutils literal notranslate"><span class="pre">upper</span></code>，<code class="docutils literal notranslate"><span class="pre">stride</span></code> の意味は <code class="docutils literal notranslate"><span class="pre">do</span></code> 変数の指定方法(<a class="reference internal" href="chap04.html#c4-do"><span class="std std-ref">決まった回数の繰り返し(do)</span></a>)と同じである．従って例えば</p>
-<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<p>これまでは各要素に添字を用いて例えば <code class="docutils literal"><span class="pre">x(10)</span></code> のような形でアクセスしていた．Fortranではこれに加えて <em>部分配列</em> という便利な機能があり，配列の複数の要素にまとめてアクセスすることが出来る．これには添字の代わりに <code class="docutils literal"><span class="pre">x(lower:upper:stride)</span></code> のような形式を用いる．<code class="docutils literal"><span class="pre">lower</span></code>，<code class="docutils literal"><span class="pre">upper</span></code>，<code class="docutils literal"><span class="pre">stride</span></code> の意味は <code class="docutils literal"><span class="pre">do</span></code> 変数の指定方法(<a class="reference internal" href="chap04.html#c4-do"><span class="std std-ref">決まった回数の繰り返し(do)</span></a>)と同じである．従って例えば</p>
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">integer</span> <span class="kd">::</span> <span class="n">x</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="o">/</span><span class="p">)</span>
 
 <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">2</span><span class="p">)</span> <span class="c">! 1, 3, 5, 7, 9が出力される</span>
 </pre></div>
 </td></tr></table></div>
-<p>のように書くことが出来る．<code class="docutils literal notranslate"><span class="pre">lower</span></code>，<code class="docutils literal notranslate"><span class="pre">upper</span></code>，<code class="docutils literal notranslate"><span class="pre">stride</span></code> などは省略することも出来，その場合は <code class="docutils literal notranslate"><span class="pre">lower</span></code> は配列の最初の要素，<code class="docutils literal notranslate"><span class="pre">upper</span></code> は最後の要素，<code class="docutils literal notranslate"><span class="pre">stride</span></code> は1と解釈される．ただし <code class="docutils literal notranslate"><span class="pre">stride</span></code> はともかく <code class="docutils literal notranslate"><span class="pre">lower</span></code>，<code class="docutils literal notranslate"><span class="pre">upper</span></code> は明示的に書いておいた方が分かりやすい．またこれらの指定に変数を使う事もできる．</p>
+<p>のように書くことが出来る．<code class="docutils literal"><span class="pre">lower</span></code>，<code class="docutils literal"><span class="pre">upper</span></code>，<code class="docutils literal"><span class="pre">stride</span></code> などは省略することも出来，その場合は <code class="docutils literal"><span class="pre">lower</span></code> は配列の最初の要素，<code class="docutils literal"><span class="pre">upper</span></code> は最後の要素，<code class="docutils literal"><span class="pre">stride</span></code> は1と解釈される．ただし <code class="docutils literal"><span class="pre">stride</span></code> はともかく <code class="docutils literal"><span class="pre">lower</span></code>，<code class="docutils literal"><span class="pre">upper</span></code> は明示的に書いておいた方が分かりやすい．またこれらの指定に変数を使う事もできる．</p>
 </div>
 <div class="section" id="id13">
 <h2><a class="toc-backref" href="#id41">5.8. 配列演算</a><a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
 <div><a class="reference internal" href="chap05_sample7_f90.html"><span class="doc">サンプルコード参照</span></a></div></blockquote>
 <p>さらに，Fortranには非常に強力な <em>配列演算</em> という機能が用意されている．例えば以下の例を見てみよう．</p>
-<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -566,7 +578,7 @@
 </pre></div>
 </td></tr></table></div>
 <p>上の例の6-8行目と11行目，16-18行目と21行目は等価である．このようにFortranでは <em>配列同士の演算をあたかも通常の変数であるかのように記述することができる</em>．これを配列演算と呼ぶ．数学で用いるような直感的な表現が出来ることに加えて，これを用いることでかなりタイプ量を減らすことができるのが一目見て分かるだろう．タイプ量が少ないと当然無用なバグの混入を避けることができる．さらに，配列演算はコンパイラによる最適化の恩恵を受けやすいという利点がある．部分配列と配列演算を組み合わせることも当然可能である．例えば</p>
-<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">integer</span><span class="p">,</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">m</span> <span class="o">=</span> <span class="mi">10</span>
@@ -576,14 +588,14 @@
 </pre></div>
 </td></tr></table></div>
 <p>のような使い方が出来る．また部分配列や配列演算の機能は多次元配列でも同様に使用することが出来る．ただし，配列演算は <em>同じ形状(次元およびサイズ)の配列に対してしか行うことが出来ない</em>．それ以外の場合には演算が定義されないのでこれは当たり前の話である．</p>
-<p>また，数学におけるベクトルの内積やベクトルと行列の積の計算規則とは異なり，配列演算はあくまで各要素ごとの演算であるという点に注意しよう．例えば <code class="docutils literal notranslate"><span class="pre">x(100)</span></code> と <code class="docutils literal notranslate"><span class="pre">y(100)</span></code> のような2つのサイズの等しい1次元配列の積 <code class="docutils literal notranslate"><span class="pre">x*y</span></code> は同じサイズ100の配列となり，スカラー値を計算する内積の計算規則とは異なる．また行列 <code class="docutils literal notranslate"><span class="pre">M(100,100)</span></code> とベクトル <code class="docutils literal notranslate"><span class="pre">x(100)</span></code> の積を計算しようとして <code class="docutils literal notranslate"><span class="pre">M*x</span></code> と記述しても <code class="docutils literal notranslate"><span class="pre">M</span></code> と <code class="docutils literal notranslate"><span class="pre">x</span></code> は形状が異るのでエラーとなってしまう．このような場合は先に見た <code class="docutils literal notranslate"><span class="pre">dot_product</span></code> や <code class="docutils literal notranslate"><span class="pre">matmul</span></code> を使えば良い．</p>
+<p>また，数学におけるベクトルの内積やベクトルと行列の積の計算規則とは異なり，配列演算はあくまで各要素ごとの演算であるという点に注意しよう．例えば <code class="docutils literal"><span class="pre">x(100)</span></code> と <code class="docutils literal"><span class="pre">y(100)</span></code> のような2つのサイズの等しい1次元配列の積 <code class="docutils literal"><span class="pre">x*y</span></code> は同じサイズ100の配列となり，スカラー値を計算する内積の計算規則とは異なる．また行列 <code class="docutils literal"><span class="pre">M(100,100)</span></code> とベクトル <code class="docutils literal"><span class="pre">x(100)</span></code> の積を計算しようとして <code class="docutils literal"><span class="pre">M*x</span></code> と記述しても <code class="docutils literal"><span class="pre">M</span></code> と <code class="docutils literal"><span class="pre">x</span></code> は形状が異るのでエラーとなってしまう．このような場合は先に見た <code class="docutils literal"><span class="pre">dot_product</span></code> や <code class="docutils literal"><span class="pre">matmul</span></code> を使えば良い．</p>
 </div>
 <div class="section" id="id14">
 <h2><a class="toc-backref" href="#id42">5.9. 補足 <sup>†</sup></a><a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="id15">
 <h3>5.9.1. メモリ領域<a class="headerlink" href="#id15" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Fortranの通常の静的配列(static array)の場合はメモリはスタック(stack)と呼ばれる領域に保持される．環境によっては(おそらく多くのLinux環境のデフォルトでは)スタックに大きなメモリ領域を保持できないようになっている．この設定は例えばsh系のシェル(bashなど)では以下のように <code class="docutils literal notranslate"><span class="pre">ulimit</span></code> コマンド(csh系のシェルならば <code class="docutils literal notranslate"><span class="pre">limit</span></code>)で確認することが出来る．</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">ulimit</span> -a
+<p>Fortranの通常の静的配列(static array)の場合はメモリはスタック(stack)と呼ばれる領域に保持される．環境によっては(おそらく多くのLinux環境のデフォルトでは)スタックに大きなメモリ領域を保持できないようになっている．この設定は例えばsh系のシェル(bashなど)では以下のように <code class="docutils literal"><span class="pre">ulimit</span></code> コマンド(csh系のシェルならば <code class="docutils literal"><span class="pre">limit</span></code>)で確認することが出来る．</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">ulimit</span> -a
 core file size          <span class="o">(</span>blocks, -c<span class="o">)</span> <span class="m">0</span>
 data seg size           <span class="o">(</span>kbytes, -d<span class="o">)</span> unlimited
 file size               <span class="o">(</span>blocks, -f<span class="o">)</span> unlimited
@@ -597,14 +609,14 @@ max user processes              <span class="o">(</span>-u<span class="o">)</spa
 virtual memory          <span class="o">(</span>kbytes, -v<span class="o">)</span> unlimited
 </pre></div>
 </div>
-<p>上の <code class="docutils literal notranslate"><span class="pre">ulimit</span></code> コマンドの出力結果から，この環境ではスタック領域が8MBに制限されているので大きな静的配列を確保することが出来ないことが分かる．プログラムの実行直後に原因不明の <code class="docutils literal notranslate"><span class="pre">Segmentation</span> <span class="pre">fault</span></code> などのエラーで終了してしまう場合はスタック領域が足りずにメモリが確保出来なかったことが原因かもしれない．</p>
-<p>どうしても静的配列を使いたい場合には <code class="docutils literal notranslate"><span class="pre">ulimit</span></code> コマンドで使用可能なスタック領域を増やせば良い．もしくは静的配列の使用をやめて <code class="docutils literal notranslate"><span class="pre">allocatable</span></code> 配列を用いるようにすればスタック領域の制限は受けない．これは <code class="docutils literal notranslate"><span class="pre">allocatable</span></code> 属性付きで宣言された配列のメモリは( <code class="docutils literal notranslate"><span class="pre">allocate</span></code> によって)ヒープ(heap)と呼ばれる別の領域にメモリが確保されるためである．なおスタックとかヒープについて必ずしも理解している必要は無いが，原因不明のエラーが発生した時にはこのことをふと思い出して欲しい．</p>
+<p>上の <code class="docutils literal"><span class="pre">ulimit</span></code> コマンドの出力結果から，この環境ではスタック領域が8MBに制限されているので大きな静的配列を確保することが出来ないことが分かる．プログラムの実行直後に原因不明の <code class="docutils literal"><span class="pre">Segmentation</span> <span class="pre">fault</span></code> などのエラーで終了してしまう場合はスタック領域が足りずにメモリが確保出来なかったことが原因かもしれない．</p>
+<p>どうしても静的配列を使いたい場合には <code class="docutils literal"><span class="pre">ulimit</span></code> コマンドで使用可能なスタック領域を増やせば良い．もしくは静的配列の使用をやめて <code class="docutils literal"><span class="pre">allocatable</span></code> 配列を用いるようにすればスタック領域の制限は受けない．これは <code class="docutils literal"><span class="pre">allocatable</span></code> 属性付きで宣言された配列のメモリは( <code class="docutils literal"><span class="pre">allocate</span></code> によって)ヒープ(heap)と呼ばれる別の領域にメモリが確保されるためである．なおスタックとかヒープについて必ずしも理解している必要は無いが，原因不明のエラーが発生した時にはこのことをふと思い出して欲しい．</p>
 </div>
 <div class="section" id="column-majorrow-major">
 <span id="columnrow"></span><h3>5.9.2. Column majorとRow major<a class="headerlink" href="#column-majorrow-major" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>既に説明したように配列は計算機の連続したメモリ上に確保されることが保証されている．これは1次元の場合には分かりやすいが，多次元配列の場合はどうなっているのであろうか？計算機のメモリは1次元的なアドレスからなっているので，実は多次元配列であってもメモリは内部的には1次元的に連続な領域を指している．多次元配列は単にそれらを使いやすく表示したものに過ぎない．一般的にFortranでは例えば2次元配列 <code class="docutils literal notranslate"><span class="pre">x(10,10)</span></code> の場合は <code class="docutils literal notranslate"><span class="pre">x(1,1)</span></code>, <code class="docutils literal notranslate"><span class="pre">x(2,1)</span></code>, ..., <code class="docutils literal notranslate"><span class="pre">x(10,1)</span></code>, <code class="docutils literal notranslate"><span class="pre">x(1,2)</span></code>, <code class="docutils literal notranslate"><span class="pre">x(2,2)</span></code>, ...のような並び，すなわち配列の一番左の添字がメモリの連続した方向となっている．これ をcolumn majorと呼ぶ．これに対してC言語などではrow majorと呼ばれるメモリ並びが採用されており一番右側の添字がメモリの連続する方向となっている(図参照)．従って，C言語で書かれたライブラリをFortranから呼び出す際(もしくはその逆)にはこの違いに注意しなければならない．</p>
+<p>既に説明したように配列は計算機の連続したメモリ上に確保されることが保証されている．これは1次元の場合には分かりやすいが，多次元配列の場合はどうなっているのであろうか？計算機のメモリは1次元的なアドレスからなっているので，実は多次元配列であってもメモリは内部的には1次元的に連続な領域を指している．多次元配列は単にそれらを使いやすく表示したものに過ぎない．一般的にFortranでは例えば2次元配列 <code class="docutils literal"><span class="pre">x(10,10)</span></code> の場合は <code class="docutils literal"><span class="pre">x(1,1)</span></code>, <code class="docutils literal"><span class="pre">x(2,1)</span></code>, ..., <code class="docutils literal"><span class="pre">x(10,1)</span></code>, <code class="docutils literal"><span class="pre">x(1,2)</span></code>, <code class="docutils literal"><span class="pre">x(2,2)</span></code>, ...のような並び，すなわち配列の一番左の添字がメモリの連続した方向となっている．これ をcolumn majorと呼ぶ．これに対してC言語などではrow majorと呼ばれるメモリ並びが採用されており一番右側の添字がメモリの連続する方向となっている(図参照)．従って，C言語で書かれたライブラリをFortranから呼び出す際(もしくはその逆)にはこの違いに注意しなければならない．</p>
 <p>またこのことから，効率的なプログラムとするためには多次元配列のループの書き方も注意が必要である．以下の例を考えてみよう．</p>
-<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -643,18 +655,18 @@ virtual memory          <span class="o">(</span>kbytes, -v<span class="o">)</spa
 <span class="k">end do</span>
 </pre></div>
 </td></tr></table></div>
-<p>この例では5-11行目(例1)と13-19行目(例2)は全く同じ処理(配列内の全要素の総和計算)を行なっているが，多重 <code class="docutils literal notranslate"><span class="pre">do</span></code> ループの添字の順番が異なることに注目して欲しい．例1では左側の添字 <code class="docutils literal notranslate"><span class="pre">i</span></code> が内側のループで走り，例2では右側の添字 <code class="docutils literal notranslate"><span class="pre">j</span></code> が内側のループで走っている．基本的に計算機というのは単純作業(例えば <code class="docutils literal notranslate"><span class="pre">if</span></code> 分岐などがないループ)を一気に，メモリの連続している方向に順番に処理するのが得意になっている．従って，この例では左側の添字が内側ループで走る例1の方が効率の良いプログラムということになる <a class="footnote-reference" href="#id29" id="id16">[4]</a>．最初はそれほど気にすることは無いが，単に「動く」だけのプログラムでは無く，「良い」プログラムとなるように細かい点についても気を配れるようになって欲しい．</p>
+<p>この例では5-11行目(例1)と13-19行目(例2)は全く同じ処理(配列内の全要素の総和計算)を行なっているが，多重 <code class="docutils literal"><span class="pre">do</span></code> ループの添字の順番が異なることに注目して欲しい．例1では左側の添字 <code class="docutils literal"><span class="pre">i</span></code> が内側のループで走り，例2では右側の添字 <code class="docutils literal"><span class="pre">j</span></code> が内側のループで走っている．基本的に計算機というのは単純作業(例えば <code class="docutils literal"><span class="pre">if</span></code> 分岐などがないループ)を一気に，メモリの連続している方向に順番に処理するのが得意になっている．従って，この例では左側の添字が内側ループで走る例1の方が効率の良いプログラムということになる <a class="footnote-reference" href="#id29" id="id16">[4]</a>．最初はそれほど気にすることは無いが，単に「動く」だけのプログラムでは無く，「良い」プログラムとなるように細かい点についても気を配れるようになって欲しい．</p>
 <div class="figure align-center" id="id32">
 <a class="reference internal image-reference" href="_images/storageorder.png"><img alt="_images/storageorder.png" src="_images/storageorder.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-text">Column majorとRow major．メモリは左から右に連続的に並んでいる．
-(C言語の場合は実際には配列添字は0から始まり，添字も <code class="docutils literal notranslate"><span class="pre">[]</span></code> で指定することに注意．)</span></p>
+(C言語の場合は実際には配列添字は0から始まり，添字も <code class="docutils literal"><span class="pre">[]</span></code> で指定することに注意．)</span></p>
 </div>
 </div>
 <div class="section" id="id17">
 <h3>5.9.3. 配列境界チェック<a class="headerlink" href="#id17" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>配列の添字の範囲をはみ出した場合には何が起こるだろうか? 実はこの時何が起こるかは実行してみるまで分からない．何事も無かったかのように正常終了するように見える場合もあるし，&quot;Segmentation fault&quot;などのエラーが表示されて異常終了することもある．1つだけ言えることはそのようなプログラムは例え正しく動いているように見えたとしてもかなり危険な状態である．なぜならプログラムで自分が「使いたい」と要請したメモリ領域とは異なる領域へアクセスしていることになるので，自分のプログラムで用いているメモリ領域はおろか，OSがプログラムの実行に必要とする情報(コールスタックなどと呼ばれる)をも意図せず書き換えてしまうかもしれない．異常終了しなかったとしても，それはたまたま運が良かっただけなの話である．たった1行ソースコードを書き換えただけでも，プログラム中のメモリ配置が変わることで動作がおかしくなるかもしれない．(1行 <code class="docutils literal notranslate"><span class="pre">write</span></code> 文を入れるかどうかだけの違いで動作が変わるような場合もあるが，そういう時には大抵おかしなメモリ領域にアクセスしているものである．)</p>
-<p>そもそも配列の添字範囲をはみ出すのは明らかなバグである．通常は効率を重視するため配列添字の境界チェックは行われないが，gfortranではコンパイル時に <code class="docutils literal notranslate"><span class="pre">-fbounds-check</span></code> というオプションをつけることでこの配列境界チェックを行うことが出来る．(多くのFortranコンパイラが同じようなオプションを有しているので他のコンパイラを用いる時にはチェックしてみて欲しい．) これによってもし境界をはみ出した場合にはその旨エラーが出力されてプログラムが終了する．</p>
-<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<p>配列の添字の範囲をはみ出した場合には何が起こるだろうか? 実はこの時何が起こるかは実行してみるまで分からない．何事も無かったかのように正常終了するように見える場合もあるし，&#8221;Segmentation fault&#8221;などのエラーが表示されて異常終了することもある．1つだけ言えることはそのようなプログラムは例え正しく動いているように見えたとしてもかなり危険な状態である．なぜならプログラムで自分が「使いたい」と要請したメモリ領域とは異なる領域へアクセスしていることになるので，自分のプログラムで用いているメモリ領域はおろか，OSがプログラムの実行に必要とする情報(コールスタックなどと呼ばれる)をも意図せず書き換えてしまうかもしれない．異常終了しなかったとしても，それはたまたま運が良かっただけなの話である．たった1行ソースコードを書き換えただけでも，プログラム中のメモリ配置が変わることで動作がおかしくなるかもしれない．(1行 <code class="docutils literal"><span class="pre">write</span></code> 文を入れるかどうかだけの違いで動作が変わるような場合もあるが，そういう時には大抵おかしなメモリ領域にアクセスしているものである．)</p>
+<p>そもそも配列の添字範囲をはみ出すのは明らかなバグである．通常は効率を重視するため配列添字の境界チェックは行われないが，gfortranではコンパイル時に <code class="docutils literal"><span class="pre">-fbounds-check</span></code> というオプションをつけることでこの配列境界チェックを行うことが出来る．(多くのFortranコンパイラが同じようなオプションを有しているので他のコンパイラを用いる時にはチェックしてみて欲しい．) これによってもし境界をはみ出した場合にはその旨エラーが出力されてプログラムが終了する．</p>
+<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -676,13 +688,13 @@ virtual memory          <span class="o">(</span>kbytes, -v<span class="o">)</spa
 </pre></div>
 </td></tr></table></div>
 <p>例えば上のソースコードをcheck.f90として保存し，コンパイル・実行した結果は以下のようになる．</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span> $ gfortran -fbounds-check check.f90
+<div class="highlight-bash"><div class="highlight"><pre><span></span> $ gfortran -fbounds-check check.f90
  $ ./a.out
 At line <span class="m">7</span> of file check.f90
 Fortran runtime error: Index <span class="s1">&#39;11&#39;</span> of dimension <span class="m">1</span> of array <span class="s1">&#39;x&#39;</span> above upper bound of <span class="m">10</span>
 </pre></div>
 </div>
-<p>配列 <code class="docutils literal notranslate"><span class="pre">x</span></code> の上限(10)を超えた11番目の要素にアクセスしているのでエラーが表示されているのが分かる．ただし，このようなチェックを逐一行うことで，当然実行時のパフォーマンスは犠牲になる．従って，デバッグの段階でこのような配列境界チェックを行い，時間のかかる計算を実行する際にはこのオプションは外しておこう．</p>
+<p>配列 <code class="docutils literal"><span class="pre">x</span></code> の上限(10)を超えた11番目の要素にアクセスしているのでエラーが表示されているのが分かる．ただし，このようなチェックを逐一行うことで，当然実行時のパフォーマンスは犠牲になる．従って，デバッグの段階でこのような配列境界チェックを行い，時間のかかる計算を実行する際にはこのオプションは外しておこう．</p>
 </div>
 </div>
 <div class="section" id="id18">
@@ -694,12 +706,12 @@ Fortran runtime error: Index <span class="s1">&#39;11&#39;</span> of dimension <
 <div class="section" id="id20">
 <h3>5.10.2. 課題2<a class="headerlink" href="#id20" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>与えられた月日(例えば4月1日であれば4と1)を標準入力から読み込み，その日が1年のうちで何日目かを表示するプログラムを作成せよ．ただし閏年は無視して考えて良い．以下のような配列を用いるとよいだろう．</p>
-<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">integer</span><span class="p">,</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">days</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="o">=</span> <span class="p">&amp;</span>
+<div class="highlight-fortran"><div class="highlight"><pre><span></span><span class="kt">integer</span><span class="p">,</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">days</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="o">=</span> <span class="p">&amp;</span>
      <span class="p">&amp;</span> <span class="p">(</span><span class="o">/</span><span class="mi">31</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="o">/</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>実行結果は例えば以下のようなものである．</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ ./a.out
  Input month and day :
 <span class="m">4</span>    <span class="c1"># キーボード入力</span>
 <span class="m">1</span>    <span class="c1"># キーボード入力</span>
@@ -709,36 +721,36 @@ Fortran runtime error: Index <span class="s1">&#39;11&#39;</span> of dimension <
 </div>
 <div class="section" id="score-format">
 <span id="id21"></span><h3>5.10.3. 課題3<a class="headerlink" href="#score-format" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>学生のテストの点数を自動的に処理するプログラムを作成せよ．すなわち，標準入力から学生の人数および人数分のテストの点を順に読み込み，最高点，最低点，平均点，標準偏差をそれぞれ表示するプログラムを作成せよ．ただし標準偏差はデータ数 <span class="math notranslate nohighlight">\(N\)</span> ，各データの値 <span class="math notranslate nohighlight">\(x_i (i=1,\ldots,N)\)</span> ，平均値 <span class="math notranslate nohighlight">\(\bar{x}\)</span> を用いて</p>
-<div class="math notranslate nohighlight">
+<p>学生のテストの点数を自動的に処理するプログラムを作成せよ．すなわち，標準入力から学生の人数および人数分のテストの点を順に読み込み，最高点，最低点，平均点，標準偏差をそれぞれ表示するプログラムを作成せよ．ただし標準偏差はデータ数 <span class="math">\(N\)</span> ，各データの値 <span class="math">\(x_i (i=1,\ldots,N)\)</span> ，平均値 <span class="math">\(\bar{x}\)</span> を用いて</p>
+<div class="math">
 \[\sigma = \sqrt{\frac{1}{N} \sum_{i=1}^{N} (x_i - \bar{x})^2}\]</div>
 <p>と定義される．</p>
 <p>データファイル <a class="reference external" href="data/score1.dat">score1.dat</a> を手元にコピーして，以下のようにリダイレクトによって作成したプログラムに読み込ませ，結果を確認せよ．</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out &lt; score1.dat
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ ./a.out &lt; score1.dat
  Best               :           <span class="m">98</span>
  Worst              :            <span class="m">6</span>
  Average            :    <span class="m">46</span>.399999999999999
  Standard deviation :    <span class="m">25</span>.115201240152015
 </pre></div>
 </div>
-<p>なおデータファイルには，1行目にデータ数 <span class="math notranslate nohighlight">\(N\)</span> ，それ以降に各データ <span class="math notranslate nohighlight">\(x_i\)</span> が記述されているので，まずはデータ数を読み込み配列のメモリを <code class="docutils literal notranslate"><span class="pre">allocate</span></code> した後に各データを読み込めば良い．( <span class="xref std std-doc">sample3.f90</span> を参照せよ．)</p>
+<p>なおデータファイルには，1行目にデータ数 <span class="math">\(N\)</span> ，それ以降に各データ <span class="math">\(x_i\)</span> が記述されているので，まずはデータ数を読み込み配列のメモリを <code class="docutils literal"><span class="pre">allocate</span></code> した後に各データを読み込めば良い．( <span class="xref doc">sample3.f90</span> を参照せよ．)</p>
 </div>
 <div class="section" id="id22">
 <h3>5.10.4. 課題4<a class="headerlink" href="#id22" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>標準入力から2つのベクトルを読み込み，両者の内積を計算し表示するプログラムを作成せよ． <code class="docutils literal notranslate"><span class="pre">do</span></code> ループを用いて地道に計算した結果と組込み関数 <code class="docutils literal notranslate"><span class="pre">dot_product</span></code> を用いた結果を比較すること．</p>
+<p>標準入力から2つのベクトルを読み込み，両者の内積を計算し表示するプログラムを作成せよ． <code class="docutils literal"><span class="pre">do</span></code> ループを用いて地道に計算した結果と組込み関数 <code class="docutils literal"><span class="pre">dot_product</span></code> を用いた結果を比較すること．</p>
 <p>以下はデータファイル <a class="reference external" href="data/vector.dat">vector.dat</a> を入力とした場合の結果である．</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out &lt; vector.dat
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ ./a.out &lt; vector.dat
  Inner product with <span class="k">do</span> loop     :    <span class="m">5</span>.4454054113084460E-017
  Inner product with dot_product :    <span class="m">9</span>.8770817913429454E-017
 </pre></div>
 </div>
-<p>ただしデータは，ベクトルの長さ <span class="math notranslate nohighlight">\(N\)</span> ，1つ目のベクトルの要素( <span class="math notranslate nohighlight">\(N\)</span> 個)，2つ目のベクトルの各要素( <span class="math notranslate nohighlight">\(N\)</span> 個)，の順に並んでいるものとする．</p>
+<p>ただしデータは，ベクトルの長さ <span class="math">\(N\)</span> ，1つ目のベクトルの要素( <span class="math">\(N\)</span> 個)，2つ目のベクトルの各要素( <span class="math">\(N\)</span> 個)，の順に並んでいるものとする．</p>
 </div>
 <div class="section" id="id23">
 <h3>5.10.5. 課題5<a class="headerlink" href="#id23" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>標準入力からベクトルと行列を読み込み，積を計算して表示するプログラムを作成せよ．これについても2重<code class="docutils literal notranslate"><span class="pre">do</span></code> ループを用いて地道に計算した結果と，組込み関数 <code class="docutils literal notranslate"><span class="pre">matmul</span></code> を用いた結果を比較すること．</p>
+<p>標準入力からベクトルと行列を読み込み，積を計算して表示するプログラムを作成せよ．これについても2重<code class="docutils literal"><span class="pre">do</span></code> ループを用いて地道に計算した結果と，組込み関数 <code class="docutils literal"><span class="pre">matmul</span></code> を用いた結果を比較すること．</p>
 <p>以下はデータファイル <a class="reference external" href="data/matvec.dat">matvec.dat</a> を入力とした場合の結果である．これと同じ結果が得られることを確認せよ．</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ /a.out &lt; matvec.dat
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ /a.out &lt; matvec.dat
  Matrix-vector product with <span class="k">do</span> loop
  -0.10000000000000001
  -0.89999999999999991
@@ -759,9 +771,9 @@ Fortran runtime error: Index <span class="s1">&#39;11&#39;</span> of dimension <
  -2.3999999999999999
 </pre></div>
 </div>
-<p>データは，ベクトルの長さ <span class="math notranslate nohighlight">\(N\)</span> ，ベクトルの要素( <span class="math notranslate nohighlight">\(N\)</span> 個)，行列の各要素( <span class="math notranslate nohighlight">\(N^2\)</span> 個)，が順に並んでいるものとする．また行列の要素は <span class="math notranslate nohighlight">\(a_{11}, a_{21}, a_{31} \ldots\)</span> の順に読み込まれることと，ベクトルと行列の積 <span class="math notranslate nohighlight">\(b_{i} = \sum_{j} a_{i,j} x_{j}\)</span> の添字の順番に注意せよ．</p>
-<p><code class="docutils literal notranslate"><span class="pre">matvec.dat</span></code> は以下のようなファイルになっているが，行列の部分をFortranで読み込むとあたかも転置行列を読み込んだような形になることに注意せよ．（実際に読み込んで確かめてみよ．）</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cat matvec.dat
+<p>データは，ベクトルの長さ <span class="math">\(N\)</span> ，ベクトルの要素( <span class="math">\(N\)</span> 個)，行列の各要素( <span class="math">\(N^2\)</span> 個)，が順に並んでいるものとする．また行列の要素は <span class="math">\(a_{11}, a_{21}, a_{31} \ldots\)</span> の順に読み込まれることと，ベクトルと行列の積 <span class="math">\(b_{i} = \sum_{j} a_{i,j} x_{j}\)</span> の添字の順番に注意せよ．</p>
+<p><code class="docutils literal"><span class="pre">matvec.dat</span></code> は以下のようなファイルになっているが，行列の部分をFortranで読み込むとあたかも転置行列を読み込んだような形になることに注意せよ．（実際に読み込んで確かめてみよ．）</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ cat matvec.dat
  <span class="m">8</span>
 
    <span class="m">0</span>.1
@@ -790,19 +802,19 @@ Fortran runtime error: Index <span class="s1">&#39;11&#39;</span> of dimension <
 </div>
 <div class="section" id="id24">
 <h3>5.10.6. 課題6<a class="headerlink" href="#id24" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>標準入力から与えられた整数 <span class="math notranslate nohighlight">\(n ( \ge 2)\)</span> 以下の全ての素数( <span class="math notranslate nohighlight">\(1\)</span> は素数に含めない)を表示するプログラムを作成せよ．以下のエラトステネスのふるいと呼ばれるアルゴリズムを用いるとよい．</p>
-<p>各整数 <span class="math notranslate nohighlight">\(i=2,\ldots,n\)</span> について順に</p>
+<p>標準入力から与えられた整数 <span class="math">\(n ( \ge 2)\)</span> 以下の全ての素数( <span class="math">\(1\)</span> は素数に含めない)を表示するプログラムを作成せよ．以下のエラトステネスのふるいと呼ばれるアルゴリズムを用いるとよい．</p>
+<p>各整数 <span class="math">\(i=2,\ldots,n\)</span> について順に</p>
 <blockquote>
 <div><ul class="simple">
-<li><span class="math notranslate nohighlight">\(i\)</span> が素数でなければ無視( <span class="math notranslate nohighlight">\(i+1\)</span> の処理へ)</li>
-<li><span class="math notranslate nohighlight">\(i\)</span> が素数であれば <span class="math notranslate nohighlight">\(i\)</span> から <span class="math notranslate nohighlight">\(n\)</span> の整数のうち <span class="math notranslate nohighlight">\(i\)</span> の倍数のものを消去(素数以外と判定)</li>
+<li><span class="math">\(i\)</span> が素数でなければ無視( <span class="math">\(i+1\)</span> の処理へ)</li>
+<li><span class="math">\(i\)</span> が素数であれば <span class="math">\(i\)</span> から <span class="math">\(n\)</span> の整数のうち <span class="math">\(i\)</span> の倍数のものを消去(素数以外と判定)</li>
 </ul>
 </div></blockquote>
-<p>の処理を行う．なお各整数が素数かどうかを判定するには長さ <span class="math notranslate nohighlight">\(n\)</span> の論理型配列を用いれば良い．この配列を全て <code class="docutils literal notranslate"><span class="pre">.true.</span></code> に初期化し，素数でないと判定されたものは <code class="docutils literal notranslate"><span class="pre">.false.</span></code> を代入して消去する．</p>
+<p>の処理を行う．なお各整数が素数かどうかを判定するには長さ <span class="math">\(n\)</span> の論理型配列を用いれば良い．この配列を全て <code class="docutils literal"><span class="pre">.true.</span></code> に初期化し，素数でないと判定されたものは <code class="docutils literal"><span class="pre">.false.</span></code> を代入して消去する．</p>
 </div>
 <div class="section" id="id25">
 <h3>5.10.7. 課題7<a class="headerlink" href="#id25" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>標準入力から3つの整数 <span class="math notranslate nohighlight">\(L, M, N\)</span> を読み込み， <code class="docutils literal notranslate"><span class="pre">integer</span></code> の <span class="math notranslate nohighlight">\(L \times M \times N\)</span> の3次元配列のメモリを確保せよ．その配列に対して，組み込み関数 <code class="docutils literal notranslate"><span class="pre">size</span></code>, <code class="docutils literal notranslate"><span class="pre">shape</span></code>, <code class="docutils literal notranslate"><span class="pre">lbound</span></code>, <code class="docutils literal notranslate"><span class="pre">ubound</span></code> を呼び出すことでその動作を確認せよ．( <span class="math notranslate nohighlight">\(L, M, N\)</span> の値はそれぞれせいぜい100程度かそれ以下にしておいた方が良い．)</p>
+<p>標準入力から3つの整数 <span class="math">\(L, M, N\)</span> を読み込み， <code class="docutils literal"><span class="pre">integer</span></code> の <span class="math">\(L \times M \times N\)</span> の3次元配列のメモリを確保せよ．その配列に対して，組み込み関数 <code class="docutils literal"><span class="pre">size</span></code>, <code class="docutils literal"><span class="pre">shape</span></code>, <code class="docutils literal"><span class="pre">lbound</span></code>, <code class="docutils literal"><span class="pre">ubound</span></code> を呼び出すことでその動作を確認せよ．( <span class="math">\(L, M, N\)</span> の値はそれぞれせいぜい100程度かそれ以下にしておいた方が良い．)</p>
 <hr class="docutils" />
 <table class="docutils footnote" frame="void" id="id26" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
@@ -813,7 +825,7 @@ Fortran runtime error: Index <span class="s1">&#39;11&#39;</span> of dimension <
 <table class="docutils footnote" frame="void" id="id27" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id7">[2]</a></td><td>プログラムが終了する際には当然全てのメモリが解放されるので必要以上に心配する必要は無い．また，Fortran 95以降では <code class="docutils literal notranslate"><span class="pre">allocatable</span></code> な配列は，スコープから外れた時(後述のサブルーチンなどから出た時)には自動的に <code class="docutils literal notranslate"><span class="pre">deallocate</span></code> されるということになったようである．従って通常はあえて <code class="docutils literal notranslate"><span class="pre">deallocate</span></code> しなくても良いかも知れない．ただし，一般的に借りたものは必ず返すというのがプログラミングでは礼儀になっているので，ちゃんと <code class="docutils literal notranslate"><span class="pre">deallocate</span></code> するように癖をつけておいた方が無難である．例えばC言語では <code class="docutils literal notranslate"><span class="pre">malloc</span></code> などでメモリを割り付けた場合は <code class="docutils literal notranslate"><span class="pre">free</span></code> で明示的に解放しない限りプログラム終了までメモリを保持し続ける．</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id7">[2]</a></td><td>プログラムが終了する際には当然全てのメモリが解放されるので必要以上に心配する必要は無い．また，Fortran 95以降では <code class="docutils literal"><span class="pre">allocatable</span></code> な配列は，スコープから外れた時(後述のサブルーチンなどから出た時)には自動的に <code class="docutils literal"><span class="pre">deallocate</span></code> されるということになったようである．従って通常はあえて <code class="docutils literal"><span class="pre">deallocate</span></code> しなくても良いかも知れない．ただし，一般的に借りたものは必ず返すというのがプログラミングでは礼儀になっているので，ちゃんと <code class="docutils literal"><span class="pre">deallocate</span></code> するように癖をつけておいた方が無難である．例えばC言語では <code class="docutils literal"><span class="pre">malloc</span></code> などでメモリを割り付けた場合は <code class="docutils literal"><span class="pre">free</span></code> で明示的に解放しない限りプログラム終了までメモリを保持し続ける．</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="id28" rules="none">
@@ -897,7 +909,7 @@ Fortran runtime error: Index <span class="s1">&#39;11&#39;</span> of dimension <
           
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019, Takanobu Amano.
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.9 で生成しました。
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.6 で生成しました。
     </div>
         </div>
         <div class="clearer"></div>

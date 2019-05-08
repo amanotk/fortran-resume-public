@@ -1,24 +1,36 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
     <title>第4章 演習課題 &#8212; Fortran演習(地球惑星物理学演習)</title>
+    
     <link rel="stylesheet" href="../_static/agogo.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" /> 
-  </head><body>
+  </head>
+  <body role="document">
     <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
@@ -46,20 +58,20 @@
 </div>
 <div class="section" id="id3">
 <h2>課題2<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>標準入力から2つの整数( <span class="math notranslate nohighlight">\(n, m\)</span> とする)を読み込み，その大小を比較するプログラムを作成せよ．例えば <span class="math notranslate nohighlight">\(n = 1, m = 2\)</span> なら以下のように <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">is</span> <span class="pre">smaller</span> <span class="pre">than</span> <span class="pre">2</span></code> と表示する．</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$./a.out
+<p>標準入力から2つの整数( <span class="math">\(n, m\)</span> とする)を読み込み，その大小を比較するプログラムを作成せよ．例えば <span class="math">\(n = 1, m = 2\)</span> なら以下のように <code class="docutils literal"><span class="pre">1</span> <span class="pre">is</span> <span class="pre">smaller</span> <span class="pre">than</span> <span class="pre">2</span></code> と表示する．</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$./a.out
  Input two integers:
 <span class="m">1</span>    <span class="c1"># キーボード入力</span>
 <span class="m">2</span>    <span class="c1"># キーボード入力</span>
            <span class="m">1</span>  is smaller than            <span class="m">2</span>
 </pre></div>
 </div>
-<p>同様に <span class="math notranslate nohighlight">\(n = 2, m = 1\)</span> なら <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">is</span> <span class="pre">larger</span> <span class="pre">than</span> <span class="pre">1</span></code>, <span class="math notranslate nohighlight">\(n = m = 1\)</span> なら <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">is</span> <span class="pre">equal</span> <span class="pre">to</span> <span class="pre">1</span></code> などと表示するものとする．</p>
+<p>同様に <span class="math">\(n = 2, m = 1\)</span> なら <code class="docutils literal"><span class="pre">2</span> <span class="pre">is</span> <span class="pre">larger</span> <span class="pre">than</span> <span class="pre">1</span></code>, <span class="math">\(n = m = 1\)</span> なら <code class="docutils literal"><span class="pre">1</span> <span class="pre">is</span> <span class="pre">equal</span> <span class="pre">to</span> <span class="pre">1</span></code> などと表示するものとする．</p>
 </div>
 <div class="section" id="id4">
 <h2>課題3<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><span class="math notranslate nohighlight">\(0^\circ\)</span> から <span class="math notranslate nohighlight">\(180^\circ\)</span> まで <span class="math notranslate nohighlight">\(10^\circ\)</span> 刻みの <span class="math notranslate nohighlight">\(\theta\)</span> および， <span class="math notranslate nohighlight">\(\sin \theta\)</span>, <span class="math notranslate nohighlight">\(\cos \theta\)</span> を標準出力に表示するプログラムを作成せよ(以下のように各 <span class="math notranslate nohighlight">\(\theta\)</span> の値ごとに改行せよ)．またこの結果をリダイレクトを用いてファイルとして記録し，gnuplotを用いてこのファイルのデータとgnuplotに組み込みの三角関数を共に図示せよ．なお三角関数の引数はラジアン単位であることに注意せよ．プログラムの出力結果は以下のようなものとなる．</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out
+<p><span class="math">\(0^\circ\)</span> から <span class="math">\(180^\circ\)</span> まで <span class="math">\(10^\circ\)</span> 刻みの <span class="math">\(\theta\)</span> および， <span class="math">\(\sin \theta\)</span>, <span class="math">\(\cos \theta\)</span> を標準出力に表示するプログラムを作成せよ(以下のように各 <span class="math">\(\theta\)</span> の値ごとに改行せよ)．またこの結果をリダイレクトを用いてファイルとして記録し，gnuplotを用いてこのファイルのデータとgnuplotに組み込みの三角関数を共に図示せよ．なお三角関数の引数はラジアン単位であることに注意せよ．プログラムの出力結果は以下のようなものとなる．</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ ./a.out
   <span class="m">0</span>.0000000000000000        <span class="m">0</span>.0000000000000000        <span class="m">1</span>.0000000000000000
   <span class="m">10</span>.000000000000000        ...                       ...
   <span class="m">20</span>.000000000000000        ...                       ...
@@ -68,11 +80,11 @@
 </pre></div>
 </div>
 <p>なおリダイレクトでデータファイルを作成するには</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out &gt; data.dat
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ ./a.out &gt; data.dat
 </pre></div>
 </div>
 <p>とすれば良い．gnuplotでは</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt; plot   <span class="s1">&#39;data.dat&#39;</span> using <span class="m">1</span>:2 w lp, sin<span class="o">(</span>x/180*pi<span class="o">)</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>&gt; plot   <span class="s1">&#39;data.dat&#39;</span> using <span class="m">1</span>:2 w lp, sin<span class="o">(</span>x/180*pi<span class="o">)</span>
 &gt; replot <span class="s1">&#39;data.dat&#39;</span> using <span class="m">1</span>:3 w lp, cos<span class="o">(</span>x/180*pi<span class="o">)</span>
 </pre></div>
 </div>
@@ -80,36 +92,36 @@
 </div>
 <div class="section" id="id5">
 <h2>課題4<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>標準入力から与えられた2つの整数<span class="math notranslate nohighlight">\(m, n \ge 1\)</span> の最大公約数を表示するプログラムを作成せよ．最大公約数を求めるには以下のアルゴリズム(ユークリッドの互除法)を用いるとよい．</p>
+<p>標準入力から与えられた2つの整数<span class="math">\(m, n \ge 1\)</span> の最大公約数を表示するプログラムを作成せよ．最大公約数を求めるには以下のアルゴリズム(ユークリッドの互除法)を用いるとよい．</p>
 <blockquote>
 <div><ol class="arabic simple">
-<li><span class="math notranslate nohighlight">\(m\)</span> を <span class="math notranslate nohighlight">\(n\)</span> で割った余り <span class="math notranslate nohighlight">\(r\)</span> を求める．</li>
-<li>もし <span class="math notranslate nohighlight">\(r = 0\)</span> ならば <span class="math notranslate nohighlight">\(n\)</span> が最大公約数である．</li>
-<li>もし <span class="math notranslate nohighlight">\(r \neq 0\)</span> ならば， <span class="math notranslate nohighlight">\(m\)</span> に <span class="math notranslate nohighlight">\(n\)</span> を， <span class="math notranslate nohighlight">\(n\)</span> に <span class="math notranslate nohighlight">\(r\)</span> を代入して[1]に戻る(繰り返す)．</li>
+<li><span class="math">\(m\)</span> を <span class="math">\(n\)</span> で割った余り <span class="math">\(r\)</span> を求める．</li>
+<li>もし <span class="math">\(r = 0\)</span> ならば <span class="math">\(n\)</span> が最大公約数である．</li>
+<li>もし <span class="math">\(r \neq 0\)</span> ならば， <span class="math">\(m\)</span> に <span class="math">\(n\)</span> を， <span class="math">\(n\)</span> に <span class="math">\(r\)</span> を代入して[1]に戻る(繰り返す)．</li>
 </ol>
 </div></blockquote>
-<p>なお，組み込み関数 <code class="docutils literal notranslate"><span class="pre">mod</span></code> を用いて</p>
-<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="nb">mod</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<p>なお，組み込み関数 <code class="docutils literal"><span class="pre">mod</span></code> を用いて</p>
+<div class="highlight-fortran"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="nb">mod</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>とすれば <code class="docutils literal notranslate"><span class="pre">m</span></code> を <code class="docutils literal notranslate"><span class="pre">n</span></code> で割った余りを <code class="docutils literal notranslate"><span class="pre">r</span></code> に代入することが出来る．</p>
+<p>とすれば <code class="docutils literal"><span class="pre">m</span></code> を <code class="docutils literal"><span class="pre">n</span></code> で割った余りを <code class="docutils literal"><span class="pre">r</span></code> に代入することが出来る．</p>
 </div>
 <div class="section" id="id6">
 <h2>課題5<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>以下の級数計算により自然対数の底 <span class="math notranslate nohighlight">\(e\)</span> の近似値を求めるプログラムを作成せよ．</p>
-<div class="math notranslate nohighlight">
+<p>以下の級数計算により自然対数の底 <span class="math">\(e\)</span> の近似値を求めるプログラムを作成せよ．</p>
+<div class="math">
 \[e \simeq \sum_{n=0}^{N} \frac{1}{n !}. \quad (0! = 1に注意せよ)\]</div>
 <p>ただし以下の条件を満たすこと．</p>
 <blockquote>
 <div><ul class="simple">
-<li>級数の項数 <span class="math notranslate nohighlight">\(N\)</span> および許容誤差 <span class="math notranslate nohighlight">\(\epsilon\)</span> を標準入力から読み込む．</li>
-<li><span class="math notranslate nohighlight">\(N &gt; 1\)</span> でない場合および <span class="math notranslate nohighlight">\(0 &lt; \epsilon &lt; 1\)</span> でない場合にはエラーメッセージを表示して終了する．</li>
-<li>誤差が <span class="math notranslate nohighlight">\(\epsilon\)</span> 以下になった時点か， <span class="math notranslate nohighlight">\(n = N\)</span> まで計算した時点で級数計算を打ち切る．</li>
-<li>最後に収束したかどうか，最終的な項数 <span class="math notranslate nohighlight">\(N\)</span> ，真値，近似値，相対誤差を表示して終了する．</li>
+<li>級数の項数 <span class="math">\(N\)</span> および許容誤差 <span class="math">\(\epsilon\)</span> を標準入力から読み込む．</li>
+<li><span class="math">\(N &gt; 1\)</span> でない場合および <span class="math">\(0 &lt; \epsilon &lt; 1\)</span> でない場合にはエラーメッセージを表示して終了する．</li>
+<li>誤差が <span class="math">\(\epsilon\)</span> 以下になった時点か， <span class="math">\(n = N\)</span> まで計算した時点で級数計算を打ち切る．</li>
+<li>最後に収束したかどうか，最終的な項数 <span class="math">\(N\)</span> ，真値，近似値，相対誤差を表示して終了する．</li>
 </ul>
 </div></blockquote>
 <p>出力のイメージとしては例えば以下のようなものである．</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ ./a.out
 <span class="m">10</span>          <span class="c1"># キーボード入力</span>
 <span class="m">1</span>.0e-8      <span class="c1"># キーボード入力</span>
  Did not converge !
@@ -122,11 +134,11 @@
 </div>
 <div class="section" id="id7">
 <h2>課題6<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>標準入力から文字列(英単語)を読み込み，それが <code class="docutils literal notranslate"><span class="pre">food</span></code>, <code class="docutils literal notranslate"><span class="pre">animal</span></code>, <code class="docutils literal notranslate"><span class="pre">vehicle</span></code>, <code class="docutils literal notranslate"><span class="pre">others</span></code> (それ以外)のいずれかを判定し，表示するプログラムを作成せよ．ただし <code class="docutils literal notranslate"><span class="pre">exit</span></code> が入力されるまでプログラムは終了せず何度でも入力を受け付けるものとする．なお以下の英単語リスト以外のものは <code class="docutils literal notranslate"><span class="pre">others</span></code> と判断してよい:
-<code class="docutils literal notranslate"><span class="pre">apple</span></code>, <code class="docutils literal notranslate"><span class="pre">orange</span></code>, <code class="docutils literal notranslate"><span class="pre">banana</span></code>, <code class="docutils literal notranslate"><span class="pre">dog</span></code>, <code class="docutils literal notranslate"><span class="pre">cat</span></code>, <code class="docutils literal notranslate"><span class="pre">lion</span></code>, <code class="docutils literal notranslate"><span class="pre">car</span></code>,
-<code class="docutils literal notranslate"><span class="pre">airplane</span></code>, <code class="docutils literal notranslate"><span class="pre">motorcycle</span></code> ．</p>
+<p>標準入力から文字列(英単語)を読み込み，それが <code class="docutils literal"><span class="pre">food</span></code>, <code class="docutils literal"><span class="pre">animal</span></code>, <code class="docutils literal"><span class="pre">vehicle</span></code>, <code class="docutils literal"><span class="pre">others</span></code> (それ以外)のいずれかを判定し，表示するプログラムを作成せよ．ただし <code class="docutils literal"><span class="pre">exit</span></code> が入力されるまでプログラムは終了せず何度でも入力を受け付けるものとする．なお以下の英単語リスト以外のものは <code class="docutils literal"><span class="pre">others</span></code> と判断してよい:
+<code class="docutils literal"><span class="pre">apple</span></code>, <code class="docutils literal"><span class="pre">orange</span></code>, <code class="docutils literal"><span class="pre">banana</span></code>, <code class="docutils literal"><span class="pre">dog</span></code>, <code class="docutils literal"><span class="pre">cat</span></code>, <code class="docutils literal"><span class="pre">lion</span></code>, <code class="docutils literal"><span class="pre">car</span></code>,
+<code class="docutils literal"><span class="pre">airplane</span></code>, <code class="docutils literal"><span class="pre">motorcycle</span></code> ．</p>
 <p>実行結果は例えば以下のような出力になるだろう．</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ ./a.out
 apple    <span class="c1"># キーボード入力</span>
  food
 cat      <span class="c1"># キーボード入力</span>
@@ -147,9 +159,9 @@ bike     <span class="c1"># キーボード入力</span>
 <div class="section" id="id8">
 <h2>課題7 <sup>†</sup><a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>以下の漸化式</p>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[p_{n+1} = p_n + \alpha p_n (1 - p_n)\]</div>
-<p>で定義される数列 <span class="math notranslate nohighlight">\(p_n (n=0, 1, \ldots)\)</span> を考える．初期値 <span class="math notranslate nohighlight">\(p_0 = 0.9\)</span> から数列を生成し，そのうち <span class="math notranslate nohighlight">\(n=100, \ldots, 200\)</span> までを <span class="math notranslate nohighlight">\(\alpha\)</span> の関数として <span class="math notranslate nohighlight">\(1 &lt; \alpha &lt; 3\)</span> の範囲でプロットせよ． <span class="math notranslate nohighlight">\(\alpha\)</span> を <span class="math notranslate nohighlight">\(10^{-3}\)</span> 刻みで変えながらプロットすると結果は以下のようになるだろう．</p>
+<p>で定義される数列 <span class="math">\(p_n (n=0, 1, \ldots)\)</span> を考える．初期値 <span class="math">\(p_0 = 0.9\)</span> から数列を生成し，そのうち <span class="math">\(n=100, \ldots, 200\)</span> までを <span class="math">\(\alpha\)</span> の関数として <span class="math">\(1 &lt; \alpha &lt; 3\)</span> の範囲でプロットせよ． <span class="math">\(\alpha\)</span> を <span class="math">\(10^{-3}\)</span> 刻みで変えながらプロットすると結果は以下のようになるだろう．</p>
 <div class="figure align-center" id="id9">
 <a class="reference internal image-reference" href="kadai/figure/logistic.png"><img alt="kadai/figure/logistic.png" src="kadai/figure/logistic.png" style="width: 480px;" /></a>
 <p class="caption"><span class="caption-text">ロジスティック写像</span></p>
@@ -207,7 +219,7 @@ bike     <span class="c1"># キーボード入力</span>
           
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019, Takanobu Amano.
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.9 で生成しました。
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.6 で生成しました。
     </div>
         </div>
         <div class="clearer"></div>
