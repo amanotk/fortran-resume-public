@@ -1,32 +1,20 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<html lang="ja">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
     <title>第10章 演習課題 &#8212; Fortran演習(地球惑星物理学演習)</title>
-    
     <link rel="stylesheet" href="../_static/agogo.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '2019',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
@@ -41,8 +29,7 @@
 
 </script>
 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
@@ -70,39 +57,39 @@
 </div>
 <div class="section" id="id3">
 <h2>課題2<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>任意の1変数関数 <span class="math">\(f(x)\)</span> およびその微分値を返す関数 <span class="math">\(f'(x)\)</span> を引数として受け取り， <span class="math">\(f(x) = 0\)</span> の近似解をNewton法により求めるサブルーチンを実装し，その動作を確認せよ．ただし以下の条件を満たすこと．</p>
+<p>任意の1変数関数 <span class="math notranslate nohighlight">\(f(x)\)</span> およびその微分値を返す関数 <span class="math notranslate nohighlight">\(f'(x)\)</span> を引数として受け取り， <span class="math notranslate nohighlight">\(f(x) = 0\)</span> の近似解をNewton法により求めるサブルーチンを実装し，その動作を確認せよ．ただし以下の条件を満たすこと．</p>
 <ul class="simple">
-<li>初期値を引数として受け取る．</li>
-<li>無限ループにならないように最大の反復回数を引数として受け取る．</li>
-<li>許容誤差を引数として受け取り,
-反復による近似解の変化が許容誤差以下となったら収束したとみなす．</li>
-<li>収束判定のステータスを返す．</li>
-<li>求まった近似解を返す(収束しなかった場合は最後の反復後の解の近似値)．</li>
+<li><p>初期値を引数として受け取る．</p></li>
+<li><p>無限ループにならないように最大の反復回数を引数として受け取る．</p></li>
+<li><p>許容誤差を引数として受け取り,
+反復による近似解の変化が許容誤差以下となったら収束したとみなす．</p></li>
+<li><p>収束判定のステータスを返す．</p></li>
+<li><p>求まった近似解を返す(収束しなかった場合は最後の反復後の解の近似値)．</p></li>
 </ul>
-<p>(二分法のモジュール``bisection.f90`` の <code class="docutils literal"><span class="pre">mod_bisection</span></code> を参考にすればよい．)</p>
+<p>(二分法のモジュール``bisection.f90`` の <code class="docutils literal notranslate"><span class="pre">mod_bisection</span></code> を参考にすればよい．)</p>
 </div>
 <div class="section" id="id4">
 <h2>課題3 <sup>†</sup><a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal"><span class="pre">list.f90</span></code> で定義されているリストを実装したモジュール <code class="docutils literal"><span class="pre">mod_list</span></code> へ以下の様な機能追加を試みよ．以下では <code class="docutils literal"><span class="pre">a</span></code> はリスト( <code class="docutils literal"><span class="pre">type(list_type)</span></code>)のポインタであるとする．</p>
+<p><code class="docutils literal notranslate"><span class="pre">list.f90</span></code> で定義されているリストを実装したモジュール <code class="docutils literal notranslate"><span class="pre">mod_list</span></code> へ以下の様な機能追加を試みよ．以下では <code class="docutils literal notranslate"><span class="pre">a</span></code> はリスト( <code class="docutils literal notranslate"><span class="pre">type(list_type)</span></code>)のポインタであるとする．</p>
 <ul class="simple">
-<li>代入演算子が配列を受け取れるようにせよ．即ち，</li>
+<li><p>代入演算子が配列を受け取れるようにせよ．即ち，</p></li>
 </ul>
-<div class="highlight-fortran"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">/</span><span class="p">)</span>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">/</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>のようにリストに配列を代入すると元のリストを破棄し(正しく <code class="docutils literal"><span class="pre">deallocate</span></code> し)，与えられた配列でリストを初期化すること．</p>
+<p>のようにリストに配列を代入すると元のリストを破棄し(正しく <code class="docutils literal notranslate"><span class="pre">deallocate</span></code> し)，与えられた配列でリストを初期化すること．</p>
 <ul class="simple">
-<li>サンプルでは <code class="docutils literal"><span class="pre">append</span></code> によって単一の値をリストの終端に追加しているが，配列を与えた場合にはその各要素をリストに追加するように拡張せよ．ただしオーバーロードを用いることで，どちらも同じサブルーチン名 <code class="docutils literal"><span class="pre">append</span></code> で行うようにせよ．</li>
+<li><p>サンプルでは <code class="docutils literal notranslate"><span class="pre">append</span></code> によって単一の値をリストの終端に追加しているが，配列を与えた場合にはその各要素をリストに追加するように拡張せよ．ただしオーバーロードを用いることで，どちらも同じサブルーチン名 <code class="docutils literal notranslate"><span class="pre">append</span></code> で行うようにせよ．</p></li>
 </ul>
-<div class="highlight-fortran"><div class="highlight"><pre><span></span><span class="k">call </span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">call </span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="k">call </span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">(</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="o">/</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>のようなコードが実行可能となるはずである．</p>
 <ul class="simple">
-<li>同様にinsertでも配列を追加できるようにせよ．</li>
+<li><p>同様にinsertでも配列を追加できるようにせよ．</p></li>
 </ul>
-<div class="highlight-fortran"><div class="highlight"><pre><span></span><span class="k">call </span><span class="n">insert</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">call </span><span class="n">insert</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span class="k">call </span><span class="n">insert</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="o">/-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="o">/</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -116,6 +103,7 @@
       </div>
         </div>
         <div class="sidebar">
+          
           <h3>目次</h3>
           <ul>
 <li class="toctree-l1"><a class="reference internal" href="../chap01.html">1. はじめに</a></li>
@@ -135,10 +123,9 @@
             <form class="search" action="../search.html" method="get">
                 <input type="text" name="q" />
                 <input type="submit" value="検索" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
             </form>
           </div>
+
         </div>
         <div class="clearer"></div>
       </div>
@@ -158,8 +145,8 @@
         <div class="right">
           
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2019, Takanobu Amano.
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.6 で生成しました。
+        &#169; Copyright 2020, Takanobu Amano.
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3 で生成しました。
     </div>
         </div>
         <div class="clearer"></div>

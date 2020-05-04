@@ -1,32 +1,20 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<html lang="ja">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
     <title>chap03/sample6.f90 &#8212; Fortran演習(地球惑星物理学演習)</title>
-    
     <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '2019',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/translations.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
@@ -41,8 +29,7 @@
 
 </script>
 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
@@ -65,7 +52,7 @@
   <div class="section" id="chap03-sample6-f90">
 <h1>chap03/sample6.f90<a class="headerlink" href="#chap03-sample6-f90" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><a class="reference external" href="sample/chap03/sample6.f90">サンプルコードのダウンロード</a></p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -103,45 +90,45 @@
 36
 37
 38
-39</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">sample</span>
-  <span class="k">implicit none</span>
+39</pre></div></td><td class="code"><div class="highlight"><pre><span></span>program sample
+  implicit none
 
-<span class="k">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span>
+  real(8) :: x, y, z
 
-  <span class="n">x</span> <span class="o">=</span> <span class="mf">4.0_8</span>
-  <span class="n">y</span> <span class="o">=</span> <span class="mf">6.0_8</span>
+  x = 4.0_8
+  y = 6.0_8
 
-  <span class="c">! 平均値を計算してzに代入</span>
-  <span class="n">z</span> <span class="o">=</span> <span class="mf">0.5_8</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
-  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">z</span>
+  ! 平均値を計算してzに代入
+  z = 0.5_8 * (x + y)
+  write(*,*) z
 
-  <span class="c">! x, yが倍精度なので2も倍精度に変換されてから演算が実行される</span>
-  <span class="n">z</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
-  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">z</span>
+  ! x, yが倍精度なので2も倍精度に変換されてから演算が実行される
+  z = (x + y) / 2
+  write(*,*) z
 
-  <span class="c">! 以下の代入文は意図した通りに動かない</span>
-  <span class="c">! 右辺は整数同士の演算なので0となり, それが代入時に実数型に変換される</span>
-  <span class="n">z</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">3</span>
-  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">z</span>
+  ! 以下の代入文は意図した通りに動かない
+  ! 右辺は整数同士の演算なので0となり, それが代入時に実数型に変換される
+  z = 2 / 3
+  write(*,*) z
 
-  <span class="c">! 右辺は単精度実数として演算されてから倍精度実数に変換されるので精度が落ちる</span>
-  <span class="n">z</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">/</span> <span class="mf">3.0</span>
-  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">z</span>
+  ! 右辺は単精度実数として演算されてから倍精度実数に変換されるので精度が落ちる
+  z = 2 / 3.0
+  write(*,*) z
 
-  <span class="c">! 右辺も倍精度実数として演算される(期待通りの結果)</span>
-  <span class="n">z</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">/</span> <span class="mf">3.0_8</span>
-  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">z</span>
+  ! 右辺も倍精度実数として演算される(期待通りの結果)
+  z = 2 / 3.0_8
+  write(*,*) z
 
-  <span class="c">! 明示的に変換する</span>
-  <span class="n">z</span> <span class="o">=</span> <span class="kt">real</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nb">kind</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span> <span class="o">/</span> <span class="kt">real</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="nb">kind</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
-  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">z</span>
+  ! 明示的に変換する
+  z = real(2, kind=8) / real(3, kind=8)
+  write(*,*) z
 
-  <span class="c">! kindを指定しないと右辺の演算は単精度で評価されてしまう</span>
-  <span class="n">z</span> <span class="o">=</span> <span class="kt">real</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="kt">real</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">z</span>
+  ! kindを指定しないと右辺の演算は単精度で評価されてしまう
+  z = real(2) / real(3)
+  write(*,*) z
 
-  <span class="k">stop</span>
-<span class="k">end program </span><span class="n">sample</span>
+  stop
+end program sample
 </pre></div>
 </td></tr></table></div>
 </div>
@@ -152,6 +139,7 @@
       </div>
         </div>
         <div class="sidebar">
+          
           <h3>目次</h3>
           <ul>
 <li class="toctree-l1"><a class="reference internal" href="chap01.html">1. はじめに</a></li>
@@ -171,10 +159,9 @@
             <form class="search" action="search.html" method="get">
                 <input type="text" name="q" />
                 <input type="submit" value="検索" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
             </form>
           </div>
+
         </div>
         <div class="clearer"></div>
       </div>
@@ -194,8 +181,8 @@
         <div class="right">
           
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2019, Takanobu Amano.
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.6 で生成しました。
+        &#169; Copyright 2020, Takanobu Amano.
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3 で生成しました。
     </div>
         </div>
         <div class="clearer"></div>

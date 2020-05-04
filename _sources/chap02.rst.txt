@@ -187,9 +187,15 @@ Tabの利用
           '((space-mark ?\x3000 [?\□])
             (tab-mark   ?\t   [?\xBB ?\t])
             ))
+    (setq fgcolor "RosyBrown1")
+    (setq bgcolor "blue3")
     (set-face-attribute 'whitespace-trailing nil
-                        :background "navy")
-    (global-whitespace-mode 1)
+                        :foreground fgcolor
+                        :background bgcolor
+                        :underline t)
+    (set-face-attribute 'whitespace-empty nil
+                        :background bgcolor)
+    (global-whitespace-mode t)
 
 なお上の設定では行末のスペースやタブなども表示するように設定されているが，このあたりは完全に好みである．以下はemacsでソースコードを編集中のスクリーンショットである．
 

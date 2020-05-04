@@ -1,32 +1,20 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<html lang="ja">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
     <title>chap06/sample3.f90 &#8212; Fortran演習(地球惑星物理学演習)</title>
-    
     <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '2019',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/translations.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
@@ -41,8 +29,7 @@
 
 </script>
 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
@@ -65,7 +52,7 @@
   <div class="section" id="chap06-sample3-f90">
 <h1>chap06/sample3.f90<a class="headerlink" href="#chap06-sample3-f90" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><a class="reference external" href="sample/chap06/sample3.f90">サンプルコードのダウンロード</a></p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -113,55 +100,55 @@
 46
 47
 48
-49</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">sample</span>
-  <span class="k">implicit none</span>
+49</pre></div></td><td class="code"><div class="highlight"><pre><span></span>program sample
+  implicit none
 
-<span class="k">  </span><span class="kt">integer</span> <span class="kd">::</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">ios</span>
-  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+  integer :: i, n, ios
+  real(8) :: x, y
 
-  <span class="n">n</span> <span class="o">=</span> <span class="mi">32</span>
+  n = 32
 
-  <span class="c">!</span>
-  <span class="c">! アスキー(formatted)で出力(上書き)</span>
-  <span class="c">!</span>
-  <span class="k">open</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">iostat</span><span class="o">=</span><span class="n">ios</span><span class="p">,</span> <span class="k">file</span><span class="o">=</span><span class="s1">&#39;ascii.dat&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;write&#39;</span><span class="p">,</span> <span class="p">&amp;</span>
-       <span class="p">&amp;</span> <span class="n">form</span><span class="o">=</span><span class="s1">&#39;formatted&#39;</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="s1">&#39;replace&#39;</span><span class="p">)</span>
+  !
+  ! アスキー(formatted)で出力(上書き)
+  !
+  open(unit=10, iostat=ios, file=&#39;ascii.dat&#39;, action=&#39;write&#39;, &amp;
+       &amp; form=&#39;formatted&#39;, status=&#39;replace&#39;)
 
-  <span class="k">if</span> <span class="p">(</span><span class="n">ios</span> <span class="o">/=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">then</span>
-<span class="k">     write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;Failed to open file for output&#39;</span>
-     <span class="k">stop</span>
-<span class="k">  end if</span>
+  if (ios /= 0) then
+     write(*,*) &#39;Failed to open file for output&#39;
+     stop
+  end if
 
-  <span class="c">! ファイル(装置番号=10)にデータを書き出し</span>
-  <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">64</span>
-     <span class="n">x</span> <span class="o">=</span> <span class="kt">real</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span><span class="o">/</span><span class="kt">real</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
-     <span class="n">y</span> <span class="o">=</span> <span class="nb">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="mf">3.1415_8</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
-     <span class="k">write</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;(e20.8, e20.8)&#39;</span><span class="p">)</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
-  <span class="k">end do</span>
+  ! ファイル(装置番号=10)にデータを書き出し
+  do i = 1, 64
+     x = real(i,8)/real(n-1,8)
+     y = cos(2*3.1415_8 * x)
+     write(10, &#39;(e20.8, e20.8)&#39;) x, y
+  end do
 
-<span class="k">  close</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+  close(10)
 
-  <span class="c">!</span>
-  <span class="c">! アスキー(formatted)で読み込み (positionはなくても良い)</span>
-  <span class="c">!</span>
-  <span class="k">open</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">iostat</span><span class="o">=</span><span class="n">ios</span><span class="p">,</span> <span class="k">file</span><span class="o">=</span><span class="s1">&#39;ascii.dat&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;read&#39;</span><span class="p">,</span> <span class="p">&amp;</span>
-       <span class="p">&amp;</span> <span class="n">form</span><span class="o">=</span><span class="s1">&#39;formatted&#39;</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="s1">&#39;old&#39;</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s1">&#39;rewind&#39;</span><span class="p">)</span>
+  !
+  ! アスキー(formatted)で読み込み (positionはなくても良い)
+  !
+  open(unit=20, iostat=ios, file=&#39;ascii.dat&#39;, action=&#39;read&#39;, &amp;
+       &amp; form=&#39;formatted&#39;, status=&#39;old&#39;, position=&#39;rewind&#39;)
 
-  <span class="k">if</span> <span class="p">(</span><span class="n">ios</span> <span class="o">/=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">then</span>
-<span class="k">     write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;Failed to open file for input&#39;</span>
-     <span class="k">stop</span>
-<span class="k">  end if</span>
+  if (ios /= 0) then
+     write(*,*) &#39;Failed to open file for input&#39;
+     stop
+  end if
 
-<span class="k">  do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span>
-     <span class="c">! データを読み込んで表示</span>
-     <span class="k">read</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
-     <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="s1">&#39;(e20.8, e20.8)&#39;</span><span class="p">)</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
-  <span class="k">end do</span>
+  do i = 1, n
+     ! データを読み込んで表示
+     read(20,*) x, y
+     write(*, &#39;(e20.8, e20.8)&#39;) x, y
+  end do
 
-<span class="k">  close</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+  close(20)
 
-  <span class="k">stop</span>
-<span class="k">end program </span><span class="n">sample</span>
+  stop
+end program sample
 </pre></div>
 </td></tr></table></div>
 </div>
@@ -172,6 +159,7 @@
       </div>
         </div>
         <div class="sidebar">
+          
           <h3>目次</h3>
           <ul>
 <li class="toctree-l1"><a class="reference internal" href="chap01.html">1. はじめに</a></li>
@@ -191,10 +179,9 @@
             <form class="search" action="search.html" method="get">
                 <input type="text" name="q" />
                 <input type="submit" value="検索" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
             </form>
           </div>
+
         </div>
         <div class="clearer"></div>
       </div>
@@ -214,8 +201,8 @@
         <div class="right">
           
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2019, Takanobu Amano.
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.6 で生成しました。
+        &#169; Copyright 2020, Takanobu Amano.
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3 で生成しました。
     </div>
         </div>
         <div class="clearer"></div>

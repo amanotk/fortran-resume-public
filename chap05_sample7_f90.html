@@ -1,32 +1,20 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<html lang="ja">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
     <title>chap05/sample7.f90 &#8212; Fortran演習(地球惑星物理学演習)</title>
-    
     <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '2019',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/translations.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
@@ -41,8 +29,7 @@
 
 </script>
 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
@@ -65,7 +52,7 @@
   <div class="section" id="chap05-sample7-f90">
 <h1>chap05/sample7.f90<a class="headerlink" href="#chap05-sample7-f90" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><a class="reference external" href="sample/chap05/sample7.f90">サンプルコードのダウンロード</a></p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -118,60 +105,60 @@
 51
 52
 53
-54</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">sample</span>
-  <span class="k">implicit none</span>
+54</pre></div></td><td class="code"><div class="highlight"><pre><span></span>program sample
+  implicit none
 
-<span class="k">  </span><span class="kt">integer</span><span class="p">,</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">8</span>
-  <span class="kt">integer</span><span class="p">,</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">m</span> <span class="o">=</span> <span class="mi">10</span>
-  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">pi</span> <span class="o">=</span> <span class="nb">atan</span><span class="p">(</span><span class="mf">1.0_8</span><span class="p">)</span> <span class="o">*</span> <span class="mf">4.0_8</span>
+  integer, parameter :: n = 8
+  integer, parameter :: m = 10
+  real(8), parameter :: pi = atan(1.0_8) * 4.0_8
 
-  <span class="kt">integer</span> <span class="kd">::</span> <span class="n">i</span>
+  integer :: i
 
-  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span><span class="p">(</span><span class="n">m</span><span class="p">),</span> <span class="n">y</span><span class="p">(</span><span class="n">m</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">a</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">b</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">c</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+  real(8) :: x(m), y(m/2)
+  real(8) :: a(n), b(n), c(n)
 
-  <span class="c">! 値をセット</span>
-  <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span>
-     <span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">pi</span> <span class="o">*</span> <span class="kt">real</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nb">kind</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span> <span class="o">/</span> <span class="kt">real</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nb">kind</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
-  <span class="k">end do</span>
+  ! 値をセット
+  do i = 1, n
+     a(i) = 2*pi * real(i-1, kind=8) / real(n-1, kind=8)
+  end do
 
-<span class="k">  do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">m</span>
-     <span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="kt">real</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="nb">kind</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
-  <span class="k">end do</span>
+  do i = 1, m
+     x(i) = real(i, kind=8)
+  end do
 
-  <span class="c">!</span>
-  <span class="c">! 配列演算: 適宜コメントアウトするなどして結果を確かめること</span>
-  <span class="c">!</span>
+  !
+  ! 配列演算: 適宜コメントアウトするなどして結果を確かめること
+  !
 
-  <span class="c">! 代入</span>
-  <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span>
-     <span class="n">b</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-  <span class="k">end do</span>
+  ! 代入
+  do i = 1, n
+     b(i) = a(i)
+  end do
 
-  <span class="c">! 配列演算による代入(上のdoループと同じ)</span>
-  <span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+  ! 配列演算による代入(上のdoループと同じ)
+  b = a
 
-  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;b = &#39;</span><span class="p">,</span> <span class="n">b</span>
+  write(*,*) &#39;b = &#39;, b
 
-  <span class="c">! 演算</span>
-  <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span>
-     <span class="n">c</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.5_8</span><span class="o">*</span><span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="nb">cos</span><span class="p">(</span><span class="n">b</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
-  <span class="k">end do</span>
+  ! 演算
+  do i = 1, n
+     c(i) = 0.5_8*a(i) + cos(b(i))
+  end do
 
-  <span class="c">! 配列演算(上のdoループと同じ)</span>
-  <span class="n">c</span> <span class="o">=</span> <span class="mf">0.5_8</span><span class="o">*</span><span class="n">a</span> <span class="o">+</span> <span class="nb">cos</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+  ! 配列演算(上のdoループと同じ)
+  c = 0.5_8*a + cos(b)
 
-  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;c = &#39;</span><span class="p">,</span> <span class="n">c</span>
+  write(*,*) &#39;c = &#39;, c
 
-  <span class="c">!</span>
-  <span class="c">! 部分配列と配列演算の組合わせ</span>
-  <span class="c">!</span>
-  <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">m</span><span class="p">:</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+  !
+  ! 部分配列と配列演算の組合わせ
+  !
+  y = 2*x(1:m:2) + 1
 
-  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;y = &#39;</span><span class="p">,</span> <span class="n">y</span>
+  write(*,*) &#39;y = &#39;, y
 
-  <span class="k">stop</span>
-<span class="k">end program </span><span class="n">sample</span>
+  stop
+end program sample
 </pre></div>
 </td></tr></table></div>
 </div>
@@ -182,6 +169,7 @@
       </div>
         </div>
         <div class="sidebar">
+          
           <h3>目次</h3>
           <ul>
 <li class="toctree-l1"><a class="reference internal" href="chap01.html">1. はじめに</a></li>
@@ -201,10 +189,9 @@
             <form class="search" action="search.html" method="get">
                 <input type="text" name="q" />
                 <input type="submit" value="検索" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
             </form>
           </div>
+
         </div>
         <div class="clearer"></div>
       </div>
@@ -224,8 +211,8 @@
         <div class="right">
           
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2019, Takanobu Amano.
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.6 で生成しました。
+        &#169; Copyright 2020, Takanobu Amano.
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3 で生成しました。
     </div>
         </div>
         <div class="clearer"></div>

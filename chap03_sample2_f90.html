@@ -1,32 +1,20 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<html lang="ja">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
     <title>chap03/sample2.f90 &#8212; Fortran演習(地球惑星物理学演習)</title>
-    
     <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '2019',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/translations.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
@@ -41,8 +29,7 @@
 
 </script>
 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
@@ -65,7 +52,7 @@
   <div class="section" id="chap03-sample2-f90">
 <h1>chap03/sample2.f90<a class="headerlink" href="#chap03-sample2-f90" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><a class="reference external" href="sample/chap03/sample2.f90">サンプルコードのダウンロード</a></p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -135,77 +122,77 @@
 68
 69
 70
-71</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">sample</span>
-  <span class="k">implicit none</span> <span class="c">! 暗黙の型宣言禁止</span>
+71</pre></div></td><td class="code"><div class="highlight"><pre><span></span>program sample
+  implicit none ! 暗黙の型宣言禁止
 
-  <span class="c">! 整数型</span>
-  <span class="kt">integer</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>     <span class="kd">::</span> <span class="n">i4</span>     <span class="c">! 4バイト（32ビット）の整数型</span>
-  <span class="kt">integer</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>     <span class="kd">::</span> <span class="n">i8</span>     <span class="c">! 8バイト（64ビット）の整数型</span>
+  ! 整数型
+  integer(kind=4)     :: i4     ! 4バイト（32ビット）の整数型
+  integer(kind=8)     :: i8     ! 8バイト（64ビット）の整数型
 
-  <span class="c">! 実数型</span>
-  <span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>        <span class="kd">::</span> <span class="n">r4</span>     <span class="c">! 4バイト（32ビット）の実数型（単精度）</span>
-  <span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>        <span class="kd">::</span> <span class="n">r8</span>     <span class="c">! 8バイト（64ビット）の実数型（倍精度）</span>
-  <span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>       <span class="kd">::</span> <span class="n">r16</span>    <span class="c">! 16バイト(128ビット）の実数型（4倍精度）</span>
+  ! 実数型
+  real(kind=4)        :: r4     ! 4バイト（32ビット）の実数型（単精度）
+  real(kind=8)        :: r8     ! 8バイト（64ビット）の実数型（倍精度）
+  real(kind=16)       :: r16    ! 16バイト(128ビット）の実数型（4倍精度）
 
-  <span class="c">! 複素数型（実数2つ分の領域が必要になる）</span>
-  <span class="kt">complex</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>     <span class="kd">::</span> <span class="n">c4</span>     <span class="c">! 8バイト（64ビット）の複素数型   = 単精度</span>
-  <span class="kt">complex</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>     <span class="kd">::</span> <span class="n">c8</span>     <span class="c">! 16バイト（128ビット）の複素数型 = 倍精度</span>
+  ! 複素数型（実数2つ分の領域が必要になる）
+  complex(kind=4)     :: c4     ! 8バイト（64ビット）の複素数型   = 単精度
+  complex(kind=8)     :: c8     ! 16バイト（128ビット）の複素数型 = 倍精度
 
-  <span class="c">! ただし&#39;kind=&#39;を省略して例えば以下のように宣言しても良い</span>
-  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span>
+  ! ただし&#39;kind=&#39;を省略して例えば以下のように宣言しても良い
+  real(8) :: x, y, z
 
-  <span class="c">! 文字列型は少し特殊で通常はkind=1である。文字列の長さはlen=で指定する</span>
-  <span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">256</span><span class="p">)</span>  <span class="kd">::</span> <span class="nb">char</span>   <span class="c">! 256文字分</span>
+  ! 文字列型は少し特殊で通常はkind=1である。文字列の長さはlen=で指定する
+  character(len=256)  :: char   ! 256文字分
 
-  <span class="c">! 論理型(このように宣言文で初期化してもよい)</span>
-  <span class="kt">logical</span> <span class="kd">::</span> <span class="n">torf</span> <span class="o">=</span> <span class="p">.</span><span class="n">true</span><span class="p">.</span>
+  ! 論理型(このように宣言文で初期化してもよい)
+  logical :: torf = .true.
 
 
-  <span class="c">! 4バイト整数に値を代入</span>
-  <span class="n">i4</span> <span class="o">=</span> <span class="mi">2048</span>
-  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">i4</span>
+  ! 4バイト整数に値を代入
+  i4 = 2048
+  write(*,*) i4
 
-  <span class="c">! 8バイト整数でも同様</span>
-  <span class="n">i8</span> <span class="o">=</span> <span class="mi">2048</span>
-  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">i8</span>
+  ! 8バイト整数でも同様
+  i8 = 2048
+  write(*,*) i8
 
-  <span class="c">! 単精度の実数 (デフォルトでは&#39;_4&#39;を指定したのと同じ)</span>
-  <span class="n">r4</span> <span class="o">=</span> <span class="mf">3.14</span>
-  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">r4</span>
+  ! 単精度の実数 (デフォルトでは&#39;_4&#39;を指定したのと同じ)
+  r4 = 3.14
+  write(*,*) r4
 
-  <span class="c">! 倍精度の実数 (&#39;_8&#39;でkind=8を指定)</span>
-  <span class="n">r8</span> <span class="o">=</span> <span class="mf">3.14_8</span>
-  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">r8</span>
+  ! 倍精度の実数 (&#39;_8&#39;でkind=8を指定)
+  r8 = 3.14_8
+  write(*,*) r8
 
-  <span class="c">! 複素数型の変数に 2.71 + 0.99 i を代入</span>
-  <span class="n">c4</span>  <span class="o">=</span> <span class="p">(</span><span class="mf">2.71</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">)</span>
-  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">c4</span>
+  ! 複素数型の変数に 2.71 + 0.99 i を代入
+  c4  = (2.71, 0.99)
+  write(*,*) c4
 
-  <span class="c">! 同様にkindパラメータを指定可能</span>
-  <span class="n">c8</span> <span class="o">=</span> <span class="p">(</span><span class="mf">2.71_8</span><span class="p">,</span> <span class="mf">0.99_8</span><span class="p">)</span>
-  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">c8</span>
+  ! 同様にkindパラメータを指定可能
+  c8 = (2.71_8, 0.99_8)
+  write(*,*) c8
 
-  <span class="c">! 文字型の変数に文字列を代入</span>
-  <span class="nb">char</span> <span class="o">=</span> <span class="s1">&#39;this is text&#39;</span>
+  ! 文字型の変数に文字列を代入
+  char = &#39;this is text&#39;
 
-  <span class="c">! 実数を代入して表示</span>
-  <span class="n">x</span> <span class="o">=</span> <span class="mf">3.14</span>
-  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;real (original) =&gt; &#39;</span><span class="p">,</span> <span class="n">x</span>
+  ! 実数を代入して表示
+  x = 3.14
+  write(*,*) &#39;real (original) =&gt; &#39;, x
 
-  <span class="c">! yにxの値を代入</span>
-  <span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
+  ! yにxの値を代入
+  y = x
 
-  <span class="c">! xの値を変更</span>
-  <span class="n">x</span> <span class="o">=</span> <span class="mf">2.71</span>
+  ! xの値を変更
+  x = 2.71
 
-  <span class="c">! yの値を表示（xを変更してもeは変更されない）</span>
-  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;real (not modified) =&gt; &#39;</span><span class="p">,</span> <span class="n">y</span>
+  ! yの値を表示（xを変更してもeは変更されない）
+  write(*,*) &#39;real (not modified) =&gt; &#39;, y
 
-  <span class="c">! 論理型の値を表示</span>
-  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;logical =&gt; &#39;</span><span class="p">,</span> <span class="n">torf</span>
+  ! 論理型の値を表示
+  write(*,*) &#39;logical =&gt; &#39;, torf
 
-  <span class="k">stop</span>
-<span class="k">end program </span><span class="n">sample</span>
+  stop
+end program sample
 </pre></div>
 </td></tr></table></div>
 </div>
@@ -216,6 +203,7 @@
       </div>
         </div>
         <div class="sidebar">
+          
           <h3>目次</h3>
           <ul>
 <li class="toctree-l1"><a class="reference internal" href="chap01.html">1. はじめに</a></li>
@@ -235,10 +223,9 @@
             <form class="search" action="search.html" method="get">
                 <input type="text" name="q" />
                 <input type="submit" value="検索" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
             </form>
           </div>
+
         </div>
         <div class="clearer"></div>
       </div>
@@ -258,8 +245,8 @@
         <div class="right">
           
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2019, Takanobu Amano.
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.6 で生成しました。
+        &#169; Copyright 2020, Takanobu Amano.
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3 で生成しました。
     </div>
         </div>
         <div class="clearer"></div>

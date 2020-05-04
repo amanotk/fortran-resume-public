@@ -1,32 +1,20 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<html lang="ja">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
     <title>chap08/sample4.f90 &#8212; Fortran演習(地球惑星物理学演習)</title>
-    
     <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '2019',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/translations.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
@@ -41,8 +29,7 @@
 
 </script>
 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
@@ -65,7 +52,7 @@
   <div class="section" id="chap08-sample4-f90">
 <h1>chap08/sample4.f90<a class="headerlink" href="#chap08-sample4-f90" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><a class="reference external" href="sample/chap08/sample4.f90">サンプルコードのダウンロード</a></p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -127,69 +114,69 @@
 60
 61
 62
-63</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">sample</span>
-  <span class="k">implicit none</span>
+63</pre></div></td><td class="code"><div class="highlight"><pre><span></span>program sample
+  implicit none
 
-<span class="k">  </span><span class="kt">integer</span> <span class="kd">::</span> <span class="n">n</span><span class="p">,</span> <span class="n">nmax</span>
-  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">,</span> <span class="n">integral</span><span class="p">,</span> <span class="n">pi</span>
+  integer :: n, nmax
+  real(8) :: x1, x2, dx, f1, f2, integral, pi
 
-  <span class="c">! 真の値</span>
-  <span class="n">pi</span> <span class="o">=</span> <span class="nb">atan</span><span class="p">(</span><span class="mf">1.0_8</span><span class="p">)</span> <span class="o">*</span> <span class="mf">4.0_8</span>
+  ! 真の値
+  pi = atan(1.0_8) * 4.0_8
 
-  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(a)&#39;</span><span class="p">,</span> <span class="n">advance</span><span class="o">=</span><span class="s1">&#39;no&#39;</span><span class="p">)</span> <span class="s1">&#39;Input number of segments : &#39;</span>
-  <span class="k">read</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">nmax</span>
+  write(*, fmt=&#39;(a)&#39;, advance=&#39;no&#39;) &#39;Input number of segments : &#39;
+  read(*,*) nmax
 
-  <span class="k">if</span><span class="p">(</span> <span class="nb">mod</span><span class="p">(</span><span class="n">nmax</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">/=</span> <span class="mi">0</span> <span class="p">)</span> <span class="k">then</span>
-<span class="k">     write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;Number of segments must be an even number&#39;</span>
-     <span class="k">stop</span>
-<span class="k">  end if</span>
+  if( mod(nmax,2) /= 0 ) then
+     write(*,*) &#39;Number of segments must be an even number&#39;
+     stop
+  end if
 
-<span class="k">  </span><span class="n">x1</span> <span class="o">=</span> <span class="mf">0.0_8</span>
-  <span class="n">x2</span> <span class="o">=</span> <span class="mf">1.0_8</span>
-  <span class="n">dx</span> <span class="o">=</span> <span class="p">(</span><span class="n">x2</span> <span class="o">-</span> <span class="n">x1</span><span class="p">)</span><span class="o">/</span><span class="n">nmax</span>
+  x1 = 0.0_8
+  x2 = 1.0_8
+  dx = (x2 - x1)/nmax
 
-  <span class="c">!</span>
-  <span class="c">! 台形公式による数値積分</span>
-  <span class="c">!</span>
-  <span class="n">integral</span> <span class="o">=</span> <span class="mf">0.5_8</span> <span class="o">*</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span> <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">x2</span><span class="p">))</span>
-  <span class="k">do </span><span class="n">n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nmax</span><span class="o">-</span><span class="mi">1</span>
-     <span class="n">integral</span> <span class="o">=</span> <span class="n">integral</span> <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">x1</span> <span class="o">+</span> <span class="n">dx</span><span class="o">*</span><span class="kt">real</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-  <span class="k">end do</span>
-<span class="k">  </span><span class="n">integral</span> <span class="o">=</span> <span class="n">integral</span> <span class="o">*</span> <span class="n">dx</span>
+  !
+  ! 台形公式による数値積分
+  !
+  integral = 0.5_8 * (f(x1) + f(x2))
+  do n = 1, nmax-1
+     integral = integral + f(x1 + dx*real(n,8))
+  end do
+  integral = integral * dx
 
-  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(a16, &quot; : &quot;, f18.15, &quot; (rel. error = &quot;, e18.12, &quot;)&quot;)&#39;</span><span class="p">)</span> <span class="p">&amp;</span>
-       <span class="p">&amp;</span> <span class="s2">&quot;Trapezoidal rule&quot;</span><span class="p">,</span> <span class="n">integral</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">integral</span><span class="o">/</span><span class="n">pi</span> <span class="o">-</span> <span class="mf">1.0_8</span><span class="p">)</span>
+  write(*, fmt=&#39;(a16, &quot; : &quot;, f18.15, &quot; (rel. error = &quot;, e18.12, &quot;)&quot;)&#39;) &amp;
+       &amp; &quot;Trapezoidal rule&quot;, integral, abs(integral/pi - 1.0_8)
 
-  <span class="c">!</span>
-  <span class="c">! Simpsonの公式による数値積分</span>
-  <span class="c">!</span>
-  <span class="n">integral</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span> <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span>
-  <span class="c">! odd</span>
-  <span class="k">do </span><span class="n">n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nmax</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
-     <span class="n">integral</span> <span class="o">=</span> <span class="n">integral</span> <span class="o">+</span> <span class="mf">4.0_8</span> <span class="o">*</span> <span class="n">f</span><span class="p">(</span><span class="n">x1</span> <span class="o">+</span> <span class="n">dx</span><span class="o">*</span><span class="kt">real</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-  <span class="k">end do</span>
-  <span class="c">! even</span>
-  <span class="k">do </span><span class="n">n</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">nmax</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span>
-     <span class="n">integral</span> <span class="o">=</span> <span class="n">integral</span> <span class="o">+</span> <span class="mf">2.0_8</span> <span class="o">*</span> <span class="n">f</span><span class="p">(</span><span class="n">x1</span> <span class="o">+</span> <span class="n">dx</span><span class="o">*</span><span class="kt">real</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-  <span class="k">end do</span>
-<span class="k">  </span><span class="n">integral</span> <span class="o">=</span> <span class="n">integral</span> <span class="o">*</span> <span class="n">dx</span> <span class="o">/</span> <span class="mf">3.0_8</span>
+  !
+  ! Simpsonの公式による数値積分
+  !
+  integral = f(x1) + f(x2)
+  ! odd
+  do n = 1, nmax-1, 2
+     integral = integral + 4.0_8 * f(x1 + dx*real(n,8))
+  end do
+  ! even
+  do n = 2, nmax-2, 2
+     integral = integral + 2.0_8 * f(x1 + dx*real(n,8))
+  end do
+  integral = integral * dx / 3.0_8
 
-  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(a16, &quot; : &quot;, f18.15, &quot; (rel. error = &quot;, e18.12, &quot;)&quot;)&#39;</span><span class="p">)</span> <span class="p">&amp;</span>
-       <span class="p">&amp;</span> <span class="s2">&quot;Simpson&#39;s rule&quot;</span><span class="p">,</span> <span class="n">integral</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">integral</span><span class="o">/</span><span class="n">pi</span> <span class="o">-</span> <span class="mf">1.0_8</span><span class="p">)</span>
+  write(*, fmt=&#39;(a16, &quot; : &quot;, f18.15, &quot; (rel. error = &quot;, e18.12, &quot;)&quot;)&#39;) &amp;
+       &amp; &quot;Simpson&#39;s rule&quot;, integral, abs(integral/pi - 1.0_8)
 
-  <span class="k">stop</span>
-<span class="k">contains</span>
-  <span class="c">! 被積分関数</span>
-  <span class="k">function </span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
-    <span class="k">implicit none</span>
-<span class="k">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span>
-    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">ret</span>
+  stop
+contains
+  ! 被積分関数
+  function f(x) result(ret)
+    implicit none
+    real(8), intent(in) :: x
+    real(8) :: ret
 
-    <span class="n">ret</span> <span class="o">=</span> <span class="mf">4.0_8</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0_8</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    ret = 4.0_8 / (1.0_8 + x**2)
 
-    <span class="k">return</span>
-<span class="k">  end function </span><span class="n">f</span>
-<span class="k">end program </span><span class="n">sample</span>
+    return
+  end function f
+end program sample
 </pre></div>
 </td></tr></table></div>
 </div>
@@ -200,6 +187,7 @@
       </div>
         </div>
         <div class="sidebar">
+          
           <h3>目次</h3>
           <ul>
 <li class="toctree-l1"><a class="reference internal" href="chap01.html">1. はじめに</a></li>
@@ -219,10 +207,9 @@
             <form class="search" action="search.html" method="get">
                 <input type="text" name="q" />
                 <input type="submit" value="検索" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
             </form>
           </div>
+
         </div>
         <div class="clearer"></div>
       </div>
@@ -242,8 +229,8 @@
         <div class="right">
           
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2019, Takanobu Amano.
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.6 で生成しました。
+        &#169; Copyright 2020, Takanobu Amano.
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3 で生成しました。
     </div>
         </div>
         <div class="clearer"></div>

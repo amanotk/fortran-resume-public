@@ -1,32 +1,20 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<html lang="ja">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
     <title>chap09/sample4.f90 &#8212; Fortran演習(地球惑星物理学演習)</title>
-    
     <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '2019',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/translations.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
@@ -41,8 +29,7 @@
 
 </script>
 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
@@ -65,7 +52,7 @@
   <div class="section" id="chap09-sample4-f90">
 <h1>chap09/sample4.f90<a class="headerlink" href="#chap09-sample4-f90" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><a class="reference external" href="sample/chap09/sample4.f90">サンプルコードのダウンロード</a></p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
+<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
   2
   3
   4
@@ -181,123 +168,123 @@
 114
 115
 116
-117</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">! 物理定数モジュール</span>
-<span class="k">module </span><span class="n">mod_const</span>
-  <span class="k">implicit none</span>
-<span class="k">  private</span> <span class="c">! デフォルトで非公開</span>
+117</pre></div></td><td class="code"><div class="highlight"><pre><span></span>! 物理定数モジュール
+module mod_const
+  implicit none
+  private ! デフォルトで非公開
 
-  <span class="c">! 単位選択フラグ: 1 =&gt; MKS, 2 =&gt; CGS</span>
-  <span class="kt">integer</span> <span class="kd">::</span> <span class="n">unit</span> <span class="o">=</span> <span class="mi">1</span>
+  ! 単位選択フラグ: 1 =&gt; MKS, 2 =&gt; CGS
+  integer :: unit = 1
 
-  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">pi</span>  <span class="o">=</span> <span class="mi">4</span><span class="o">*</span><span class="nb">atan</span><span class="p">(</span><span class="mf">1.0_8</span><span class="p">)</span>
-  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">mu0</span> <span class="o">=</span> <span class="mi">4</span><span class="o">*</span><span class="n">pi</span> <span class="o">*</span> <span class="mf">1.0e-7_8</span>
+  real(8), parameter :: pi  = 4*atan(1.0_8)
+  real(8), parameter :: mu0 = 4*pi * 1.0e-7_8
 
-  <span class="c">! MKS =&gt; CGS への変換ファクター</span>
-  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">T</span> <span class="o">=</span> <span class="mf">1.0e+0_8</span>
-  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">L</span> <span class="o">=</span> <span class="mf">1.0e+2_8</span>
-  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">M</span> <span class="o">=</span> <span class="mf">1.0e+3_8</span>
+  ! MKS =&gt; CGS への変換ファクター
+  real(8), parameter :: T = 1.0e+0_8
+  real(8), parameter :: L = 1.0e+2_8
+  real(8), parameter :: M = 1.0e+3_8
 
-  <span class="c">! MKSで定義</span>
-  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">mks_light_speed</span>       <span class="o">=</span> <span class="mf">2.997924e+8_8</span>
-  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">mks_electron_mass</span>     <span class="o">=</span> <span class="mf">9.109382e-31_8</span>
-  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">mks_elementary_charge</span> <span class="o">=</span> <span class="mf">1.602176e-19_8</span>
+  ! MKSで定義
+  real(8), parameter :: mks_light_speed       = 2.997924e+8_8
+  real(8), parameter :: mks_electron_mass     = 9.109382e-31_8
+  real(8), parameter :: mks_elementary_charge = 1.602176e-19_8
 
-  <span class="c">! これらのみ公開</span>
-  <span class="k">public</span> <span class="kd">::</span> <span class="n">set_mks</span><span class="p">,</span> <span class="n">set_cgs</span>
-  <span class="k">public</span> <span class="kd">::</span> <span class="n">light_speed</span><span class="p">,</span> <span class="n">electron_mass</span><span class="p">,</span> <span class="n">elementary_charge</span>
+  ! これらのみ公開
+  public :: set_mks, set_cgs
+  public :: light_speed, electron_mass, elementary_charge
 
-<span class="k">contains</span>
+contains
 
-  <span class="c">! MKSモード</span>
-  <span class="k">subroutine </span><span class="n">set_mks</span><span class="p">()</span>
-    <span class="k">implicit none</span>
+  ! MKSモード
+  subroutine set_mks()
+    implicit none
 
-<span class="k">    </span><span class="n">unit</span> <span class="o">=</span> <span class="mi">1</span>
-  <span class="k">end subroutine </span><span class="n">set_mks</span>
+    unit = 1
+  end subroutine set_mks
 
-  <span class="c">! CGSモード</span>
-  <span class="k">subroutine </span><span class="n">set_cgs</span><span class="p">()</span>
-    <span class="k">implicit none</span>
+  ! CGSモード
+  subroutine set_cgs()
+    implicit none
 
-<span class="k">    </span><span class="n">unit</span> <span class="o">=</span> <span class="mi">2</span>
-  <span class="k">end subroutine </span><span class="n">set_cgs</span>
+    unit = 2
+  end subroutine set_cgs
 
-  <span class="c">! 光速</span>
-  <span class="k">function </span><span class="n">light_speed</span><span class="p">()</span> <span class="k">result</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="k">implicit none</span>
-<span class="k">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span>
+  ! 光速
+  function light_speed() result(x)
+    implicit none
+    real(8) :: x
 
-    <span class="k">if</span><span class="p">(</span> <span class="n">unit</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">)</span> <span class="k">then</span>
-<span class="k">       </span><span class="n">x</span> <span class="o">=</span> <span class="n">mks_light_speed</span>
-    <span class="k">else if</span> <span class="p">(</span> <span class="n">unit</span> <span class="o">==</span> <span class="mi">2</span> <span class="p">)</span> <span class="k">then</span>
-<span class="k">       </span><span class="n">x</span> <span class="o">=</span> <span class="n">mks_light_speed</span> <span class="o">*</span> <span class="n">L</span><span class="o">/</span><span class="n">T</span>
-    <span class="k">else</span>
-<span class="k">       call </span><span class="n">unit_error</span><span class="p">(</span><span class="n">unit</span><span class="p">)</span>
-    <span class="k">end if</span>
+    if( unit == 1 ) then
+       x = mks_light_speed
+    else if ( unit == 2 ) then
+       x = mks_light_speed * L/T
+    else
+       call unit_error(unit)
+    end if
 
-<span class="k">  end function </span><span class="n">light_speed</span>
+  end function light_speed
 
-  <span class="c">! 電子質量</span>
-  <span class="k">function </span><span class="n">electron_mass</span><span class="p">()</span> <span class="k">result</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="k">implicit none</span>
-<span class="k">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span>
+  ! 電子質量
+  function electron_mass() result(x)
+    implicit none
+    real(8) :: x
 
-    <span class="k">if</span><span class="p">(</span> <span class="n">unit</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">)</span> <span class="k">then</span>
-<span class="k">       </span><span class="n">x</span> <span class="o">=</span> <span class="n">mks_electron_mass</span>
-    <span class="k">else if</span> <span class="p">(</span> <span class="n">unit</span> <span class="o">==</span> <span class="mi">2</span> <span class="p">)</span> <span class="k">then</span>
-<span class="k">       </span><span class="n">x</span> <span class="o">=</span> <span class="n">mks_electron_mass</span> <span class="o">*</span> <span class="n">M</span>
-    <span class="k">else</span>
-<span class="k">       call </span><span class="n">unit_error</span><span class="p">(</span><span class="n">unit</span><span class="p">)</span>
-    <span class="k">end if</span>
+    if( unit == 1 ) then
+       x = mks_electron_mass
+    else if ( unit == 2 ) then
+       x = mks_electron_mass * M
+    else
+       call unit_error(unit)
+    end if
 
-<span class="k">  end function </span><span class="n">electron_mass</span>
+  end function electron_mass
 
-  <span class="c">! 素電荷</span>
-  <span class="k">function </span><span class="n">elementary_charge</span><span class="p">()</span> <span class="k">result</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="k">implicit none</span>
-<span class="k">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span>
+  ! 素電荷
+  function elementary_charge() result(x)
+    implicit none
+    real(8) :: x
 
-    <span class="k">if</span><span class="p">(</span> <span class="n">unit</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">)</span> <span class="k">then</span>
-<span class="k">       </span><span class="n">x</span> <span class="o">=</span> <span class="n">mks_elementary_charge</span>
-    <span class="k">else if</span> <span class="p">(</span> <span class="n">unit</span> <span class="o">==</span> <span class="mi">2</span> <span class="p">)</span> <span class="k">then</span>
-<span class="k">       </span><span class="n">x</span> <span class="o">=</span> <span class="n">mks_elementary_charge</span> <span class="o">*</span> <span class="n">light_speed</span><span class="p">()</span> <span class="o">*</span> <span class="nb">sqrt</span><span class="p">(</span><span class="n">mu0</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">pi</span><span class="p">)</span> <span class="o">*</span> <span class="n">M</span> <span class="o">*</span> <span class="n">L</span> <span class="o">*</span> <span class="n">T</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-    <span class="k">else</span>
-<span class="k">       call </span><span class="n">unit_error</span><span class="p">(</span><span class="n">unit</span><span class="p">)</span>
-    <span class="k">end if</span>
+    if( unit == 1 ) then
+       x = mks_elementary_charge
+    else if ( unit == 2 ) then
+       x = mks_elementary_charge * light_speed() * sqrt(mu0/(4*pi) * M * L * T**2)
+    else
+       call unit_error(unit)
+    end if
 
-<span class="k">  end function </span><span class="n">elementary_charge</span>
+  end function elementary_charge
 
-  <span class="c">! エラー</span>
-  <span class="k">subroutine </span><span class="n">unit_error</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
-    <span class="k">implicit none</span>
-<span class="k">    </span><span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">u</span>
+  ! エラー
+  subroutine unit_error(u)
+    implicit none
+    integer, intent(in) :: u
 
-    <span class="c">! 標準エラー出力へ</span>
-    <span class="k">write</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;(a, i3)&#39;</span><span class="p">)</span> <span class="s1">&#39;Error: invalid unit &#39;</span><span class="p">,</span> <span class="n">u</span>
+    ! 標準エラー出力へ
+    write(0,&#39;(a, i3)&#39;) &#39;Error: invalid unit &#39;, u
 
-  <span class="k">end subroutine </span><span class="n">unit_error</span>
+  end subroutine unit_error
 
-<span class="k">end module </span><span class="n">mod_const</span>
+end module mod_const
 
-<span class="c">! メインプログラム</span>
-<span class="k">program </span><span class="n">sample</span>
-  <span class="k">use </span><span class="n">mod_const</span>
-  <span class="k">implicit none</span>
+! メインプログラム
+program sample
+  use mod_const
+  implicit none
 
-  <span class="c">! デフォルトはMKS</span>
-  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;Physical Constants in MKS&#39;</span>
-  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a20, &quot; : &quot;, e12.4)&#39;</span><span class="p">)</span> <span class="s1">&#39;Elementary Charge&#39;</span><span class="p">,</span> <span class="n">elementary_charge</span><span class="p">()</span>
-  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a20, &quot; : &quot;, e12.4)&#39;</span><span class="p">)</span> <span class="s1">&#39;Electron Mass&#39;</span><span class="p">,</span> <span class="n">electron_mass</span><span class="p">()</span>
-  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a20, &quot; : &quot;, e12.4)&#39;</span><span class="p">)</span> <span class="s1">&#39;Speed of Light&#39;</span><span class="p">,</span> <span class="n">light_speed</span><span class="p">()</span>
+  ! デフォルトはMKS
+  write(*,&#39;(a)&#39;) &#39;Physical Constants in MKS&#39;
+  write(*,&#39;(a20, &quot; : &quot;, e12.4)&#39;) &#39;Elementary Charge&#39;, elementary_charge()
+  write(*,&#39;(a20, &quot; : &quot;, e12.4)&#39;) &#39;Electron Mass&#39;, electron_mass()
+  write(*,&#39;(a20, &quot; : &quot;, e12.4)&#39;) &#39;Speed of Light&#39;, light_speed()
 
-  <span class="c">! CGSで表示</span>
-  <span class="k">call </span><span class="n">set_cgs</span><span class="p">()</span>
-  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;Physical Constants in CGS&#39;</span>
-  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a20, &quot; : &quot;, e12.4)&#39;</span><span class="p">)</span> <span class="s1">&#39;Elementary Charge&#39;</span><span class="p">,</span> <span class="n">elementary_charge</span><span class="p">()</span>
-  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a20, &quot; : &quot;, e12.4)&#39;</span><span class="p">)</span> <span class="s1">&#39;Electron Mass&#39;</span><span class="p">,</span> <span class="n">electron_mass</span><span class="p">()</span>
-  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a20, &quot; : &quot;, e12.4)&#39;</span><span class="p">)</span> <span class="s1">&#39;Speed of Light&#39;</span><span class="p">,</span> <span class="n">light_speed</span><span class="p">()</span>
+  ! CGSで表示
+  call set_cgs()
+  write(*,&#39;(a)&#39;) &#39;Physical Constants in CGS&#39;
+  write(*,&#39;(a20, &quot; : &quot;, e12.4)&#39;) &#39;Elementary Charge&#39;, elementary_charge()
+  write(*,&#39;(a20, &quot; : &quot;, e12.4)&#39;) &#39;Electron Mass&#39;, electron_mass()
+  write(*,&#39;(a20, &quot; : &quot;, e12.4)&#39;) &#39;Speed of Light&#39;, light_speed()
 
-<span class="k">end program </span><span class="n">sample</span>
+end program sample
 </pre></div>
 </td></tr></table></div>
 </div>
@@ -308,6 +295,7 @@
       </div>
         </div>
         <div class="sidebar">
+          
           <h3>目次</h3>
           <ul>
 <li class="toctree-l1"><a class="reference internal" href="chap01.html">1. はじめに</a></li>
@@ -327,10 +315,9 @@
             <form class="search" action="search.html" method="get">
                 <input type="text" name="q" />
                 <input type="submit" value="検索" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
             </form>
           </div>
+
         </div>
         <div class="clearer"></div>
       </div>
@@ -350,8 +337,8 @@
         <div class="right">
           
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2019, Takanobu Amano.
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.6 で生成しました。
+        &#169; Copyright 2020, Takanobu Amano.
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3 で生成しました。
     </div>
         </div>
         <div class="clearer"></div>

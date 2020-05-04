@@ -1,32 +1,20 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<html lang="ja">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
     <title>chap09/sample3.f90 &#8212; Fortran演習(地球惑星物理学演習)</title>
-    
     <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '2019',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/translations.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
@@ -41,8 +29,7 @@
 
 </script>
 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
@@ -65,7 +52,7 @@
   <div class="section" id="chap09-sample3-f90">
 <h1>chap09/sample3.f90<a class="headerlink" href="#chap09-sample3-f90" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><a class="reference external" href="sample/chap09/sample3.f90">サンプルコードのダウンロード</a></p>
-<div class="highlight-fortran"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -116,58 +103,58 @@
 49
 50
 51
-52</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">! 面積を計算するモジュール</span>
-<span class="k">module </span><span class="n">mod_area</span>
-  <span class="k">implicit none</span>
+52</pre></div></td><td class="code"><div class="highlight"><pre><span></span>! 面積を計算するモジュール
+module mod_area
+  implicit none
 
-<span class="k">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">pi</span> <span class="o">=</span> <span class="mi">4</span><span class="o">*</span><span class="nb">atan</span><span class="p">(</span><span class="mf">1.0_8</span><span class="p">)</span>
+  real(8), parameter :: pi = 4*atan(1.0_8)
 
-  <span class="c">! 総称名を定義</span>
-  <span class="k">interface </span><span class="n">triangle</span>
-     <span class="k">module procedure </span><span class="n">triangle1</span><span class="p">,</span> <span class="n">triangle2</span>
-  <span class="k">end interface </span><span class="n">triangle</span>
+  ! 総称名を定義
+  interface triangle
+     module procedure triangle1, triangle2
+  end interface triangle
 
-<span class="k">contains</span>
+contains
 
-  <span class="c">! 底辺と高さが与えられた時の面積の計算</span>
-  <span class="k">function </span><span class="n">triangle1</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">area</span><span class="p">)</span>
-    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span>
-    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">area</span>
+  ! 底辺と高さが与えられた時の面積の計算
+  function triangle1(a, b) result(area)
+    real(8), intent(in) :: a, b
+    real(8) :: area
 
-    <span class="n">area</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span> <span class="o">/</span> <span class="mi">2</span>
+    area = a * b / 2
 
-  <span class="k">end function </span><span class="n">triangle1</span>
+  end function triangle1
 
-  <span class="c">! 3つの頂点の座標が与えられた時の面積の計算</span>
-  <span class="k">function </span><span class="n">triangle2</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">x3</span><span class="p">,</span> <span class="n">y3</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">area</span><span class="p">)</span>
-    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">x3</span><span class="p">,</span> <span class="n">y3</span>
-    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">area</span>
+  ! 3つの頂点の座標が与えられた時の面積の計算
+  function triangle2(x1, y1, x2, y2, x3, y3) result(area)
+    real(8), intent(in) :: x1, y1, x2, y2, x3, y3
+    real(8) :: area
 
-    <span class="n">area</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">((</span><span class="n">x2</span><span class="o">-</span><span class="n">x1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">y3</span><span class="o">-</span><span class="n">y1</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">x3</span><span class="o">-</span><span class="n">x1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">y2</span><span class="o">-</span><span class="n">y1</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span>
+    area = abs((x2-x1)*(y3-y1) - (x3-x1)*(y2-y1))/2
 
-  <span class="k">end function </span><span class="n">triangle2</span>
+  end function triangle2
 
-<span class="k">end module </span><span class="n">mod_area</span>
+end module mod_area
 
-<span class="c">! メインプログラム</span>
-<span class="k">program </span><span class="n">sample</span>
-  <span class="k">use </span><span class="n">mod_area</span>
-  <span class="k">implicit none</span>
+! メインプログラム
+program sample
+  use mod_area
+  implicit none
 
-<span class="k">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">x3</span><span class="p">,</span> <span class="n">y3</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span>
+  real(8) :: x1, y1, x2, y2, x3, y3, a, b
 
-  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(a)&#39;</span><span class="p">,</span> <span class="n">advance</span><span class="o">=</span><span class="s1">&#39;no&#39;</span><span class="p">)</span> <span class="s1">&#39;Input height and base of tirangle : &#39;</span>
-  <span class="k">read</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span>
+  write(*, fmt=&#39;(a)&#39;, advance=&#39;no&#39;) &#39;Input height and base of tirangle : &#39;
+  read(*,*) a, b
 
-  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;area of triangle = &#39;</span><span class="p">,</span> <span class="n">triangle</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+  write(*,*) &#39;area of triangle = &#39;, triangle(a, b)
 
-  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(a)&#39;</span><span class="p">,</span> <span class="n">advance</span><span class="o">=</span><span class="s1">&#39;no&#39;</span><span class="p">)</span> <span class="s1">&#39;Input three apexes of triangle : &#39;</span>
-  <span class="k">read</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">x3</span><span class="p">,</span> <span class="n">y3</span>
+  write(*, fmt=&#39;(a)&#39;, advance=&#39;no&#39;) &#39;Input three apexes of triangle : &#39;
+  read(*,*) x1, y1, x2, y2, x3, y3
 
-  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;area of triangle = &#39;</span><span class="p">,</span> <span class="n">triangle</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">x3</span><span class="p">,</span> <span class="n">y3</span><span class="p">)</span>
+  write(*,*) &#39;area of triangle = &#39;, triangle(x1, y1, x2, y2, x3, y3)
 
-  <span class="k">stop</span>
-<span class="k">end program </span><span class="n">sample</span>
+  stop
+end program sample
 </pre></div>
 </td></tr></table></div>
 </div>
@@ -178,6 +165,7 @@
       </div>
         </div>
         <div class="sidebar">
+          
           <h3>目次</h3>
           <ul>
 <li class="toctree-l1"><a class="reference internal" href="chap01.html">1. はじめに</a></li>
@@ -197,10 +185,9 @@
             <form class="search" action="search.html" method="get">
                 <input type="text" name="q" />
                 <input type="submit" value="検索" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
             </form>
           </div>
+
         </div>
         <div class="clearer"></div>
       </div>
@@ -220,8 +207,8 @@
         <div class="right">
           
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2019, Takanobu Amano.
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.6 で生成しました。
+        &#169; Copyright 2020, Takanobu Amano.
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3 で生成しました。
     </div>
         </div>
         <div class="clearer"></div>
