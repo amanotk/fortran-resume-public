@@ -109,64 +109,64 @@
 55
 56
 57
-58</pre></div></td><td class="code"><div class="highlight"><pre><span></span>program sample
-  implicit none
+58</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">sample</span>
+  <span class="k">implicit none</span>
 
-  integer :: i
+<span class="k">  </span><span class="kt">integer</span> <span class="kd">::</span> <span class="n">i</span>
 
-  ! 最も基本的な配列の宣言
-  integer :: a(5)
+  <span class="c">! 最も基本的な配列の宣言</span>
+  <span class="kt">integer</span> <span class="kd">::</span> <span class="n">a</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 
-  ! 配列の添字範囲を指定して宣言
-  integer :: b(0:4)
-  integer :: c(6:10)
+  <span class="c">! 配列の添字範囲を指定して宣言</span>
+  <span class="kt">integer</span> <span class="kd">::</span> <span class="n">b</span><span class="p">(</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">)</span>
+  <span class="kt">integer</span> <span class="kd">::</span> <span class="n">c</span><span class="p">(</span><span class="mi">6</span><span class="p">:</span><span class="mi">10</span><span class="p">)</span>
 
-  ! 実数型
-  real(8) :: x(100)
-  real(8) :: sum
+  <span class="c">! 実数型</span>
+  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="nb">sum</span>
 
-  ! doループで配列の各要素を処理する
-  do i = 1, 5
-     a(i) = i
-  end do
+  <span class="c">! doループで配列の各要素を処理する</span>
+  <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span>
+     <span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="n">i</span>
+  <span class="k">end do</span>
 
-  do i = 0, 4
-     b(i) = i
-  end do
+<span class="k">  do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span>
+     <span class="n">b</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="n">i</span>
+  <span class="k">end do</span>
 
-  ! 各要素同士の演算も出来る(添字に注意)
-  do i = 1, 5
-     c(i+5) = 2*a(i) + b(i-1)
-  end do
+  <span class="c">! 各要素同士の演算も出来る(添字に注意)</span>
+  <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span>
+     <span class="n">c</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">5</span><span class="p">)</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+  <span class="k">end do</span>
 
-  ! それぞれの値を出力
-  do i = 1, 5
-     write(*,*) &#39;a(&#39;, i, &#39;) = &#39;, a(i)
-  end do
+  <span class="c">! それぞれの値を出力</span>
+  <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span>
+     <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;a(&#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s1">&#39;) = &#39;</span><span class="p">,</span> <span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+  <span class="k">end do</span>
 
-  do i = 0, 4
-     write(*,*) &#39;b(&#39;, i, &#39;) = &#39;, b(i)
-  end do
+<span class="k">  do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span>
+     <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;b(&#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s1">&#39;) = &#39;</span><span class="p">,</span> <span class="n">b</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+  <span class="k">end do</span>
 
-  do i = 6, 10
-     write(*,*) &#39;c(&#39;, i, &#39;) = &#39;, c(i)
-  end do
+<span class="k">  do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">10</span>
+     <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;c(&#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s1">&#39;) = &#39;</span><span class="p">,</span> <span class="n">c</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+  <span class="k">end do</span>
 
-  ! 値をセットして
-  do i = 1, 100
-     x(i) = real(i, kind=8)
-  end do
+  <span class="c">! 値をセットして</span>
+  <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span>
+     <span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="kt">real</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="nb">kind</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+  <span class="k">end do</span>
 
-  ! 配列の和を求める
-  sum = 0.0_8
-  do i = 1, 100
-     sum = sum + x(i)
-  end do
+  <span class="c">! 配列の和を求める</span>
+  <span class="nb">sum</span> <span class="o">=</span> <span class="mf">0.0_8</span>
+  <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span>
+     <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">+</span> <span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+  <span class="k">end do</span>
 
-  write(*,*) &#39;sum = &#39;, sum
+<span class="k">  write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;sum = &#39;</span><span class="p">,</span> <span class="nb">sum</span>
 
-  stop
-end program sample
+<span class="nb">  </span><span class="k">stop</span>
+<span class="k">end program </span><span class="n">sample</span>
 </pre></div>
 </td></tr></table></div>
 </div>

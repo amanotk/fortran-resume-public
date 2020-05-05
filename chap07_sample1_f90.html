@@ -91,46 +91,46 @@
 37
 38
 39
-40</pre></div></td><td class="code"><div class="highlight"><pre><span></span>program sample
-  implicit none
+40</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">sample</span>
+  <span class="k">implicit none</span>
 
-  write(*,*) &#39;square1 =&gt; &#39;, square1(2.0_8)
-  write(*,*) &#39;square2 =&gt; &#39;, square2(2.0_8)
+<span class="k">  write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;square1 =&gt; &#39;</span><span class="p">,</span> <span class="n">square1</span><span class="p">(</span><span class="mf">2.0_8</span><span class="p">)</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;square2 =&gt; &#39;</span><span class="p">,</span> <span class="n">square2</span><span class="p">(</span><span class="mf">2.0_8</span><span class="p">)</span>
 
-  ! 以下はエラー (引数はreal(8)で宣言されているのに与えられたのはreal(4))
-  !write(*,*) square1(2.0), square2(2.0)
+  <span class="c">! 以下はエラー (引数はreal(8)で宣言されているのに与えられたのはreal(4))</span>
+  <span class="c">!write(*,*) square1(2.0), square2(2.0)</span>
 
-  stop
-contains
-  !!!!!!!!!! 関数やサブルーチンの宣言はここから !!!!!!!!!!
+  <span class="k">stop</span>
+<span class="k">contains</span>
+  <span class="c">!!!!!!!!!! 関数やサブルーチンの宣言はここから !!!!!!!!!!</span>
 
-  !
-  ! 関数の宣言(1) : 関数名と同じ名前の変数に返値を代入する形式
-  !
-  real(8) function square1(x)     ! square1という名前で関数を宣言
-    implicit none                 ! 暗黙の型宣言の禁止
-    real(8) :: x                  ! 引数を宣言
+  <span class="c">!</span>
+  <span class="c">! 関数の宣言(1) : 関数名と同じ名前の変数に返値を代入する形式</span>
+  <span class="c">!</span>
+  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="k">function </span><span class="n">square1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>     <span class="c">! square1という名前で関数を宣言</span>
+    <span class="k">implicit none</span>                 <span class="c">! 暗黙の型宣言の禁止</span>
+    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span>                  <span class="c">! 引数を宣言</span>
 
-    square1 = x**2                ! 返値は関数名と同じ名前の変数に代入
+    <span class="n">square1</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>                <span class="c">! 返値は関数名と同じ名前の変数に代入</span>
 
-    return                        ! 呼び出し元に制御を戻す
-  end function square1
+    <span class="k">return</span>                        <span class="c">! 呼び出し元に制御を戻す</span>
+  <span class="k">end function </span><span class="n">square1</span>
 
-  !
-  ! 関数の宣言(2) : resultを使った形式
-  !
-  function square2(x) result(y)   ! square2という名前で関数を宣言
-    implicit none                 ! 暗黙の型宣言の禁止
-    real(8) :: x                  ! 引数を宣言
-    real(8) :: y                  ! 返値となる変数(result)の宣言
+  <span class="c">!</span>
+  <span class="c">! 関数の宣言(2) : resultを使った形式</span>
+  <span class="c">!</span>
+  <span class="k">function </span><span class="n">square2</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>   <span class="c">! square2という名前で関数を宣言</span>
+    <span class="k">implicit none</span>                 <span class="c">! 暗黙の型宣言の禁止</span>
+    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span>                  <span class="c">! 引数を宣言</span>
+    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">y</span>                  <span class="c">! 返値となる変数(result)の宣言</span>
 
-    y = x**2                      ! 返値を代入
+    <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>                      <span class="c">! 返値を代入</span>
 
-    return                        ! 呼び出し元に制御を戻す
-  end function square2
+    <span class="k">return</span>                        <span class="c">! 呼び出し元に制御を戻す</span>
+  <span class="k">end function </span><span class="n">square2</span>
 
-  !!!!!!!!!! ここまでの間に行う !!!!!!!!!!
-end program sample
+  <span class="c">!!!!!!!!!! ここまでの間に行う !!!!!!!!!!</span>
+<span class="k">end program </span><span class="n">sample</span>
 </pre></div>
 </td></tr></table></div>
 </div>

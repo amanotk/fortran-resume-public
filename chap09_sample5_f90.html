@@ -180,135 +180,135 @@
 126
 127
 128
-129</pre></div></td><td class="code"><div class="highlight"><pre><span></span>! ベクトルモジュール
-module mod_vector
-  implicit none
-  private
+129</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">! ベクトルモジュール</span>
+<span class="k">module </span><span class="n">mod_vector</span>
+  <span class="k">implicit none</span>
+<span class="k">  private</span>
 
-  ! 2次元のベクトル
-  type :: vector2
-     real(8) :: x, y
-  end type vector2
+  <span class="c">! 2次元のベクトル</span>
+  <span class="k">type</span> <span class="kd">::</span> <span class="n">vector2</span>
+     <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+  <span class="k">end type </span><span class="n">vector2</span>
 
-  ! + 演算子のオーバーロード
-  interface operator (+)
-     module procedure add2, add2_scalar1, add2_scalar2
-  end interface operator (+)
+  <span class="c">! + 演算子のオーバーロード</span>
+  <span class="k">interface </span><span class="n">operator</span> <span class="p">(</span><span class="o">+</span><span class="p">)</span>
+     <span class="k">module procedure </span><span class="n">add2</span><span class="p">,</span> <span class="n">add2_scalar1</span><span class="p">,</span> <span class="n">add2_scalar2</span>
+  <span class="k">end interface </span><span class="n">operator</span> <span class="p">(</span><span class="o">+</span><span class="p">)</span>
 
-  ! - 演算子のオーバーロード
-  interface operator (-)
-     module procedure sub2
-  end interface operator (-)
+  <span class="c">! - 演算子のオーバーロード</span>
+  <span class="k">interface </span><span class="n">operator</span> <span class="p">(</span><span class="o">-</span><span class="p">)</span>
+     <span class="k">module procedure </span><span class="n">sub2</span>
+  <span class="k">end interface </span><span class="n">operator</span> <span class="p">(</span><span class="o">-</span><span class="p">)</span>
 
-  ! = 演算子のオーバーロード
-  interface assignment (=)
-     module procedure assign2
-  end interface assignment (=)
+  <span class="c">! = 演算子のオーバーロード</span>
+  <span class="k">interface </span><span class="n">assignment</span> <span class="p">(</span><span class="o">=</span><span class="p">)</span>
+     <span class="k">module procedure </span><span class="n">assign2</span>
+  <span class="k">end interface </span><span class="n">assignment</span> <span class="p">(</span><span class="o">=</span><span class="p">)</span>
 
-  ! 表示サブルーチンのオーバーロード
-  interface show
-     module procedure show2
-  end interface show
+  <span class="c">! 表示サブルーチンのオーバーロード</span>
+  <span class="k">interface </span><span class="n">show</span>
+     <span class="k">module procedure </span><span class="n">show2</span>
+  <span class="k">end interface </span><span class="n">show</span>
 
-  ! 公開
-  public :: vector2
-  public :: show, operator(+), operator(-), assignment(=)
+  <span class="c">! 公開</span>
+  <span class="k">public</span> <span class="kd">::</span> <span class="n">vector2</span>
+  <span class="k">public</span> <span class="kd">::</span> <span class="n">show</span><span class="p">,</span> <span class="n">operator</span><span class="p">(</span><span class="o">+</span><span class="p">),</span> <span class="n">operator</span><span class="p">(</span><span class="o">-</span><span class="p">),</span> <span class="n">assignment</span><span class="p">(</span><span class="o">=</span><span class="p">)</span>
 
-contains
-  ! + 演算子の中身
-  function add2(a, b) result(ret)
-    implicit none
-    type(vector2), intent(in) :: a, b
-    type(vector2) :: ret
+<span class="k">contains</span>
+  <span class="c">! + 演算子の中身</span>
+  <span class="k">function </span><span class="n">add2</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+    <span class="k">implicit none</span>
+<span class="k">    type</span><span class="p">(</span><span class="n">vector2</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span>
+    <span class="k">type</span><span class="p">(</span><span class="n">vector2</span><span class="p">)</span> <span class="kd">::</span> <span class="n">ret</span>
 
-    ret%x = a%x + b%x
-    ret%y = a%y + b%y
-  end function add2
+    <span class="n">ret</span><span class="p">%</span><span class="n">x</span> <span class="o">=</span> <span class="n">a</span><span class="p">%</span><span class="n">x</span> <span class="o">+</span> <span class="n">b</span><span class="p">%</span><span class="n">x</span>
+    <span class="n">ret</span><span class="p">%</span><span class="n">y</span> <span class="o">=</span> <span class="n">a</span><span class="p">%</span><span class="n">y</span> <span class="o">+</span> <span class="n">b</span><span class="p">%</span><span class="n">y</span>
+  <span class="k">end function </span><span class="n">add2</span>
 
-  ! + 演算子の中身: vector2 + scalar
-  function add2_scalar1(a, b) result(ret)
-    implicit none
-    type(vector2), intent(in) :: a
-    real(8), intent(in) :: b
-    type(vector2) :: ret
+  <span class="c">! + 演算子の中身: vector2 + scalar</span>
+  <span class="k">function </span><span class="n">add2_scalar1</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+    <span class="k">implicit none</span>
+<span class="k">    type</span><span class="p">(</span><span class="n">vector2</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">a</span>
+    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">b</span>
+    <span class="k">type</span><span class="p">(</span><span class="n">vector2</span><span class="p">)</span> <span class="kd">::</span> <span class="n">ret</span>
 
-    ret%x = a%x + b
-    ret%y = a%y + b
-  end function add2_scalar1
+    <span class="n">ret</span><span class="p">%</span><span class="n">x</span> <span class="o">=</span> <span class="n">a</span><span class="p">%</span><span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
+    <span class="n">ret</span><span class="p">%</span><span class="n">y</span> <span class="o">=</span> <span class="n">a</span><span class="p">%</span><span class="n">y</span> <span class="o">+</span> <span class="n">b</span>
+  <span class="k">end function </span><span class="n">add2_scalar1</span>
 
-  ! + 演算子の中身: scalar + vector2
-  function add2_scalar2(a, b) result(ret)
-    implicit none
-    real(8), intent(in) :: a
-    type(vector2), intent(in) :: b
-    type(vector2) :: ret
+  <span class="c">! + 演算子の中身: scalar + vector2</span>
+  <span class="k">function </span><span class="n">add2_scalar2</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+    <span class="k">implicit none</span>
+<span class="k">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">a</span>
+    <span class="k">type</span><span class="p">(</span><span class="n">vector2</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">b</span>
+    <span class="k">type</span><span class="p">(</span><span class="n">vector2</span><span class="p">)</span> <span class="kd">::</span> <span class="n">ret</span>
 
-    ret%x = a + b%x
-    ret%y = a + b%y
-  end function add2_scalar2
+    <span class="n">ret</span><span class="p">%</span><span class="n">x</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">%</span><span class="n">x</span>
+    <span class="n">ret</span><span class="p">%</span><span class="n">y</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">%</span><span class="n">y</span>
+  <span class="k">end function </span><span class="n">add2_scalar2</span>
 
-  ! - 演算子の中身
-  function sub2(a, b) result(ret)
-    implicit none
-    type(vector2), intent(in) :: a, b
-    type(vector2) :: ret
+  <span class="c">! - 演算子の中身</span>
+  <span class="k">function </span><span class="n">sub2</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+    <span class="k">implicit none</span>
+<span class="k">    type</span><span class="p">(</span><span class="n">vector2</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span>
+    <span class="k">type</span><span class="p">(</span><span class="n">vector2</span><span class="p">)</span> <span class="kd">::</span> <span class="n">ret</span>
 
-    ret%x = a%x - b%x
-    ret%y = a%y - b%y
-  end function sub2
+    <span class="n">ret</span><span class="p">%</span><span class="n">x</span> <span class="o">=</span> <span class="n">a</span><span class="p">%</span><span class="n">x</span> <span class="o">-</span> <span class="n">b</span><span class="p">%</span><span class="n">x</span>
+    <span class="n">ret</span><span class="p">%</span><span class="n">y</span> <span class="o">=</span> <span class="n">a</span><span class="p">%</span><span class="n">y</span> <span class="o">-</span> <span class="n">b</span><span class="p">%</span><span class="n">y</span>
+  <span class="k">end function </span><span class="n">sub2</span>
 
-  ! = 演算子の中身
-  subroutine assign2(a, b)
-    implicit none
-    type(vector2), intent(out) :: a ! intent(out) に注意
-    real(8), intent(in)        :: b ! intent(in)  に注意
+  <span class="c">! = 演算子の中身</span>
+  <span class="k">subroutine </span><span class="n">assign2</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+    <span class="k">implicit none</span>
+<span class="k">    type</span><span class="p">(</span><span class="n">vector2</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span> <span class="kd">::</span> <span class="n">a</span> <span class="c">! intent(out) に注意</span>
+    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>        <span class="kd">::</span> <span class="n">b</span> <span class="c">! intent(in)  に注意</span>
 
-    ! どちらも同じ値
-    a%x = b
-    a%y = b
-  end subroutine assign2
+    <span class="c">! どちらも同じ値</span>
+    <span class="n">a</span><span class="p">%</span><span class="n">x</span> <span class="o">=</span> <span class="n">b</span>
+    <span class="n">a</span><span class="p">%</span><span class="n">y</span> <span class="o">=</span> <span class="n">b</span>
+  <span class="k">end subroutine </span><span class="n">assign2</span>
 
-  ! 表示
-  subroutine show2(v)
-    implicit none
-    type(vector2), intent(in) :: v
+  <span class="c">! 表示</span>
+  <span class="k">subroutine </span><span class="n">show2</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="k">implicit none</span>
+<span class="k">    type</span><span class="p">(</span><span class="n">vector2</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">v</span>
 
-    write(*, &#39;(&quot;vector2 : &quot;, f10.4, &quot;,&quot;, f10.4)&#39;) v%x, v%y
-    return
-  end subroutine show2
+    <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="s1">&#39;(&quot;vector2 : &quot;, f10.4, &quot;,&quot;, f10.4)&#39;</span><span class="p">)</span> <span class="n">v</span><span class="p">%</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">%</span><span class="n">y</span>
+    <span class="k">return</span>
+<span class="k">  end subroutine </span><span class="n">show2</span>
 
-end module mod_vector
+<span class="k">end module </span><span class="n">mod_vector</span>
 
-! vectorモジュールを使うサンプル
-program sample
-  use mod_vector
-  implicit none
+<span class="c">! vectorモジュールを使うサンプル</span>
+<span class="k">program </span><span class="n">sample</span>
+  <span class="k">use </span><span class="n">mod_vector</span>
+  <span class="k">implicit none</span>
 
-  type(vector2) :: a, b, c, d
+<span class="k">  type</span><span class="p">(</span><span class="n">vector2</span><span class="p">)</span> <span class="kd">::</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span>
 
-  a%x = 1.0_8
-  a%y = 0.0_8
+  <span class="n">a</span><span class="p">%</span><span class="n">x</span> <span class="o">=</span> <span class="mf">1.0_8</span>
+  <span class="n">a</span><span class="p">%</span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.0_8</span>
 
-  call show(a + 1.0_8)  ! add2_scalar1の呼び出し
-  call show(0.5_8 + a)  ! add2_scalar2の呼び出し
+  <span class="k">call </span><span class="n">show</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="mf">1.0_8</span><span class="p">)</span>  <span class="c">! add2_scalar1の呼び出し</span>
+  <span class="k">call </span><span class="n">show</span><span class="p">(</span><span class="mf">0.5_8</span> <span class="o">+</span> <span class="n">a</span><span class="p">)</span>  <span class="c">! add2_scalar2の呼び出し</span>
 
-  ! 以下は単精度実数に対する演算が定義されていないのでエラー
-  !call show(0.5 + a)
+  <span class="c">! 以下は単精度実数に対する演算が定義されていないのでエラー</span>
+  <span class="c">!call show(0.5 + a)</span>
 
-  ! 代入演算子を用いる
-  b = 1.0_8
+  <span class="c">! 代入演算子を用いる</span>
+  <span class="n">b</span> <span class="o">=</span> <span class="mf">1.0_8</span>
 
-  call show(a)
-  call show(b)
+  <span class="k">call </span><span class="n">show</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+  <span class="k">call </span><span class="n">show</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 
-  c = a + b
-  call show(c)
+  <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+  <span class="k">call </span><span class="n">show</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 
-  d = a - b
-  call show(d)
+  <span class="n">d</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
+  <span class="k">call </span><span class="n">show</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
 
-  stop
-end program sample
+  <span class="k">stop</span>
+<span class="k">end program </span><span class="n">sample</span>
 </pre></div>
 </td></tr></table></div>
 </div>

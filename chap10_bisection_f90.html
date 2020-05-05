@@ -135,90 +135,90 @@
 81
 82
 83
-84</pre></div></td><td class="code"><div class="highlight"><pre><span></span>! 二分法のモジュール
-module mod_bisection
-  implicit none
-  private
+84</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">! 二分法のモジュール</span>
+<span class="k">module </span><span class="n">mod_bisection</span>
+  <span class="k">implicit none</span>
+<span class="k">  private</span>
 
-  integer, parameter :: default_maxit = 50
-  real(8), parameter :: default_tol   = 1.0e-8_8
+<span class="k">  </span><span class="kt">integer</span><span class="p">,</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">default_maxit</span> <span class="o">=</span> <span class="mi">50</span>
+  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">default_tol</span>   <span class="o">=</span> <span class="mf">1.0e-8_8</span>
 
-  public :: bisection
+  <span class="k">public</span> <span class="kd">::</span> <span class="n">bisection</span>
 
-contains
-  ! 二分法により与えられた方程式の解を求める
-  subroutine bisection(f, x1, x2, error, status, maxit, tol)
-    implicit none
-    real(8), intent(inout) :: x1, x2
-    real(8), intent(out) :: error
-    integer, intent(out) :: status
-    integer, intent(in), optional :: maxit
-    real(8), intent(in), optional :: tol
-    ! 引数として関数を受け取る
-    interface
-       function f(x) result(y)
-         real(8), intent(in) :: x
-         real(8) :: y
-       end function f
-    end interface
+<span class="k">contains</span>
+  <span class="c">! 二分法により与えられた方程式の解を求める</span>
+  <span class="k">subroutine </span><span class="n">bisection</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">error</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">maxit</span><span class="p">,</span> <span class="n">tol</span><span class="p">)</span>
+    <span class="k">implicit none</span>
+<span class="k">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span>
+    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span> <span class="kd">::</span> <span class="n">error</span>
+    <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span> <span class="kd">::</span> <span class="n">status</span>
+    <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">maxit</span>
+    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">tol</span>
+    <span class="c">! 引数として関数を受け取る</span>
+    <span class="k">interface</span>
+<span class="k">       function </span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+         <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span>
+         <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">y</span>
+       <span class="k">end function </span><span class="n">f</span>
+    <span class="k">end interface</span>
 
-    integer :: i, n
-    real(8) :: x, y, sig, tolerance
+<span class="k">    </span><span class="kt">integer</span> <span class="kd">::</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span>
+    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sig</span><span class="p">,</span> <span class="n">tolerance</span>
 
-    ! 最大の反復回数
-    if (.not. present(maxit)) then
-       n = default_maxit
-    else
-       n = maxit
-    end if
+    <span class="c">! 最大の反復回数</span>
+    <span class="k">if</span> <span class="p">(.</span><span class="nb">not</span><span class="p">.</span> <span class="nb">present</span><span class="p">(</span><span class="n">maxit</span><span class="p">))</span> <span class="k">then</span>
+<span class="k">       </span><span class="n">n</span> <span class="o">=</span> <span class="n">default_maxit</span>
+    <span class="k">else</span>
+<span class="k">       </span><span class="n">n</span> <span class="o">=</span> <span class="n">maxit</span>
+    <span class="k">end if</span>
 
-    ! 許容誤差
-    if (.not. present(tol)) then
-       tolerance = default_tol
-    else
-       tolerance = tol
-    end if
+    <span class="c">! 許容誤差</span>
+    <span class="k">if</span> <span class="p">(.</span><span class="nb">not</span><span class="p">.</span> <span class="nb">present</span><span class="p">(</span><span class="n">tol</span><span class="p">))</span> <span class="k">then</span>
+<span class="k">       </span><span class="n">tolerance</span> <span class="o">=</span> <span class="n">default_tol</span>
+    <span class="k">else</span>
+<span class="k">       </span><span class="n">tolerance</span> <span class="o">=</span> <span class="n">tol</span>
+    <span class="k">end if</span>
 
-    ! x1 &lt; x2 とする
-    if( x1 &gt;= x2 ) then
-       x  = x1
-       x1 = x2
-       x2 = x1
-    end if
+    <span class="c">! x1 &lt; x2 とする</span>
+    <span class="k">if</span><span class="p">(</span> <span class="n">x1</span> <span class="o">&gt;=</span> <span class="n">x2</span> <span class="p">)</span> <span class="k">then</span>
+<span class="k">       </span><span class="n">x</span>  <span class="o">=</span> <span class="n">x1</span>
+       <span class="n">x1</span> <span class="o">=</span> <span class="n">x2</span>
+       <span class="n">x2</span> <span class="o">=</span> <span class="n">x1</span>
+    <span class="k">end if</span>
 
-    ! f(x1)とf(x2)の符号は逆
-    if( f(x1)*f(x2) &gt;= 0.0 ) then
-       status = -1
-       return
-    end if
+    <span class="c">! f(x1)とf(x2)の符号は逆</span>
+    <span class="k">if</span><span class="p">(</span> <span class="n">f</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mf">0.0</span> <span class="p">)</span> <span class="k">then</span>
+<span class="k">       </span><span class="n">status</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+       <span class="k">return</span>
+<span class="k">    end if</span>
 
-    status = 1
-    sig = sign(1.0_8, f(x2)-f(x1))
-    do i = 1, n
-       x = (x1 + x2) * 0.5_8
-       error = abs(x - x1)
+<span class="k">    </span><span class="n">status</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">sig</span> <span class="o">=</span> <span class="nb">sign</span><span class="p">(</span><span class="mf">1.0_8</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span><span class="o">-</span><span class="n">f</span><span class="p">(</span><span class="n">x1</span><span class="p">))</span>
+    <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span>
+       <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">x1</span> <span class="o">+</span> <span class="n">x2</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5_8</span>
+       <span class="n">error</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x1</span><span class="p">)</span>
 
-       ! 収束判定
-       if (error &lt; tolerance) then
-          status = 0
-          exit
-       end if
+       <span class="c">! 収束判定</span>
+       <span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">&lt;</span> <span class="n">tolerance</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">          </span><span class="n">status</span> <span class="o">=</span> <span class="mi">0</span>
+          <span class="k">exit</span>
+<span class="k">       end if</span>
 
-       ! 範囲を縮小
-       y = f(x)
-       if (y*sig &lt; 0.0) then
-          x1 = x
-       else
-          x2 = x
-       end if
-    end do
+       <span class="c">! 範囲を縮小</span>
+       <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+       <span class="k">if</span> <span class="p">(</span><span class="n">y</span><span class="o">*</span><span class="n">sig</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">          </span><span class="n">x1</span> <span class="o">=</span> <span class="n">x</span>
+       <span class="k">else</span>
+<span class="k">          </span><span class="n">x2</span> <span class="o">=</span> <span class="n">x</span>
+       <span class="k">end if</span>
+<span class="k">    end do</span>
 
-    ! 最終的な根の近似値
-    x1 = x
-    return
-  end subroutine bisection
+    <span class="c">! 最終的な根の近似値</span>
+    <span class="n">x1</span> <span class="o">=</span> <span class="n">x</span>
+    <span class="k">return</span>
+<span class="k">  end subroutine </span><span class="n">bisection</span>
 
-end module mod_bisection
+<span class="k">end module </span><span class="n">mod_bisection</span>
 </pre></div>
 </td></tr></table></div>
 </div>

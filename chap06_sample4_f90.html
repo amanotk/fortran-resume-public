@@ -127,82 +127,82 @@
 73
 74
 75
-76</pre></div></td><td class="code"><div class="highlight"><pre><span></span>program sample
-  implicit none
+76</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">sample</span>
+  <span class="k">implicit none</span>
 
-  integer :: i, n, ios
-  real(8), allocatable :: x(:), y(:), xx(:), yy(:)
+<span class="k">  </span><span class="kt">integer</span> <span class="kd">::</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">ios</span>
+  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">x</span><span class="p">(:),</span> <span class="n">y</span><span class="p">(:),</span> <span class="n">xx</span><span class="p">(:),</span> <span class="n">yy</span><span class="p">(:)</span>
 
-  n = 32
-  write(*, fmt=&#39;(&quot;Array size for output = &quot;, i5)&#39;) n
+  <span class="n">n</span> <span class="o">=</span> <span class="mi">32</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(&quot;Array size for output = &quot;, i5)&#39;</span><span class="p">)</span> <span class="n">n</span>
 
-  allocate(x(n))
-  allocate(y(n))
+  <span class="k">allocate</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+  <span class="k">allocate</span><span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
 
-  do i = 1, n
-     x(i) = real(i,8) / real(n-1,8)
-     y(i) = sin(4*3.1415_8*x(i)) * cos(2*3.1415_8*x(i))
-  end do
+  <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span>
+     <span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="kt">real</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span> <span class="o">/</span> <span class="kt">real</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
+     <span class="n">y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="nb">sin</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="mf">3.1415_8</span><span class="o">*</span><span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> <span class="o">*</span> <span class="nb">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="mf">3.1415_8</span><span class="o">*</span><span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+  <span class="k">end do</span>
 
-  !
-  ! バイナリ(unformatted)で出力(上書き)
-  !
-  open(unit=10, iostat=ios, file=&#39;binary.dat&#39;, action=&#39;write&#39;, &amp;
-       &amp; form=&#39;unformatted&#39;, status=&#39;replace&#39;)
+  <span class="c">!</span>
+  <span class="c">! バイナリ(unformatted)で出力(上書き)</span>
+  <span class="c">!</span>
+  <span class="k">open</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">iostat</span><span class="o">=</span><span class="n">ios</span><span class="p">,</span> <span class="k">file</span><span class="o">=</span><span class="s1">&#39;binary.dat&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;write&#39;</span><span class="p">,</span> <span class="p">&amp;</span>
+       <span class="p">&amp;</span> <span class="n">form</span><span class="o">=</span><span class="s1">&#39;unformatted&#39;</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="s1">&#39;replace&#39;</span><span class="p">)</span>
 
-  if (ios /= 0) then
-     write(*,*) &#39;Failed to open file for output&#39;
-     stop
-  end if
+  <span class="k">if</span> <span class="p">(</span><span class="n">ios</span> <span class="o">/=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">     write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;Failed to open file for output&#39;</span>
+     <span class="k">stop</span>
+<span class="k">  end if</span>
 
-  ! 配列サイズの出力
-  write(10) n
+  <span class="c">! 配列サイズの出力</span>
+  <span class="k">write</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="n">n</span>
 
-  ! 配列の出力
-  write(10) x, y
+  <span class="c">! 配列の出力</span>
+  <span class="k">write</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
 
-  close(10)
+  <span class="k">close</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 
 
-  !
-  ! バイナリ(unformatted)で読み込み
-  !
-  open(unit=20, iostat=ios, file=&#39;binary.dat&#39;, action=&#39;read&#39;, &amp;
-       &amp; form=&#39;unformatted&#39;, status=&#39;old&#39;)
+  <span class="c">!</span>
+  <span class="c">! バイナリ(unformatted)で読み込み</span>
+  <span class="c">!</span>
+  <span class="k">open</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">iostat</span><span class="o">=</span><span class="n">ios</span><span class="p">,</span> <span class="k">file</span><span class="o">=</span><span class="s1">&#39;binary.dat&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;read&#39;</span><span class="p">,</span> <span class="p">&amp;</span>
+       <span class="p">&amp;</span> <span class="n">form</span><span class="o">=</span><span class="s1">&#39;unformatted&#39;</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="s1">&#39;old&#39;</span><span class="p">)</span>
 
-  if (ios /= 0) then
-     write(*,*) &#39;Failed to open file for input&#39;
-     stop
-  end if
+  <span class="k">if</span> <span class="p">(</span><span class="n">ios</span> <span class="o">/=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">     write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;Failed to open file for input&#39;</span>
+     <span class="k">stop</span>
+<span class="k">  end if</span>
 
-  ! 配列サイズを読み込む
-  read(20) n
+  <span class="c">! 配列サイズを読み込む</span>
+  <span class="k">read</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="n">n</span>
 
-  allocate(xx(n))
-  allocate(yy(n))
+  <span class="k">allocate</span><span class="p">(</span><span class="n">xx</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+  <span class="k">allocate</span><span class="p">(</span><span class="n">yy</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
 
-  ! 配列を読み込む
-  read(20) xx, yy
+  <span class="c">! 配列を読み込む</span>
+  <span class="k">read</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="n">xx</span><span class="p">,</span> <span class="n">yy</span>
 
-  close(20)
+  <span class="k">close</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 
-  ! データが等しいかどうかをチェックする
-  do i = 1, n
-     if( x(i) /= xx(i) .or. y(i) /= yy(i) ) then ! 厳密に等しいハズ
-        write(*,*) &#39;Error !&#39;
-        stop
-     end if
-  end do
+  <span class="c">! データが等しいかどうかをチェックする</span>
+  <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span>
+     <span class="k">if</span><span class="p">(</span> <span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">/=</span> <span class="n">xx</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="n">y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">/=</span> <span class="n">yy</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">)</span> <span class="k">then</span> <span class="c">! 厳密に等しいハズ</span>
+        <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;Error !&#39;</span>
+        <span class="k">stop</span>
+<span class="k">     end if</span>
+<span class="k">  end do</span>
 
-  write(*,*) &#39;Binary read/write success !&#39;
+<span class="k">  write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;Binary read/write success !&#39;</span>
 
-  deallocate(x)
-  deallocate(y)
-  deallocate(xx)
-  deallocate(yy)
+  <span class="k">deallocate</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+  <span class="k">deallocate</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+  <span class="k">deallocate</span><span class="p">(</span><span class="n">xx</span><span class="p">)</span>
+  <span class="k">deallocate</span><span class="p">(</span><span class="n">yy</span><span class="p">)</span>
 
-  stop
-end program sample
+  <span class="k">stop</span>
+<span class="k">end program </span><span class="n">sample</span>
 </pre></div>
 </td></tr></table></div>
 </div>

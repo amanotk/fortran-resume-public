@@ -122,14 +122,14 @@
 5
 6
 7
-8</pre></div></td><td class="code"><div class="highlight"><pre><span></span>integer :: i
-real(8) :: x(100) ! 実数型の長さ100の配列
-real(8) :: s
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">integer</span> <span class="kd">::</span> <span class="n">i</span>
+<span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="c">! 実数型の長さ100の配列</span>
+<span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">s</span>
 
-s = 0.0_8
-do i = 1, 100
-  s = s + x(i)
-end do
+<span class="n">s</span> <span class="o">=</span> <span class="mf">0.0_8</span>
+<span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span>
+  <span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="k">end do</span>
 </pre></div>
 </td></tr></table></div>
 <p>このように配列の各要素に対する処理には <code class="docutils literal notranslate"><span class="pre">do</span></code> ループを用いる事になる．</p>
@@ -441,36 +441,36 @@ end do
 27
 28
 29
-30</pre></div></td><td class="code"><div class="highlight"><pre><span></span>integer, parameter :: n = 5
-integer :: i, j
-real(8) :: a(n,n), b(n), x(n)
-real(8) :: inner
+30</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">integer</span><span class="p">,</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="kt">integer</span> <span class="kd">::</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span>
+<span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">a</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">),</span> <span class="n">b</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">x</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">inner</span>
 
-! aとxに何らかの値を入れる
+<span class="c">! aとxに何らかの値を入れる</span>
 
-! 初期化
-do i = 1, n
-  b(i) = 0.0_8
-end do
+<span class="c">! 初期化</span>
+<span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span>
+  <span class="n">b</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.0_8</span>
+<span class="k">end do</span>
 
-! 行列aとベクトルxの積をbに代入: b_{i} = a_{i,j} * x_{j}
-do j = 1, n
-  do i = 1, n
-    b(i) = b(i) + a(i,j) * x(j)
-  end do
-end do
+<span class="c">! 行列aとベクトルxの積をbに代入: b_{i} = a_{i,j} * x_{j}</span>
+<span class="k">do </span><span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span>
+  <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span>
+    <span class="n">b</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="n">b</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="o">*</span> <span class="n">x</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+  <span class="k">end do</span>
+<span class="k">end do</span>
 
-! 組み込み関数を使用して同じ計算を行う
-b = matmul(a, x)
+<span class="c">! 組み込み関数を使用して同じ計算を行う</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">matmul</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 
-! ベクトル同士の内積を計算
-inner = 0.0_8
-do i = 1, n
-  inner = inner + b(i) * x(i)
-end do
+<span class="c">! ベクトル同士の内積を計算</span>
+<span class="n">inner</span> <span class="o">=</span> <span class="mf">0.0_8</span>
+<span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span>
+  <span class="n">inner</span> <span class="o">=</span> <span class="n">inner</span> <span class="o">+</span> <span class="n">b</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">*</span> <span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="k">end do</span>
 
-! 組み込み関数を使用して同じ計算を行う
-inner = dot_product(b, x)
+<span class="c">! 組み込み関数を使用して同じ計算を行う</span>
+<span class="n">inner</span> <span class="o">=</span> <span class="nb">dot_product</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 <p>この例では9-18行目と21行目はどちらも行列とベクトルの積を求めるものである．同様に24-27行目と30行目も全く同じ処理(内積計算)を行なっている．組込み関数を用いることで非常に簡単に処理が記述できることがお分かり頂けるだろう．数学関数に加えてよく使われる組み込み関数をいくつか以下の表に挙げておこう．念のために言うとこれらは必ずしも記憶して置かなければいけないものでは無く，必要になった時に自分で調べて使いこなすことが出来ればそれで良い．(例えば富田・齋藤(2011，6章)が配列に関する組み込み関数について詳しい．)</p>
@@ -567,29 +567,29 @@ inner = dot_product(b, x)
 20
 21
 22
-23</pre></div></td><td class="code"><div class="highlight"><pre><span></span>integer, parameter :: n = 8
-integer :: i
-real(8) :: a(n), b(n), c(n)
+23</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">integer</span><span class="p">,</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="kt">integer</span> <span class="kd">::</span> <span class="n">i</span>
+<span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">a</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">b</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">c</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 
-! 代入
-do i = 1, n
-   b(i) = a(i)
-end do
+<span class="c">! 代入</span>
+<span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span>
+   <span class="n">b</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="k">end do</span>
 
-! 配列演算による代入(上のdoループと同じ)
-b = a
+<span class="c">! 配列演算による代入(上のdoループと同じ)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
 
-write(*,*) &#39;b = &#39;, b ! 配列bの全要素を出力
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;b = &#39;</span><span class="p">,</span> <span class="n">b</span> <span class="c">! 配列bの全要素を出力</span>
 
-! 演算
-do i = 1, n
-   c(i) = 0.5_8*a(i) + cos(b(i))
-end do
+<span class="c">! 演算</span>
+<span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span>
+   <span class="n">c</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.5_8</span><span class="o">*</span><span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="nb">cos</span><span class="p">(</span><span class="n">b</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span class="k">end do</span>
 
-! 配列演算(上のdoループと同じ)
-c = 0.5_8*a + cos(b)
+<span class="c">! 配列演算(上のdoループと同じ)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mf">0.5_8</span><span class="o">*</span><span class="n">a</span> <span class="o">+</span> <span class="nb">cos</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 
-write(*,*) &#39;c = &#39;, c ! 配列cの全要素を出力
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;c = &#39;</span><span class="p">,</span> <span class="n">c</span> <span class="c">! 配列cの全要素を出力</span>
 </pre></div>
 </td></tr></table></div>
 <p>上の例の6-8行目と11行目，16-18行目と21行目は等価である．このようにFortranでは <em>配列同士の演算をあたかも通常の変数であるかのように記述することができる</em>．これを配列演算と呼ぶ．数学で用いるような直感的な表現が出来ることに加えて，これを用いることでかなりタイプ量を減らすことができるのが一目見て分かるだろう．タイプ量が少ないと当然無用なバグの混入を避けることができる．さらに，配列演算はコンパイラによる最適化の恩恵を受けやすいという利点がある．部分配列と配列演算を組み合わせることも当然可能である．例えば</p>
@@ -660,25 +660,25 @@ virtual memory          <span class="o">(</span>kbytes, -v<span class="o">)</spa
 16
 17
 18
-19</pre></div></td><td class="code"><div class="highlight"><pre><span></span>integer :: i, j
-real(8) :: a(10,10), s
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">integer</span> <span class="kd">::</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span>
+<span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">a</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="n">s</span>
 
 
-! 例1
-s = 0.0_8
-do j = 1, 10
-  do i = 1, 10
-    s = s + a(i, j)
-  end do
-end do
+<span class="c">! 例1</span>
+<span class="n">s</span> <span class="o">=</span> <span class="mf">0.0_8</span>
+<span class="k">do </span><span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span>
+  <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+  <span class="k">end do</span>
+<span class="k">end do</span>
 
-! 例2
-s = 0.0_8
-do i = 1, 10
-  do j = 1, 10
-    s = s + a(i, j)
-  end do
-end do
+<span class="c">! 例2</span>
+<span class="n">s</span> <span class="o">=</span> <span class="mf">0.0_8</span>
+<span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span>
+  <span class="k">do </span><span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+  <span class="k">end do</span>
+<span class="k">end do</span>
 </pre></div>
 </td></tr></table></div>
 <p>この例では5-11行目(例1)と13-19行目(例2)は全く同じ処理(配列内の全要素の総和計算)を行なっているが，多重 <code class="docutils literal notranslate"><span class="pre">do</span></code> ループの添字の順番が異なることに注目して欲しい．例1では左側の添字 <code class="docutils literal notranslate"><span class="pre">i</span></code> が内側のループで走り，例2では右側の添字 <code class="docutils literal notranslate"><span class="pre">j</span></code> が内側のループで走っている．基本的に計算機というのは単純作業(例えば <code class="docutils literal notranslate"><span class="pre">if</span></code> 分岐などがないループ)を一気に，メモリの連続している方向に順番に処理するのが得意になっている．従って，この例では左側の添字が内側ループで走る例1の方が効率の良いプログラムということになる <a class="footnote-reference brackets" href="#id29" id="id16">4</a>．最初はそれほど気にすることは無いが，単に「動く」だけのプログラムでは無く，「良い」プログラムとなるように細かい点についても気を配れるようになって欲しい．</p>

@@ -66,8 +66,8 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">-</span></code> 演算子:
 倍精度実数と <code class="docutils literal notranslate"><span class="pre">type(vector2)</span></code> の間で以下のような演算が出来るようにする．</p></li>
 </ul>
-<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span>b = a - 1.0_8 ! b%x = a%x - 1.0_8; b%y = a%y - 1.0_8; と同値になるように
-b = 1.0_8 - a ! b%x = 1.0_8 - a%x; b%y = 1.0_8 - a%y; と同値になるように
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="mf">1.0_8</span> <span class="c">! b%x = a%x - 1.0_8; b%y = a%y - 1.0_8; と同値になるように</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">1.0_8</span> <span class="o">-</span> <span class="n">a</span> <span class="c">! b%x = 1.0_8 - a%x; b%y = 1.0_8 - a%y; と同値になるように</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -81,8 +81,8 @@ b = 1.0_8 - a ! b%x = 1.0_8 - a%x; b%y = 1.0_8 - a%y; と同値になるよう�
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">=</span></code> 演算子: 以下のような代入文を実行できるようにする．</p></li>
 </ul>
-<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span>a = 1.0_8            ! x, yに同じ値(1.0)を代入
-b = (/2.0_8, 1.0_8/) ! xには2.0, yには1.0を代入
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">1.0_8</span>            <span class="c">! x, yに同じ値(1.0)を代入</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">2.0_8</span><span class="p">,</span> <span class="mf">1.0_8</span><span class="o">/</span><span class="p">)</span> <span class="c">! xには2.0, yには1.0を代入</span>
 </pre></div>
 </div>
 <p>ここで <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">(/2.0_8,</span> <span class="pre">1.0_8/)</span></code> の右辺は長さ2の倍精度実数型の配列である．</p>
@@ -92,31 +92,31 @@ b = (/2.0_8, 1.0_8/) ! xには2.0, yには1.0を代入
 <p><code class="docutils literal notranslate"><span class="pre">mod_vector</span></code> をさらに拡張し， <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">z</span></code> を要素に持つ3次元ベクトルを表す構造型 <code class="docutils literal notranslate"><span class="pre">type(vector3)</span></code> を新たに定義せよ．また，この型に対する <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">=</span></code> などの演算子を定義せよ．(ただし, <code class="docutils literal notranslate"><span class="pre">*</span></code> 演算子は通常のベクトル積を返すものとし，それ以外は <code class="docutils literal notranslate"><span class="pre">type(vector2)</span></code> の自然な拡張となるようにすること．)</p>
 <p>さらにサブルーチン <code class="docutils literal notranslate"><span class="pre">show</span></code> をオーバーロードし， <code class="docutils literal notranslate"><span class="pre">type(vector2)</span></code>, <code class="docutils literal notranslate"><span class="pre">type(vector3)</span></code> のどちらの変数も引数に取れるようにせよ．</p>
 <p>これによって，例えば</p>
-<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span>type(vector2) :: a, b, c
-type(vector3) :: x, y, z
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">type</span><span class="p">(</span><span class="n">vector2</span><span class="p">)</span> <span class="kd">::</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span>
+<span class="k">type</span><span class="p">(</span><span class="n">vector3</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span>
 
-write(*, fmt=&#39;(a)&#39;) &#39;--- vector2 ---&#39;
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;--- vector2 ---&#39;</span>
 
-a = (/1.0_8, 0.0_8/)
-b = 1.0_8
-c = a + b
+<span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">1.0_8</span><span class="p">,</span> <span class="mf">0.0_8</span><span class="o">/</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">1.0_8</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 
-call show(a + b)
-call show(a - b)
+<span class="k">call </span><span class="n">show</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+<span class="k">call </span><span class="n">show</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span>
 
-write(*, fmt=&#39;(&quot;a * b = &quot;, f12.4)&#39;) a*b
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(&quot;a * b = &quot;, f12.4)&#39;</span><span class="p">)</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span>
 
-write(*, fmt=&#39;(a)&#39;) &#39;--- vector3 ---&#39;
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;--- vector3 ---&#39;</span>
 
-x = (/1.0_8, 0.0_8, 0.0_8/)
-y = 1.0_8
-z = x * y
+<span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">1.0_8</span><span class="p">,</span> <span class="mf">0.0_8</span><span class="p">,</span> <span class="mf">0.0_8</span><span class="o">/</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mf">1.0_8</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
 
-call show(x)
-call show(y)
-call show(z)
-call show(x+y)
-call show(x-y)
+<span class="k">call </span><span class="n">show</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">call </span><span class="n">show</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="k">call </span><span class="n">show</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+<span class="k">call </span><span class="n">show</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span>
+<span class="k">call </span><span class="n">show</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>のような記述が可能になるはずである．</p>

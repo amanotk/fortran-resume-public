@@ -221,8 +221,8 @@ end function 関数名
 </td></tr></table></div>
 <p>関数の呼出は組込み関数と全く同じで，以下のように適宜引数を与えて呼び出せば良い．</p>
 <div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>write(*,*) &#39;square1 =&gt; &#39;, square1(2.0_8)
-write(*,*) &#39;square2 =&gt; &#39;, square2(2.0_8)
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;square1 =&gt; &#39;</span><span class="p">,</span> <span class="n">square1</span><span class="p">(</span><span class="mf">2.0_8</span><span class="p">)</span>
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;square2 =&gt; &#39;</span><span class="p">,</span> <span class="n">square2</span><span class="p">(</span><span class="mf">2.0_8</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 <p>ただし，引数の型は宣言したものと同一でなければならない．この場合は引数は <code class="docutils literal notranslate"><span class="pre">real(8)</span></code> で宣言されているので，</p>
@@ -304,28 +304,28 @@ end subroutine サブルーチン名
 19
 20
 21
-22</pre></div></td><td class="code"><div class="highlight"><pre><span></span>subroutine sub1(exponent)
-  implicit none
-  real(8) :: exponent
+22</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">subroutine </span><span class="n">sub1</span><span class="p">(</span><span class="nb">exponent</span><span class="p">)</span>
+  <span class="k">implicit none</span>
+<span class="k">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="nb">exponent</span>
 
-  integer, parameter :: n = 10
-  integer :: i
-  real(8) :: x(n), sum
+<span class="nb">  </span><span class="kt">integer</span><span class="p">,</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
+  <span class="kt">integer</span> <span class="kd">::</span> <span class="n">i</span>
+  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="nb">sum</span>
 
-  ! 代入
-  do i = 1, n
-     x(i) = i ** exponent
-  end do
+  <span class="c">! 代入</span>
+  <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span>
+     <span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="n">i</span> <span class="o">**</span> <span class="nb">exponent</span>
+<span class="nb">  </span><span class="k">end do</span>
 
-  ! 和を計算
-  sum = 0.0_8
-  do i = 1, n
-     sum = sum + x(i)
-  end do
+  <span class="c">! 和を計算</span>
+  <span class="nb">sum</span> <span class="o">=</span> <span class="mf">0.0_8</span>
+  <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span>
+     <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">+</span> <span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+  <span class="k">end do</span>
 
-  write(*,*) &#39;sum of array = &#39;, sum
+<span class="k">  write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;sum of array = &#39;</span><span class="p">,</span> <span class="nb">sum</span>
 
-end subroutine sub1
+<span class="k">end subroutine </span><span class="n">sub1</span>
 </pre></div>
 </td></tr></table></div>
 <p>この変数は全てこのサブルーチン内部でのみ参照されるものであり，外部からはこれらの変数は参照出来ない．従って，別のサブルーチンが</p>

@@ -94,49 +94,49 @@
 40
 41
 42
-43</pre></div></td><td class="code"><div class="highlight"><pre><span></span>!!!!!!!!!!! 外部手続きの定義場所(1) !!!!!!!!!!
-function square_ext1(x) result(y)
-  implicit none
-  real(8) :: x
-  real(8) :: y
+43</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">!!!!!!!!!!! 外部手続きの定義場所(1) !!!!!!!!!!</span>
+<span class="k">function </span><span class="n">square_ext1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+  <span class="k">implicit none</span>
+<span class="k">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span>
+  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">y</span>
 
-  y = x**2
+  <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
 
-  return
-end function square_ext1
-!!!!!!!!!!!
+  <span class="k">return</span>
+<span class="k">end function </span><span class="n">square_ext1</span>
+<span class="c">!!!!!!!!!!!</span>
 
-program sample
-  implicit none
-  !
-  ! 外部関数を呼び出すために必要
-  ! (本当は後で学ぶモジュールを使うほうがスマート)
-  !
-  interface
-     real(8) function square_ext1(x)
-       real(8) :: x
-     end function square_ext1
-  end interface
+<span class="k">program </span><span class="n">sample</span>
+  <span class="k">implicit none</span>
+  <span class="c">!</span>
+  <span class="c">! 外部関数を呼び出すために必要</span>
+  <span class="c">! (本当は後で学ぶモジュールを使うほうがスマート)</span>
+  <span class="c">!</span>
+  <span class="k">interface</span>
+<span class="k">     </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="k">function </span><span class="n">square_ext1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+       <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span>
+     <span class="k">end function </span><span class="n">square_ext1</span>
+  <span class="k">end interface</span>
 
-  ! 実はこれだけでも良いが，色々と問題が多いので非推奨
-  real(8), external :: square_ext2
+  <span class="c">! 実はこれだけでも良いが，色々と問題が多いので非推奨</span>
+  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">external</span> <span class="kd">::</span> <span class="n">square_ext2</span>
 
-  write(*,*) square_ext1(2.0_8), square_ext2(4.0_8)
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">square_ext1</span><span class="p">(</span><span class="mf">2.0_8</span><span class="p">),</span> <span class="n">square_ext2</span><span class="p">(</span><span class="mf">4.0_8</span><span class="p">)</span>
 
-  stop
-end program sample
+  <span class="k">stop</span>
+<span class="k">end program </span><span class="n">sample</span>
 
-!!!!!!!!!!! 外部手続きの定義場所(2) !!!!!!!!!!
-function square_ext2(x) result(y)
-  implicit none
-  real(8) :: x
-  real(8) :: y
+<span class="c">!!!!!!!!!!! 外部手続きの定義場所(2) !!!!!!!!!!</span>
+<span class="k">function </span><span class="n">square_ext2</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+  <span class="k">implicit none</span>
+<span class="k">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span>
+  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">y</span>
 
-  y = x**2
+  <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
 
-  return
-end function square_ext2
-!!!!!!!!!!!
+  <span class="k">return</span>
+<span class="k">end function </span><span class="n">square_ext2</span>
+<span class="c">!!!!!!!!!!!</span>
 </pre></div>
 </td></tr></table></div>
 </div>

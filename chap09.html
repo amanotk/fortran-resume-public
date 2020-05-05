@@ -339,63 +339,63 @@
 54
 55
 56
-57</pre></div></td><td class="code"><div class="highlight"><pre><span></span>module mod_integrator
-  implicit none
+57</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">module </span><span class="n">mod_integrator</span>
+  <span class="k">implicit none</span>
 
-contains
-  !
-  ! 台形公式による数値積分
-  !
-  function trapezoid(f, dx) result(ret)
-    implicit none
-    real(8), intent(in) :: f(:)
-    real(8), intent(in) :: dx
-    real(8) :: ret
+<span class="k">contains</span>
+  <span class="c">!</span>
+  <span class="c">! 台形公式による数値積分</span>
+  <span class="c">!</span>
+  <span class="k">function </span><span class="n">trapezoid</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+    <span class="k">implicit none</span>
+<span class="k">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">f</span><span class="p">(:)</span>
+    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">dx</span>
+    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">ret</span>
 
-    integer :: i, n
+    <span class="kt">integer</span> <span class="kd">::</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span>
 
-    n = size(f)
+    <span class="n">n</span> <span class="o">=</span> <span class="n">size</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 
-    ret = 0.5_8 * (f(1) + f(n))
-    do i = 2, n-1
-       ret = ret + f(i)
-    end do
-    ret = ret * dx
+    <span class="n">ret</span> <span class="o">=</span> <span class="mf">0.5_8</span> <span class="o">*</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+    <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span>
+       <span class="n">ret</span> <span class="o">=</span> <span class="n">ret</span> <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">end do</span>
+<span class="k">    </span><span class="n">ret</span> <span class="o">=</span> <span class="n">ret</span> <span class="o">*</span> <span class="n">dx</span>
 
-  end function trapezoid
+  <span class="k">end function </span><span class="n">trapezoid</span>
 
-  !
-  ! Simpson公式による数値積分
-  !
-  function simpson(f, dx) result(ret)
-    implicit none
-    real(8), intent(in) :: f(:)
-    real(8), intent(in) :: dx
-    real(8) :: ret
+  <span class="c">!</span>
+  <span class="c">! Simpson公式による数値積分</span>
+  <span class="c">!</span>
+  <span class="k">function </span><span class="n">simpson</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+    <span class="k">implicit none</span>
+<span class="k">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">f</span><span class="p">(:)</span>
+    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">dx</span>
+    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">ret</span>
 
-    integer :: i, n
+    <span class="kt">integer</span> <span class="kd">::</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span>
 
-    n = size(f)
+    <span class="n">n</span> <span class="o">=</span> <span class="n">size</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 
-    ! 端点を含めた配列サイズが奇数でなければエラー
-    if( mod(n, 2) == 0 ) then
-       write(*,*) &#39;array size must be odd&#39;
-       stop
-    end if
+    <span class="c">! 端点を含めた配列サイズが奇数でなければエラー</span>
+    <span class="k">if</span><span class="p">(</span> <span class="nb">mod</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span> <span class="k">then</span>
+<span class="k">       write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;array size must be odd&#39;</span>
+       <span class="k">stop</span>
+<span class="k">    end if</span>
 
-    ret = f(1) + f(n)
-    ! even
-    do i = 2, n-1, 2
-       ret = ret + 4.0_8 * f(i)
-    end do
-    ! odd
-    do i = 3, n-2, 2
-       ret = ret + 2.0_8 * f(i)
-    end do
-    ret = ret * dx / 3.0_8
+<span class="k">    </span><span class="n">ret</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="c">! even</span>
+    <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
+       <span class="n">ret</span> <span class="o">=</span> <span class="n">ret</span> <span class="o">+</span> <span class="mf">4.0_8</span> <span class="o">*</span> <span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">end do</span>
+    <span class="c">! odd</span>
+    <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span>
+       <span class="n">ret</span> <span class="o">=</span> <span class="n">ret</span> <span class="o">+</span> <span class="mf">2.0_8</span> <span class="o">*</span> <span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">end do</span>
+<span class="k">    </span><span class="n">ret</span> <span class="o">=</span> <span class="n">ret</span> <span class="o">*</span> <span class="n">dx</span> <span class="o">/</span> <span class="mf">3.0_8</span>
 
-  end function simpson
-end module mod_integrator
+  <span class="k">end function </span><span class="n">simpson</span>
+<span class="k">end module </span><span class="n">mod_integrator</span>
 </pre></div>
 </td></tr></table></div>
 </div>
@@ -446,38 +446,38 @@ end module mod_integrator
 29
 30
 31
-32</pre></div></td><td class="code"><div class="highlight"><pre><span></span>! 面積を計算するモジュール
-module mod_area
-  implicit none
+32</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">! 面積を計算するモジュール</span>
+<span class="k">module </span><span class="n">mod_area</span>
+  <span class="k">implicit none</span>
 
-  real(8), parameter :: pi = 4*atan(1.0_8)
+<span class="k">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">pi</span> <span class="o">=</span> <span class="mi">4</span><span class="o">*</span><span class="nb">atan</span><span class="p">(</span><span class="mf">1.0_8</span><span class="p">)</span>
 
-  ! 総称名を定義
-  interface triangle
-     module procedure triangle1, triangle2
-  end interface triangle
+  <span class="c">! 総称名を定義</span>
+  <span class="k">interface </span><span class="n">triangle</span>
+     <span class="k">module procedure </span><span class="n">triangle1</span><span class="p">,</span> <span class="n">triangle2</span>
+  <span class="k">end interface </span><span class="n">triangle</span>
 
-contains
+<span class="k">contains</span>
 
-  ! 底辺と高さが与えられた時の面積の計算
-  function triangle1(a, b) result(area)
-    real(8), intent(in) :: a, b
-    real(8) :: area
+  <span class="c">! 底辺と高さが与えられた時の面積の計算</span>
+  <span class="k">function </span><span class="n">triangle1</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">area</span><span class="p">)</span>
+    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span>
+    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">area</span>
 
-    area = a * b / 2
+    <span class="n">area</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span> <span class="o">/</span> <span class="mi">2</span>
 
-  end function triangle1
+  <span class="k">end function </span><span class="n">triangle1</span>
 
-  ! 3つの頂点の座標が与えられた時の面積の計算
-  function triangle2(x1, y1, x2, y2, x3, y3) result(area)
-    real(8), intent(in) :: x1, y1, x2, y2, x3, y3
-    real(8) :: area
+  <span class="c">! 3つの頂点の座標が与えられた時の面積の計算</span>
+  <span class="k">function </span><span class="n">triangle2</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">x3</span><span class="p">,</span> <span class="n">y3</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">area</span><span class="p">)</span>
+    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">x3</span><span class="p">,</span> <span class="n">y3</span>
+    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">area</span>
 
-    area = abs((x2-x1)*(y3-y1) - (x3-x1)*(y2-y1))/2
+    <span class="n">area</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">((</span><span class="n">x2</span><span class="o">-</span><span class="n">x1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">y3</span><span class="o">-</span><span class="n">y1</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">x3</span><span class="o">-</span><span class="n">x1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">y2</span><span class="o">-</span><span class="n">y1</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span>
 
-  end function triangle2
+  <span class="k">end function </span><span class="n">triangle2</span>
 
-end module mod_area
+<span class="k">end module </span><span class="n">mod_area</span>
 </pre></div>
 </td></tr></table></div>
 <p>この例では三角形の面積を底辺と高さが与えられた時と3つの頂点の座標が与えられた時のいずれも同じ関数名で呼び出すことが出来るように総称名 <code class="docutils literal notranslate"><span class="pre">triangle</span></code> を宣言している．2つの違いは呼び出し時の引数だけなので，呼び出される時の引数の個数や型によってコンパイラが自動的に適切な方を呼び出すことが出来る．なお，総称名を用いると全く別の機能を実装したものであってもまとめることが出来てしまうのだが，このような使い方は混乱の元になるだけであろう．総称名を使うのは意味的に同じ機能を持った関数やサブルーチンをまとめる時にのみにしておいた方が良い．</p>
@@ -634,103 +634,103 @@ end module mod_area
 94
 95
 96
-97</pre></div></td><td class="code"><div class="highlight"><pre><span></span>! 物理定数モジュール
-module mod_const
-  implicit none
-  private ! デフォルトで非公開
+97</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">! 物理定数モジュール</span>
+<span class="k">module </span><span class="n">mod_const</span>
+  <span class="k">implicit none</span>
+<span class="k">  private</span> <span class="c">! デフォルトで非公開</span>
 
-  ! 単位選択フラグ: 1 =&gt; MKS, 2 =&gt; CGS
-  integer, save :: unit = 1
+  <span class="c">! 単位選択フラグ: 1 =&gt; MKS, 2 =&gt; CGS</span>
+  <span class="kt">integer</span><span class="p">,</span> <span class="k">save</span> <span class="kd">::</span> <span class="n">unit</span> <span class="o">=</span> <span class="mi">1</span>
 
-  real(8), parameter :: pi  = 4*atan(1.0_8)
-  real(8), parameter :: mu0 = 4*pi * 1.0e-7_8
+  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">pi</span>  <span class="o">=</span> <span class="mi">4</span><span class="o">*</span><span class="nb">atan</span><span class="p">(</span><span class="mf">1.0_8</span><span class="p">)</span>
+  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">mu0</span> <span class="o">=</span> <span class="mi">4</span><span class="o">*</span><span class="n">pi</span> <span class="o">*</span> <span class="mf">1.0e-7_8</span>
 
-  ! MKS =&gt; CGS への変換ファクター
-  real(8), parameter :: T = 1.0e+0_8
-  real(8), parameter :: L = 1.0e+2_8
-  real(8), parameter :: M = 1.0e+3_8
+  <span class="c">! MKS =&gt; CGS への変換ファクター</span>
+  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">T</span> <span class="o">=</span> <span class="mf">1.0e+0_8</span>
+  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">L</span> <span class="o">=</span> <span class="mf">1.0e+2_8</span>
+  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">M</span> <span class="o">=</span> <span class="mf">1.0e+3_8</span>
 
-  ! MKSで定義
-  real(8), parameter :: mks_light_speed       = 2.997924e+8_8
-  real(8), parameter :: mks_electron_mass     = 9.109382e-31_8
-  real(8), parameter :: mks_elementary_charge = 1.602176e-19_8
+  <span class="c">! MKSで定義</span>
+  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">mks_light_speed</span>       <span class="o">=</span> <span class="mf">2.997924e+8_8</span>
+  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">mks_electron_mass</span>     <span class="o">=</span> <span class="mf">9.109382e-31_8</span>
+  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">mks_elementary_charge</span> <span class="o">=</span> <span class="mf">1.602176e-19_8</span>
 
-  ! これらのみ公開
-  public :: set_mks, set_cgs
-  public :: light_speed, electron_mass, elementary_charge
+  <span class="c">! これらのみ公開</span>
+  <span class="k">public</span> <span class="kd">::</span> <span class="n">set_mks</span><span class="p">,</span> <span class="n">set_cgs</span>
+  <span class="k">public</span> <span class="kd">::</span> <span class="n">light_speed</span><span class="p">,</span> <span class="n">electron_mass</span><span class="p">,</span> <span class="n">elementary_charge</span>
 
-contains
+<span class="k">contains</span>
 
-  ! MKSモード
-  subroutine set_mks()
-    implicit none
+  <span class="c">! MKSモード</span>
+  <span class="k">subroutine </span><span class="n">set_mks</span><span class="p">()</span>
+    <span class="k">implicit none</span>
 
-    unit = 1
-  end subroutine set_mks
+<span class="k">    </span><span class="n">unit</span> <span class="o">=</span> <span class="mi">1</span>
+  <span class="k">end subroutine </span><span class="n">set_mks</span>
 
-  ! CGSモード
-  subroutine set_cgs()
-    implicit none
+  <span class="c">! CGSモード</span>
+  <span class="k">subroutine </span><span class="n">set_cgs</span><span class="p">()</span>
+    <span class="k">implicit none</span>
 
-    unit = 2
-  end subroutine set_cgs
+<span class="k">    </span><span class="n">unit</span> <span class="o">=</span> <span class="mi">2</span>
+  <span class="k">end subroutine </span><span class="n">set_cgs</span>
 
-  ! 光速
-  function light_speed() result(x)
-    implicit none
-    real(8) :: x
+  <span class="c">! 光速</span>
+  <span class="k">function </span><span class="n">light_speed</span><span class="p">()</span> <span class="k">result</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">implicit none</span>
+<span class="k">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span>
 
-    if( unit == 1 ) then
-       x = mks_light_speed
-    else if ( unit == 2 ) then
-       x = mks_light_speed * L/T
-    else
-       call unit_error(unit)
-    end if
+    <span class="k">if</span><span class="p">(</span> <span class="n">unit</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">)</span> <span class="k">then</span>
+<span class="k">       </span><span class="n">x</span> <span class="o">=</span> <span class="n">mks_light_speed</span>
+    <span class="k">else if</span> <span class="p">(</span> <span class="n">unit</span> <span class="o">==</span> <span class="mi">2</span> <span class="p">)</span> <span class="k">then</span>
+<span class="k">       </span><span class="n">x</span> <span class="o">=</span> <span class="n">mks_light_speed</span> <span class="o">*</span> <span class="n">L</span><span class="o">/</span><span class="n">T</span>
+    <span class="k">else</span>
+<span class="k">       call </span><span class="n">unit_error</span><span class="p">(</span><span class="n">unit</span><span class="p">)</span>
+    <span class="k">end if</span>
 
-  end function light_speed
+<span class="k">  end function </span><span class="n">light_speed</span>
 
-  ! 電子質量
-  function electron_mass() result(x)
-    implicit none
-    real(8) :: x
+  <span class="c">! 電子質量</span>
+  <span class="k">function </span><span class="n">electron_mass</span><span class="p">()</span> <span class="k">result</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">implicit none</span>
+<span class="k">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span>
 
-    if( unit == 1 ) then
-       x = mks_electron_mass
-    else if ( unit == 2 ) then
-       x = mks_electron_mass * M
-    else
-       call unit_error(unit)
-    end if
+    <span class="k">if</span><span class="p">(</span> <span class="n">unit</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">)</span> <span class="k">then</span>
+<span class="k">       </span><span class="n">x</span> <span class="o">=</span> <span class="n">mks_electron_mass</span>
+    <span class="k">else if</span> <span class="p">(</span> <span class="n">unit</span> <span class="o">==</span> <span class="mi">2</span> <span class="p">)</span> <span class="k">then</span>
+<span class="k">       </span><span class="n">x</span> <span class="o">=</span> <span class="n">mks_electron_mass</span> <span class="o">*</span> <span class="n">M</span>
+    <span class="k">else</span>
+<span class="k">       call </span><span class="n">unit_error</span><span class="p">(</span><span class="n">unit</span><span class="p">)</span>
+    <span class="k">end if</span>
 
-  end function electron_mass
+<span class="k">  end function </span><span class="n">electron_mass</span>
 
-  ! 素電荷
-  function elementary_charge() result(x)
-    implicit none
-    real(8) :: x
+  <span class="c">! 素電荷</span>
+  <span class="k">function </span><span class="n">elementary_charge</span><span class="p">()</span> <span class="k">result</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">implicit none</span>
+<span class="k">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span>
 
-    if( unit == 1 ) then
-       x = mks_elementary_charge
-    else if ( unit == 2 ) then
-       x = mks_elementary_charge * light_speed() * sqrt(mu0/(4*pi) * M * L * T**2)
-    else
-       call unit_error(unit)
-    end if
+    <span class="k">if</span><span class="p">(</span> <span class="n">unit</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">)</span> <span class="k">then</span>
+<span class="k">       </span><span class="n">x</span> <span class="o">=</span> <span class="n">mks_elementary_charge</span>
+    <span class="k">else if</span> <span class="p">(</span> <span class="n">unit</span> <span class="o">==</span> <span class="mi">2</span> <span class="p">)</span> <span class="k">then</span>
+<span class="k">       </span><span class="n">x</span> <span class="o">=</span> <span class="n">mks_elementary_charge</span> <span class="o">*</span> <span class="n">light_speed</span><span class="p">()</span> <span class="o">*</span> <span class="nb">sqrt</span><span class="p">(</span><span class="n">mu0</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">pi</span><span class="p">)</span> <span class="o">*</span> <span class="n">M</span> <span class="o">*</span> <span class="n">L</span> <span class="o">*</span> <span class="n">T</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">else</span>
+<span class="k">       call </span><span class="n">unit_error</span><span class="p">(</span><span class="n">unit</span><span class="p">)</span>
+    <span class="k">end if</span>
 
-  end function elementary_charge
+<span class="k">  end function </span><span class="n">elementary_charge</span>
 
-  ! エラー
-  subroutine unit_error(u)
-    implicit none
-    integer, intent(in) :: u
+  <span class="c">! エラー</span>
+  <span class="k">subroutine </span><span class="n">unit_error</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+    <span class="k">implicit none</span>
+<span class="k">    </span><span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">u</span>
 
-    ! 標準エラー出力へ
-    write(0,&#39;(a, i3)&#39;) &#39;Error: invalid unit &#39;, u
+    <span class="c">! 標準エラー出力へ</span>
+    <span class="k">write</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;(a, i3)&#39;</span><span class="p">)</span> <span class="s1">&#39;Error: invalid unit &#39;</span><span class="p">,</span> <span class="n">u</span>
 
-  end subroutine unit_error
+  <span class="k">end subroutine </span><span class="n">unit_error</span>
 
-end module mod_const
+<span class="k">end module </span><span class="n">mod_const</span>
 </pre></div>
 </td></tr></table></div>
 </div>
@@ -768,17 +768,17 @@ end module mod_const
  8
  9
 10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span></span>! 2次元のベクトル
-type :: vector2
-  real(8) :: x, y
-end type vector2
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">! 2次元のベクトル</span>
+<span class="k">type</span> <span class="kd">::</span> <span class="n">vector2</span>
+  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+<span class="k">end type </span><span class="n">vector2</span>
 
-! 構造型の変数を宣言
-type(vector2) :: a
+<span class="c">! 構造型の変数を宣言</span>
+<span class="k">type</span><span class="p">(</span><span class="n">vector2</span><span class="p">)</span> <span class="kd">::</span> <span class="n">a</span>
 
-! &#39;%&#39;を用いて各要素にアクセスが出来る
-a%x = 1.0_8
-a%y = 0.0_8
+<span class="c">! &#39;%&#39;を用いて各要素にアクセスが出来る</span>
+<span class="n">a</span><span class="p">%</span><span class="n">x</span> <span class="o">=</span> <span class="mf">1.0_8</span>
+<span class="n">a</span><span class="p">%</span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.0_8</span>
 </pre></div>
 </td></tr></table></div>
 <p>構造型の各要素にアクセスするには上の例のように&quot;<code class="docutils literal notranslate"><span class="pre">%</span></code> &quot;を用いれば良い．構造型を用いると，常にセットで必要になるような複数のデータをまとめて保持することが出来るので，上手く利用すればプログラムが非常に見やすくなる．例えば非常に多くの引数を必要とするサブルーチンでも，構造型を利用してデータをまとめることで引数の数を減らして，スッキリとした形に書き換えることが出来るだろう <a class="footnote-reference brackets" href="#id29" id="id16">5</a>．</p>
@@ -931,8 +931,8 @@ a%y = 0.0_8
 倍精度実数と <code class="docutils literal notranslate"><span class="pre">type(vector2)</span></code> の間で以下のような演算が出来るようにする．</p></li>
 </ul>
 <div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>b = a - 1.0_8 ! b%x = a%x - 1.0_8; b%y = a%y - 1.0_8; と同値になるように
-b = 1.0_8 - a ! b%x = 1.0_8 - a%x; b%y = 1.0_8 - a%y; と同値になるように
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="mf">1.0_8</span> <span class="c">! b%x = a%x - 1.0_8; b%y = a%y - 1.0_8; と同値になるように</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">1.0_8</span> <span class="o">-</span> <span class="n">a</span> <span class="c">! b%x = 1.0_8 - a%x; b%y = 1.0_8 - a%y; と同値になるように</span>
 </pre></div>
 </td></tr></table></div>
 <ul class="simple">
@@ -948,8 +948,8 @@ b = 1.0_8 - a ! b%x = 1.0_8 - a%x; b%y = 1.0_8 - a%y; と同値になるよう�
 <li><p><code class="docutils literal notranslate"><span class="pre">=</span></code> 演算子: 以下のような代入文を実行できるようにする．</p></li>
 </ul>
 <div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>a = 1.0_8            ! x, yに同じ値(1.0)を代入
-b = (/2.0_8, 1.0_8/) ! xには2.0, yには1.0を代入
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">1.0_8</span>            <span class="c">! x, yに同じ値(1.0)を代入</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">2.0_8</span><span class="p">,</span> <span class="mf">1.0_8</span><span class="o">/</span><span class="p">)</span> <span class="c">! xには2.0, yには1.0を代入</span>
 </pre></div>
 </td></tr></table></div>
 <p>ここで <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">(/2.0_8,</span> <span class="pre">1.0_8/)</span></code> の右辺は長さ2の倍精度実数型の配列である．</p>
@@ -983,31 +983,31 @@ b = (/2.0_8, 1.0_8/) ! xには2.0, yには1.0を代入
 22
 23
 24
-25</pre></div></td><td class="code"><div class="highlight"><pre><span></span>type(vector2) :: a, b, c
-type(vector3) :: x, y, z
+25</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">type</span><span class="p">(</span><span class="n">vector2</span><span class="p">)</span> <span class="kd">::</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span>
+<span class="k">type</span><span class="p">(</span><span class="n">vector3</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span>
 
-write(*, fmt=&#39;(a)&#39;) &#39;--- vector2 ---&#39;
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;--- vector2 ---&#39;</span>
 
-a = (/1.0_8, 0.0_8/)
-b = 1.0_8
-c = a + b
+<span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">1.0_8</span><span class="p">,</span> <span class="mf">0.0_8</span><span class="o">/</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">1.0_8</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 
-call show(a + b)
-call show(a - b)
+<span class="k">call </span><span class="n">show</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+<span class="k">call </span><span class="n">show</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span>
 
-write(*, fmt=&#39;(&quot;a * b = &quot;, f12.4)&#39;) a*b
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(&quot;a * b = &quot;, f12.4)&#39;</span><span class="p">)</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span>
 
-write(*, fmt=&#39;(a)&#39;) &#39;--- vector3 ---&#39;
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;--- vector3 ---&#39;</span>
 
-x = (/1.0_8, 0.0_8, 0.0_8/)
-y = 1.0_8
-z = x * y
+<span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">1.0_8</span><span class="p">,</span> <span class="mf">0.0_8</span><span class="p">,</span> <span class="mf">0.0_8</span><span class="o">/</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mf">1.0_8</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
 
-call show(x)
-call show(y)
-call show(z)
-call show(x+y)
-call show(x-y)
+<span class="k">call </span><span class="n">show</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">call </span><span class="n">show</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="k">call </span><span class="n">show</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+<span class="k">call </span><span class="n">show</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span>
+<span class="k">call </span><span class="n">show</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 <p>のような記述が可能になるはずである．</p>

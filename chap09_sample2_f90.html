@@ -166,121 +166,121 @@
 112
 113
 114
-115</pre></div></td><td class="code"><div class="highlight"><pre><span></span>! 内部手続き
-module mod_integrator
-  implicit none
+115</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">! 内部手続き</span>
+<span class="k">module </span><span class="n">mod_integrator</span>
+  <span class="k">implicit none</span>
 
-contains
-  !
-  ! 台形公式による数値積分
-  !
-  function trapezoid(f, dx) result(ret)
-    implicit none
-    real(8), intent(in) :: f(:)
-    real(8), intent(in) :: dx
-    real(8) :: ret
+<span class="k">contains</span>
+  <span class="c">!</span>
+  <span class="c">! 台形公式による数値積分</span>
+  <span class="c">!</span>
+  <span class="k">function </span><span class="n">trapezoid</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+    <span class="k">implicit none</span>
+<span class="k">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">f</span><span class="p">(:)</span>
+    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">dx</span>
+    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">ret</span>
 
-    integer :: i, n
+    <span class="kt">integer</span> <span class="kd">::</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span>
 
-    n = size(f)
+    <span class="n">n</span> <span class="o">=</span> <span class="n">size</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 
-    ret = 0.5_8 * (f(1) + f(n))
-    do i = 2, n-1
-       ret = ret + f(i)
-    end do
-    ret = ret * dx
+    <span class="n">ret</span> <span class="o">=</span> <span class="mf">0.5_8</span> <span class="o">*</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+    <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span>
+       <span class="n">ret</span> <span class="o">=</span> <span class="n">ret</span> <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">end do</span>
+<span class="k">    </span><span class="n">ret</span> <span class="o">=</span> <span class="n">ret</span> <span class="o">*</span> <span class="n">dx</span>
 
-  end function trapezoid
+  <span class="k">end function </span><span class="n">trapezoid</span>
 
-  !
-  ! Simpson公式による数値積分
-  !
-  function simpson(f, dx) result(ret)
-    implicit none
-    real(8), intent(in) :: f(:)
-    real(8), intent(in) :: dx
-    real(8) :: ret
+  <span class="c">!</span>
+  <span class="c">! Simpson公式による数値積分</span>
+  <span class="c">!</span>
+  <span class="k">function </span><span class="n">simpson</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+    <span class="k">implicit none</span>
+<span class="k">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">f</span><span class="p">(:)</span>
+    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">dx</span>
+    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">ret</span>
 
-    integer :: i, n
+    <span class="kt">integer</span> <span class="kd">::</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span>
 
-    n = size(f)
+    <span class="n">n</span> <span class="o">=</span> <span class="n">size</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 
-    ! 端点を含めた配列サイズが奇数でなければエラー
-    if( mod(n, 2) == 0 ) then
-       write(*,*) &#39;array size must be odd&#39;
-       stop
-    end if
+    <span class="c">! 端点を含めた配列サイズが奇数でなければエラー</span>
+    <span class="k">if</span><span class="p">(</span> <span class="nb">mod</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span> <span class="k">then</span>
+<span class="k">       write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;array size must be odd&#39;</span>
+       <span class="k">stop</span>
+<span class="k">    end if</span>
 
-    ret = f(1) + f(n)
-    ! even
-    do i = 2, n-1, 2
-       ret = ret + 4.0_8 * f(i)
-    end do
-    ! odd
-    do i = 3, n-2, 2
-       ret = ret + 2.0_8 * f(i)
-    end do
-    ret = ret * dx / 3.0_8
+<span class="k">    </span><span class="n">ret</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="c">! even</span>
+    <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
+       <span class="n">ret</span> <span class="o">=</span> <span class="n">ret</span> <span class="o">+</span> <span class="mf">4.0_8</span> <span class="o">*</span> <span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">end do</span>
+    <span class="c">! odd</span>
+    <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span>
+       <span class="n">ret</span> <span class="o">=</span> <span class="n">ret</span> <span class="o">+</span> <span class="mf">2.0_8</span> <span class="o">*</span> <span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">end do</span>
+<span class="k">    </span><span class="n">ret</span> <span class="o">=</span> <span class="n">ret</span> <span class="o">*</span> <span class="n">dx</span> <span class="o">/</span> <span class="mf">3.0_8</span>
 
-  end function simpson
-end module mod_integrator
+  <span class="k">end function </span><span class="n">simpson</span>
+<span class="k">end module </span><span class="n">mod_integrator</span>
 
-program sample
-  use mod_integrator ! モジュールを参照
-  implicit none
+<span class="k">program </span><span class="n">sample</span>
+  <span class="k">use </span><span class="n">mod_integrator</span> <span class="c">! モジュールを参照</span>
+  <span class="k">implicit none</span>
 
-  integer :: i, nmax
-  real(8) :: x1, x2, dx, integral, pi
-  real(8), allocatable :: y(:)
+<span class="k">  </span><span class="kt">integer</span> <span class="kd">::</span> <span class="n">i</span><span class="p">,</span> <span class="n">nmax</span>
+  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">integral</span><span class="p">,</span> <span class="n">pi</span>
+  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">y</span><span class="p">(:)</span>
 
-  ! 真の値
-  pi = atan(1.0_8) * 4.0_8
+  <span class="c">! 真の値</span>
+  <span class="n">pi</span> <span class="o">=</span> <span class="nb">atan</span><span class="p">(</span><span class="mf">1.0_8</span><span class="p">)</span> <span class="o">*</span> <span class="mf">4.0_8</span>
 
-  write(*, fmt=&#39;(a)&#39;, advance=&#39;no&#39;) &#39;Input number of segments : &#39;
-  read(*,*) nmax
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(a)&#39;</span><span class="p">,</span> <span class="n">advance</span><span class="o">=</span><span class="s1">&#39;no&#39;</span><span class="p">)</span> <span class="s1">&#39;Input number of segments : &#39;</span>
+  <span class="k">read</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">nmax</span>
 
-  if( mod(nmax,2) /= 0 ) then
-     write(*,*) &#39;Number of segments must be an even number&#39;
-     stop
-  end if
+  <span class="k">if</span><span class="p">(</span> <span class="nb">mod</span><span class="p">(</span><span class="n">nmax</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">/=</span> <span class="mi">0</span> <span class="p">)</span> <span class="k">then</span>
+<span class="k">     write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;Number of segments must be an even number&#39;</span>
+     <span class="k">stop</span>
+<span class="k">  end if</span>
 
-  x1 = 0.0_8
-  x2 = 1.0_8
-  dx = (x2 - x1)/nmax
+<span class="k">  </span><span class="n">x1</span> <span class="o">=</span> <span class="mf">0.0_8</span>
+  <span class="n">x2</span> <span class="o">=</span> <span class="mf">1.0_8</span>
+  <span class="n">dx</span> <span class="o">=</span> <span class="p">(</span><span class="n">x2</span> <span class="o">-</span> <span class="n">x1</span><span class="p">)</span><span class="o">/</span><span class="n">nmax</span>
 
-  ! 配列サイズはnmax+1
-  allocate(y(nmax+1))
+  <span class="c">! 配列サイズはnmax+1</span>
+  <span class="k">allocate</span><span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="n">nmax</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
 
-  ! 関数を評価して配列に代入
-  do i = 1, nmax+1
-     y(i) = f(x1 + dx*real(i-1,8))
-  end do
+  <span class="c">! 関数を評価して配列に代入</span>
+  <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nmax</span><span class="o">+</span><span class="mi">1</span>
+     <span class="n">y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x1</span> <span class="o">+</span> <span class="n">dx</span><span class="o">*</span><span class="kt">real</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+  <span class="k">end do</span>
 
-  ! 台形公式による数値積分
-  integral = trapezoid(y, dx)
-  write(*, fmt=&#39;(a16, &quot; : &quot;, f18.15, &quot; (rel. error = &quot;, e18.12, &quot;)&quot;)&#39;) &amp;
-       &amp; &quot;Trapezoidal rule&quot;, integral, abs(integral/pi - 1.0_8)
+  <span class="c">! 台形公式による数値積分</span>
+  <span class="n">integral</span> <span class="o">=</span> <span class="n">trapezoid</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(a16, &quot; : &quot;, f18.15, &quot; (rel. error = &quot;, e18.12, &quot;)&quot;)&#39;</span><span class="p">)</span> <span class="p">&amp;</span>
+       <span class="p">&amp;</span> <span class="s2">&quot;Trapezoidal rule&quot;</span><span class="p">,</span> <span class="n">integral</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">integral</span><span class="o">/</span><span class="n">pi</span> <span class="o">-</span> <span class="mf">1.0_8</span><span class="p">)</span>
 
-  ! Simpsonの公式による数値積分
-  integral = simpson(y, dx)
-  write(*, fmt=&#39;(a16, &quot; : &quot;, f18.15, &quot; (rel. error = &quot;, e18.12, &quot;)&quot;)&#39;) &amp;
-       &amp; &quot;Simpson&#39;s rule&quot;, integral, abs(integral/pi - 1.0_8)
+  <span class="c">! Simpsonの公式による数値積分</span>
+  <span class="n">integral</span> <span class="o">=</span> <span class="n">simpson</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(a16, &quot; : &quot;, f18.15, &quot; (rel. error = &quot;, e18.12, &quot;)&quot;)&#39;</span><span class="p">)</span> <span class="p">&amp;</span>
+       <span class="p">&amp;</span> <span class="s2">&quot;Simpson&#39;s rule&quot;</span><span class="p">,</span> <span class="n">integral</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">integral</span><span class="o">/</span><span class="n">pi</span> <span class="o">-</span> <span class="mf">1.0_8</span><span class="p">)</span>
 
-  deallocate(y)
+  <span class="k">deallocate</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 
-  stop
-contains
-  ! 被積分関数
-  function f(x) result(ret)
-    implicit none
-    real(8), intent(in) :: x
-    real(8) :: ret
+  <span class="k">stop</span>
+<span class="k">contains</span>
+  <span class="c">! 被積分関数</span>
+  <span class="k">function </span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+    <span class="k">implicit none</span>
+<span class="k">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span>
+    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">ret</span>
 
-    ret = 4.0_8 / (1.0_8 + x**2)
+    <span class="n">ret</span> <span class="o">=</span> <span class="mf">4.0_8</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0_8</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 
-    return
-  end function f
-end program sample
+    <span class="k">return</span>
+<span class="k">  end function </span><span class="n">f</span>
+<span class="k">end program </span><span class="n">sample</span>
 </pre></div>
 </td></tr></table></div>
 </div>

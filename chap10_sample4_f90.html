@@ -71,26 +71,26 @@
 17
 18
 19
-20</pre></div></td><td class="code"><div class="highlight"><pre><span></span>program sample
-  implicit none
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">sample</span>
+  <span class="k">implicit none</span>
 
-  integer :: i
-  real(8) :: x, y, pi, t1, t2
+<span class="k">  </span><span class="kt">integer</span> <span class="kd">::</span> <span class="n">i</span>
+  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span>
 
-  call cpu_time(t1)
+  <span class="k">call </span><span class="nb">cpu_time</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span>
 
-  do i = 1, 20000000
-     pi = 4.0_8 * atan(1.0_8)
-     y  = cos(2*pi*x)
-     x  = y
-  end do
+  <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">20000000</span>
+     <span class="n">pi</span> <span class="o">=</span> <span class="mf">4.0_8</span> <span class="o">*</span> <span class="nb">atan</span><span class="p">(</span><span class="mf">1.0_8</span><span class="p">)</span>
+     <span class="n">y</span>  <span class="o">=</span> <span class="nb">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+     <span class="n">x</span>  <span class="o">=</span> <span class="n">y</span>
+  <span class="k">end do</span>
 
-  call cpu_time(t2)
+<span class="k">  call </span><span class="nb">cpu_time</span><span class="p">(</span><span class="n">t2</span><span class="p">)</span>
 
-  write(*,&#39;(&quot;CPU Time [sec] : &quot;, e12.4)&#39;) t2 - t1
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(&quot;CPU Time [sec] : &quot;, e12.4)&#39;</span><span class="p">)</span> <span class="n">t2</span> <span class="o">-</span> <span class="n">t1</span>
 
-  stop
-end program sample
+  <span class="k">stop</span>
+<span class="k">end program </span><span class="n">sample</span>
 </pre></div>
 </td></tr></table></div>
 </div>

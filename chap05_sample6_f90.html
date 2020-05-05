@@ -108,63 +108,63 @@
 54
 55
 56
-57</pre></div></td><td class="code"><div class="highlight"><pre><span></span>program sample
-  implicit none
+57</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">sample</span>
+  <span class="k">implicit none</span>
 
-  integer, parameter :: n = 5
-  integer :: i, j
-  real(8) :: a(n,n), b(n), x(n)
-  real(8) :: inner
+<span class="k">  </span><span class="kt">integer</span><span class="p">,</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
+  <span class="kt">integer</span> <span class="kd">::</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span>
+  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">a</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">),</span> <span class="n">b</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">x</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">inner</span>
 
-  x = (/1.0_8, 0.5_8, 0.0_8, 0.5_8, 1.0_8/)
+  <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">1.0_8</span><span class="p">,</span> <span class="mf">0.5_8</span><span class="p">,</span> <span class="mf">0.0_8</span><span class="p">,</span> <span class="mf">0.5_8</span><span class="p">,</span> <span class="mf">1.0_8</span><span class="o">/</span><span class="p">)</span>
 
-  a = reshape( &amp;
-       &amp; (/-2.0,  1.0,  0.0,  0.0,  0.0, &amp;
-       &amp;    1.0, -2.0,  1.0,  0.0,  0.0, &amp;
-       &amp;    0.0,  1.0, -2.0,  1.0,  0.0, &amp;
-       &amp;    0.0,  0.0,  1.0, -2.0,  1.0, &amp;
-       &amp;    1.0,  0.0,  0.0,  1.0, -2.0/), &amp;
-       &amp; (/n, n/))
+  <span class="n">a</span> <span class="o">=</span> <span class="nb">reshape</span><span class="p">(</span> <span class="p">&amp;</span>
+       <span class="p">&amp;</span> <span class="p">(</span><span class="o">/-</span><span class="mf">2.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">,</span> <span class="p">&amp;</span>
+       <span class="p">&amp;</span>    <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">,</span> <span class="p">&amp;</span>
+       <span class="p">&amp;</span>    <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">,</span> <span class="p">&amp;</span>
+       <span class="p">&amp;</span>    <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="p">&amp;</span>
+       <span class="p">&amp;</span>    <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="o">/</span><span class="p">),</span> <span class="p">&amp;</span>
+       <span class="p">&amp;</span> <span class="p">(</span><span class="o">/</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="o">/</span><span class="p">))</span>
 
-  ! 配列aの形状およびサイズを表示
-  write(*,*) &#39;shape of a = &#39;, shape(a)
-  write(*,*) &#39;size of a = &#39;, size(a)
+  <span class="c">! 配列aの形状およびサイズを表示</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;shape of a = &#39;</span><span class="p">,</span> <span class="nb">shape</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;size of a = &#39;</span><span class="p">,</span> <span class="n">size</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 
-  ! 初期化
-  do i = 1, n
-    b(i) = 0.0_8
-  end do
+  <span class="c">! 初期化</span>
+  <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span>
+    <span class="n">b</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.0_8</span>
+  <span class="k">end do</span>
 
-  ! 行列aとベクトルxの積をbに代入: b_{i} = a_{i,j} * x_{j}
-  do j = 1, n
-    do i = 1, n
-      b(i) = b(i) + a(i,j) * x(j)
-    end do
-  end do
+  <span class="c">! 行列aとベクトルxの積をbに代入: b_{i} = a_{i,j} * x_{j}</span>
+  <span class="k">do </span><span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span>
+    <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span>
+      <span class="n">b</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="n">b</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="o">*</span> <span class="n">x</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+    <span class="k">end do</span>
+<span class="k">  end do</span>
 
-  write(*,*) &#39;b = &#39;, b
+<span class="k">  write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;b = &#39;</span><span class="p">,</span> <span class="n">b</span>
 
-  ! 組み込み関数を使用して同じ計算を行う
-  b = matmul(a, x)
+  <span class="c">! 組み込み関数を使用して同じ計算を行う</span>
+  <span class="n">b</span> <span class="o">=</span> <span class="nb">matmul</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 
-  write(*,*) &#39;b = &#39;, b
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;b = &#39;</span><span class="p">,</span> <span class="n">b</span>
 
-  ! ベクトル同士の内積を計算
-  inner = 0.0_8
-  do i = 1, n
-    inner = inner + b(i) * x(i)
-  end do
+  <span class="c">! ベクトル同士の内積を計算</span>
+  <span class="n">inner</span> <span class="o">=</span> <span class="mf">0.0_8</span>
+  <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span>
+    <span class="n">inner</span> <span class="o">=</span> <span class="n">inner</span> <span class="o">+</span> <span class="n">b</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">*</span> <span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+  <span class="k">end do</span>
 
-  write(*,*) &#39;inner product 1 = &#39;, inner
+<span class="k">  write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;inner product 1 = &#39;</span><span class="p">,</span> <span class="n">inner</span>
 
 
-  ! 組み込み関数を使用して同じ計算を行う
-  inner = dot_product(b, x)
+  <span class="c">! 組み込み関数を使用して同じ計算を行う</span>
+  <span class="n">inner</span> <span class="o">=</span> <span class="nb">dot_product</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 
-  write(*,*) &#39;inner product 2 = &#39;, inner
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;inner product 2 = &#39;</span><span class="p">,</span> <span class="n">inner</span>
 
-  stop
-end program sample
+  <span class="k">stop</span>
+<span class="k">end program </span><span class="n">sample</span>
 </pre></div>
 </td></tr></table></div>
 </div>

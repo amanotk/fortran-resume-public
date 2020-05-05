@@ -72,27 +72,27 @@
 18
 19
 20
-21</pre></div></td><td class="code"><div class="highlight"><pre><span></span>program sample
-  implicit none
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">sample</span>
+  <span class="k">implicit none</span>
 
-  integer(4), parameter :: n  = 8_4
-  real(8), parameter    :: pi = 3.141592653589_8
-  integer(4) :: m
-  real(8)    :: f, g
+<span class="k">  </span><span class="kt">integer</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">n</span>  <span class="o">=</span> <span class="mi">8_4</span>
+  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">parameter</span>    <span class="kd">::</span> <span class="n">pi</span> <span class="o">=</span> <span class="mf">3.141592653589_8</span>
+  <span class="kt">integer</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="kd">::</span> <span class="n">m</span>
+  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>    <span class="kd">::</span> <span class="n">f</span><span class="p">,</span> <span class="n">g</span>
 
-  ! 普通の変数を同じように定数を参照出来る
-  m = n * 10
-  f = pi * 2
-  g = pi * n
+  <span class="c">! 普通の変数を同じように定数を参照出来る</span>
+  <span class="n">m</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="mi">10</span>
+  <span class="n">f</span> <span class="o">=</span> <span class="n">pi</span> <span class="o">*</span> <span class="mi">2</span>
+  <span class="n">g</span> <span class="o">=</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">n</span>
 
-  ! 次のような定数変数への代入を行うコードがあるとコンパイルエラーとなる
-  ! pi = 3.14
+  <span class="c">! 次のような定数変数への代入を行うコードがあるとコンパイルエラーとなる</span>
+  <span class="c">! pi = 3.14</span>
 
-  write(*,*) n
-  write(*,*) pi
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">n</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">pi</span>
 
-  stop
-end program sample
+  <span class="k">stop</span>
+<span class="k">end program </span><span class="n">sample</span>
 </pre></div>
 </td></tr></table></div>
 </div>

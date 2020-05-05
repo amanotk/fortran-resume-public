@@ -104,59 +104,59 @@
 50
 51
 52
-53</pre></div></td><td class="code"><div class="highlight"><pre><span></span>program sample
-  implicit none
+53</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">sample</span>
+  <span class="k">implicit none</span>
 
-  call sub1(4.0_8)
-  call sub2()
+<span class="k">  call </span><span class="n">sub1</span><span class="p">(</span><span class="mf">4.0_8</span><span class="p">)</span>
+  <span class="k">call </span><span class="n">sub2</span><span class="p">()</span>
 
-  stop
-contains
-  ! sub1
-  subroutine sub1(exponent)
-    implicit none
-    real(8) :: exponent
+  <span class="k">stop</span>
+<span class="k">contains</span>
+  <span class="c">! sub1</span>
+  <span class="k">subroutine </span><span class="n">sub1</span><span class="p">(</span><span class="nb">exponent</span><span class="p">)</span>
+    <span class="k">implicit none</span>
+<span class="k">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="nb">exponent</span>
 
-    !
-    ! 基本的に内部でのみ使う変数はここで宣言して使う
-    ! 特にループ変数(以下の例ではi)は必須
-    ! これらの変数は外部からは見えないので，メインプログラムや他のサブプログラム
-    ! で同名の変数が宣言されていてもそれらとは完全に独立であることに注意
-    !
-    ! (引数に値を代入して返す場合，メインプログラムの変数を参照する場合について
-    ! はレジュメのintent属性や内部手続きの節を参照のこと)
-    !
-    integer, parameter :: n = 10
-    integer :: i
-    real(8) :: x(n), sum
+    <span class="c">!</span>
+    <span class="c">! 基本的に内部でのみ使う変数はここで宣言して使う</span>
+    <span class="c">! 特にループ変数(以下の例ではi)は必須</span>
+    <span class="c">! これらの変数は外部からは見えないので，メインプログラムや他のサブプログラム</span>
+    <span class="c">! で同名の変数が宣言されていてもそれらとは完全に独立であることに注意</span>
+    <span class="c">!</span>
+    <span class="c">! (引数に値を代入して返す場合，メインプログラムの変数を参照する場合について</span>
+    <span class="c">! はレジュメのintent属性や内部手続きの節を参照のこと)</span>
+    <span class="c">!</span>
+    <span class="kt">integer</span><span class="p">,</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="kt">integer</span> <span class="kd">::</span> <span class="n">i</span>
+    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="nb">sum</span>
 
-    ! 代入
-    do i = 1, n
-       x(i) = i ** exponent
-    end do
+    <span class="c">! 代入</span>
+    <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span>
+       <span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="n">i</span> <span class="o">**</span> <span class="nb">exponent</span>
+<span class="nb">    </span><span class="k">end do</span>
 
-    ! 和を計算
-    sum = 0.0_8
-    do i = 1, n
-       sum = sum + x(i)
-    end do
+    <span class="c">! 和を計算</span>
+    <span class="nb">sum</span> <span class="o">=</span> <span class="mf">0.0_8</span>
+    <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span>
+       <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">+</span> <span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">end do</span>
 
-    write(*,*) &#39;sum of array = &#39;, sum
+<span class="k">    write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;sum of array = &#39;</span><span class="p">,</span> <span class="nb">sum</span>
 
-  end subroutine sub1
+<span class="nb">  </span><span class="k">end subroutine </span><span class="n">sub1</span>
 
-  ! sub2
-  subroutine sub2()
-    implicit none
+  <span class="c">! sub2</span>
+  <span class="k">subroutine </span><span class="n">sub2</span><span class="p">()</span>
+    <span class="k">implicit none</span>
 
-    ! このように定義されていても問題無い(sub1のnとは独立な変数である)
-    integer, parameter :: n = 100
+    <span class="c">! このように定義されていても問題無い(sub1のnとは独立な変数である)</span>
+    <span class="kt">integer</span><span class="p">,</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
 
-    write(*,*) &#39;n = &#39;, n
+    <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;n = &#39;</span><span class="p">,</span> <span class="n">n</span>
 
-  end subroutine sub2
+  <span class="k">end subroutine </span><span class="n">sub2</span>
 
-end program sample
+<span class="k">end program </span><span class="n">sample</span>
 </pre></div>
 </td></tr></table></div>
 </div>

@@ -122,77 +122,77 @@
 68
 69
 70
-71</pre></div></td><td class="code"><div class="highlight"><pre><span></span>program sample
-  implicit none
+71</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">sample</span>
+  <span class="k">implicit none</span>
 
-  integer, parameter :: nmax = 50
-  real(8), parameter :: tolerance = 1.0e-6
+<span class="k">  </span><span class="kt">integer</span><span class="p">,</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">nmax</span> <span class="o">=</span> <span class="mi">50</span>
+  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="mf">1.0e-6</span>
 
-  logical :: status
-  integer :: n
-  real(8) :: x, y, x1, x2, sig
+  <span class="kt">logical</span> <span class="kd">::</span> <span class="n">status</span>
+  <span class="kt">integer</span> <span class="kd">::</span> <span class="n">n</span>
+  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">sig</span>
 
-  write(*, fmt=&#39;(a)&#39;, advance=&#39;no&#39;) &#39;Input two initial guesses : &#39;
-  read(*,*) x1, x2
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(a)&#39;</span><span class="p">,</span> <span class="n">advance</span><span class="o">=</span><span class="s1">&#39;no&#39;</span><span class="p">)</span> <span class="s1">&#39;Input two initial guesses : &#39;</span>
+  <span class="k">read</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span>
 
-  ! x1 &lt; x2 となるように交換
-  if( x1 &gt;= x2 ) then
-     x  = x1
-     x1 = x2
-     x2 = x
-  end if
+  <span class="c">! x1 &lt; x2 となるように交換</span>
+  <span class="k">if</span><span class="p">(</span> <span class="n">x1</span> <span class="o">&gt;=</span> <span class="n">x2</span> <span class="p">)</span> <span class="k">then</span>
+<span class="k">     </span><span class="n">x</span>  <span class="o">=</span> <span class="n">x1</span>
+     <span class="n">x1</span> <span class="o">=</span> <span class="n">x2</span>
+     <span class="n">x2</span> <span class="o">=</span> <span class="n">x</span>
+  <span class="k">end if</span>
 
-  ! f(x1)とf(x2)の符号は逆でなければならない
-  if( f(x1)*f(x2) &gt;= 0.0 ) then
-     write(*,*) &#39;Signs of two function values must be opposite&#39;
-     stop
-  end if
+  <span class="c">! f(x1)とf(x2)の符号は逆でなければならない</span>
+  <span class="k">if</span><span class="p">(</span> <span class="n">f</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mf">0.0</span> <span class="p">)</span> <span class="k">then</span>
+<span class="k">     write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;Signs of two function values must be opposite&#39;</span>
+     <span class="k">stop</span>
+<span class="k">  end if</span>
 
-  sig = sign(1.0_8, f(x2)-f(x1))
-  status = .false.
-  do n = 1, nmax
-     x = (x1 + x2) * 0.5_8
-     y = f(x)
+<span class="k">  </span><span class="n">sig</span> <span class="o">=</span> <span class="nb">sign</span><span class="p">(</span><span class="mf">1.0_8</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span><span class="o">-</span><span class="n">f</span><span class="p">(</span><span class="n">x1</span><span class="p">))</span>
+  <span class="n">status</span> <span class="o">=</span> <span class="p">.</span><span class="n">false</span><span class="p">.</span>
+  <span class="k">do </span><span class="n">n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nmax</span>
+     <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">x1</span> <span class="o">+</span> <span class="n">x2</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5_8</span>
+     <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-     ! 収束判定
-     if (abs(x2-x1) &lt; tolerance) then
-        status = .true.
-        write(*,fmt=&#39;(&quot;Converged at step &quot;, i4)&#39;) n
-        exit
-     else
-        write(*,fmt=&#39;(&quot;Error at step &quot;, i4, &quot; = &quot;, e20.8)&#39;) n, abs(y)
-     end if
+     <span class="c">! 収束判定</span>
+     <span class="k">if</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x2</span><span class="o">-</span><span class="n">x1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tolerance</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">        </span><span class="n">status</span> <span class="o">=</span> <span class="p">.</span><span class="n">true</span><span class="p">.</span>
+        <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(&quot;Converged at step &quot;, i4)&#39;</span><span class="p">)</span> <span class="n">n</span>
+        <span class="k">exit</span>
+<span class="k">     else</span>
+<span class="k">        write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(&quot;Error at step &quot;, i4, &quot; = &quot;, e20.8)&#39;</span><span class="p">)</span> <span class="n">n</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+     <span class="k">end if</span>
 
-     ! 次の値を推定
-     if (y*sig &lt; 0.0) then
-        x1 = x
-     else
-        x2 = x
-     end if
-  end do
+     <span class="c">! 次の値を推定</span>
+     <span class="k">if</span> <span class="p">(</span><span class="n">y</span><span class="o">*</span><span class="n">sig</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">        </span><span class="n">x1</span> <span class="o">=</span> <span class="n">x</span>
+     <span class="k">else</span>
+<span class="k">        </span><span class="n">x2</span> <span class="o">=</span> <span class="n">x</span>
+     <span class="k">end if</span>
+<span class="k">  end do</span>
 
-  ! 結果の表示
-  if (status .eqv. .false.) then
-     write(*, fmt=&#39;(&quot;Failed to find a root after &quot;, i3, &quot; iterations&quot;)&#39;) nmax
-  end if
+  <span class="c">! 結果の表示</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">status</span> <span class="p">.</span><span class="n">eqv</span><span class="p">.</span> <span class="p">.</span><span class="n">false</span><span class="p">.)</span> <span class="k">then</span>
+<span class="k">     write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(&quot;Failed to find a root after &quot;, i3, &quot; iterations&quot;)&#39;</span><span class="p">)</span> <span class="n">nmax</span>
+  <span class="k">end if</span>
 
-  write(*, fmt=&#39;(&quot;Final approximation = &quot;, e20.8)&#39;) x
-  write(*, fmt=&#39;(&quot;Final error         = &quot;, e20.8)&#39;) abs(y)
+<span class="k">  write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(&quot;Final approximation = &quot;, e20.8)&#39;</span><span class="p">)</span> <span class="n">x</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(&quot;Final error         = &quot;, e20.8)&#39;</span><span class="p">)</span> <span class="nb">abs</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 
-  stop
-contains
-  ! 方程式
-  function f(x) result(ret)
-    implicit none
-    real(8), intent(in) :: x
-    real(8) :: ret
+  <span class="k">stop</span>
+<span class="k">contains</span>
+  <span class="c">! 方程式</span>
+  <span class="k">function </span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+    <span class="k">implicit none</span>
+<span class="k">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span>
+    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">ret</span>
 
-    ret = x - cos(x)
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="nb">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-    return
-  end function f
+    <span class="k">return</span>
+<span class="k">  end function </span><span class="n">f</span>
 
-end program sample
+<span class="k">end program </span><span class="n">sample</span>
 </pre></div>
 </td></tr></table></div>
 </div>

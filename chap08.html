@@ -152,23 +152,23 @@
 14
 15
 16
-17</pre></div></td><td class="code"><div class="highlight"><pre><span></span>sig = sign(1.0_8, f(x2)-f(x1))
-do n = 1, nmax
-   x = (x1 + x2) * 0.5_8
-   y = f(x)
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">sig</span> <span class="o">=</span> <span class="nb">sign</span><span class="p">(</span><span class="mf">1.0_8</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span><span class="o">-</span><span class="n">f</span><span class="p">(</span><span class="n">x1</span><span class="p">))</span>
+<span class="k">do </span><span class="n">n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nmax</span>
+   <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">x1</span> <span class="o">+</span> <span class="n">x2</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5_8</span>
+   <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-   ! 収束判定
-   if (abs(x2-x1) &lt; tolerance) then
-      exit
-   end if
+   <span class="c">! 収束判定</span>
+   <span class="k">if</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x2</span><span class="o">-</span><span class="n">x1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tolerance</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">      exit</span>
+<span class="k">   end if</span>
 
-   ! 次の値を推定
-   if (y*sig &lt; 0.0) then
-      x1 = x
-   else
-      x2 = x
-   end if
-end do
+   <span class="c">! 次の値を推定</span>
+   <span class="k">if</span> <span class="p">(</span><span class="n">y</span><span class="o">*</span><span class="n">sig</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">      </span><span class="n">x1</span> <span class="o">=</span> <span class="n">x</span>
+   <span class="k">else</span>
+<span class="k">      </span><span class="n">x2</span> <span class="o">=</span> <span class="n">x</span>
+   <span class="k">end if</span>
+<span class="k">end do</span>
 </pre></div>
 </td></tr></table></div>
 </div>
@@ -241,11 +241,11 @@ end do
 2
 3
 4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span>integral = 0.5_8 * (f(x1) + f(x2))
-do n = 1, nmax-1
-   integral = integral + f(x1 + dx*real(n,8))
-end do
-integral = integral * dx
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">integral</span> <span class="o">=</span> <span class="mf">0.5_8</span> <span class="o">*</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span> <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">x2</span><span class="p">))</span>
+<span class="k">do </span><span class="n">n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nmax</span><span class="o">-</span><span class="mi">1</span>
+   <span class="n">integral</span> <span class="o">=</span> <span class="n">integral</span> <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">x1</span> <span class="o">+</span> <span class="n">dx</span><span class="o">*</span><span class="kt">real</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="k">end do</span>
+<span class="n">integral</span> <span class="o">=</span> <span class="n">integral</span> <span class="o">*</span> <span class="n">dx</span>
 </pre></div>
 </td></tr></table></div>
 <p>ただし，ここで <code class="docutils literal notranslate"><span class="pre">f(x)</span></code> は被積分関数である．</p>

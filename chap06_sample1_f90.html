@@ -109,64 +109,64 @@
 55
 56
 57
-58</pre></div></td><td class="code"><div class="highlight"><pre><span></span>program sample
-  implicit none
+58</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">sample</span>
+  <span class="k">implicit none</span>
 
-  character(128) :: fmt
-  character(128) :: text
-  integer :: year = 2014
+<span class="k">  </span><span class="kt">character</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span> <span class="kd">::</span> <span class="n">fmt</span>
+  <span class="kt">character</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span> <span class="kd">::</span> <span class="n">text</span>
+  <span class="kt">integer</span> <span class="kd">::</span> <span class="n">year</span> <span class="o">=</span> <span class="mi">2014</span>
 
-  real(8) :: x, y, z
+  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span>
 
-  ! 6桁で出力
-  write(*, &#39;(i6)&#39;) year
+  <span class="c">! 6桁で出力</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="s1">&#39;(i6)&#39;</span><span class="p">)</span> <span class="n">year</span>
 
-  ! 編集記述子を文字型変数として渡す
-  fmt = &#39;(i6)&#39;
-  write(*, fmt) year
+  <span class="c">! 編集記述子を文字型変数として渡す</span>
+  <span class="n">fmt</span> <span class="o">=</span> <span class="s1">&#39;(i6)&#39;</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">fmt</span><span class="p">)</span> <span class="n">year</span>
 
-  ! 8桁で出力. ただし6桁に満たない部分は0で埋められる
-  write(*, &#39;(i8.6)&#39;) +year
+  <span class="c">! 8桁で出力. ただし6桁に満たない部分は0で埋められる</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="s1">&#39;(i8.6)&#39;</span><span class="p">)</span> <span class="o">+</span><span class="n">year</span>
 
-  ! 負の整数の場合
-  write(*, &#39;(i8.6)&#39;) -year
+  <span class="c">! 負の整数の場合</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="s1">&#39;(i8.6)&#39;</span><span class="p">)</span> <span class="o">-</span><span class="n">year</span>
 
-  x = 4.0_8 * atan(1.0_8)
-  y = x * 2
-  z = x**2
+  <span class="n">x</span> <span class="o">=</span> <span class="mf">4.0_8</span> <span class="o">*</span> <span class="nb">atan</span><span class="p">(</span><span class="mf">1.0_8</span><span class="p">)</span>
+  <span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
+  <span class="n">z</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
 
-  write(*, &#39;(f12.5)&#39;) x
-  write(*, &#39;(e20.7)&#39;) x
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="s1">&#39;(f12.5)&#39;</span><span class="p">)</span> <span class="n">x</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="s1">&#39;(e20.7)&#39;</span><span class="p">)</span> <span class="n">x</span>
 
-  ! これは正しく出力されない
-  write(*, &#39;(f5.3)&#39;) x*10
-  write(*, &#39;(e5.3)&#39;) x
+  <span class="c">! これは正しく出力されない</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="s1">&#39;(f5.3)&#39;</span><span class="p">)</span> <span class="n">x</span><span class="o">*</span><span class="mi">10</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="s1">&#39;(e5.3)&#39;</span><span class="p">)</span> <span class="n">x</span>
 
-  ! そのまま出力
-  write(*, &#39;(a)&#39;) &#39;I Love Fortran&#39;
+  <span class="c">! そのまま出力</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;I Love Fortran&#39;</span>
 
-  ! 30文字幅で右寄せ
-  write(*, &#39;(a30)&#39;) &#39;I Love Fortran&#39;
+  <span class="c">! 30文字幅で右寄せ</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="s1">&#39;(a30)&#39;</span><span class="p">)</span> <span class="s1">&#39;I Love Fortran&#39;</span>
 
-  ! 6文字分(最初の6文字だけ表示される)
-  write(*, &#39;(a6)&#39;) &#39;I Love Fortran&#39;
+  <span class="c">! 6文字分(最初の6文字だけ表示される)</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="s1">&#39;(a6)&#39;</span><span class="p">)</span> <span class="s1">&#39;I Love Fortran&#39;</span>
 
-  ! 複数の記述子を並べる
-  write(*,&#39;(e10.3, e10.3, e10.3)&#39;) x, y, z
+  <span class="c">! 複数の記述子を並べる</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(e10.3, e10.3, e10.3)&#39;</span><span class="p">)</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span>
 
-  ! 文字列および改行を使う
-  write(*,&#39;(&quot;x = &quot;, e10.3, /, &quot;y = &quot;, e10.3, /, &quot;z = &quot;, e10.3)&#39;) x, y, z
+  <span class="c">! 文字列および改行を使う</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(&quot;x = &quot;, e10.3, /, &quot;y = &quot;, e10.3, /, &quot;z = &quot;, e10.3)&#39;</span><span class="p">)</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span>
 
-  ! 出力後に改行しない
-  write(*, fmt=&#39;(a)&#39;, advance=&#39;no&#39;) &#39;Input some text : &#39;
+  <span class="c">! 出力後に改行しない</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(a)&#39;</span><span class="p">,</span> <span class="n">advance</span><span class="o">=</span><span class="s1">&#39;no&#39;</span><span class="p">)</span> <span class="s1">&#39;Input some text : &#39;</span>
 
-  ! 改行まで文字を読み込む
-  read(*, &#39;(a)&#39;) text
+  <span class="c">! 改行まで文字を読み込む</span>
+  <span class="k">read</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="n">text</span>
 
-  write(*,*) &#39;text = &#39;, text
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;text = &#39;</span><span class="p">,</span> <span class="n">text</span>
 
-  stop
-end program sample
+  <span class="k">stop</span>
+<span class="k">end program </span><span class="n">sample</span>
 </pre></div>
 </td></tr></table></div>
 </div>

@@ -76,31 +76,31 @@
 22
 23
 24
-25</pre></div></td><td class="code"><div class="highlight"><pre><span></span>program sample
-  implicit none
+25</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">sample</span>
+  <span class="k">implicit none</span>
 
-  integer :: i, n
-  real(8) :: x, y
+<span class="k">  </span><span class="kt">integer</span> <span class="kd">::</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span>
+  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
 
-  x = 1.0e-15_8
+  <span class="n">x</span> <span class="o">=</span> <span class="mf">1.0e-15_8</span>
 
-  ! 桁落ちの例
-  write(*,*) &#39;Cancellation of significant digits&#39;
-  write(*,&#39;(&quot;correct result   : &quot;, e22.15)&#39;) x/(sqrt(1+x)+1)
-  write(*,&#39;(&quot;incorrect result : &quot;, e22.15)&#39;) sqrt(1+x) - 1
+  <span class="c">! 桁落ちの例</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;Cancellation of significant digits&#39;</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(&quot;correct result   : &quot;, e22.15)&#39;</span><span class="p">)</span> <span class="n">x</span><span class="o">/</span><span class="p">(</span><span class="nb">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(&quot;incorrect result : &quot;, e22.15)&#39;</span><span class="p">)</span> <span class="nb">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
 
-  ! 情報落ちの例
-  n = 10000000
-  y = 1.0_8
-  do i = 1, n
-     y = y + x
-  end do
+  <span class="c">! 情報落ちの例</span>
+  <span class="n">n</span> <span class="o">=</span> <span class="mi">10000000</span>
+  <span class="n">y</span> <span class="o">=</span> <span class="mf">1.0_8</span>
+  <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span>
+     <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">x</span>
+  <span class="k">end do</span>
 
-  write(*,*) &#39;Loss of trailing digits&#39;
-  write(*,&#39;(&quot;correct result   : &quot;, e22.15)&#39;) 1.0_8 + x*n
-  write(*,&#39;(&quot;incorrect result : &quot;, e22.15)&#39;) y
+<span class="k">  write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;Loss of trailing digits&#39;</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(&quot;correct result   : &quot;, e22.15)&#39;</span><span class="p">)</span> <span class="mf">1.0_8</span> <span class="o">+</span> <span class="n">x</span><span class="o">*</span><span class="n">n</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(&quot;incorrect result : &quot;, e22.15)&#39;</span><span class="p">)</span> <span class="n">y</span>
 
-end program sample
+<span class="k">end program </span><span class="n">sample</span>
 </pre></div>
 </td></tr></table></div>
 </div>

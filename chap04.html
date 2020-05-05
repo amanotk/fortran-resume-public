@@ -319,11 +319,11 @@
 2
 3
 4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span>real(8) :: x
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span>
 
-do while(abs(x) &gt; 1.0e-8_8)
-  ! 繰り返し処理
-end do
+<span class="k">do while</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">1.0e-8_8</span><span class="p">)</span>
+  <span class="c">! 繰り返し処理</span>
+<span class="k">end do</span>
 </pre></div>
 </td></tr></table></div>
 <p>などのように非常にスッキリと記述できる．この例では <code class="docutils literal notranslate"><span class="pre">abs(x)</span></code> の値が <span class="math notranslate nohighlight">\(10^{-8}\)</span> 以下になるまで反復を続ける．</p>

@@ -146,101 +146,101 @@
 92
 93
 94
-95</pre></div></td><td class="code"><div class="highlight"><pre><span></span>program sample
-  implicit none
+95</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">sample</span>
+  <span class="k">implicit none</span>
 
-  integer, parameter :: winloss(3,3) = &amp;
-       &amp; reshape((/ 0, +1, -1, -1,  0, +1, +1, -1, 0/), (/3, 3/))
+<span class="k">  </span><span class="kt">integer</span><span class="p">,</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">winloss</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="p">&amp;</span>
+       <span class="p">&amp;</span> <span class="nb">reshape</span><span class="p">((</span><span class="o">/</span> <span class="mi">0</span><span class="p">,</span> <span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="o">/</span><span class="p">),</span> <span class="p">(</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="o">/</span><span class="p">))</span>
 
-  character(128) :: ch, cyou, ccom, message
-  integer :: you, com
-  real(8) :: r
+  <span class="kt">character</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span> <span class="kd">::</span> <span class="n">ch</span><span class="p">,</span> <span class="n">cyou</span><span class="p">,</span> <span class="n">ccom</span><span class="p">,</span> <span class="n">message</span>
+  <span class="kt">integer</span> <span class="kd">::</span> <span class="n">you</span><span class="p">,</span> <span class="n">com</span>
+  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">r</span>
 
-  ! 乱数のseedを設定
-  call random_seed_clock()
+  <span class="c">! 乱数のseedを設定</span>
+  <span class="k">call </span><span class="n">random_seed_clock</span><span class="p">()</span>
 
-  !
-  ! コンピューターとジャンケン
-  !
-  ! グー=r, パー=p, チョキ=s を入力する. それ以外を入力すると終了.
-  !
-  do while(.true.)
-     !
-     ! ユーザーの手を入力
-     !
-     write(*, fmt=&#39;(/,a)&#39;, advance=&#39;no&#39;) &amp;
-          &amp; &#39;Input (r for rock, p for paper, s for scissors) : &#39;
-     read(*,*) ch
+  <span class="c">!</span>
+  <span class="c">! コンピューターとジャンケン</span>
+  <span class="c">!</span>
+  <span class="c">! グー=r, パー=p, チョキ=s を入力する. それ以外を入力すると終了.</span>
+  <span class="c">!</span>
+  <span class="k">do while</span><span class="p">(.</span><span class="n">true</span><span class="p">.)</span>
+     <span class="c">!</span>
+     <span class="c">! ユーザーの手を入力</span>
+     <span class="c">!</span>
+     <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(/,a)&#39;</span><span class="p">,</span> <span class="n">advance</span><span class="o">=</span><span class="s1">&#39;no&#39;</span><span class="p">)</span> <span class="p">&amp;</span>
+          <span class="p">&amp;</span> <span class="s1">&#39;Input (r for rock, p for paper, s for scissors) : &#39;</span>
+     <span class="k">read</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">ch</span>
 
-     select case(ch)
-     case(&#39;r&#39;)
-        you = 1
-        write(cyou, fmt=&#39;(a)&#39;) &#39;Rock (you)&#39;
-     case(&#39;p&#39;)
-        you = 2
-        write(cyou, fmt=&#39;(a)&#39;) &#39;Paper (you)&#39;
-     case(&#39;s&#39;)
-        you = 3
-        write(cyou, fmt=&#39;(a)&#39;) &#39;Scissors (you)&#39;
-     case default
-        write(*,*) &#39;bye&#39;
-        exit
-     end select
+     <span class="k">select case</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span>
+     <span class="k">case</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+        <span class="n">you</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">write</span><span class="p">(</span><span class="n">cyou</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;Rock (you)&#39;</span>
+     <span class="k">case</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span>
+        <span class="n">you</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="k">write</span><span class="p">(</span><span class="n">cyou</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;Paper (you)&#39;</span>
+     <span class="k">case</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
+        <span class="n">you</span> <span class="o">=</span> <span class="mi">3</span>
+        <span class="k">write</span><span class="p">(</span><span class="n">cyou</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;Scissors (you)&#39;</span>
+     <span class="k">case </span><span class="n">default</span>
+        <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;bye&#39;</span>
+        <span class="k">exit</span>
+<span class="k">     end select</span>
 
-     !
-     ! コンピューターの手を乱数で決定
-     !
-     call random_number(r)
+     <span class="c">!</span>
+     <span class="c">! コンピューターの手を乱数で決定</span>
+     <span class="c">!</span>
+     <span class="k">call </span><span class="nb">random_number</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 
-     if (r &lt;= 1.0_8/3.0_8) then
-        com = 1
-        write(ccom, fmt=&#39;(a)&#39;) &#39;Rock (Com)&#39;
-     else if (r &lt;= 2.0_8/3.0_8) then
-        com = 2
-        write(ccom, fmt=&#39;(a)&#39;) &#39;Paper (Com)&#39;
-     else
-        com = 3
-        write(ccom, fmt=&#39;(a)&#39;) &#39;Scissors (Com)&#39;
-     end if
+     <span class="k">if</span> <span class="p">(</span><span class="n">r</span> <span class="o">&lt;=</span> <span class="mf">1.0_8</span><span class="o">/</span><span class="mf">3.0_8</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">        </span><span class="n">com</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">write</span><span class="p">(</span><span class="n">ccom</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;Rock (Com)&#39;</span>
+     <span class="k">else if</span> <span class="p">(</span><span class="n">r</span> <span class="o">&lt;=</span> <span class="mf">2.0_8</span><span class="o">/</span><span class="mf">3.0_8</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">        </span><span class="n">com</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="k">write</span><span class="p">(</span><span class="n">ccom</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;Paper (Com)&#39;</span>
+     <span class="k">else</span>
+<span class="k">        </span><span class="n">com</span> <span class="o">=</span> <span class="mi">3</span>
+        <span class="k">write</span><span class="p">(</span><span class="n">ccom</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;Scissors (Com)&#39;</span>
+     <span class="k">end if</span>
 
-     write(message, fmt=&#39;(a, &quot; v.s. &quot;, a)&#39;) trim(cyou), trim(ccom)
+<span class="k">     write</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(a, &quot; v.s. &quot;, a)&#39;</span><span class="p">)</span> <span class="nb">trim</span><span class="p">(</span><span class="n">cyou</span><span class="p">),</span> <span class="nb">trim</span><span class="p">(</span><span class="n">ccom</span><span class="p">)</span>
 
-     select case(winloss(you, com))
-     case (-1)
-        write(*, &#39;(a, &quot; =&gt; &quot;, a)&#39;) trim(message), &#39;You loose !&#39;
-     case (0)
-        write(*, &#39;(a, &quot; =&gt; &quot;, a)&#39;) trim(message), &#39;Even !&#39;
-     case (1)
-        write(*, &#39;(a, &quot; =&gt; &quot;, a)&#39;) trim(message), &#39;You win !&#39;
-     case default
-        write(*,*) &#39;Error&#39; ! 念の為エラー処理
-     end select
+     <span class="k">select case</span><span class="p">(</span><span class="n">winloss</span><span class="p">(</span><span class="n">you</span><span class="p">,</span> <span class="n">com</span><span class="p">))</span>
+     <span class="k">case</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="s1">&#39;(a, &quot; =&gt; &quot;, a)&#39;</span><span class="p">)</span> <span class="nb">trim</span><span class="p">(</span><span class="n">message</span><span class="p">),</span> <span class="s1">&#39;You loose !&#39;</span>
+     <span class="k">case</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="s1">&#39;(a, &quot; =&gt; &quot;, a)&#39;</span><span class="p">)</span> <span class="nb">trim</span><span class="p">(</span><span class="n">message</span><span class="p">),</span> <span class="s1">&#39;Even !&#39;</span>
+     <span class="k">case</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="s1">&#39;(a, &quot; =&gt; &quot;, a)&#39;</span><span class="p">)</span> <span class="nb">trim</span><span class="p">(</span><span class="n">message</span><span class="p">),</span> <span class="s1">&#39;You win !&#39;</span>
+     <span class="k">case </span><span class="n">default</span>
+        <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;Error&#39;</span> <span class="c">! 念の為エラー処理</span>
+     <span class="k">end select</span>
 
-  end do
+<span class="k">  end do</span>
 
-  stop
-contains
-  !
-  ! 乱数のseedをシステムクロックに応じて変更
-  !
-  subroutine random_seed_clock()
-    implicit none
-    integer :: nseed, clock
-    integer, allocatable :: seed(:)
+<span class="k">  stop</span>
+<span class="k">contains</span>
+  <span class="c">!</span>
+  <span class="c">! 乱数のseedをシステムクロックに応じて変更</span>
+  <span class="c">!</span>
+  <span class="k">subroutine </span><span class="n">random_seed_clock</span><span class="p">()</span>
+    <span class="k">implicit none</span>
+<span class="k">    </span><span class="kt">integer</span> <span class="kd">::</span> <span class="n">nseed</span><span class="p">,</span> <span class="n">clock</span>
+    <span class="kt">integer</span><span class="p">,</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">seed</span><span class="p">(:)</span>
 
-    ! システムクロックを取得
-    call system_clock(clock)
+    <span class="c">! システムクロックを取得</span>
+    <span class="k">call </span><span class="nb">system_clock</span><span class="p">(</span><span class="n">clock</span><span class="p">)</span>
 
-    call random_seed(size=nseed)
-    allocate(seed(nseed))
+    <span class="k">call </span><span class="nb">random_seed</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">nseed</span><span class="p">)</span>
+    <span class="k">allocate</span><span class="p">(</span><span class="n">seed</span><span class="p">(</span><span class="n">nseed</span><span class="p">))</span>
 
-    seed = clock
-    call random_seed(put=seed)
+    <span class="n">seed</span> <span class="o">=</span> <span class="n">clock</span>
+    <span class="k">call </span><span class="nb">random_seed</span><span class="p">(</span><span class="n">put</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
 
-    deallocate(seed)
-  end subroutine random_seed_clock
+    <span class="k">deallocate</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+  <span class="k">end subroutine </span><span class="n">random_seed_clock</span>
 
-end program sample
+<span class="k">end program </span><span class="n">sample</span>
 </pre></div>
 </td></tr></table></div>
 </div>

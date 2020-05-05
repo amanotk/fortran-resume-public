@@ -90,45 +90,45 @@
 36
 37
 38
-39</pre></div></td><td class="code"><div class="highlight"><pre><span></span>program sample
-  implicit none
+39</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">sample</span>
+  <span class="k">implicit none</span>
 
-  real(8) :: x, y, z
+<span class="k">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span>
 
-  x = 4.0_8
-  y = 6.0_8
+  <span class="n">x</span> <span class="o">=</span> <span class="mf">4.0_8</span>
+  <span class="n">y</span> <span class="o">=</span> <span class="mf">6.0_8</span>
 
-  ! 平均値を計算してzに代入
-  z = 0.5_8 * (x + y)
-  write(*,*) z
+  <span class="c">! 平均値を計算してzに代入</span>
+  <span class="n">z</span> <span class="o">=</span> <span class="mf">0.5_8</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">z</span>
 
-  ! x, yが倍精度なので2も倍精度に変換されてから演算が実行される
-  z = (x + y) / 2
-  write(*,*) z
+  <span class="c">! x, yが倍精度なので2も倍精度に変換されてから演算が実行される</span>
+  <span class="n">z</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">z</span>
 
-  ! 以下の代入文は意図した通りに動かない
-  ! 右辺は整数同士の演算なので0となり, それが代入時に実数型に変換される
-  z = 2 / 3
-  write(*,*) z
+  <span class="c">! 以下の代入文は意図した通りに動かない</span>
+  <span class="c">! 右辺は整数同士の演算なので0となり, それが代入時に実数型に変換される</span>
+  <span class="n">z</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">3</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">z</span>
 
-  ! 右辺は単精度実数として演算されてから倍精度実数に変換されるので精度が落ちる
-  z = 2 / 3.0
-  write(*,*) z
+  <span class="c">! 右辺は単精度実数として演算されてから倍精度実数に変換されるので精度が落ちる</span>
+  <span class="n">z</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">/</span> <span class="mf">3.0</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">z</span>
 
-  ! 右辺も倍精度実数として演算される(期待通りの結果)
-  z = 2 / 3.0_8
-  write(*,*) z
+  <span class="c">! 右辺も倍精度実数として演算される(期待通りの結果)</span>
+  <span class="n">z</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">/</span> <span class="mf">3.0_8</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">z</span>
 
-  ! 明示的に変換する
-  z = real(2, kind=8) / real(3, kind=8)
-  write(*,*) z
+  <span class="c">! 明示的に変換する</span>
+  <span class="n">z</span> <span class="o">=</span> <span class="kt">real</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nb">kind</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span> <span class="o">/</span> <span class="kt">real</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="nb">kind</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">z</span>
 
-  ! kindを指定しないと右辺の演算は単精度で評価されてしまう
-  z = real(2) / real(3)
-  write(*,*) z
+  <span class="c">! kindを指定しないと右辺の演算は単精度で評価されてしまう</span>
+  <span class="n">z</span> <span class="o">=</span> <span class="kt">real</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="kt">real</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">z</span>
 
-  stop
-end program sample
+  <span class="k">stop</span>
+<span class="k">end program </span><span class="n">sample</span>
 </pre></div>
 </td></tr></table></div>
 </div>

@@ -218,7 +218,7 @@
 </table>
 <p>なお <code class="docutils literal notranslate"><span class="pre">real(4)</span></code> を単精度，<code class="docutils literal notranslate"><span class="pre">real(8)</span></code> を倍精度，<code class="docutils literal notranslate"><span class="pre">real(16)</span></code> を4倍精度と呼ぶのが通例である．特に実数型については，単精度の約7桁という精度では心もとないので現在では倍精度を用いるのが一般的である．本演習では特段の理由がない限り <code class="docutils literal notranslate"><span class="pre">real(8)</span></code>，<code class="docutils literal notranslate"><span class="pre">complex(8)</span></code> を用いる( <code class="docutils literal notranslate"><span class="pre">complex(8)</span></code> では実部と虚部がそれぞれ <code class="docutils literal notranslate"><span class="pre">real(8)</span></code> となる)．</p>
 <p>なお複素数型 <code class="docutils literal notranslate"><span class="pre">complex</span></code> の定数は <code class="docutils literal notranslate"><span class="pre">(実部，虚部)</span></code> という形で表す．例えば</p>
-<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>complex(8) :: x = (1.0_8, 1.0_8)
+<div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">complex</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0_8</span><span class="p">,</span> <span class="mf">1.0_8</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 <p>は倍精度複素数型の変数 <code class="docutils literal notranslate"><span class="pre">x</span></code> の値を <span class="math notranslate nohighlight">\(1 + i\)</span> に初期化している．</p>
@@ -243,14 +243,14 @@
 5
 6
 7
-8</pre></div></td><td class="code"><div class="highlight"><pre><span></span>integer(4), parameter :: n  = 100_4
-real(8), parameter    :: pi = 3.141592653589_8
-integer(4) :: m
-real(8)    :: f, g
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">integer</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">n</span>  <span class="o">=</span> <span class="mi">100_4</span>
+<span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">parameter</span>    <span class="kd">::</span> <span class="n">pi</span> <span class="o">=</span> <span class="mf">3.141592653589_8</span>
+<span class="kt">integer</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="kd">::</span> <span class="n">m</span>
+<span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>    <span class="kd">::</span> <span class="n">f</span><span class="p">,</span> <span class="n">g</span>
 
-m = 2048_4    ! 4バイトの整数2048を代入
-f = 3.1415_8  ! 8バイトの実数3.1415を代入
-g = 3.0e+10_8 ! 3 x 10^10
+<span class="n">m</span> <span class="o">=</span> <span class="mi">2048_4</span>    <span class="c">! 4バイトの整数2048を代入</span>
+<span class="n">f</span> <span class="o">=</span> <span class="mf">3.1415_8</span>  <span class="c">! 8バイトの実数3.1415を代入</span>
+<span class="n">g</span> <span class="o">=</span> <span class="mf">3.0e+10_8</span> <span class="c">! 3 x 10^10</span>
 </pre></div>
 </td></tr></table></div>
 <p>上記の例では <code class="docutils literal notranslate"><span class="pre">n</span></code> を4バイトの整数，<code class="docutils literal notranslate"><span class="pre">pi</span></code> は8バイトの実数として，それぞれ値を指定している．これらの変数は <code class="docutils literal notranslate"><span class="pre">parameter</span></code> が指定されているため定数として扱われ，プログラム中で誤って <code class="docutils literal notranslate"><span class="pre">pi</span> <span class="pre">=</span> <span class="pre">1.0_8</span></code> などとして値を変更しようとするとコンパイルエラーとなる．プログラム中で絶対に変更されない値を扱う場合にはこのように名前付き定数として宣言しておくと値が変更される心配が無いので安心である．(信じられないかもしれないが，プログラムの規模が大きくなってくると，このようなミスによるバグに悩まされることがしばしば起こる．)</p>
@@ -301,10 +301,10 @@ g = 3.0e+10_8 ! 3 x 10^10
 <div class="highlight-fortran notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span>real(8) :: x, y, z
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span>
 
-read(*,*) x, y
-z = 0.5_8 * (x + y)
+<span class="k">read</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+<span class="n">z</span> <span class="o">=</span> <span class="mf">0.5_8</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 <p>は <code class="docutils literal notranslate"><span class="pre">x</span></code> と <code class="docutils literal notranslate"><span class="pre">y</span></code> を標準入力から読み込み，その平均値を <code class="docutils literal notranslate"><span class="pre">z</span></code> に代入する．なお，<code class="docutils literal notranslate"><span class="pre">read(*,*)</span></code> の場合も，<code class="docutils literal notranslate"><span class="pre">write(*,*)</span></code> と同様に複数の変数を並べて指定することができる．</p>
