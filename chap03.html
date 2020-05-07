@@ -1,13 +1,15 @@
 
-<!DOCTYPE html>
+
+<!doctype html>
 
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
     <title>3. 変数・データ型・基本的な計算 &#8212; Fortran演習(地球惑星物理学演習)</title>
-    <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
@@ -15,6 +17,7 @@
     <script src="_static/language_data.js"></script>
     <script src="_static/translations.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="_static/bizstyle.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
     <link rel="next" title="4. 制御構造" href="chap04.html" />
@@ -32,25 +35,66 @@
 </script>
 
   </head><body>
-    <div class="header-wrapper" role="banner">
-      <div class="header">
-        <div class="headertitle"><a
-          href="index.html">Fortran演習</a></div>
-        <div class="rel" role="navigation" aria-label="related navigation">
-          <a href="chap02.html" title="2. プログラムの作成と実行"
-             accesskey="P">前へ</a> |
-          <a href="chap04.html" title="4. 制御構造"
-             accesskey="N">次へ</a> |
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="総合索引"
-             accesskey="I">索引</a>
-        </div>
-       </div>
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="chap04.html" title="4. 制御構造"
+             accesskey="N">次へ</a> |</li>
+        <li class="right" >
+          <a href="chap02.html" title="2. プログラムの作成と実行"
+             accesskey="P">前へ</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Fortran演習</a> &#187;</li> 
+      </ul>
     </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">目次</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">3. 変数・データ型・基本的な計算</a><ul>
+<li><a class="reference internal" href="#id3">3.1. 変数</a></li>
+<li><a class="reference internal" href="#id5">3.2. データ型と精度</a></li>
+<li><a class="reference internal" href="#id8">3.3. 定数</a></li>
+<li><a class="reference internal" href="#id9">3.4. 標準入力から変数への値の代入</a></li>
+<li><a class="reference internal" href="#id10">3.5. 算術演算</a></li>
+<li><a class="reference internal" href="#id11">3.6. 代入</a></li>
+<li><a class="reference internal" href="#id12">3.7. 組込み関数</a></li>
+<li><a class="reference internal" href="#id14">3.8. 型変換</a></li>
+<li><a class="reference internal" href="#id15">3.9. 第3章 演習課題</a><ul>
+<li><a class="reference internal" href="#id16">3.9.1. 課題1</a></li>
+<li><a class="reference internal" href="#id17">3.9.2. 課題2</a></li>
+<li><a class="reference internal" href="#id18">3.9.3. 課題3</a></li>
+<li><a class="reference internal" href="#id19">3.9.4. 課題4</a></li>
+<li><a class="reference internal" href="#id20">3.9.5. 課題5</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
-    <div class="content-wrapper">
-      <div class="content">
-        <div class="document">
-            
+  <h4>前のトピックへ</h4>
+  <p class="topless"><a href="chap02.html"
+                        title="前の章へ"><span class="section-number">2. </span>プログラムの作成と実行</a></p>
+  <h4>次のトピックへ</h4>
+  <p class="topless"><a href="chap04.html"
+                        title="次の章へ"><span class="section-number">4. </span>制御構造</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="検索" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
           <div class="body" role="main">
@@ -466,72 +510,26 @@
           </div>
         </div>
       </div>
-        </div>
-        <div class="sidebar">
-          
-          <h3>目次</h3>
-          <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="chap01.html">1. はじめに</a></li>
-<li class="toctree-l1"><a class="reference internal" href="chap02.html">2. プログラムの作成と実行</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">3. 変数・データ型・基本的な計算</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id3">3.1. 変数</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id5">3.2. データ型と精度</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id8">3.3. 定数</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id9">3.4. 標準入力から変数への値の代入</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id10">3.5. 算術演算</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id11">3.6. 代入</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id12">3.7. 組込み関数</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id14">3.8. 型変換</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id15">3.9. 第3章 演習課題</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="chap04.html">4. 制御構造</a></li>
-<li class="toctree-l1"><a class="reference internal" href="chap05.html">5. 配列</a></li>
-<li class="toctree-l1"><a class="reference internal" href="chap06.html">6. 書式指定・ファイル入出力・文字列処理</a></li>
-<li class="toctree-l1"><a class="reference internal" href="chap07.html">7. 関数とサブルーチン</a></li>
-<li class="toctree-l1"><a class="reference internal" href="chap08.html">8. 数値解析の基礎</a></li>
-<li class="toctree-l1"><a class="reference internal" href="chap09.html">9. モジュールと構造型</a></li>
-<li class="toctree-l1"><a class="reference internal" href="chap10.html">10. 付録</a></li>
-</ul>
-
-          <div role="search">
-            <h3 style="margin-top: 1.5em;">検索</h3>
-            <form class="search" action="search.html" method="get">
-                <input type="text" name="q" />
-                <input type="submit" value="検索" />
-            </form>
-          </div>
-
-        </div>
-        <div class="clearer"></div>
-      </div>
+      <div class="clearer"></div>
     </div>
-
-    <div class="footer-wrapper">
-      <div class="footer">
-        <div class="left">
-          <div role="navigation" aria-label="related navigaton">
-            <a href="chap02.html" title="2. プログラムの作成と実行"
-              >前へ</a> |
-            <a href="chap04.html" title="4. 制御構造"
-              >次へ</a> |
-            <a href="genindex.html" title="総合索引"
-              >索引</a>
-          </div>
-          <div role="note" aria-label="source link">
-          </div>
-        </div>
-
-        <div class="right">
-          
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="総合索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="chap04.html" title="4. 制御構造"
+             >次へ</a> |</li>
+        <li class="right" >
+          <a href="chap02.html" title="2. プログラムの作成と実行"
+             >前へ</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Fortran演習</a> &#187;</li> 
+      </ul>
+    </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2020, Takanobu Amano.
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3 で生成しました。
     </div>
-        </div>
-        <div class="clearer"></div>
-      </div>
-    </div>
-
   </body>
 </html>
