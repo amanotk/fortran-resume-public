@@ -111,49 +111,85 @@
 44
 45
 46
-47</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">sample</span>
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">sample</span>
   <span class="k">implicit none</span>
 
-<span class="k">  </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">c_number</span>
-  <span class="kt">integer</span> <span class="kd">::</span> <span class="n">i_number</span>
+<span class="k">  </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">c</span>
+  <span class="kt">integer</span> <span class="kd">::</span> <span class="n">i</span><span class="p">,</span> <span class="n">score</span>
 
   <span class="c">! 整数を読み込む</span>
   <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;Input integer : &#39;</span>
-  <span class="k">read</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">i_number</span>
+  <span class="k">read</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">i</span>
 
   <span class="c">! 整数の値で場合分け</span>
-  <span class="k">select case</span><span class="p">(</span><span class="n">i_number</span><span class="p">)</span>
-  <span class="k">case</span><span class="p">(:</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>     <span class="c">! 負の値</span>
-     <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;your input was negative&#39;</span>
-  <span class="k">case</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+  <span class="k">select case</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+  <span class="k">case</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>        <span class="c">! i == 0 のとき</span>
      <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;your input was zero&#39;</span>
-  <span class="k">case</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+  <span class="k">case</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>        <span class="c">! i == 1 のとき</span>
      <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;your input was one&#39;</span>
-  <span class="k">case</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+  <span class="k">case</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>        <span class="c">! i == 2 のとき</span>
      <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;your input was two&#39;</span>
-  <span class="k">case</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+  <span class="k">case</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>        <span class="c">! i == 3 のとき</span>
      <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;your input was three&#39;</span>
-  <span class="k">case </span><span class="n">default</span>  <span class="c">! 上記以外全て(&gt;=4)</span>
+  <span class="k">case </span><span class="n">default</span>   <span class="c">! 上記以外全て</span>
      <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;your input was too large&#39;</span>
   <span class="k">end select</span>
 
+
+  <span class="c">! 点数を読み込む</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;&#39;</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;Input score : &#39;</span>
+  <span class="k">read</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">score</span>
+
+  <span class="k">select case</span><span class="p">(</span><span class="n">score</span><span class="p">)</span>
+  <span class="k">case</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>              <span class="c">! 0点</span>
+     <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;zero&#39;</span>
+  <span class="k">case</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">29</span><span class="p">)</span>           <span class="c">! 1-29点</span>
+     <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;poor&#39;</span>
+  <span class="k">case</span><span class="p">(</span><span class="mi">30</span><span class="p">:</span><span class="mi">59</span><span class="p">)</span>          <span class="c">! 30-59点</span>
+     <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;fair&#39;</span>
+  <span class="k">case</span><span class="p">(</span><span class="mi">60</span><span class="p">:</span><span class="mi">89</span><span class="p">)</span>          <span class="c">! 60-89点</span>
+     <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;good&#39;</span>
+  <span class="k">case</span><span class="p">(</span><span class="mi">90</span><span class="p">:</span><span class="mi">100</span><span class="p">)</span>         <span class="c">! 90-100点</span>
+     <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;excellent&#39;</span>
+  <span class="k">case </span><span class="n">default</span>         <span class="c">! それ以外</span>
+     <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;invalid input&#39;</span>
+  <span class="k">end select</span>
+
+
   <span class="c">! 文字列を読み込む</span>
   <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;&#39;</span>
-  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;Input character : &#39;</span>
-  <span class="k">read</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">c_number</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;Input language : &#39;</span>
+  <span class="k">read</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">c</span>
 
   <span class="c">! 文字列の値で場合分け</span>
-  <span class="k">select case</span><span class="p">(</span><span class="n">c_number</span><span class="p">)</span>
-  <span class="k">case</span><span class="p">(</span><span class="s1">&#39;zero&#39;</span><span class="p">)</span>
-     <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;your input was 0&#39;</span>
-  <span class="k">case</span><span class="p">(</span><span class="s1">&#39;one&#39;</span><span class="p">)</span>
-     <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;your input was 1&#39;</span>
-  <span class="k">case</span><span class="p">(</span><span class="s1">&#39;two&#39;</span><span class="p">)</span>
-     <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;your input was 2&#39;</span>
-  <span class="k">case</span><span class="p">(</span><span class="s1">&#39;three&#39;</span><span class="p">)</span>
-     <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;your input was 3&#39;</span>
-  <span class="k">case </span><span class="n">default</span>  <span class="c">! 上記以外全て</span>
-     <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;unknown input&#39;</span>
+  <span class="k">select case</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+  <span class="k">case</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;c++&#39;</span><span class="p">,</span> <span class="s1">&#39;fortran&#39;</span><span class="p">)</span>
+     <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;compiled language&#39;</span>
+  <span class="k">case</span><span class="p">(</span><span class="s1">&#39;python&#39;</span><span class="p">,</span> <span class="s1">&#39;perl&#39;</span><span class="p">,</span> <span class="s1">&#39;ruby&#39;</span><span class="p">)</span>
+     <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;script language&#39;</span>
+  <span class="k">case</span><span class="p">(</span><span class="s1">&#39;english&#39;</span><span class="p">,</span> <span class="s1">&#39;japanese&#39;</span><span class="p">,</span> <span class="s1">&#39;french&#39;</span><span class="p">,</span> <span class="s1">&#39;chinese&#39;</span><span class="p">)</span>
+     <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;natural language&#39;</span>
+  <span class="k">case </span><span class="n">default</span>
+     <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;others&#39;</span>
   <span class="k">end select</span>
 
 <span class="k">  stop</span>

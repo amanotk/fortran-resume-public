@@ -5,12 +5,12 @@ program sample
   integer :: n ! 整数型の変数の宣言
   real :: x    ! 実数型の変数の宣言
 
-  ! 整数を代入して表示
+  ! 代入
   n = 10
-  write(*,*) 'integer => ', n
-
-  ! 実数を代入して表示
   x = 3.14
+
+  ! 表示
+  write(*,*) 'integer => ', n
   write(*,*) 'real => ', x
 
   stop

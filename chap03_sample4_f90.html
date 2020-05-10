@@ -81,14 +81,14 @@
 14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">sample</span>
   <span class="k">implicit none</span>
 
-<span class="k">  </span><span class="kt">integer</span> <span class="kd">::</span> <span class="n">x</span>
+<span class="k">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
 
-  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;Input integer: &#39;</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;Input two real numbers: &#39;</span>
 
   <span class="c">! 整数を読み込む</span>
-  <span class="k">read</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">x</span>
+  <span class="k">read</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
 
-  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;x * 2 = &#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">*</span><span class="mi">2</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;average = &#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
 
   <span class="k">stop</span>
 <span class="k">end program </span><span class="n">sample</span>

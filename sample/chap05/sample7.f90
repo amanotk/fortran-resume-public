@@ -1,54 +1,56 @@
 program sample
   implicit none
 
-  integer, parameter :: n = 8
-  integer, parameter :: m = 10
-  real(8), parameter :: pi = atan(1.0_8) * 4.0_8
+  integer, parameter :: n = 5
+  integer :: i, j
+  real(8) :: a(n,n), b(n), x(n)
+  real(8) :: inner
 
-  integer :: i
+  x = (/1.0_8, 0.5_8, 0.0_8, 0.5_8, 1.0_8/)
 
-  real(8) :: x(m), y(m/2)
-  real(8) :: a(n), b(n), c(n)
+  a = reshape( &
+       & (/-2.0,  1.0,  0.0,  0.0,  0.0, &
+       &    1.0, -2.0,  1.0,  0.0,  0.0, &
+       &    0.0,  1.0, -2.0,  1.0,  0.0, &
+       &    0.0,  0.0,  1.0, -2.0,  1.0, &
+       &    1.0,  0.0,  0.0,  1.0, -2.0/), &
+       & (/n, n/))
 
-  ! 値をセット
+  ! 配列aの形状およびサイズを表示
+  write(*,*) 'shape of a = ', shape(a)
+  write(*,*) 'size of a = ', size(a)
+
+  ! 初期化
   do i = 1, n
-     a(i) = 2*pi * real(i-1, kind=8) / real(n-1, kind=8)
+    b(i) = 0.0_8
   end do
 
-  do i = 1, m
-     x(i) = real(i, kind=8)
+  ! 行列aとベクトルxの積をbに代入: b_{i} = a_{i,j} * x_{j}
+  do j = 1, n
+    do i = 1, n
+      b(i) = b(i) + a(i,j) * x(j)
+    end do
   end do
-
-  !
-  ! 配列演算: 適宜コメントアウトするなどして結果を確かめること
-  !
-
-  ! 代入
-  do i = 1, n
-     b(i) = a(i)
-  end do
-
-  ! 配列演算による代入(上のdoループと同じ)
-  b = a
 
   write(*,*) 'b = ', b
 
-  ! 演算
+  ! 組み込み関数を使用して同じ計算を行う
+  b = matmul(a, x)
+
+  write(*,*) 'b = ', b
+
+  ! ベクトル同士の内積を計算
+  inner = 0.0_8
   do i = 1, n
-     c(i) = 0.5_8*a(i) + cos(b(i))
+    inner = inner + b(i) * x(i)
   end do
 
-  ! 配列演算(上のdoループと同じ)
-  c = 0.5_8*a + cos(b)
+  write(*,*) 'inner product 1 = ', inner
 
-  write(*,*) 'c = ', c
+  ! 組み込み関数を使用して同じ計算を行う
+  inner = dot_product(b, x)
 
-  !
-  ! 部分配列と配列演算の組合わせ
-  !
-  y = 2*x(1:m:2) + 1
-
-  write(*,*) 'y = ', y
+  write(*,*) 'inner product 2 = ', inner
 
   stop
 end program sample

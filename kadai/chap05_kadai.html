@@ -49,7 +49,7 @@
 <li><a class="reference internal" href="#">第5章 演習課題</a><ul>
 <li><a class="reference internal" href="#id2">課題1</a></li>
 <li><a class="reference internal" href="#id3">課題2</a></li>
-<li><a class="reference internal" href="#score-format">課題3</a></li>
+<li><a class="reference internal" href="#id4">課題3</a></li>
 <li><a class="reference internal" href="#id5">課題4</a></li>
 <li><a class="reference internal" href="#id6">課題5</a></li>
 <li><a class="reference internal" href="#id7">課題6</a></li>
@@ -78,6 +78,9 @@
             
   <div class="section" id="id1">
 <h1>第5章 演習課題<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<blockquote>
+<div><p><a class="reference external" href="chap05_kadai.pdf">課題PDFダウンロード</a></p>
+</div></blockquote>
 <div class="section" id="id2">
 <h2>課題1<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>サンプルプログラムをコンパイル・実行して動作を確認せよ．さらに，適宜修正してその実行結果を確認せよ．</p>
@@ -89,7 +92,7 @@
      <span class="p">&amp;</span> <span class="p">(</span><span class="o">/</span><span class="mi">31</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="o">/</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>実行結果は例えば以下のようなものである．</p>
+<p>実行結果は例えば以下のようなものになる．</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out
  Input month and day :
 <span class="m">4</span>    <span class="c1"># キーボード入力</span>
@@ -98,13 +101,13 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="score-format">
-<span id="id4"></span><h2>課題3<a class="headerlink" href="#score-format" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id4">
+<h2>課題3<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>学生のテストの点数を自動的に処理するプログラムを作成せよ．すなわち，標準入力から学生の人数および人数分のテストの点を順に読み込み，最高点，最低点，平均点，標準偏差をそれぞれ表示するプログラムを作成せよ．ただし標準偏差はデータ数 <span class="math notranslate nohighlight">\(N\)</span> ，各データの値 <span class="math notranslate nohighlight">\(x_i (i=1,\ldots,N)\)</span> ，平均値 <span class="math notranslate nohighlight">\(\bar{x}\)</span> を用いて</p>
 <div class="math notranslate nohighlight">
 \[\sigma = \sqrt{\frac{1}{N} \sum_{i=1}^{N} (x_i - \bar{x})^2}\]</div>
 <p>と定義される．</p>
-<p>データファイル <a class="reference external" href="data/score1.dat">score1.dat</a> を手元にコピーして，以下のようにリダイレクトによって作成したプログラムに読み込ませ，結果を確認せよ．</p>
+<p>データファイル <a class="reference external" href="data/score1.dat">score1.dat</a> を手元にコピーして，以下のようにリダイレクトによって作成したプログラムに読み込ませ，結果を確認せよ．実行結果は例えば以下のようなものになる．</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out &lt; score1.dat
  Best               :           <span class="m">98</span>
  Worst              :            <span class="m">6</span>
@@ -176,7 +179,7 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
-<p>Fortranの入力は数学的な「ベクトル」や「行列」を読んでいる訳ではなく，単なる数値の羅列を決められた順番で読み込む．それをどのように「ベクトル」や「行列」として解釈するのかはプログラムを書く人間が決めることである．( <a class="reference internal" href="../chap05.html#c5-array-io"><span class="std std-ref">配列の入出力</span></a> を理解するまで熟読せよ．)</p>
+<p>プログラムの入力は数学的な「ベクトル」や「行列」を読んでいる訳ではなく，単なる数値の羅列を決められた順番で読み込む．それをどのように「ベクトル」や「行列」として解釈するのかはプログラムを書く人間が決めることである．( <a class="reference internal" href="../chap05.html#c5-array-io"><span class="std std-ref">配列の入出力</span></a> を理解するまで熟読せよ．)</p>
 </div>
 </div>
 <div class="section" id="id7">
@@ -190,10 +193,47 @@
 </ul>
 </div></blockquote>
 <p>の処理を行う．なお各整数が素数かどうかを判定するには長さ <span class="math notranslate nohighlight">\(n\)</span> の論理型配列を用いれば良い．この配列を全て <code class="docutils literal notranslate"><span class="pre">.true.</span></code> に初期化し，素数でないと判定されたものは <code class="docutils literal notranslate"><span class="pre">.false.</span></code> を代入して消去する．</p>
+<p>実行結果は例えば以下のようなものになる．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out
+<span class="m">30</span>                            <span class="c1"># キーボード入力</span>
+ prime number :            <span class="m">2</span>
+ prime number :            <span class="m">3</span>
+ prime number :            <span class="m">5</span>
+ prime number :            <span class="m">7</span>
+ prime number :           <span class="m">11</span>
+ prime number :           <span class="m">13</span>
+ prime number :           <span class="m">17</span>
+ prime number :           <span class="m">19</span>
+ prime number :           <span class="m">23</span>
+ prime number :           <span class="m">29</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="id8">
 <h2>課題7<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>標準入力から3つの整数 <span class="math notranslate nohighlight">\(L, M, N\)</span> を読み込み， <code class="docutils literal notranslate"><span class="pre">integer</span></code> の <span class="math notranslate nohighlight">\(L \times M \times N\)</span> の3次元配列のメモリを確保せよ．その配列に対して，組み込み関数 <code class="docutils literal notranslate"><span class="pre">size</span></code>, <code class="docutils literal notranslate"><span class="pre">shape</span></code>, <code class="docutils literal notranslate"><span class="pre">lbound</span></code>, <code class="docutils literal notranslate"><span class="pre">ubound</span></code> を呼び出すことでその動作を確認せよ．( <span class="math notranslate nohighlight">\(L, M, N\)</span> の値はそれぞれせいぜい100程度かそれ以下にしておいた方が良い．)</p>
+<p>標準入力から3つの整数 <code class="docutils literal notranslate"><span class="pre">L</span></code>, <code class="docutils literal notranslate"><span class="pre">M</span></code>, <code class="docutils literal notranslate"><span class="pre">N</span></code> を読み込み， 形状が <code class="docutils literal notranslate"><span class="pre">(L,</span> <span class="pre">M,</span> <span class="pre">N)</span></code> の整数型の3次元配列，および長さ <code class="docutils literal notranslate"><span class="pre">L*M*N</span></code> の整数型の1次元配列を作成せよ．その上で，</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>組み込み関数 <code class="docutils literal notranslate"><span class="pre">size</span></code>, <code class="docutils literal notranslate"><span class="pre">shape</span></code>, <code class="docutils literal notranslate"><span class="pre">lbound</span></code>, <code class="docutils literal notranslate"><span class="pre">ubound</span></code> の引数に上記の2つの配列をそれぞれ与えた結果を出力し，その動作を確認せよ．</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reshape</span></code> を用いて1次元配列の中身を3次元配列にコピーできることを確認せよ．（ここで1次元配列に適当な値を代入してからコピーすることで <code class="docutils literal notranslate"><span class="pre">reshape</span></code> の動作を確認することもできる．）</p></li>
+</ul>
+</div></blockquote>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out
+ Input three positive integers <span class="o">(</span>L, M, N<span class="o">)</span> :
+<span class="m">2</span>, <span class="m">5</span>, <span class="m">7</span>
+ --- 3D array ---
+ size   <span class="o">(</span>should be equal to L*M*N<span class="o">)</span>               :           <span class="m">70</span>
+ shape  <span class="o">(</span>should be equal to 1D array <span class="o">(</span>/L, M, N/<span class="o">)</span> :            <span class="m">2</span>           <span class="m">5</span>           <span class="m">7</span>
+ lbound <span class="o">(</span>should be equal to 1D array <span class="o">(</span>/1, <span class="m">1</span>, <span class="m">1</span>/<span class="o">)</span> :            <span class="m">1</span>           <span class="m">1</span>           <span class="m">1</span>
+ ubound <span class="o">(</span>should be equal to 1D array <span class="o">(</span>/L, M, N/<span class="o">)</span> :            <span class="m">2</span>           <span class="m">5</span>           <span class="m">7</span>
+ --- 1D array ---
+ size   <span class="o">(</span>should be equal to L*M*N<span class="o">)</span>               :           <span class="m">70</span>
+ shape  <span class="o">(</span>should be equal to 1D array <span class="o">(</span>/L*M*N/<span class="o">)</span>   :           <span class="m">70</span>
+ lbound <span class="o">(</span>should be equal to 1D array <span class="o">(</span>/1/<span class="o">)</span>       :            <span class="m">1</span>
+ ubound <span class="o">(</span>should be equal to 1D array <span class="o">(</span>/L*M*N/<span class="o">)</span>   :           <span class="m">70</span>
+</pre></div>
+</div>
+<p>なお， <code class="docutils literal notranslate"><span class="pre">L</span></code>, <code class="docutils literal notranslate"><span class="pre">M</span></code>, <code class="docutils literal notranslate"><span class="pre">N</span></code> の値はそれぞれせいぜい100程度かそれ以下にしておいた方が良い．</p>
 </div>
 </div>
 

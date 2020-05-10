@@ -76,6 +76,9 @@
             
   <div class="section" id="id1">
 <h1>第3章 演習課題<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<blockquote>
+<div><p><a class="reference external" href="chap03_kadai.pdf">課題PDFダウンロード</a></p>
+</div></blockquote>
 <div class="section" id="id2">
 <h2>課題1<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>サンプルプログラムをコンパイル・実行して動作を確認せよ．さらに，適宜修正してその実行結果を確認せよ．</p>
@@ -83,6 +86,13 @@
 <div class="section" id="id3">
 <h2>課題2<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>標準入力から三角形の底辺 <span class="math notranslate nohighlight">\(l\)</span> と高さ <span class="math notranslate nohighlight">\(h\)</span> を読み込み，三角形の面積を表示するプログラムを作成せよ．</p>
+<p>例えば以下のような実行結果が得られる．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out
+<span class="m">3</span>.0                                      <span class="c1"># キーボード入力</span>
+<span class="m">5</span>.0                                      <span class="c1"># キーボード入力</span>
+ Area of triangle:    <span class="m">7</span>.5000000000000000
+</pre></div>
+</div>
 </div>
 <div class="section" id="id4">
 <h2>課題3<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -113,10 +123,10 @@
 </div>
 <div class="section" id="id6">
 <h2>課題5<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>テイラー展開の公式</p>
+<p>キーボード入力で与えられた実数 <span class="math notranslate nohighlight">\(x\)</span> について，テイラー展開の公式</p>
 <div class="math notranslate nohighlight">
 \[\sin x = x - \frac{x^3}{3 !} + \frac{x^5}{5 !} - \frac{x^7}{7 !} \cdots\]</div>
-<p>を適当な次数(例えば2次とか3次)で打ち切り， <span class="math notranslate nohighlight">\(\sin x\)</span> の近似値を例えば <span class="math notranslate nohighlight">\(x = 0.01，0.1，0.2\)</span> などについて求め，組み込み関数 <code class="docutils literal notranslate"><span class="pre">sin(x)</span></code> で求めた値と比較せよ．</p>
+<p>を適当な次数(例えば2次とか3次)で打ち切りることで <span class="math notranslate nohighlight">\(\sin x\)</span> の近似値を求め，組み込み関数 <code class="docutils literal notranslate"><span class="pre">sin(x)</span></code> で求めた値と比較するプログラムを作成せよ．例えば <span class="math notranslate nohighlight">\(x = 0.01，0.1，0.2\)</span> などについて，実行して結果を確かめること．</p>
 <p>例えば以下のような結果が得られればよい</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out
 <span class="m">0</span>.2                    <span class="c1"># キーボード入力</span>

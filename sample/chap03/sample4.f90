@@ -1,14 +1,14 @@
 program sample
   implicit none
 
-  integer :: x
+  real(8) :: x, y
 
-  write(*,*) 'Input integer: '
+  write(*,*) 'Input two real numbers: '
 
   ! 整数を読み込む
-  read(*,*) x
+  read(*,*) x, y
 
-  write(*,*) 'x * 2 = ', x*2
+  write(*,*) 'average = ', (x + y)/2
 
   stop
 end program sample

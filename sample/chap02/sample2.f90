@@ -16,6 +16,8 @@ program sample ! ここにコメントを書いても良い
   write(*,*) &
        & 'This is a continuation line'
 
+  print *, 'This is another way to print out'
+
   ! プログラムを終了する. 多くの場合無くても構わないがあったほうが無難.
   stop
 end program sample

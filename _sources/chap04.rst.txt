@@ -23,48 +23,39 @@
 条件分岐(if)
 ============
 
-    :doc:`サンプルコード参照 <chap04_sample1_f90>`
+``if`` による条件分岐は例えばユーザーの入力によって動作を変更する場合などに用いる．典型的な使い方は以下のようなものである．（これは閏年の判定例である．）
 
-``if`` による条件分岐は例えばユーザーの入力によって動作を変更する場合などに用いる．典型的な使い方は以下のようなものである．
+.. literalinclude:: sample/chap04/sample1.f90
+  :language: fortran
+  :lines: 4-19
+  :lineno-match:
+  :caption: :doc:`sample1.f90 <chap04_sample1_f90>` 抜粋
 
-::
-
-      integer :: n
-
-      read(*,*) n  ! 整数値を標準入力から読み込む
-
-      if ( n == 0 ) then
-        write(*,*) n, 'is zero'
-      else if ( n > 0 ) then
-        write(*,*) n, 'is positive'
-      else if ( n < 0 ) then
-        write(*,*) n, 'is negative'
-      end if
-
-このように ``if`` に続く ``()`` の中に条件式(conditional)を記述し，その条件が真( ``.true.``)の時には ``then`` に続く処理が実行され，偽( ``.false.``)の時には ``else if`` 以下で更に条件判定をすることになる．また
+このように ``if`` に続く ``()`` の中に条件式(conditional)を記述し，その条件が真( ``.true.``)の時には ``then`` に続く処理が実行され，偽( ``.false.``)の時には ``else if`` または ``else`` で更に条件判定をすることになる．また
 
 ::
 
-      if( conditional ) then
-        ! 処理
-      end if
+  if( conditional ) then
+    ! 処理
+  end if
 
 や
 
 ::
 
-      if( conditional ) then
-        ! 処理1
-      else
-        ! 処理2
-      end if
+  if( conditional ) then
+    ! 処理1
+  else
+    ! 処理2
+  end if
 
-の用に書くことも出来る．構文自体はそれほど難しくないので，ここで注意すべきは条件判定の部分だけであろう．以下の表に条件式に用いられることの多い演算子をまとめてある．なおFortran 77では ``>`` のような演算子(関係演算子と呼ばれる)は正式にはサポートされていなかった．このため古いコードには ``.gt.`` のような演算子を見かけることもあるかも知れないが，自分で新しくプログラムを作成する際にはこのような古い形式は使うべきではない．新しい形式は ``/=`` 以外のものについてはC言語を始めとする他の多くの言語と同じなのでこちらを用いることを強く推奨する．ちなみにC言語などでは ``/=`` ではなく ``!=`` が用いられる．
+のように書くことも出来る．構文自体はそれほど難しくないので，ここで注意すべきは条件判定の部分だけであろう．以下の表に条件式に用いられることの多い演算子をまとめてある．なおFortran 77では ``>`` のような演算子(関係演算子と呼ばれる)は正式にはサポートされていなかった．このため古いコードには ``.gt.`` のような演算子を見かけることもあるかも知れないが，自分で新しくプログラムを作成する際にはこのような古い形式は使うべきではない．新しい形式は ``/=`` 以外のものについてはC言語を始めとする他の多くの言語と同じなのでこちらを用いることを強く推奨する．ちなみにC言語などでは ``/=`` ではなく ``!=`` が用いられる．
 
 特に実数の値が等しいかどうかを判定する際には注意が必要である．すなわち，実数に対しては ``==`` を使うことは出来ない．なぜなら2つの実数がほぼ等しいように見えても ``==`` による判定では全てのビットが厳密に等しくなければ真とは判定されないからである．従って，代わりに例えば差の絶対値 ``abs(A-B)`` が十分小さいかどうかで判定しなくてはならない [#]_．
 
 .. tabularcolumns:: |p{0.3 \textwidth}|p{0.3 \textwidth}|p{0.3 \textwidth}|
 .. list-table:: 条件演算子
+    :width: 80%
     :widths: 30, 30, 30
     :header-rows: 1
 
@@ -101,6 +92,7 @@
 
 .. tabularcolumns:: |p{0.3 \textwidth}|p{0.3 \textwidth}|p{0.3 \textwidth}|
 .. list-table:: 論理演算子
+    :width: 80%
     :widths: 30, 30, 30
     :header-rows: 1
 
@@ -132,11 +124,11 @@
 
 ::
 
-      integer :: n
+  integer :: n
 
-      if ( 2 < n .and. n < 5 ) then
-        write(*,*) 'n is larger than 2 and smaller than 5'
-      end if
+  if ( 2 < n .and. n < 5 ) then
+    write(*,*) 'n is larger than 2 and smaller than 5'
+  end if
 
 と言った具合である．``2 < n < 5`` のような数学的な書き方はできないので注意が必要である．
 
@@ -144,15 +136,25 @@
 
 ::
 
-      if ( conditional 1 ) then
-        if ( conditional 2 ) then
-          ! 処理1
-        else
-          ! 処理2
-        end if
-      end if
+  if ( conditional 1 ) then
+    if ( conditional 2 ) then
+      ! 処理1
+    else
+      ! 処理2
+    end if
+  end if
 
 ただし何重にも深く入れ子になった ``if`` 文の実行効率はあまり良くないので出来るかぎり浅い条件分岐に留めておいた方が良い．
+
+以下は :doc:`sample1.f90 <chap04_sample1_f90>` の11-19行目の閏年の判定と全く同じことを入れ子にした ``if`` で実装した例である．
+
+.. literalinclude:: sample/chap04/sample1.f90
+  :language: fortran
+  :lines: 21-34
+  :lineno-match:
+  :caption: :doc:`sample1.f90 <chap04_sample1_f90>` 抜粋
+
+
 
 反復処理(do)
 ============
@@ -162,66 +164,84 @@
 決まった回数の繰り返し(do)
 --------------------------
 
-    :doc:`サンプルコード参照 <chap04_sample2_f90>`
-
 決まった繰り返しの処理をするために用いるのが ``do`` (従ってこの反復処理は ``do`` ループと呼ばれる)である．これも使い方は至ってシンプルである．
 
-::
+.. literalinclude:: sample/chap04/sample2.f90
+  :language: fortran
+  :lines: 10-15
+  :lineno-match:
+  :caption: :doc:`sample2.f90 <chap04_sample2_f90>` 抜粋
 
-      integer :: i
-
-      do i = 1, 10, 2
-        write(*,*) i
-      end do
-
-とすれば ``1, 3, 5, 7, 9`` が出力される．より一般には
+は1から10までの和を順次求めながら結果を出力している．より一般には
 
 ::
 
-      do i = lower, upper, stride
-        ! 繰り返し処理
-      end do
+  do i = lower, upper, stride
+    ! 繰り返し処理
+  end do
 
 のような形で書くことになる．上の例では整数型変数 ``i`` は ``do`` 変数と呼ばれ，``do`` ループの中で ``i`` の値が ``lower`` から ``upper`` まで ``stride`` ずつ変化する．``stride`` は省略することも可能であり，その場合は ``1`` と解釈される．また ``stride`` は負の値であっても良い(当然この時は ``lower > upper`` でなければループ内の処理は実行されない)．通常 ``do`` 変数は整数型でなければならないが，実数型などでもコンパイル出来てしまう環境もあり，そのような場合は思わぬバグの原因となってしまう．間違いを未然に防ぐためにも ``do`` 変数には整数型を用いること．
 
-また ``if`` 文の場合と同様に ``do`` ループに関しても以下のように入れ子(多重ループ)にすることが出来る．
+例えば次は先ほどの例の和を求める処理を1つおきに実行する．
 
-::
+.. literalinclude:: sample/chap04/sample2.f90
+  :language: fortran
+  :lines: 18-23
+  :lineno-match:
+  :caption: :doc:`sample2.f90 <chap04_sample2_f90>` 抜粋
 
-      integer :: i, j
 
-      do i = 1, 9
-        do j = 1, 9
-          write(*,*) i, j, i*j
-        end do
-      end do
+また ``if`` 文の場合と同様に ``do`` ループに関しても以下のように入れ子(多重ループ)にすることが出来る．以下は2重ループの例である．
+
+.. literalinclude:: sample/chap04/sample2.f90
+  :language: fortran
+  :lines: 34-39
+  :lineno-match:
+  :caption: :doc:`sample2.f90 <chap04_sample2_f90>` 抜粋
+
+この部分の実行結果は以下のようになる．
+
+.. code-block:: bash
+
+  --- Do loop #4 ---
+   (           1 ,           1 ) =>            1
+   (           1 ,           2 ) =>            2
+   (           1 ,           3 ) =>            3
+   (           2 ,           1 ) =>            4
+   (           2 ,           2 ) =>            5
+   (           2 ,           3 ) =>            6
+   (           3 ,           1 ) =>            7
+   (           3 ,           2 ) =>            8
+   (           3 ,           3 ) =>            9
+
+
 
 条件を指定した繰り返し(do while)
 --------------------------------
-
-    :doc:`サンプルコード参照 <chap04_sample3_f90>`
 
 繰り返しの処理には基本的に先ほどの ``do`` ループを用いれば良いのだが，これを少し違った形式で行う ``do while`` なる構文も用意されている．これは
 
 ::
 
-      do while( conditional )
-        ! 繰り返し処理
-      end do
+  do while( conditional )
+    ! 繰り返し処理
+  end do
 
 のような形で用い，``()`` 内の条件式が真( ``.true.``)の間は繰り返し処理が行われる．例えば
 
 ::
 
-      integer :: i
+  integer :: i
+  real(8) :: sum
 
-      i = 1
-      do while(i < 10)
-        write(*,*) i
-        i = i + 2
-      end do
+  sum = 0
+  do while(i <= 10)
+     sum = sum + i
+     i = i + 1
+     write(*,*) i, sum
+  end do
 
-の例では ``1, 3, 5, 7, 9`` が出力されることになる．繰り返し回数が予め分からない処理ではこのような形式を用いるとスマートに書ける場面にもしばしば遭遇する．例えば反復計算によって実数型の値の収束判定をする場合などは
+は先ほどの例 :doc:`sample2.f90 <chap04_sample3_f90>` の最初の ``do`` ループと同じ処理を実行する．この場合はあえて ``do while`` を用いる意味はあまり感じられないが，繰り返し回数が予め分からない処理ではこのような形式を用いるとスマートに書ける場面にもしばしば遭遇する．例えば反復計算によって実数型の値の収束判定をする場合などは
 
 ::
 
@@ -231,50 +251,50 @@
         ! 繰り返し処理
       end do
 
-などのように非常にスッキリと記述できる．この例では ``abs(x)`` の値が :math:`10^{-8}` 以下になるまで反復を続ける．
+などのように非常にスッキリと記述できる．この例では ``abs(x)`` の値が :math:`10^{-8}` 以下になるまで反復を続ける．例えば，以下は逐次計算によって平方根を求める計算である．
+
+.. literalinclude:: sample/chap04/sample3.f90
+  :language: fortran
+  :lines: 20-26
+  :lineno-match:
+  :caption: :doc:`sample3.f90 <chap04_sample3_f90>` 抜粋
+
 
 複雑な処理(exitとcycle)
 -----------------------
 
-    :doc:`サンプルコード参照 <chap04_sample4_f90>`
-
 単純な繰り返しだけでなく，より柔軟な制御を行うには ``exit`` や ``cycle`` を用いる．``exit`` では ``do`` ループの中から途中で抜けることが出来，``cycle`` ではループ内のそれ以降の処理を行わずにループ先頭に戻ることがで出来る．これらを用いると意図的に作った無限ループから条件を満たした時だけ抜け出すようなプログラムも簡単に作ることができる．例えば以下の例を見てみよう．
 
-::
+.. literalinclude:: sample/chap04/sample4.f90
+  :language: fortran
+  :lines: 9-28
+  :lineno-match:
+  :caption: :doc:`sample4.f90 <chap04_sample4_f90>` 抜粋
 
-      integer :: i
+この例では標準入力からの10より小さい正の整数を受け取り，受け取った数の和を求める．ただし0以下の値を受け取った場合は処理を終了する．また，10以上の値受け取った場合はエラーを表示し，和はとらずに無視する．実行結果は例えば以下のようになる．
 
-      do while( .true. )        ! 無限ループ
-        read(*,*) i             ! 標準入力から整数値を読み込む
+.. code-block:: bash
 
-        if ( i == 0 ) then
-          exit                  ! 0ならループを抜ける
-        else if ( i < 0 ) then
-          cycle                 ! 負ならループ先頭(4行目)に戻る
-        end if
+  $ ./a.out
+   Input a positive integer (less than 10):
+  5                                            # キーボード入力
+   current count =            5
+  
+   Input a positive integer (less than 10):
+  4                                            # キーボード入力
+   current count =            9
+  
+   Input a positive integer (less than 10):
+  10                                            # キーボード入力
+   error : input >= 10
+  
+   Input a positive integer (less than 10):
+  0                                            # キーボード入力
+   error : input <= 0
+   last count =            9
 
-        write(*,*) i            ! 値を標準出力に表示
-      end do
 
-この例では標準入力からの整数の入力値が正の時だけその値を表示し，負の時は表示しない．また0を入力値として受け取るとループを抜けるようになっている．なお，同じ処理を実現する方法は1つとは限らない．例えば，以下のループも全く同じ処理を行っていることが分かるかと思う．
-
-::
-
-      integer :: i
-
-      read(*,*) i
-
-      do while( i /= 0 )
-        if ( i > 0 ) then
-          write(*,*) i
-        end if
-
-        read(*,*) i
-      end do
-
-このように複数の方法がある場合にはより分かりやすい方(すなわち間違いが発生しにくい方)を採用すれば良い．
-
-ちなみに無限ループを作るには ``while (.true.)`` は必ずしも必要では無く，
+なお，同じ動作を実現する方法は1つとは限らない．例えば ``while`` の条件判定を ``increment <= 0`` と変更すれば，この条件に対応する ``if`` は必要がなくなる．複数の方法がある場合にはより分かりやすい方(すなわち間違いが発生しにくい方)を採用すれば良い．ちなみに無限ループを作るには ``while (.true.)`` は必ずしも必要では無く，
 
 ::
 
@@ -284,52 +304,41 @@
 
 のように書くことも可能である．
 
+
 条件分岐(select)
 ================
 
-    :doc:`サンプルコード参照 <chap04_sample5_f90>`
+``select`` 構文を用いても条件分岐を行うことも出来る．基本的には ``if`` を用いれば同じことは実現出来るのだが，場合によっては ``select`` を用いた方がよりスッキリとした形で書ける事があるので知っておいて損はない．典型的には整数や文字列の値で場合分けを制御する際に用いる(実数型には用いることは出来ない)．
 
-``select`` 構文を用いても条件分岐を行うことも出来る．基本的には ``if`` を用いれば同じことは実現出来るのだが，場合によっては ``select`` を用いた方がよりスッキリとした形で書ける事があるので知っておいて損はない．典型的には整数や文字列の値で場合分けを制御する際に用いる(実数型には用いることは出来ない)．以下は入力された整数 ``score`` (テストの点だと思おう)の値によって場合分けをする例である．
+一番基本的な使い方は以下のようなものである．
 
-::
+.. literalinclude:: sample/chap04/sample5.f90
+  :language: fortran
+  :lines: 7-23
+  :lineno-match:
+  :caption: :doc:`sample5.f90 <chap04_sample5_f90>` 抜粋
 
-      integer :: score
+``case`` で入力された整数の値に応じて処理を切り替えている．また，どの ``case`` の条件にも当てはまらない場合の処理は ``case deafault`` によって行えば良い．
 
-      read(*,*) score
+この例を見ただけでは ``if-elif-else`` を使うのとほとんど変わらないように感じられるので，もう少し ``select`` の利点が生かされた例として以下を見てみよう．ここでは入力された整数 ``score`` (テストの点だと思おう)の値によって場合分けをしている．
 
-      select case(score)
-      case(0)              ! 0点
-         write(*,*) 'zero'
-      case(1:29)           ! 1-29点
-         write(*,*) 'poor'
-      case(30:59)          ! 30-59点
-         write(*,*) 'fair'
-      case(60:89)          ! 60-89点
-         write(*,*) 'good'
-      case(90:100)         ! 90-100点
-         write(*,*) 'excellent'
-      case default         ! それ以外
-         write(*,*) 'invalid input'
-      end select
+.. literalinclude:: sample/chap04/sample5.f90
+  :language: fortran
+  :lines: 26-44
+  :lineno-match:
+  :caption: :doc:`sample5.f90 <chap04_sample5_f90>` 抜粋
 
-``case`` では単一の値もしくは値の範囲を指定する．範囲の指定は ``case(下限:上限)`` のような形ですれば良い．また指定した範囲外の値に対する処理は ``case deafault`` によって行えば良い．
+この例のように ``case`` では単一の値だけでなく値の範囲を指定することができる．範囲の指定は ``case(下限:上限)`` のような形ですれば良い．
 
-::
+さらに
 
-      character(len=128) :: input
+.. literalinclude:: sample/chap04/sample5.f90
+  :language: fortran
+  :lines: 47-62
+  :lineno-match:
+  :caption: :doc:`sample5.f90 <chap04_sample5_f90>` 抜粋
 
-      read(*,*) input
-
-      select case(input)
-      case('apple', 'orange', 'banana')
-         write(*,*) 'food'
-      case('earth', 'mars', 'venus')
-         write(*,*) 'planet'
-      case default
-         write(*,*) 'others'
-      end select
-
-上の例は文字列の値によって分岐する例である．このように1つの ``case`` で複数の値をカンマで区切って指定することも出来る．
+は文字列の値によって分岐する例である．このように1つの ``case`` で複数の値をカンマで区切って指定することも出来る．
 
 ..
 .. 課題
