@@ -15,7 +15,7 @@
 
 なお最初に断っておくと，この文書は *未完成* である．用語が統一されていなかったり，間違いなどを含んでいる可能性も大いにあるので，その点については注意して欲しい．内容としてはどちらかと言うと教科書には書いていないようなことを随時盛り込んでいく予定である(あくまで予定である)．基本的にはhtmlバージョンのページを正式版とするが，オフラインで勉強したい場合には以下からPDFをダウンロードすることも出来るので適宜活用して欲しい．(ただしPDF版ではサンプルファイルへのリンクなどが上手く動作しないので注意して欲しい．)
 
-PDF版: https://amanotk.github.io/fortran-resume-public/fortran-resume.pdf
+  PDF版: https://amanotk.github.io/fortran-resume-public/fortran-resume.pdf
 
 この演習では説明しないような内容(細かい文法事項など)については必要であれば以下を適宜参考にすると良い [#]_ ．高木(2009)は非常に良くまとまっているので，これがあれば困ることは少ないであろう．紙の本が良いという人は富田・齋藤(2011)がよくまとまっている．少し古いバージョンがWebで参照でき，多くの人にはこれで十分である．牛島(2007)は少し初心者には分かりづらいかもしれないが，モジュールに関する記述が実践的である．数値計算についても少し触れられているが，本格的に取り組む場合は専門の文献も併せて参考にした方が良い．
 
@@ -26,17 +26,18 @@ PDF版: https://amanotk.github.io/fortran-resume-public/fortran-resume.pdf
 
 なおサンプルプログラム等は各章のリンクからダウンロードすることも出来るし,
 
-https://amanotk.github.io/fortran-resume-public/sample.tar.gz
+  サンプルプログラム: https://amanotk.github.io/fortran-resume-public/sample.tar.gz
 
 にまとめて置いてあるものをダウンロードしても良い．各章ごとにディレクトリに分類して(例えば3章なら ``sample/chap03`` )置いてあるので適宜手元にコピーして参照して欲しい．
 
-ちなみに，``.tar.gz`` 形式のファイルの解凍はUnix系のマシンではコマンドラインで
+ちなみに，Unix系のマシンであればコマンドラインで
 
 .. code-block:: bash
 
-     $ tar -zxvf sample.tar.gz
+  $ wget https://amanotk.github.io/fortran-resume-public/sample.tar.gz
+  $ tar -zxvf sample.tar.gz
 
-などのように実行すれば良い．(イマドキのLinux環境であればダブルクリックでも解凍出来てしまうと思う．)
+などのように実行すればサンプルの一括ダウンロードおよび解凍ができる．(イマドキのLinux環境であれば ``tar.gz`` 形式のファイルはダブルクリックでも解凍出来てしまうと思う．)
 
 このページとこれらのサンプルプログラムがあれば自習も十分に可能であるので，興味のある人はどんどん進めてもらって構わない．自習用に個人マシンにFortranの開発環境を用意することも出来る．演習室の端末がLinuxなので，演習課題などはリダイレクトなどのUnixコマンドラインの使用を前提としている．従って，自分のマシンにLinuxをインストールするのが一番簡単な方法である．WindowsやMacならVMWareやVirtualBoxなどのソフトウェアを使って仮想マシンとしてLinuxをインストールすることが出来る．またはWindowsならWSL(Windows Subsystem for Linux)やCygwin，MacならXcodeとMacPortsまたはHomebrewなどをインストールすることで使えるようになるだろう．興味のある人は教員やTAやGoogle先生に相談してみよう．
 
