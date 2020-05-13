@@ -4,7 +4,7 @@ table.highlighttable {
 }
 
 table.highlighttable td.linenos {
-    width: 1em;
+    width: 2em;
 }
 
 table.highlighttable td.linenos div.linenodiv {
