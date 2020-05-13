@@ -234,6 +234,7 @@
   integer :: i
   real(8) :: sum
 
+  i = 1
   sum = 0
   do while(i <= 10)
      sum = sum + i
