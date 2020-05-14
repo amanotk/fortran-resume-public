@@ -77,7 +77,7 @@ Newton法では関数の微分値を解析的に与えて用いるが，割線�
 
 の積分を台形公式およびSimpsonの公式で数値的に行い，誤差の分割数に対する依存性をgnuplotを用いて図示せよ．例えば分割数を :math:`2^{n} (n=1, 2, \ldots, 16)` の範囲で変えて依存性を調べれば良い．
 
-:math:`f(x) = \dfrac{4}{\pi} \dfrac{1}{1 + x^2}` について誤差をプロットすると以下の例ようになるであろう．
+例として :math:`f(x) = \dfrac{4}{\pi} \dfrac{1}{1 + x^2}` について誤差をプロットすると以下のようになるであろう．
 
 .. figure:: figure/integration.png
   :align: center
