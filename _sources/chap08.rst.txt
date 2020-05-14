@@ -25,8 +25,6 @@
 実数の精度と誤差
 ================
 
-    :doc:`サンプルコード参照 <chap08_sample1_f90>`
-
 これまで何気なく用いてきた実数型だが，数値解析を始める前に計算機における実数の取り扱いやその誤差について理解しておこう．
 
 浮動小数点数の表現
@@ -48,25 +46,37 @@
 
 実数を有効桁で「丸め」て表現することから生じる誤差を丸め誤差と呼ぶ．これは場合によっては求めたい計算結果の精度に悪影響を及ぼすこともあるため，注意が必要である．
 
--  桁落ち
+- 桁落ち
 
    絶対値の非常に近い2つの数の差を計算すると絶対値が非常に小さくなり，その分だけ相対誤差が大きくなってしまう．これを桁落ちと呼ぶ．
 
    例えば :math:`\sqrt{1 + x} - 1` のような演算は :math:`x` が非常に小さい場合にはその誤差が無視できない．簡単のため10進数で有効桁数が5桁の場合を考えよう． :math:`x=0.001` とすると， この精度の範囲では :math:`\sqrt{1 + x} \approx 1.0005` なので， :math:`\sqrt{1 + x} - 1 \approx 0.0005` となり有効桁数が1桁に低下してしまう．これは例えば以下のような式変形によって減算を無くすことで回避が可能である．
 
-   .. math::
+.. math::
+
+  \sqrt{1 + x} - 1 = \frac{x}{\sqrt{1 + x} + 1}
 
 
-          \sqrt{1 + x} - 1 = \frac{x}{\sqrt{1 + x} + 1}
-
-
--  情報落ち
+- 情報落ち
 
    絶対値の大きい数に小さい数を加えてもほとんど変化が無い．これを情報落ちと呼ぶ．
 
    同様に有効桁数が5桁の場合を考えよう．:math:`a = 1.0000`， :math:`b = 1.0000 \times 10^{-5}` はどちらとも5桁の有効桁数を持つが， :math:`a + b = 1.00001` の小数点第5位は精度は有効桁数の範囲外となるため，情報が失われてしまう．例えば，総和計算の際に非常に大きな数と小さな数を多数加える場合にはこれが問題となることがある．このときには小さい方から順に和を計算することで回避できる．
 
-丸め誤差の影響を調べるのに一番安直だが確実な方法は単精度から倍精度，倍精度から4倍精度に精度を上げてみて結果が変わらないことを確認することである．
+これらを具体的に示した :doc:`サンプルコード参照 <chap08_sample1_f90>` の実行結果は
+
+.. code-block:: bash
+
+  $ ./a.out
+   Cancellation of significant digits
+  correct result   :  0.500000000000000E-15
+  incorrect result :  0.444089209850063E-15
+   Loss of trailing digits
+  correct result   :  0.100000001000000E+01
+  incorrect result :  0.100000001110223E+01
+
+のようになる．3行目と4行目が桁落ち対策ありとなしの比較，6行目と7行目が情報落ちの対策ありとなしの比較である．このように，数学的に等価な演算であっても無視できないような誤差が発生する可能性があることは認識しておくべきである．なお，丸め誤差の影響を調べるのに一番安直だが確実な方法は単精度から倍精度，倍精度から4倍精度に精度を上げてみて結果が変わらないことを確認することである．
+
 
 求根法
 ======
@@ -83,8 +93,6 @@
 二分法
 ------
 
-    :doc:`サンプルコード参照 <chap08_sample2_f90>`
-
 もしある区間に解が1つあると分かっているならば，反復によって近似解が必ず真の解に収束する，二分法(bisection method)と呼ばれるアルゴリズムが知られいる．まず :math:`[x_1, x_2] \ (x_1 < x_2)` に対して :math:`f(x_1) < 0, f(x_2) > 0` ならばこのの区間に解があることが分かる．このとき，二分法によって近似解を求める手順は以下のようなものとなる．
 
     #. :math:`x = (x_1 + x_2)/2` を近似解とする．
@@ -95,92 +103,59 @@
 
 実際には :math:`f(x_1) > 0, f(x_2) < 0` の場合も考慮しなければならないが，組み込み関数 ``sign`` を用いてこれは簡単に実現出来る．以下のコードには二分法の実装例を示している．ただし ``f`` は関数として定義されているものとする．
 
-::
+.. literalinclude:: sample/chap08/sample2.f90
+  :language: fortran
+  :lines: 27-48
+  :lineno-match:
+  :caption: :doc:`sample2.f90 <chap08_sample2_f90>` 抜粋
 
-      sig = sign(1.0_8, f(x2)-f(x1))
-      do n = 1, nmax
-         x = (x1 + x2) * 0.5_8
-         y = f(x)
-
-         ! 収束判定
-         if (abs(x2-x1) < tolerance) then
-            exit
-         end if
-
-         ! 次の値を推定
-         if (y*sig < 0.0) then
-            x1 = x
-         else
-            x2 = x
-         end if
-      end do
 
 Newton法
 --------
-
-    :doc:`サンプルコード参照 <chap08_sample3_f90>`
 
 二分法は解の含まれる範囲を正しく指定すれば必ず収束するという利点はあるものの，あまり収束の速いアルゴリズムではなかった．一方で，初期値によっては収束しないかもしれないが，収束するならばその収束自体は速いというアルゴリズムも考えられる．それがここで紹介するNewton法と呼ばれるものである．これは :math:`f(x)` に加えてその微分 :math:`f'(x)` も用いるのが特徴である．すなわち，近似解 :math:`x` が与えられたときに :math:`x` の周りでのテイラー展開した
 
 .. math::
 
-
-    f(x + \delta) \simeq f(x) + \delta f'(x) + O(\delta^2)
+  f(x + \delta) \simeq f(x) + \delta f'(x) + O(\delta^2)
 
 を用いて， :math:`f(x + \delta) = 0` とすると
 
 .. math::
 
-
-    \delta = - \frac{f(x)}{f'(x)}
+  \delta = - \frac{f(x)}{f'(x)}
 
 を得る．即ち :math:`x - f(x)/f'(x)` を新しい近似解として採用すればよい．大きな特徴は関数の値だけではなく，その微分値(接線)も用いて収束を加速している点である．しかし，当然ながら初期値によっては収束しないことも十分に考えられる(どういった場合であろうか？)．以下のコードはNewton法のアルゴリズムを実装したものである．プログラムの構造は二分法の場合とほぼ同様であるが，微分値を返す関数 ``df`` も用いている．
 
-::
-
-      do n = 1, nmax
-         ! 次の値の推定
-         y  = f(x)
-         dy = df(x)
-         dx =-y / dy
-         x  = x + dx
-
-         ! 収束判定
-         if (abs(dx) < tolerance) then
-            exit
-         end if
-      end do
+.. literalinclude:: sample/chap08/sample3.f90
+  :language: fortran
+  :lines: 14-30
+  :lineno-match:
+  :caption: :doc:`sample3.f90 <chap08_sample3_f90>` 抜粋
 
 .. _c8_numerical_integration:
 
 数値積分
 ========
 
-    :doc:`サンプルコード参照 <chap08_sample4_f90>`
-
 次に関数の積分
 
 .. math::
 
-
-    S = \int_{a}^{b} f(x) d x
+  S = \int_{a}^{b} f(x) d x
 
 の数値的な評価を考えよう．区分求積法の原理を思い出せば，積分領域 :math:`[a, b]` を小さな領域 :math:`h = (b-a)/N` に分割し，積分を微小区間の積分の総和で近似すればよいことが分かるだろう．ここで分割数 :math:`N` を十分大きくとることができれば，近似式の誤差は十分小さく抑えることができる．:math:`x_j = a + j h` とし，微小区間の端点 :math:`[x_{i}, x_{i+1}]` で与えられた関数値 :math:`f_{i}, f_{i+1}` から，関数系を
 
 .. math::
 
-
-    f(x) = \frac{f_{i+1} - f_{i}}{h} (x - x_{i}) + f_{i}
+  f(x) = \frac{f_{i+1} - f_{i}}{h} (x - x_{i}) + f_{i}
 
 のように線形近似することで，以下の **台形公式** が得られる．
 
 .. math::
 
-
-    S = \frac{h}{2} \left[ f(x_0) +
-                          2 \sum_{j=1}^{N-1} f (x_{j}) + f(x_N) \right]
-    + O(h^2).
-
+  S = \frac{h}{2} \left[ f(x_0) + 2 \sum_{j=1}^{N-1} f (x_{j}) + f(x_N) \right]
+  + O(h^2).
 
 ここで :math:`O(h^2)` は誤差が刻み幅 :math:`h` の2乗で小さくなることを意味する．ただし例外として，元の関数系が線形であれば，当然この評価は厳密な積分値を与える．
 
@@ -188,31 +163,35 @@ Newton法
 
 .. math::
 
-
-    S = \frac{h}{3}
-     \left[ f(x_0) + 4 \sum_{j=1}^{N/2} f(x_{2j-1}) +
-      2 \sum_{j=1}^{N/2-1} f(x_{2j}) + f(x_N)
-     \right]
-    + O(h^4).
+  S = \frac{h}{3}
+   \left[ f(x_0) + 4 \sum_{j=1}^{N/2} f(x_{2j-1}) +
+    2 \sum_{j=1}^{N/2-1} f(x_{2j}) + f(x_N)
+   \right]
+  + O(h^4).
 
 ここでSimpsonの公式の誤差は :math:`h` の4乗に比例する．当然ながら同じ精度を実現するために必要な計算量はSimpsonの公式の方が台形公式よりも小さくて済む．
 
-Fortranプログラム中では :math:`f(x)` を関数として定義し，分割数 :math:`N` を適当に定めれば ``do`` ループによって総和計算をすることで積分値は簡単に求まる．例えば台形公式は以下のように実装することが出来る．
+Fortranプログラム中では :math:`f(x)` を関数として定義し，分割数 :math:`N` を適当に定めれば ``do`` ループによって総和計算をすることで積分値は簡単に求まる．例えば台形公式であれば
 
-::
+.. literalinclude:: sample/chap08/sample4.f90
+  :language: fortran
+  :lines: 22-29
+  :lineno-match:
+  :caption: :doc:`sample4.f90 <chap08_sample4_f90>` 抜粋
 
-      integral = 0.5_8 * (f(x1) + f(x2))
-      do n = 1, nmax-1
-         integral = integral + f(x1 + dx*real(n,8))
-      end do
-      integral = integral * dx
+Simpsonの公式を使った場合であれば
 
-ただし，ここで ``f(x)`` は被積分関数である．
+.. literalinclude:: sample/chap08/sample4.f90
+  :language: fortran
+  :lines: 34-46
+  :lineno-match:
+  :caption: :doc:`sample4.f90 <chap08_sample4_f90>` 抜粋
+
+のように実装することが出来る．ここで ``f(x)`` は被積分関数である．
+
 
 乱数
 ====
-
-    :doc:`サンプルコード参照 <chap08_sample5_f90>`
 
 確率的な現象を計算機を用いて模擬する際には乱数を用いることになる．ただし計算機で用いることのできる乱数は擬似乱数と呼ばれ，乱数のように見えるが実際には決定論的な手法に基づき生成される数列である．従って質の良い(周期の長い)乱数を用いなければ，用途によっては乱数とみなすことのできない場合もあるため注意が必要である．
 
@@ -220,7 +199,7 @@ Fortranには乱数を発生させる組込みのサブルーチン ``random_num
 
 ::
 
-      call random_number(x)
+  call random_number(x)
 
 とすれば ``x`` に区間 :math:`[0,1)` の一様乱数が代入される．``x`` は実数型(単精度もしくは倍精度)であれば配列でも良い．配列の場合は全ての要素に一様乱数が代入される．
 
@@ -232,24 +211,13 @@ Fortranには乱数を発生させる組込みのサブルーチン ``random_num
 
 といった流れとなる．以下のサブルーチン ``random_seed_clock`` は計算機の時刻 [#]_ に応じてシードを指定するものであり，これを用いれば実行する度に(時刻が異なるので)得られる乱数値が異なることが保証される．逆に固定のシードを用いるようにしておくと毎回同じ結果が得られるため，乱数を用いるプログラムをデバッグする際には都合が良い．
 
-::
+.. literalinclude:: sample/chap08/sample5.f90
+  :language: fortran
+  :lines: 75-93
+  :lineno-match:
+  :caption: :doc:`sample5.f90 <chap08_sample5_f90>` 抜粋
 
-      subroutine random_seed_clock()
-        implicit none
-        integer :: nseed, clock
-        integer, allocatable :: seed(:)
-
-        ! システムクロックを取得
-        call system_clock(clock)
-
-        call random_seed(size=nseed)
-        allocate(seed(nseed))
-
-        seed = clock
-        call random_seed(put=seed)
-
-        deallocate(seed)
-      end subroutine random_seed_clock
+なお， ``random_seed_clock`` を使った乱数シードの初期化は :doc:`sample5.f90 <chap08_sample5_f90>` の例のようにプログラムの実行の最初に一度だけ行えば十分である．
 
 ..
 .. 課題
@@ -271,4 +239,3 @@ Fortranには乱数を発生させる組込みのサブルーチン ``random_num
 .. [#]
 
    Unix系OSの場合は1970年1月1日からの経過時間．
-
