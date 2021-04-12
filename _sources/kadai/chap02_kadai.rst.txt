@@ -36,7 +36,22 @@ Pythonはスクリプト言語と呼ばれ，コンパイルが必要なく，�
 
 .. code-block:: bash
 
+    $ python hello.py
+    Hello, world !
+
+また，hello.pyに実行権限があれば直接実行することもできる．実行権限を付与するには
+
+.. code-block:: bash
+
+    $ chmod 755 hello.py
+
+などとすればよい．このときは
+
+.. code-block:: bash
+
     $ ./hello.py
     Hello, world !
+
+のように実行することができるだろう．
 
 プログラムの規模が大きくなってくると，次第にコンパイルにも時間がかかるようになってくるが，Pythonのような言語ではコンパイルの必要がないことが大きな利点となる．一方で実行速度は（書き方に大きく依存するものの）C言語やFortranの方が一般には高速である．

@@ -7,9 +7,7 @@
 付録
 ====
 
-
-
-    サンプルプログラム
+.. seealso::
 
     - :doc:`sample1.f90 <chap10_sample1_f90>` : 分割コンパイル用サンプル
     - :doc:`sample1a.f90 <chap10_sample1a_f90>` : 分割コンパイル用サンプル(モジュールA)

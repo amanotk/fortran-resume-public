@@ -4,11 +4,19 @@ table.highlighttable {
 }
 
 table.highlighttable td.linenos {
-    width: 2em;
+    width: 3em;
 }
 
 table.highlighttable td.linenos div.linenodiv {
     text-align: right;
+}
+
+/* contents for each page */
+div.topic {
+    background: #efefef;
+    border: solid 1px #dddddd;
+    padding: 12px 12px 2px 12px;
+    margin-bottom: 2ex;
 }
 
 /* -*- customize pygments monokai style -*- */
@@ -19,12 +27,12 @@ div.document div.highlight {
 
 .highlight .err {
     background-color: #272822;
-    color: #eeeeee;
+    color: #eecc22;
 }
-.highlight .c { color: #eeeeee } /* Comment.Hashbang */
-.highlight .ch { color: #eeeeee } /* Comment.Hashbang */
-.highlight .cm { color: #eeeeee } /* Comment.Multiline */
-.highlight .cp { color: #eeeeee } /* Comment.Preproc */
-.highlight .cpf { color: #eeeeee } /* Comment.PreprocFile */
-.highlight .c1 { color: #eeeeee } /* Comment.Single */
-.highlight .cs { color: #eeeeee } /* Comment.Special */
+.highlight .c { color: #eecc22 } /* Comment.Hashbang */
+.highlight .ch { color: #eecc22 } /* Comment.Hashbang */
+.highlight .cm { color: #eecc22 } /* Comment.Multiline */
+.highlight .cp { color: #eecc22 } /* Comment.Preproc */
+.highlight .cpf { color: #eecc22 } /* Comment.PreprocFile */
+.highlight .c1 { color: #eecc22 } /* Comment.Single */
+.highlight .cs { color: #eecc22 } /* Comment.Special */
