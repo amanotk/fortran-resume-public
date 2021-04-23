@@ -31,7 +31,7 @@ except:
     z  = array.array('d')
 
     # open file in binary read mode
-    fp = file(fn, "rb")
+    fp = open(fn, "rb")
 
     # x
     h  = fp.read(4)
