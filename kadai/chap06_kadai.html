@@ -72,7 +72,7 @@
             
             
               <div class="version">
-                2021
+                2022
               </div>
             
           
@@ -171,9 +171,18 @@
             
   <div class="section" id="id1">
 <h1>第6章 演習課題<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<blockquote>
-<div><p><a class="reference external" href="chap06_kadai.pdf">課題PDFダウンロード</a></p>
-</div></blockquote>
+<div class="admonition seealso">
+<p class="admonition-title">参考</p>
+<ul class="simple">
+<li><p><span class="xref std std-doc">課題2 解答例</span></p></li>
+<li><p><span class="xref std std-doc">課題3 解答例</span></p></li>
+<li><p><span class="xref std std-doc">課題4 解答例</span></p></li>
+<li><p><span class="xref std std-doc">課題5 解答例</span></p></li>
+<li><p><span class="xref std std-doc">課題6 解答例</span></p></li>
+<li><p><span class="xref std std-doc">課題7 解答例</span></p></li>
+<li><p><span class="xref std std-doc">課題8 解答例</span></p></li>
+</ul>
+</div>
 <div class="section" id="id2">
 <h2>課題1<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>サンプルプログラムをコンパイル・実行して動作を確認せよ．さらに，適宜修正してその実行結果を確認せよ．</p>
@@ -250,15 +259,15 @@ $ diff helix1.dat test.dat
 <h2>課題7 <sup>†</sup><a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Fortranの通常の <code class="docutils literal notranslate"><span class="pre">unformatted</span></code> バイナリファイルは一般には他の言語と互換性が無いが， <a class="reference internal" href="../chap06.html#c6-stream-io"><span class="std std-ref">ストリーム入出力</span></a> を使うことで他の言語と同様にバイナリファイルを扱うことが出来る．ここではC言語で</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// 配列サイズ</span>
-<span class="k">const</span> <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// 倍精度実数の配列</span>
-<span class="kt">double</span> <span class="n">x</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>
+<span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="n">N</span><span class="p">];</span><span class="w"></span>
 
 <span class="c1">// xには1.0から5.5まで0.5刻みでデータを格納</span>
 
 <span class="c1">// xに格納された倍精度実数をN個分ファイルにバイナリで出力</span>
-<span class="n">fwrite</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">),</span> <span class="n">N</span><span class="p">,</span> <span class="n">fp</span><span class="p">);</span>
+<span class="n">fwrite</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">),</span><span class="w"> </span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">fp</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <p>のように生成した <a class="reference external" href="data/cbinary.dat">cbinary.dat</a> をFortranから読み込むプログラムを作成せよ．
@@ -297,7 +306,7 @@ data <span class="nb">read</span> from binary.dat <span class="k">in</span> stre
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2021, Takanobu Amano
+        &copy; Copyright 2022, Takanobu Amano
 
     </p>
   </div>

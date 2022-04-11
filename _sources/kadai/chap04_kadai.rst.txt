@@ -3,7 +3,17 @@
 第4章 演習課題
 ==============
 
-  `課題PDFダウンロード <chap04_kadai.pdf>`_
+..  `課題PDFダウンロード <chap04_kadai.pdf>`_
+
+.. seealso::
+
+  - :doc:`課題2 解答例 <chap04_kadai2_f90>`
+  - :doc:`課題3 解答例 <chap04_kadai3_f90>`
+  - :doc:`課題4 解答例 <chap04_kadai4_f90>`
+  - :doc:`課題5 解答例 <chap04_kadai5_f90>`
+  - :doc:`課題6 解答例 <chap04_kadai6_f90>`
+  - :doc:`課題7 解答例 <chap04_kadai7_f90>`
+
 
 課題1
 -----

@@ -3,7 +3,12 @@
 第2章 演習課題
 ==============
 
-  `課題PDFダウンロード <chap02_kadai.pdf>`_
+..  `課題PDFダウンロード <chap02_kadai.pdf>`_
+
+.. seealso::
+
+  - :doc:`課題2 解答例 <chap02_kadai2_f90>`
+
 
 課題1
 -----

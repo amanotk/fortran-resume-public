@@ -3,7 +3,17 @@
 第5章 演習課題
 ==============
 
-  `課題PDFダウンロード <chap05_kadai.pdf>`_
+..  `課題PDFダウンロード <chap05_kadai.pdf>`_
+
+.. seealso::
+
+  - :doc:`課題2 解答例 <chap05_kadai2_f90>`
+  - :doc:`課題3 解答例 <chap05_kadai3_f90>`
+  - :doc:`課題4 解答例 <chap05_kadai4_f90>`
+  - :doc:`課題5 解答例 <chap05_kadai5_f90>`
+  - :doc:`課題6 解答例 <chap05_kadai6_f90>`
+  - :doc:`課題7 解答例 <chap05_kadai7_f90>`
+
 
 課題1
 -----

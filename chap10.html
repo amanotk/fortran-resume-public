@@ -73,7 +73,7 @@
             
             
               <div class="version">
-                2021
+                2022
               </div>
             
           
@@ -285,7 +285,7 @@ $ gfortran sample1b.o sample1a.o sample1.o
 <div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>$ gfortran main.o -lABC -lXYZ
 </pre></div>
 </td></tr></table></div>
-<p>とすれば <code class="docutils literal notranslate"><span class="pre">libABC.a</span></code>，<code class="docutils literal notranslate"><span class="pre">libXYZ.so</span></code> の両方とリンクすることが出来る．このようにライブラリとリンクするには，拡張子とファイル先頭の <code class="docutils literal notranslate"><span class="pre">lib</span></code> を除いたライブラリ名を <code class="docutils literal notranslate"><span class="pre">-l</span></code> オプションに渡せば良い．ただし，ライブラリファイルがあるディレクトリがカレントディレクトリや標準の場所(通常 <code class="docutils literal notranslate"><span class="pre">/usr/lib</span></code> や <code class="docutils literal notranslate"><span class="pre">/usr/local/lib</span></code> など)以外の場合にはその場所を <code class="docutils literal notranslate"><span class="pre">-L</span></code> オプションで明示的に指定してやらなければならない．以下の例では <code class="docutils literal notranslate"><span class="pre">libABC.a</span></code> が <code class="docutils literal notranslate"><span class="pre">../lib</span></code> にあるの場合に，それを明示的に指定してリンクを実行する．</p>
+<p>とすれば <code class="docutils literal notranslate"><span class="pre">libABC.a</span></code>，<code class="docutils literal notranslate"><span class="pre">libXYZ.so</span></code> の両方とリンクすることが出来る．このようにライブラリとリンクするには，拡張子とファイル先頭の <code class="docutils literal notranslate"><span class="pre">lib</span></code> を除いたライブラリ名を <code class="docutils literal notranslate"><span class="pre">-l</span></code> オプションに渡せば良い．ただし，ライブラリファイルがあるディレクトリがカレントディレクトリや標準の場所(通常 <code class="docutils literal notranslate"><span class="pre">/usr/lib</span></code> や <code class="docutils literal notranslate"><span class="pre">/usr/local/lib</span></code> など)以外の場合にはその場所を <code class="docutils literal notranslate"><span class="pre">-L</span></code> オプションで明示的に指定してやらなければならない．以下の例では <code class="docutils literal notranslate"><span class="pre">libABC.a</span></code> が <code class="docutils literal notranslate"><span class="pre">../lib</span></code> にある場合に，それを明示的に指定してリンクを実行する．</p>
 <div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>$ gfortran main.o -L../lib -lABC
 </pre></div>
 </td></tr></table></div>
@@ -820,9 +820,13 @@ CPU Time <span class="o">[</span>sec<span class="o">]</span> :   <span class="m"
 </div>
 <div class="section" id="id22">
 <h2><a class="toc-backref" href="#id43"><span class="section-number">10.8. </span>第10章 演習課題</a><a class="headerlink" href="#id22" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<blockquote>
-<div><p><a class="reference external" href="chap10_kadai.pdf">課題PDFダウンロード</a></p>
-</div></blockquote>
+<div class="admonition seealso">
+<p class="admonition-title">参考</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="chap10_kadai2_f90.html"><span class="doc">課題2 解答例</span></a></p></li>
+<li><p><a class="reference internal" href="chap10_kadai3_f90.html"><span class="doc">課題3 解答例</span></a></p></li>
+</ul>
+</div>
 <div class="section" id="id23">
 <h3><span class="section-number">10.8.1. </span>課題1<a class="headerlink" href="#id23" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>サンプルプログラムをコンパイル・実行して動作を確認せよ．さらに，適宜修正してその実行結果を確認せよ．</p>
@@ -838,7 +842,7 @@ CPU Time <span class="o">[</span>sec<span class="o">]</span> :   <span class="m"
 <li><p>収束判定のステータスを返す．</p></li>
 <li><p>求まった近似解を返す(収束しなかった場合は最後の反復後の解の近似値)．</p></li>
 </ul>
-<p>(二分法のモジュール``bisection.f90`` の <code class="docutils literal notranslate"><span class="pre">mod_bisection</span></code> を参考にすればよい．)</p>
+<p>(二分法のモジュール <code class="docutils literal notranslate"><span class="pre">bisection.f90</span></code> の <code class="docutils literal notranslate"><span class="pre">mod_bisection</span></code> を参考にすればよい．)</p>
 </div>
 <div class="section" id="id25">
 <h3><span class="section-number">10.8.3. </span>課題3 <sup>†</sup><a class="headerlink" href="#id25" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -917,7 +921,7 @@ CPU Time <span class="o">[</span>sec<span class="o">]</span> :   <span class="m"
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2021, Takanobu Amano
+        &copy; Copyright 2022, Takanobu Amano
 
     </p>
   </div>
