@@ -1,7 +1,7 @@
 program answer
   implicit none
 
-  real(8) :: pi = atan(1.0_8) * 4.0_8
+  real(8), parameter :: pi = atan(1.0_8) * 4.0_8
   integer :: i, n
   real(8) :: theta, radian, theta1, theta2, dtheta
 
@@ -9,7 +9,7 @@ program answer
   theta2 = 180.0_8
   dtheta = 10.0_8
 
-  n = (theta2 - theta1)/dtheta
+  n = int((theta2 - theta1)/dtheta)
 
   do i = 0, n
      theta = dtheta * i

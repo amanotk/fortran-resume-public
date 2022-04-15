@@ -17,7 +17,7 @@ program answer
         p = p + alpha * p*(1-p)
      end do
 
-     ! output later half
+     ! output latter half
      do i = nmax/2, nmax
         write(*,*) alpha, p
         p = p + alpha * p*(1-p)
