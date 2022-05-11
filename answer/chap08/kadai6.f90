@@ -2,7 +2,7 @@ program answer
   implicit none
 
   integer, parameter :: max_memory_mb = 512 ! 最大メモリ使用量 [MB]
-  real(8), parameter :: pi = atan(1.0) * 4
+  real(8), parameter :: pi = atan(1.0_8) * 4
 
   integer :: ndims, trial
   real(8) :: approx, exact
@@ -12,7 +12,7 @@ program answer
 
   call random_seed_clock()
   approx = volume(ndims, trial) * 2**ndims
-  exact  = pi**(ndims*0.5) / gamma(ndims*0.5 + 1)
+  exact  = pi**(ndims*0.5_8) / gamma(ndims*0.5_8 + 1)
 
   write(*, fmt='("approximation  = ", e20.8)') approx
   write(*, fmt='("exact value    = ", e20.8)') exact

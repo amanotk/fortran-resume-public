@@ -270,7 +270,7 @@
   <span class="k">implicit none</span>
 
 <span class="k">  </span><span class="kt">integer</span><span class="p">,</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">max_memory_mb</span> <span class="o">=</span> <span class="mi">512</span> <span class="c">! 最大メモリ使用量 [MB]</span>
-  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">pi</span> <span class="o">=</span> <span class="nb">atan</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span>
+  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">pi</span> <span class="o">=</span> <span class="nb">atan</span><span class="p">(</span><span class="mf">1.0_8</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span>
 
   <span class="kt">integer</span> <span class="kd">::</span> <span class="n">ndims</span><span class="p">,</span> <span class="n">trial</span>
   <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">approx</span><span class="p">,</span> <span class="n">exact</span>
@@ -280,7 +280,7 @@
 
   <span class="k">call </span><span class="n">random_seed_clock</span><span class="p">()</span>
   <span class="n">approx</span> <span class="o">=</span> <span class="n">volume</span><span class="p">(</span><span class="n">ndims</span><span class="p">,</span> <span class="n">trial</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span><span class="o">**</span><span class="n">ndims</span>
-  <span class="n">exact</span>  <span class="o">=</span> <span class="n">pi</span><span class="o">**</span><span class="p">(</span><span class="n">ndims</span><span class="o">*</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">/</span> <span class="nb">gamma</span><span class="p">(</span><span class="n">ndims</span><span class="o">*</span><span class="mf">0.5</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+  <span class="n">exact</span>  <span class="o">=</span> <span class="n">pi</span><span class="o">**</span><span class="p">(</span><span class="n">ndims</span><span class="o">*</span><span class="mf">0.5_8</span><span class="p">)</span> <span class="o">/</span> <span class="nb">gamma</span><span class="p">(</span><span class="n">ndims</span><span class="o">*</span><span class="mf">0.5_8</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 
   <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(&quot;approximation  = &quot;, e20.8)&#39;</span><span class="p">)</span> <span class="n">approx</span>
   <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(&quot;exact value    = &quot;, e20.8)&#39;</span><span class="p">)</span> <span class="n">exact</span>
