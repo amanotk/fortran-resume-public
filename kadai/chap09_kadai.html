@@ -1,40 +1,26 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="ja" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="ja" > <!--<![endif]-->
+<html class="writer-html5" lang="ja" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>第9章 演習課題 &mdash; Fortran演習(地球惑星物理学演習)</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-
-  
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/translations.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
@@ -51,51 +37,28 @@
 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../index.html" class="icon icon-home"> Fortran演習
           
-
-          
+          <a href="../index.html" class="icon icon-home">
+            Fortran演習
           </a>
-
-          
-            
-            
               <div class="version">
-                2022
+                2023
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../chap01.html">1. はじめに</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chap02.html">2. プログラムの作成と実行</a></li>
@@ -109,68 +72,31 @@
 <li class="toctree-l1"><a class="reference internal" href="../chap10.html">10. 付録</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Fortran演習</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-      <li>第9章 演習課題</li>
-    
-    
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">第9章 演習課題</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="id1">
-<h1>第9章 演習課題<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+             
+  <section id="id1">
+<h1>第9章 演習課題<a class="headerlink" href="#id1" title="この見出しへのパーマリンク"></a></h1>
 <div class="admonition seealso">
 <p class="admonition-title">参考</p>
 <ul class="simple">
@@ -180,66 +106,66 @@
 <li><p><span class="xref std std-doc">課題5 解答例</span></p></li>
 </ul>
 </div>
-<div class="section" id="id2">
-<h2>課題1<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="id2">
+<h2>課題1<a class="headerlink" href="#id2" title="この見出しへのパーマリンク"></a></h2>
 <p>サンプルプログラムをコンパイル・実行して動作を確認せよ．さらに，適宜修正してその実行結果を確認せよ．</p>
-</div>
-<div class="section" id="id3">
-<h2>課題2<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="id3">
+<h2>課題2<a class="headerlink" href="#id3" title="この見出しへのパーマリンク"></a></h2>
 <p>サンプルプログラム <span class="xref std std-doc">sample1.f90</span> を参考にして，数学定数を定義するモジュールを作成せよ．メインプログラムも作成して，動作を確認すること．特に <code class="docutils literal notranslate"><span class="pre">use</span></code> によるモジュール参照， <code class="docutils literal notranslate"><span class="pre">only</span></code> の使い方などを理解し，定数値の書き換えが出来ない(コンパイルエラーとなる)ことを確かめよ．数学定数としては例えば <span class="math notranslate nohighlight">\(\pi\)</span>, <span class="math notranslate nohighlight">\(\sqrt{\pi}\)</span>, <span class="math notranslate nohighlight">\(e\)</span> などを定義すれば良い．</p>
-</div>
-<div class="section" id="id4">
-<h2>課題3<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="id4">
+<h2>課題3<a class="headerlink" href="#id4" title="この見出しへのパーマリンク"></a></h2>
 <p><span class="xref std std-doc">sample5.f90</span> のモジュール <code class="docutils literal notranslate"><span class="pre">mod_vector</span></code> で定義されている2次元のベクトル構造型 <code class="docutils literal notranslate"><span class="pre">type(vector2)</span></code> を拡張し，以下の演算子を定義せよ．(以下で <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code> は共に <code class="docutils literal notranslate"><span class="pre">type(vector2)</span></code> で宣言されたものとする．)</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">-</span></code> 演算子:
 倍精度実数と <code class="docutils literal notranslate"><span class="pre">type(vector2)</span></code> の間で以下のような演算が出来るようにする．</p></li>
 </ul>
-<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="mf">1.0_8</span> <span class="c">! b%x = a%x - 1.0_8; b%y = a%y - 1.0_8; と同値になるように</span>
-<span class="n">b</span> <span class="o">=</span> <span class="mf">1.0_8</span> <span class="o">-</span> <span class="n">a</span> <span class="c">! b%x = 1.0_8 - a%x; b%y = 1.0_8 - a%y; と同値になるように</span>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1.0_8</span><span class="w"> </span><span class="c">! b%x = a%x - 1.0_8; b%y = a%y - 1.0_8; と同値になるように</span>
+<span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0_8</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="c">! b%x = 1.0_8 - a%x; b%y = 1.0_8 - a%y; と同値になるように</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">*</span></code> 演算子:
 ベクトル積を返す演算子とする．(従って以下の2行が同じ結果となる．)</p></li>
 </ul>
-<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
-<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">a</span><span class="p">%</span><span class="n">x</span> <span class="o">*</span> <span class="n">b</span><span class="p">%</span><span class="n">y</span> <span class="o">-</span> <span class="n">a</span><span class="p">%</span><span class="n">y</span> <span class="o">*</span> <span class="n">b</span><span class="p">%</span><span class="n">x</span>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span>
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">a</span><span class="p">%</span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">%</span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">%</span><span class="n">y</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">%</span><span class="n">x</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">=</span></code> 演算子: 以下のような代入文を実行できるようにする．</p></li>
 </ul>
-<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">1.0_8</span>            <span class="c">! x, yに同じ値(1.0)を代入</span>
-<span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">2.0_8</span><span class="p">,</span> <span class="mf">1.0_8</span><span class="o">/</span><span class="p">)</span> <span class="c">! xには2.0, yには1.0を代入</span>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0_8</span><span class="w">            </span><span class="c">! x, yに同じ値(1.0)を代入</span>
+<span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">/</span><span class="mf">2.0_8</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0_8</span><span class="o">/</span><span class="p">)</span><span class="w"> </span><span class="c">! xには2.0, yには1.0を代入</span>
 </pre></div>
 </div>
 <p>ここで <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">(/2.0_8,</span> <span class="pre">1.0_8/)</span></code> の右辺は長さ2の倍精度実数型の配列である．</p>
-</div>
-<div class="section" id="id5">
-<h2>課題4<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="id5">
+<h2>課題4<a class="headerlink" href="#id5" title="この見出しへのパーマリンク"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">mod_vector</span></code> をさらに拡張し， <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">z</span></code> を要素に持つ3次元ベクトルを表す構造型 <code class="docutils literal notranslate"><span class="pre">type(vector3)</span></code> を新たに定義せよ．また，この型に対する <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">=</span></code> などの演算子を定義せよ．(ただし, <code class="docutils literal notranslate"><span class="pre">*</span></code> 演算子は通常のベクトル積を返すものとし，それ以外は <code class="docutils literal notranslate"><span class="pre">type(vector2)</span></code> の自然な拡張となるようにすること．)</p>
 <p>さらにサブルーチン <code class="docutils literal notranslate"><span class="pre">show</span></code> をオーバーロードし， <code class="docutils literal notranslate"><span class="pre">type(vector2)</span></code>, <code class="docutils literal notranslate"><span class="pre">type(vector3)</span></code> のどちらの変数も引数に取れるようにせよ．</p>
 <p>これによって，例えば</p>
-<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">type</span><span class="p">(</span><span class="n">vector2</span><span class="p">)</span> <span class="kd">::</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span>
-<span class="k">type</span><span class="p">(</span><span class="n">vector3</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">type</span><span class="p">(</span><span class="n">vector2</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span>
+<span class="k">type</span><span class="p">(</span><span class="n">vector3</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span>
 
-<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;--- vector2 ---&#39;</span>
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;--- vector2 ---&#39;</span>
 
-<span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">1.0_8</span><span class="p">,</span> <span class="mf">0.0_8</span><span class="o">/</span><span class="p">)</span>
-<span class="n">b</span> <span class="o">=</span> <span class="mf">1.0_8</span>
-<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">/</span><span class="mf">1.0_8</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0_8</span><span class="o">/</span><span class="p">)</span>
+<span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0_8</span>
+<span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
 
-<span class="k">call </span><span class="n">show</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
-<span class="k">call </span><span class="n">show</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span>
+<span class="k">call </span><span class="n">show</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+<span class="k">call </span><span class="n">show</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
 
-<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(&quot;a * b = &quot;, f12.4)&#39;</span><span class="p">)</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span>
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(&quot;a * b = &quot;, f12.4)&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">a</span><span class="o">*</span><span class="n">b</span>
 
-<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;--- vector3 ---&#39;</span>
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;--- vector3 ---&#39;</span>
 
-<span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">1.0_8</span><span class="p">,</span> <span class="mf">0.0_8</span><span class="p">,</span> <span class="mf">0.0_8</span><span class="o">/</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="mf">1.0_8</span>
-<span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
+<span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">/</span><span class="mf">1.0_8</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0_8</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0_8</span><span class="o">/</span><span class="p">)</span>
+<span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0_8</span>
+<span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y</span>
 
 <span class="k">call </span><span class="n">show</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="k">call </span><span class="n">show</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
@@ -249,85 +175,73 @@
 </pre></div>
 </div>
 <p>のような記述が可能になるはずである．</p>
-</div>
-<div class="section" id="id6">
-<h2>課題5<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="id6">
+<h2>課題5<a class="headerlink" href="#id6" title="この見出しへのパーマリンク"></a></h2>
 <p>有理数を表す構造体を扱うモジュールを作成せよ．有理数同士の和差積商の演算子もそれぞれ定義すること．さらに，代入演算子で長さ2の整数配列を受け取れるようにし，また有理数を標準出力に表示するサブルーチン(例えば <code class="docutils literal notranslate"><span class="pre">show</span></code> )も作成せよ．(有理数の分子および分母は整数であるので2つの整数型を持つ構造体として定義すればよい．)</p>
-<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">type</span><span class="p">(</span><span class="n">rational</span><span class="p">)</span> <span class="kd">::</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">type</span><span class="p">(</span><span class="n">rational</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span>
 
-<span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="o">/</span><span class="p">)</span>
-<span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="o">/</span><span class="p">)</span>
+<span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">/</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="o">/</span><span class="p">)</span>
+<span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="o">/</span><span class="p">)</span>
 
-<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(a)&#39;</span><span class="p">,</span> <span class="n">advance</span><span class="o">=</span><span class="s1">&#39;no&#39;</span><span class="p">)</span> <span class="s1">&#39;a     = &#39;</span>
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(a)&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">advance</span><span class="o">=</span><span class="s1">&#39;no&#39;</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;a     = &#39;</span>
 <span class="k">call </span><span class="n">show</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 
-<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(a)&#39;</span><span class="p">,</span> <span class="n">advance</span><span class="o">=</span><span class="s1">&#39;no&#39;</span><span class="p">)</span> <span class="s1">&#39;b     = &#39;</span>
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(a)&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">advance</span><span class="o">=</span><span class="s1">&#39;no&#39;</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;b     = &#39;</span>
 <span class="k">call </span><span class="n">show</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 
-<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(a)&#39;</span><span class="p">,</span> <span class="n">advance</span><span class="o">=</span><span class="s1">&#39;no&#39;</span><span class="p">)</span> <span class="s1">&#39;a + b = &#39;</span>
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(a)&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">advance</span><span class="o">=</span><span class="s1">&#39;no&#39;</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;a + b = &#39;</span>
 <span class="k">call </span><span class="n">show</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
 
-<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(a)&#39;</span><span class="p">,</span> <span class="n">advance</span><span class="o">=</span><span class="s1">&#39;no&#39;</span><span class="p">)</span> <span class="s1">&#39;a - b = &#39;</span>
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(a)&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">advance</span><span class="o">=</span><span class="s1">&#39;no&#39;</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;a - b = &#39;</span>
 <span class="k">call </span><span class="n">show</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="n">b</span><span class="p">)</span>
 
-<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(a)&#39;</span><span class="p">,</span> <span class="n">advance</span><span class="o">=</span><span class="s1">&#39;no&#39;</span><span class="p">)</span> <span class="s1">&#39;a * b = &#39;</span>
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(a)&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">advance</span><span class="o">=</span><span class="s1">&#39;no&#39;</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;a * b = &#39;</span>
 <span class="k">call </span><span class="n">show</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="p">)</span>
 
-<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(a)&#39;</span><span class="p">,</span> <span class="n">advance</span><span class="o">=</span><span class="s1">&#39;no&#39;</span><span class="p">)</span> <span class="s1">&#39;a / b = &#39;</span>
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(a)&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">advance</span><span class="o">=</span><span class="s1">&#39;no&#39;</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;a / b = &#39;</span>
 <span class="k">call </span><span class="n">show</span><span class="p">(</span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>例えば上のようなプログラムをコンパイルして実行した結果が以下のようになればよい．約分も忘れずにすること．最大公約数を求める関数もしくはサブルーチンを用いると良い．(絶対値に注意すること．)</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out
-<span class="nv">a</span>     <span class="o">=</span>      <span class="m">1</span> /      <span class="m">4</span>
-<span class="nv">b</span>     <span class="o">=</span>      <span class="m">2</span> /      <span class="m">5</span>
-a + <span class="nv">b</span> <span class="o">=</span>     <span class="m">13</span> /     <span class="m">20</span>
-a - <span class="nv">b</span> <span class="o">=</span>     -3 /     <span class="m">20</span>
-a * <span class="nv">b</span> <span class="o">=</span>      <span class="m">1</span> /     <span class="m">10</span>
-a / <span class="nv">b</span> <span class="o">=</span>      <span class="m">5</span> /      <span class="m">8</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./a.out
+<span class="nv">a</span><span class="w">     </span><span class="o">=</span><span class="w">      </span><span class="m">1</span><span class="w"> </span>/<span class="w">      </span><span class="m">4</span>
+<span class="nv">b</span><span class="w">     </span><span class="o">=</span><span class="w">      </span><span class="m">2</span><span class="w"> </span>/<span class="w">      </span><span class="m">5</span>
+a<span class="w"> </span>+<span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="o">=</span><span class="w">     </span><span class="m">13</span><span class="w"> </span>/<span class="w">     </span><span class="m">20</span>
+a<span class="w"> </span>-<span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="o">=</span><span class="w">     </span>-3<span class="w"> </span>/<span class="w">     </span><span class="m">20</span>
+a<span class="w"> </span>*<span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="o">=</span><span class="w">      </span><span class="m">1</span><span class="w"> </span>/<span class="w">     </span><span class="m">10</span>
+a<span class="w"> </span>/<span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="o">=</span><span class="w">      </span><span class="m">5</span><span class="w"> </span>/<span class="w">      </span><span class="m">8</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2022, Takanobu Amano
-
-    </p>
+    <p>&#169; Copyright 2023, Takanobu Amano.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

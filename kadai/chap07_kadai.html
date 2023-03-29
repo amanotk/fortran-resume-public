@@ -1,40 +1,26 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="ja" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="ja" > <!--<![endif]-->
+<html class="writer-html5" lang="ja" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>第7章 演習課題 &mdash; Fortran演習(地球惑星物理学演習)</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-
-  
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/translations.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
@@ -51,51 +37,28 @@
 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../index.html" class="icon icon-home"> Fortran演習
           
-
-          
+          <a href="../index.html" class="icon icon-home">
+            Fortran演習
           </a>
-
-          
-            
-            
               <div class="version">
-                2022
+                2023
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../chap01.html">1. はじめに</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chap02.html">2. プログラムの作成と実行</a></li>
@@ -109,68 +72,31 @@
 <li class="toctree-l1"><a class="reference internal" href="../chap10.html">10. 付録</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Fortran演習</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-      <li>第7章 演習課題</li>
-    
-    
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">第7章 演習課題</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="id1">
-<h1>第7章 演習課題<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+             
+  <section id="id1">
+<h1>第7章 演習課題<a class="headerlink" href="#id1" title="この見出しへのパーマリンク"></a></h1>
 <div class="admonition seealso">
 <p class="admonition-title">参考</p>
 <ul class="simple">
@@ -182,68 +108,68 @@
 <li><p><span class="xref std std-doc">課題7 解答例</span></p></li>
 </ul>
 </div>
-<div class="section" id="id2">
-<h2>課題1<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="id2">
+<h2>課題1<a class="headerlink" href="#id2" title="この見出しへのパーマリンク"></a></h2>
 <p>サンプルプログラムをコンパイル・実行して動作を確認せよ．さらに，適宜修正してその実行結果を確認せよ．</p>
-</div>
-<div class="section" id="id3">
-<h2>課題2<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="id3">
+<h2>課題2<a class="headerlink" href="#id3" title="この見出しへのパーマリンク"></a></h2>
 <p>与えられた倍精度実数 <span class="math notranslate nohighlight">\(a (&gt; 0)\)</span> の平方根の近似値を返す関数を実装せよ．ただし平方根は以下のような逐次近似で計算するものとする．</p>
 <div class="math notranslate nohighlight">
 \[x_{n+1} = \frac{1}{2} \left( \frac{a}{x_{n}} + x_{n} \right)\]</div>
 <p>ここで <span class="math notranslate nohighlight">\(x_{n}\)</span> は <span class="math notranslate nohighlight">\(\sqrt{a}\)</span> の <span class="math notranslate nohighlight">\(n\)</span> 番目の近似値である．初期値としては <span class="math notranslate nohighlight">\(x_{0} = a\)</span> を与え，反復は例えば <span class="math notranslate nohighlight">\(\epsilon = 10^{-5}\)</span> に対して， <span class="math notranslate nohighlight">\(\|x_{n+1} - x_{n}\| &lt; \epsilon \|x_{n}\|\)</span> となるまで繰り返せば良い．（反復の途中結果は必要ないので <span class="math notranslate nohighlight">\(x_{n}\)</span> に配列を使う必要はないことに注意せよ．）</p>
 <p>実装した関数と組み込み関数 <code class="docutils literal notranslate"><span class="pre">sqrt</span></code> の結果を比較し， <span class="math notranslate nohighlight">\(\epsilon\)</span> で与えた精度の範囲内で正しいことを確認すること．例えば，以下は標準入力から与えられた数値(この例では2.0)の平方根を計算して表示する例である．</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./a.out
 <span class="m">2</span>.0
-sqrt<span class="o">(</span>x<span class="o">)</span> <span class="o">=</span>    <span class="m">1</span>.4142135623730951
-<span class="nv">approx</span>  <span class="o">=</span>    <span class="m">1</span>.4142135623746899
+sqrt<span class="o">(</span>x<span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w">    </span><span class="m">1</span>.4142135623730951
+<span class="nv">approx</span><span class="w">  </span><span class="o">=</span><span class="w">    </span><span class="m">1</span>.4142135623746899
 </pre></div>
 </div>
-</div>
-<div class="section" id="id4">
-<h2>課題3<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="id4">
+<h2>課題3<a class="headerlink" href="#id4" title="この見出しへのパーマリンク"></a></h2>
 <p>テストの点数が整数配列から与えられた時にヒストグラムを作成するサブルーチン <code class="docutils literal notranslate"><span class="pre">histogram</span></code> を実装せよ．例えば点数配列とビン幅を入力とし，作成されたヒストグラムの各ビンの中央値，各ビン内の人数を出力とする以下の様な形式のサブルーチンを作成すればよい．ただし，与える整数は <span class="math notranslate nohighlight">\(0 \leq n &lt; 100\)</span> とするが，もしこの範囲を超えた入力があった場合にはエラーを表示して終了すること．</p>
-<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">subroutine </span><span class="n">histogram</span><span class="p">(</span><span class="n">score</span><span class="p">,</span> <span class="n">binw</span><span class="p">,</span> <span class="n">binc</span><span class="p">,</span> <span class="n">hist</span><span class="p">)</span>
-  <span class="k">implicit none</span>
-<span class="k">  </span><span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>  <span class="kd">::</span> <span class="n">score</span><span class="p">(:)</span>  <span class="c">! 点数(人数分)</span>
-  <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>  <span class="kd">::</span> <span class="n">binw</span>      <span class="c">! ビンの幅(例えば10点)</span>
-  <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span> <span class="kd">::</span> <span class="n">binc</span><span class="p">(:)</span>   <span class="c">! ビンの中央値(例えば5, 15, ..., 95)</span>
-  <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span> <span class="kd">::</span> <span class="n">hist</span><span class="p">(:)</span>   <span class="c">! 各ビン内の人数</span>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">subroutine </span><span class="n">histogram</span><span class="p">(</span><span class="n">score</span><span class="p">,</span><span class="w"> </span><span class="n">binw</span><span class="p">,</span><span class="w"> </span><span class="n">binc</span><span class="p">,</span><span class="w"> </span><span class="n">hist</span><span class="p">)</span>
+<span class="w">  </span><span class="k">implicit none</span>
+<span class="k">  </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">score</span><span class="p">(:)</span><span class="w">  </span><span class="c">! 点数(人数分)</span>
+<span class="w">  </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">binw</span><span class="w">      </span><span class="c">! ビンの幅(例えば10点)</span>
+<span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">binc</span><span class="p">(:)</span><span class="w">   </span><span class="c">! ビンの中央値(例えば5, 15, ..., 95)</span>
+<span class="w">  </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">hist</span><span class="p">(:)</span><span class="w">   </span><span class="c">! 各ビン内の人数</span>
 
-  <span class="c">! ここでヒストグラムを作成</span>
+<span class="w">  </span><span class="c">! ここでヒストグラムを作成</span>
 
 <span class="k">end subroutine </span><span class="n">histogram</span>
 </pre></div>
 </div>
 <p>この場合のように固定幅のビンでヒストグラムを作成するのは簡単である． <code class="docutils literal notranslate"><span class="pre">i</span></code> 番目の点数がヒストグラムの <code class="docutils literal notranslate"><span class="pre">j</span></code> 番目の要素に入るとすると， <code class="docutils literal notranslate"><span class="pre">j</span></code> は</p>
-<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="n">j</span> <span class="o">=</span> <span class="n">score</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">/</span> <span class="n">binw</span> <span class="o">+</span> <span class="mi">1</span>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">score</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">binw</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
 </pre></div>
 </div>
 <p>のように求められる(複雑なif文による分岐は必要ない!)．このインデックスが配列 <code class="docutils literal notranslate"><span class="pre">hist</span></code> の上限と下限の間に収まっていなければエラーとすれば良い．</p>
 <p>このサブルーチンを用いて， <a class="reference external" href="data/score2.dat">score2.dat</a> からデータを読み込みヒストグラム作成するプログラムを作成せよ．またその結果をgnuplotで図示せよ( <code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">boxes</span></code> を用いると良い)．出力結果は例えばビン幅を10とした場合には以下のようになる．</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out &lt; score2.dat
-  <span class="m">5</span>.0000000000000000                <span class="m">0</span>
-  <span class="m">15</span>.000000000000000                <span class="m">3</span>
-  <span class="m">25</span>.000000000000000               <span class="m">26</span>
-  <span class="m">35</span>.000000000000000               <span class="m">63</span>
-  <span class="m">45</span>.000000000000000              <span class="m">152</span>
-  <span class="m">55</span>.000000000000000              <span class="m">248</span>
-  <span class="m">65</span>.000000000000000              <span class="m">254</span>
-  <span class="m">75</span>.000000000000000              <span class="m">159</span>
-  <span class="m">85</span>.000000000000000               <span class="m">80</span>
-  <span class="m">95</span>.000000000000000               <span class="m">15</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./a.out<span class="w"> </span>&lt;<span class="w"> </span>score2.dat
+<span class="w">  </span><span class="m">5</span>.0000000000000000<span class="w">                </span><span class="m">0</span>
+<span class="w">  </span><span class="m">15</span>.000000000000000<span class="w">                </span><span class="m">3</span>
+<span class="w">  </span><span class="m">25</span>.000000000000000<span class="w">               </span><span class="m">26</span>
+<span class="w">  </span><span class="m">35</span>.000000000000000<span class="w">               </span><span class="m">63</span>
+<span class="w">  </span><span class="m">45</span>.000000000000000<span class="w">              </span><span class="m">152</span>
+<span class="w">  </span><span class="m">55</span>.000000000000000<span class="w">              </span><span class="m">248</span>
+<span class="w">  </span><span class="m">65</span>.000000000000000<span class="w">              </span><span class="m">254</span>
+<span class="w">  </span><span class="m">75</span>.000000000000000<span class="w">              </span><span class="m">159</span>
+<span class="w">  </span><span class="m">85</span>.000000000000000<span class="w">               </span><span class="m">80</span>
+<span class="w">  </span><span class="m">95</span>.000000000000000<span class="w">               </span><span class="m">15</span>
 </pre></div>
 </div>
 <p>なお <a class="reference external" href="data/score2.dat">score2.dat</a> の形式は <span class="xref std std-ref">5章の課題3</span> の <a class="reference external" href="data/score1.dat">score1.dat</a> と同じであるが，データは異なるものになっている．</p>
 <p>同様に範囲外のデータを含む <a class="reference external" href="data/score3.dat">score3.dat</a> を読みこませると</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out &lt; score3.dat
-  Invalid input
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./a.out<span class="w"> </span>&lt;<span class="w"> </span>score3.dat
+<span class="w">  </span>Invalid<span class="w"> </span>input
 </pre></div>
 </div>
 <p>のようなエラーを表示するように実装せよ．</p>
-</div>
-<div class="section" id="id6">
-<h2>課題4<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="id6">
+<h2>課題4<a class="headerlink" href="#id6" title="この見出しへのパーマリンク"></a></h2>
 <p>データ <span class="math notranslate nohighlight">\(x_1, x_2, \ldots, x_n\)</span> を大きさの順に並べ替える処理をソートという．ソートのアルゴリズムの中でも一番簡単なのがバブルソートと呼ばれるものである．これは以下の処理を <span class="math notranslate nohighlight">\(n-1\)</span> 回繰り返すことで実現される．</p>
 <blockquote>
 <div><p><span class="math notranslate nohighlight">\(i=1, \ldots, n-1\)</span> まで順に <span class="math notranslate nohighlight">\(x_{i}\)</span> と <span class="math notranslate nohighlight">\(x_{i+1}\)</span> の大小を比較し, <span class="math notranslate nohighlight">\(x_{i} &gt; x_{i+1}\)</span> なら順番を入れ替える</p>
@@ -252,22 +178,22 @@ sqrt<span class="o">(</span>x<span class="o">)</span> <span class="o">=</span>  
 <p>ただし1回目の処理が終了した時点で最大値が <span class="math notranslate nohighlight">\(x_n\)</span> になっており，この要素については並べ替えの必要がない．従って2回目は <span class="math notranslate nohighlight">\(x_1, \ldots, x_{n-2}\)</span> までを処理すれば十分である．同様に <span class="math notranslate nohighlight">\(m\)</span> 回目の処理が終了した時点で <span class="math notranslate nohighlight">\(x_{n-m+1}, \ldots, x_{n}\)</span> までの位置は確定しているので， <span class="math notranslate nohighlight">\(m+1\)</span> 回目には <span class="math notranslate nohighlight">\(x_1, \ldots, x_{n-m}\)</span> までの処理を行えばよい．これによって比較回数を <span class="math notranslate nohighlight">\((n-1)^2\)</span> 回から半分に減らすことができる．</p>
 <p>このバブルソートによって整数配列をソートするサブルーチン <code class="docutils literal notranslate"><span class="pre">bsort</span></code> を実装せよ．これは例えば以下のような形になるだろう．</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">subroutine </span><span class="n">bsort</span><span class="p">(</span><span class="k">array</span><span class="p">)</span>
-  <span class="k">implicit none</span>
-<span class="k">  </span><span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="k">array</span><span class="p">(:)</span> <span class="c">! 配列にはソートされた結果が代入される</span>
+<span class="w">  </span><span class="k">implicit none</span>
+<span class="k">  </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="k">array</span><span class="p">(:)</span><span class="w"> </span><span class="c">! 配列にはソートされた結果が代入される</span>
 
-  <span class="c">! バブルソート</span>
+<span class="w">  </span><span class="c">! バブルソート</span>
 
 <span class="k">end subroutine </span><span class="n">bsort</span>
 </pre></div>
 </div>
 <p>作成したプログラムを用いて <a class="reference external" href="data/rand.dat">rand.dat</a> のデータをソートし，結果が正しいことを確認せよ．ここでもデータファイルの形式は上の <a class="reference external" href="data/score2.dat">score2.dat</a> と同一である．従って同様にリダイレクトで</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out &lt; rand.dat
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./a.out<span class="w"> </span>&lt;<span class="w"> </span>rand.dat
 </pre></div>
 </div>
 <p>のように読みこませれば良い．</p>
-</div>
-<div class="section" id="id8">
-<h2>課題5<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="id8">
+<h2>課題5<a class="headerlink" href="#id8" title="この見出しへのパーマリンク"></a></h2>
 <p>データ <span class="math notranslate nohighlight">\(x_1, x_2, \ldots, x_n\)</span> からある値 <span class="math notranslate nohighlight">\(X\)</span> に等しいものを探しだす処理を探索という．その中でも以下は二分探索と呼ばれるアルゴリズムである．</p>
 <blockquote>
 <div><ul class="simple">
@@ -284,47 +210,47 @@ sqrt<span class="o">(</span>x<span class="o">)</span> <span class="o">=</span>  
 </div></blockquote>
 <p>これをサブルーチン <code class="docutils literal notranslate"><span class="pre">bsearch</span></code> として実装せよ．</p>
 <p>また <code class="docutils literal notranslate"><span class="pre">open</span></code> 文で <a class="reference external" href="data/rand.dat">rand.dat</a> からデータを読み込み， <code class="docutils literal notranslate"><span class="pre">bsort</span></code> で配列をソートした後に <code class="docutils literal notranslate"><span class="pre">bsearch</span></code> で実際に適当な値の探索を行うプログラムを作成せよ．例えば標準入力から与えられた値をソート後の配列から探索を行い，結果を表示するようにすれば良い．この時の実行結果は以下のようになる．(この例では10や2004が入力値である．)</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out
-Input an integer : <span class="m">10</span>    <span class="c1"># キーボード入力</span>
-      <span class="m">10</span> was not found !
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./a.out
+Input<span class="w"> </span>an<span class="w"> </span>integer<span class="w"> </span>:<span class="w"> </span><span class="m">10</span><span class="w">    </span><span class="c1"># キーボード入力</span>
+<span class="w">      </span><span class="m">10</span><span class="w"> </span>was<span class="w"> </span>not<span class="w"> </span>found<span class="w"> </span>!
 
-$ ./a.out
-Input an integer : <span class="m">2004</span>  <span class="c1"># キーボード入力</span>
-    <span class="m">2004</span> was found at index      <span class="m">100</span>
+$<span class="w"> </span>./a.out
+Input<span class="w"> </span>an<span class="w"> </span>integer<span class="w"> </span>:<span class="w"> </span><span class="m">2004</span><span class="w">  </span><span class="c1"># キーボード入力</span>
+<span class="w">    </span><span class="m">2004</span><span class="w"> </span>was<span class="w"> </span>found<span class="w"> </span>at<span class="w"> </span>index<span class="w">      </span><span class="m">100</span>
 </pre></div>
 </div>
 <p>なおサブルーチン <code class="docutils literal notranslate"><span class="pre">bsearch</span></code> は例えば以下のような形式とすればよい．見つかった場合には探しだす値と等しい値が格納されている配列のインデックスを，見つからなかった場合には <code class="docutils literal notranslate"><span class="pre">-1</span></code> を仮引数 <code class="docutils literal notranslate"><span class="pre">idx</span></code> に代入して返すようにするとよいだろう．</p>
-<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">subroutine </span><span class="n">bsearch</span><span class="p">(</span><span class="k">array</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">idx</span><span class="p">)</span>
-  <span class="k">implicit none</span>
-<span class="k">  </span><span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>  <span class="kd">::</span> <span class="k">array</span><span class="p">(:)</span> <span class="c">! ソートされた配列</span>
-  <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>  <span class="kd">::</span> <span class="n">var</span>      <span class="c">! 探したい値</span>
-  <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span> <span class="kd">::</span> <span class="n">idx</span>      <span class="c">! 見つかった要素へのインデックス</span>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">subroutine </span><span class="n">bsearch</span><span class="p">(</span><span class="k">array</span><span class="p">,</span><span class="w"> </span><span class="n">var</span><span class="p">,</span><span class="w"> </span><span class="n">idx</span><span class="p">)</span>
+<span class="w">  </span><span class="k">implicit none</span>
+<span class="k">  </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="k">array</span><span class="p">(:)</span><span class="w"> </span><span class="c">! ソートされた配列</span>
+<span class="w">  </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">var</span><span class="w">      </span><span class="c">! 探したい値</span>
+<span class="w">  </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">idx</span><span class="w">      </span><span class="c">! 見つかった要素へのインデックス</span>
 
-  <span class="c">! 二分探索</span>
+<span class="w">  </span><span class="c">! 二分探索</span>
 
 <span class="k">end subroutine </span><span class="n">bsearch</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id10">
-<h2>課題6<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="id10">
+<h2>課題6<a class="headerlink" href="#id10" title="この見出しへのパーマリンク"></a></h2>
 <p>1行に1つの英単語が記述されているファイルを読み込み，英単語を辞書順にソートして出力するプログラムを作成せよ．空白行かファイルの終端に達するまで全ての単語を読み込むこと．ただし英単語は10文字以下，また読み込む単語の数は100個以下であると仮定してよい． <a class="reference external" href="data/words.txt">words.txt</a> を入力として作成したプログラムの動作を確認せよ．</p>
 <p>実行結果は例えば以下のようになるだろう．(空白行の後の <code class="docutils literal notranslate"><span class="pre">NOT_TO_BE_READ</span></code> は読まれていないことに注意!)</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out &lt; words.txt
-*** before sort ***
-tomato     banana     apple      grape      watermelon plum
-*** after sort ***
-apple      banana     grape      plum       tomato     watermelon
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./a.out<span class="w"> </span>&lt;<span class="w"> </span>words.txt
+***<span class="w"> </span>before<span class="w"> </span>sort<span class="w"> </span>***
+tomato<span class="w">     </span>banana<span class="w">     </span>apple<span class="w">      </span>grape<span class="w">      </span>watermelon<span class="w"> </span>plum
+***<span class="w"> </span>after<span class="w"> </span>sort<span class="w"> </span>***
+apple<span class="w">      </span>banana<span class="w">     </span>grape<span class="w">      </span>plum<span class="w">       </span>tomato<span class="w">     </span>watermelon
 </pre></div>
 </div>
 <p>なお，文字列の大小比較は辞書順となる(例えば <code class="docutils literal notranslate"><span class="pre">'apple'</span> <span class="pre">&lt;</span> <span class="pre">'banana'</span></code>)ので， <code class="docutils literal notranslate"><span class="pre">bsort</span></code> を一部修正するだけで文字列のソートが出来る．文字型変数の配列は例えば</p>
-<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="kd">::</span> <span class="n">char_array</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">char_array</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>などのように宣言すれば良い．ここで <code class="docutils literal notranslate"><span class="pre">char_array</span></code> は10文字分の文字列を保持する長さ100の配列である．</p>
-</div>
-<div class="section" id="id11">
-<h2>課題7 <sup>†</sup><a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="id11">
+<h2>課題7 <sup>†</sup><a class="headerlink" href="#id11" title="この見出しへのパーマリンク"></a></h2>
 <p>与えられたファイルに含まれるアルファベットの各文字の出現回数をヒストグラムとして標準出力に表示するプログラムを作成せよ．ファイルの長さは任意とする．即ちファイルの終端まで全ての文字を読み込まなければならない(空白行があっても読み込み続ける)．ただし以下の条件を満たすこと．</p>
 <ul class="simple">
 <li><p>アルファベット <code class="docutils literal notranslate"><span class="pre">a-z,</span> <span class="pre">A-Z</span></code> 以外は無視してよい．</p></li>
@@ -332,78 +258,66 @@ apple      banana     grape      plum       tomato     watermelon
 <li><p>文字数があまりに多い時にはヒストグラムを適当に規格化すること．</p></li>
 </ul>
 <p><a class="reference external" href="data/wikipedia.txt">wikipedia.txt</a>  (<a class="reference external" href="http://en.wikipedia.org/wiki/Fortran">Wikipedia</a> より引用)を処理した時には例えば以下のような出力となるだろう．この例では最大で60個の <code class="docutils literal notranslate"><span class="pre">'o'</span></code> が出力されるように規格化してある．各アルファベットの後の括弧内の数字は文字数を表している．( <a class="reference external" href="data/wikipedia.txt">wikipedia.txt</a> で試す前に <a class="reference external" href="data/words.txt">words.txt</a> などの小さいデータで試した方が良いだろう．)</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./a.out &lt; wikipedia.txt
-A<span class="o">(</span> <span class="m">110</span><span class="o">)</span>:oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
-B<span class="o">(</span>   <span class="m">9</span><span class="o">)</span>:ooooo
-C<span class="o">(</span>  <span class="m">44</span><span class="o">)</span>:oooooooooooooooooooooooo
-D<span class="o">(</span>  <span class="m">32</span><span class="o">)</span>:ooooooooooooooooo
-E<span class="o">(</span>  <span class="m">99</span><span class="o">)</span>:oooooooooooooooooooooooooooooooooooooooooooooooooooooo
-F<span class="o">(</span>  <span class="m">31</span><span class="o">)</span>:ooooooooooooooooo
-G<span class="o">(</span>  <span class="m">38</span><span class="o">)</span>:ooooooooooooooooooooo
-H<span class="o">(</span>  <span class="m">32</span><span class="o">)</span>:ooooooooooooooooo
-I<span class="o">(</span>  <span class="m">87</span><span class="o">)</span>:ooooooooooooooooooooooooooooooooooooooooooooooo
-J<span class="o">(</span>   <span class="m">2</span><span class="o">)</span>:o
-K<span class="o">(</span>   <span class="m">2</span><span class="o">)</span>:o
-L<span class="o">(</span>  <span class="m">38</span><span class="o">)</span>:ooooooooooooooooooooo
-M<span class="o">(</span>  <span class="m">49</span><span class="o">)</span>:ooooooooooooooooooooooooooo
-N<span class="o">(</span>  <span class="m">91</span><span class="o">)</span>:oooooooooooooooooooooooooooooooooooooooooooooooooo
-O<span class="o">(</span>  <span class="m">81</span><span class="o">)</span>:oooooooooooooooooooooooooooooooooooooooooooo
-P<span class="o">(</span>  <span class="m">39</span><span class="o">)</span>:ooooooooooooooooooooo
-Q<span class="o">(</span>   <span class="m">0</span><span class="o">)</span>:
-R<span class="o">(</span>  <span class="m">93</span><span class="o">)</span>:ooooooooooooooooooooooooooooooooooooooooooooooooooo
-S<span class="o">(</span>  <span class="m">63</span><span class="o">)</span>:oooooooooooooooooooooooooooooooooo
-T<span class="o">(</span>  <span class="m">79</span><span class="o">)</span>:ooooooooooooooooooooooooooooooooooooooooooo
-U<span class="o">(</span>  <span class="m">37</span><span class="o">)</span>:oooooooooooooooooooo
-V<span class="o">(</span>  <span class="m">14</span><span class="o">)</span>:oooooooo
-W<span class="o">(</span>   <span class="m">5</span><span class="o">)</span>:ooo
-X<span class="o">(</span>   <span class="m">1</span><span class="o">)</span>:o
-Y<span class="o">(</span>  <span class="m">15</span><span class="o">)</span>:oooooooo
-Z<span class="o">(</span>   <span class="m">0</span><span class="o">)</span>:
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./a.out<span class="w"> </span>&lt;<span class="w"> </span>wikipedia.txt
+A<span class="o">(</span><span class="w"> </span><span class="m">110</span><span class="o">)</span>:oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+B<span class="o">(</span><span class="w">   </span><span class="m">9</span><span class="o">)</span>:ooooo
+C<span class="o">(</span><span class="w">  </span><span class="m">44</span><span class="o">)</span>:oooooooooooooooooooooooo
+D<span class="o">(</span><span class="w">  </span><span class="m">32</span><span class="o">)</span>:ooooooooooooooooo
+E<span class="o">(</span><span class="w">  </span><span class="m">99</span><span class="o">)</span>:oooooooooooooooooooooooooooooooooooooooooooooooooooooo
+F<span class="o">(</span><span class="w">  </span><span class="m">31</span><span class="o">)</span>:ooooooooooooooooo
+G<span class="o">(</span><span class="w">  </span><span class="m">38</span><span class="o">)</span>:ooooooooooooooooooooo
+H<span class="o">(</span><span class="w">  </span><span class="m">32</span><span class="o">)</span>:ooooooooooooooooo
+I<span class="o">(</span><span class="w">  </span><span class="m">87</span><span class="o">)</span>:ooooooooooooooooooooooooooooooooooooooooooooooo
+J<span class="o">(</span><span class="w">   </span><span class="m">2</span><span class="o">)</span>:o
+K<span class="o">(</span><span class="w">   </span><span class="m">2</span><span class="o">)</span>:o
+L<span class="o">(</span><span class="w">  </span><span class="m">38</span><span class="o">)</span>:ooooooooooooooooooooo
+M<span class="o">(</span><span class="w">  </span><span class="m">49</span><span class="o">)</span>:ooooooooooooooooooooooooooo
+N<span class="o">(</span><span class="w">  </span><span class="m">91</span><span class="o">)</span>:oooooooooooooooooooooooooooooooooooooooooooooooooo
+O<span class="o">(</span><span class="w">  </span><span class="m">81</span><span class="o">)</span>:oooooooooooooooooooooooooooooooooooooooooooo
+P<span class="o">(</span><span class="w">  </span><span class="m">39</span><span class="o">)</span>:ooooooooooooooooooooo
+Q<span class="o">(</span><span class="w">   </span><span class="m">0</span><span class="o">)</span>:
+R<span class="o">(</span><span class="w">  </span><span class="m">93</span><span class="o">)</span>:ooooooooooooooooooooooooooooooooooooooooooooooooooo
+S<span class="o">(</span><span class="w">  </span><span class="m">63</span><span class="o">)</span>:oooooooooooooooooooooooooooooooooo
+T<span class="o">(</span><span class="w">  </span><span class="m">79</span><span class="o">)</span>:ooooooooooooooooooooooooooooooooooooooooooo
+U<span class="o">(</span><span class="w">  </span><span class="m">37</span><span class="o">)</span>:oooooooooooooooooooo
+V<span class="o">(</span><span class="w">  </span><span class="m">14</span><span class="o">)</span>:oooooooo
+W<span class="o">(</span><span class="w">   </span><span class="m">5</span><span class="o">)</span>:ooo
+X<span class="o">(</span><span class="w">   </span><span class="m">1</span><span class="o">)</span>:o
+Y<span class="o">(</span><span class="w">  </span><span class="m">15</span><span class="o">)</span>:oooooooo
+Z<span class="o">(</span><span class="w">   </span><span class="m">0</span><span class="o">)</span>:
 </pre></div>
 </div>
 <p>組込み関数 <code class="docutils literal notranslate"><span class="pre">ichar</span></code> ， <code class="docutils literal notranslate"><span class="pre">char</span></code> を用いるとよい．また規格化の際には四捨五入をする関数 <code class="docutils literal notranslate"><span class="pre">nint</span></code> を用いることが出来る．</p>
 <p>特に仕様は限定しないが，関数やサブルーチンを使った分り易いプログラムを目指すこと．</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2022, Takanobu Amano
-
-    </p>
+    <p>&#169; Copyright 2023, Takanobu Amano.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

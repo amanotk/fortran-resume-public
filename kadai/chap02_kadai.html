@@ -1,39 +1,25 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="ja" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="ja" > <!--<![endif]-->
+<html class="writer-html5" lang="ja" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>第2章 演習課題 &mdash; Fortran演習(地球惑星物理学演習)</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-
-  
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/translations.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
@@ -50,51 +36,28 @@
 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../index.html" class="icon icon-home"> Fortran演習
           
-
-          
+          <a href="../index.html" class="icon icon-home">
+            Fortran演習
           </a>
-
-          
-            
-            
               <div class="version">
-                2022
+                2023
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../chap01.html">1. はじめに</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chap02.html">2. プログラムの作成と実行</a></li>
@@ -108,149 +71,100 @@
 <li class="toctree-l1"><a class="reference internal" href="../chap10.html">10. 付録</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Fortran演習</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-      <li>第2章 演習課題</li>
-    
-    
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">第2章 演習課題</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="id1">
-<h1>第2章 演習課題<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+             
+  <section id="id1">
+<h1>第2章 演習課題<a class="headerlink" href="#id1" title="この見出しへのパーマリンク"></a></h1>
 <div class="admonition seealso">
 <p class="admonition-title">参考</p>
 <ul class="simple">
 <li><p><span class="xref std std-doc">課題2 解答例</span></p></li>
 </ul>
 </div>
-<div class="section" id="id2">
-<h2>課題1<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="id2">
+<h2>課題1<a class="headerlink" href="#id2" title="この見出しへのパーマリンク"></a></h2>
 <p>サンプルプログラムをコンパイル・実行して動作を確認せよ．</p>
-</div>
-<div class="section" id="id3">
-<h2>課題2<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="id3">
+<h2>課題2<a class="headerlink" href="#id3" title="この見出しへのパーマリンク"></a></h2>
 <p>サンプルプログラムをエディタで修正，コンパイルし、実行して結果を確認せよ．例えば <span class="xref std std-doc">sample1.f90</span> の出力を <code class="docutils literal notranslate"><span class="pre">Hello,</span> <span class="pre">Fortran</span> <span class="pre">!</span></code> に変更して出力を確認せよ．</p>
-</div>
-<div class="section" id="id4">
-<h2>課題3 <sup>†</sup><a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="id4">
+<h2>課題3 <sup>†</sup><a class="headerlink" href="#id4" title="この見出しへのパーマリンク"></a></h2>
 <p>本演習では扱わないが，C言語やPythonの場合についてもプログラムの実行の方法も知っておこう．</p>
 <p>C言語はFortranと同じようにコンパイル言語なので，ソースをコンパイルして実行する．C言語のコンパイラとしては <code class="docutils literal notranslate"><span class="pre">gcc</span></code> を用いることが出来る．ここでは <span class="xref std std-doc">hello.c</span> をコンパイル，実行してみよう．</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ gcc hello.c
-$ ./a.out
-Hello, world !
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>gcc<span class="w"> </span>hello.c
+$<span class="w"> </span>./a.out
+Hello,<span class="w"> </span>world<span class="w"> </span>!
 </pre></div>
 </div>
 <p>このように，コンパイラのコマンドとして <code class="docutils literal notranslate"><span class="pre">gcc</span></code> を使うこと以外は基本的に同じである．</p>
 <p>Pythonはスクリプト言語と呼ばれ，コンパイルが必要なく，直接ソースから実行することが出来る．ここでは <span class="xref std std-doc">hello.py</span> を実行してみよう．</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python hello.py
-Hello, world !
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python<span class="w"> </span>hello.py
+Hello,<span class="w"> </span>world<span class="w"> </span>!
 </pre></div>
 </div>
 <p>また，hello.pyに実行権限があれば直接実行することもできる．実行権限を付与するには</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ chmod <span class="m">755</span> hello.py
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>chmod<span class="w"> </span><span class="m">755</span><span class="w"> </span>hello.py
 </pre></div>
 </div>
 <p>などとすればよい．このときは</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./hello.py
-Hello, world !
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./hello.py
+Hello,<span class="w"> </span>world<span class="w"> </span>!
 </pre></div>
 </div>
 <p>のように実行することができるだろう．</p>
 <p>プログラムの規模が大きくなってくると，次第にコンパイルにも時間がかかるようになってくるが，Pythonのような言語ではコンパイルの必要がないことが大きな利点となる．一方で実行速度は（書き方に大きく依存するものの）C言語やFortranの方が一般には高速である．</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2022, Takanobu Amano
-
-    </p>
+    <p>&#169; Copyright 2023, Takanobu Amano.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>
