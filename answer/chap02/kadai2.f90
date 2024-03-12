@@ -1,4 +1,4 @@
-program sample
-  write(*,*) 'Hello, Fortran !'
+program answer
+  write(*, *) 'Hello, Fortran !'
   stop
-end program sample
+endprogram answer

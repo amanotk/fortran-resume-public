@@ -10,9 +10,9 @@ program sample
   integer :: i
 
 #if 1
-  write(*,*) 'hello A'
+  write(*, *) 'hello A'
 #else
-  write(*,*) 'hello B'
+  write(*, *) 'hello B'
 #endif
 
   i = 2015
@@ -20,4 +20,4 @@ program sample
   DEBUG_PRINT(i)
 
   stop
-end program sample
+endprogram sample

@@ -11,20 +11,20 @@ program answer
   read(*, fmt='(a)', iostat=ios) line
 
   do while(ios == 0)
-     ! remove whitespace
-     line = adjustl(line)
+    ! remove whitespace
+    line = adjustl(line)
 
-     ! count only if the line is not blank or comment
-     if ( line /= '' .and. line(1:1) /= '!' ) then
-        count = count + 1
-     end if
+    ! count only if the line is not blank or comment
+    if(line /= '' .and. line(1:1) /= '!') then
+      count = count + 1
+    endif
 
-     ! read next line
-     read(*, fmt='(a)', iostat=ios) line
-     nline = nline + 1
-  end do
+    ! read next line
+    read(*, fmt='(a)', iostat=ios) line
+    nline = nline + 1
+  enddo
 
-  write(*,*) 'Number of lines with valid fortran statement : ', count
+  write(*, *) 'Number of lines with valid fortran statement : ', count
 
   stop
-end program answer
+endprogram answer

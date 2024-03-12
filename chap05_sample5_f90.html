@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="ja" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>chap05/sample5.f90 &mdash; Fortran演習(地球惑星物理学演習)</title>
@@ -17,7 +17,6 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
         <script src="_static/translations.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
@@ -41,18 +40,14 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-
-          
-          
-          <a href="index.html" class="icon icon-home">
-            Fortran演習
+            <a href="index.html" class="icon icon-home"> Fortran演習
           </a>
               <div class="version">
                 2023
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -84,7 +79,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li><a href="index.html" class="icon icon-home"></a></li>
       <li class="breadcrumb-item active">chap05/sample5.f90</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -95,7 +90,7 @@
            <div itemprop="articleBody">
              
   <section id="chap05-sample5-f90">
-<h1>chap05/sample5.f90<a class="headerlink" href="#chap05-sample5-f90" title="この見出しへのパーマリンク"></a></h1>
+<h1>chap05/sample5.f90<a class="headerlink" href="#chap05-sample5-f90" title="Permalink to this heading"></a></h1>
 <p><a class="reference external" href="sample/chap05/sample5.f90">サンプルコードのダウンロード</a></p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c">! リダイレクトを用いて</span>
 <span class="linenos"> 2</span><span class="c">!   $ ./a.out &lt; sample5.dat</span>
@@ -108,28 +103,28 @@
 <span class="linenos"> 9</span>
 <span class="linenos">10</span><span class="w">  </span><span class="c">! doループで全要素を順に読み込む</span>
 <span class="linenos">11</span><span class="w">  </span><span class="c">! この場合は改行があっても構わない</span>
-<span class="linenos">12</span><span class="w">  </span><span class="k">read</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">x</span>
+<span class="linenos">12</span><span class="w">  </span><span class="k">read</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">x</span>
 <span class="linenos">13</span>
 <span class="linenos">14</span><span class="w">  </span><span class="c">! このように書いても動作は同じ</span>
-<span class="linenos">15</span><span class="w">  </span><span class="k">read</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
+<span class="linenos">15</span><span class="w">  </span><span class="k">read</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)(</span><span class="n">y</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
 <span class="linenos">16</span>
 <span class="linenos">17</span><span class="w">  </span><span class="c">! よく理解していない場合にはこの形式は使わない方がよい</span>
 <span class="linenos">18</span><span class="w">  </span><span class="c">! 1行に一つの要素が書かれている場合の読み込みはこれでよい</span>
 <span class="linenos">19</span><span class="w">  </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span>
-<span class="linenos">20</span><span class="w">     </span><span class="k">read</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">z</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<span class="linenos">21</span><span class="w">  </span><span class="k">end do</span>
+<span class="linenos">20</span><span class="w">    </span><span class="k">read</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">z</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="linenos">21</span><span class="w">  </span><span class="k">enddo</span>
 <span class="linenos">22</span>
 <span class="linenos">23</span><span class="w">  </span><span class="c">! doループで全要素を順に出力</span>
 <span class="linenos">24</span><span class="w">  </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span>
-<span class="linenos">25</span><span class="w">     </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<span class="linenos">26</span><span class="w">  </span><span class="k">end do</span>
+<span class="linenos">25</span><span class="w">    </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="linenos">26</span><span class="w">  </span><span class="k">enddo</span>
 <span class="linenos">27</span>
-<span class="linenos">28</span><span class="k">  write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">x</span><span class="w">                    </span><span class="c">! 改行せずに1行に全要素を出力</span>
-<span class="linenos">29</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w">    </span><span class="c">! これも同じ</span>
-<span class="linenos">30</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">z</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="c">! 1つ飛ばしで出力</span>
+<span class="linenos">28</span><span class="k">  write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">x</span><span class="w">                 </span><span class="c">! 改行せずに1行に全要素を出力</span>
+<span class="linenos">29</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)(</span><span class="n">y</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w">    </span><span class="c">! これも同じ</span>
+<span class="linenos">30</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)(</span><span class="n">z</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="c">! 1つ飛ばしで出力</span>
 <span class="linenos">31</span>
 <span class="linenos">32</span><span class="w">  </span><span class="k">stop</span>
-<span class="linenos">33</span><span class="k">end program </span><span class="n">sample</span>
+<span class="linenos">33</span><span class="k">endprogram </span><span class="n">sample</span>
 </pre></div>
 </div>
 </section>

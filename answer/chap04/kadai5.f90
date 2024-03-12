@@ -5,19 +5,19 @@ program answer
   integer :: i, n, m
   real(8) :: epsilon, e, c, etrue, error
 
-  read(*,*) n
+  read(*, *) n
 
-  if( n <= 1 ) then
-     write(*,*) 'Number of terms must be greater than 1'
-     stop
-  end if
+  if(n <= 1) then
+    write(*, *) 'Number of terms must be greater than 1'
+    stop
+  endif
 
-  read(*,*) epsilon
+  read(*, *) epsilon
 
-  if ( epsilon < 0.0_8 .or. epsilon > 1.0_8 ) then
-     write(*,*) 'Tolerance must be in a range 0 < epsilon < 1'
-     stop
-  end if
+  if(epsilon < 0.0_8 .or. epsilon > 1.0_8) then
+    write(*, *) 'Tolerance must be in a range 0 < epsilon < 1'
+    stop
+  endif
 
   status = .false.
   etrue = exp(1.0_8)
@@ -25,26 +25,26 @@ program answer
   c = 1.0_8
   m = n
   do i = 1, n
-     c = c / i
-     e = e + c
-     error = abs(e - etrue)/etrue
-     if( error < epsilon ) then
-        status = .true.
-        m = i
-        exit
-     end if
-  end do
+    c = c / i
+    e = e + c
+    error = abs(e - etrue) / etrue
+    if(error < epsilon) then
+      status = .true.
+      m = i
+      exit
+    endif
+  enddo
 
-  if( status ) then
-     write(*,*) 'Converged !'
+  if(status) then
+    write(*, *) 'Converged !'
   else
-     write(*,*) 'Did not converge !'
-  end if
+    write(*, *) 'Did not converge !'
+  endif
 
-  write(*,*) 'N                  : ', m
-  write(*,*) 'Exact value        : ', etrue
-  write(*,*) 'Approximated value : ', e
-  write(*,*) 'Error              : ', error
+  write(*, *) 'N                  : ', m
+  write(*, *) 'Exact value        : ', etrue
+  write(*, *) 'Approximated value : ', e
+  write(*, *) 'Error              : ', error
 
   stop
-end program answer
+endprogram answer

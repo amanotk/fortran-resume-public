@@ -4,13 +4,13 @@ module mod_newton
   private
 
   integer, parameter :: default_maxit = 50
-  real(8), parameter :: default_tol   = 1.0e-8_8
-  real(8), parameter :: epsilon       = 1.0e-308_8
+  real(8), parameter :: default_tol = 1.0e-8_8
+  real(8), parameter :: epsilon = 1.0e-308_8
 
   ! オーバーロード
   interface newton
-     module procedure newton_func, newton_sub
-  end interface newton
+    module procedure newton_func, newton_sub
+  endinterface newton
 
   public :: newton
 
@@ -25,51 +25,50 @@ contains
     real(8), intent(in), optional :: tol
     ! 引数としてサブルーチンを受け取る
     interface
-       ! 関数値
-       real(8) function f(x)
-         real(8), intent(in) :: x
-       end function f
-       ! 微分値
-       real(8) function df(x)
-         real(8), intent(in) :: x
-       end function df
-    end interface
+      ! 関数値
+      real(8) function f(x)
+        real(8), intent(in) :: x
+      endfunction f
+      ! 微分値
+      real(8) function df(x)
+        real(8), intent(in) :: x
+      endfunction df
+    endinterface
 
     integer :: i, n
     real(8) :: dx, y, dy, tolerance
 
     ! 最大の反復回数
-    if (.not. present(maxit)) then
-       n = default_maxit
+    if(.not. present(maxit)) then
+      n = default_maxit
     else
-       n = maxit
-    end if
+      n = maxit
+    endif
 
     ! 許容誤差
-    if (.not. present(tol)) then
-       tolerance = default_tol
+    if(.not. present(tol)) then
+      tolerance = default_tol
     else
-       tolerance = tol
-    end if
+      tolerance = tol
+    endif
 
     status = 1
     do i = 1, n
-       y  = f(x)
-       dy = df(x)
-       dx =- y / (dy + epsilon)
-       x  = x + dx
-       error = abs(dx)
+      y = f(x)
+      dy = df(x)
+      dx = -y / (dy + epsilon)
+      x = x + dx
+      error = abs(dx)
 
-
-       ! 収束判定
-       if (error < tolerance) then
-          status = 0
-          exit
-       end if
-    end do
+      ! 収束判定
+      if(error < tolerance) then
+        status = 0
+        exit
+      endif
+    enddo
 
     return
-  end subroutine newton_func
+  endsubroutine newton_func
 
   ! Newton法 (fおよびdf/dxを返すサブルーチンを引数として受け取る)
   subroutine newton_sub(fdf, x, error, status, maxit, tol)
@@ -81,48 +80,47 @@ contains
     real(8), intent(in), optional :: tol
     ! 引数としてサブルーチンを受け取る
     interface
-       subroutine fdf(x, f, df)
-         real(8), intent(in) :: x
-         real(8), intent(out) :: f, df
-       end subroutine fdf
-    end interface
+      subroutine fdf(x, f, df)
+        real(8), intent(in) :: x
+        real(8), intent(out) :: f, df
+      endsubroutine fdf
+    endinterface
 
     integer :: i, n
     real(8) :: dx, y, dy, tolerance
 
     ! 最大の反復回数
-    if (.not. present(maxit)) then
-       n = default_maxit
+    if(.not. present(maxit)) then
+      n = default_maxit
     else
-       n = maxit
-    end if
+      n = maxit
+    endif
 
     ! 許容誤差
-    if (.not. present(tol)) then
-       tolerance = default_tol
+    if(.not. present(tol)) then
+      tolerance = default_tol
     else
-       tolerance = tol
-    end if
+      tolerance = tol
+    endif
 
     status = 1
     do i = 1, n
-       call fdf(x, y, dy)
-       dx =- y / (dy + epsilon)
-       x  = x + dx
-       error = abs(dx)
+      call fdf(x, y, dy)
+      dx = -y / (dy + epsilon)
+      x = x + dx
+      error = abs(dx)
 
-
-       ! 収束判定
-       if (error < tolerance) then
-          status = 0
-          exit
-       end if
-    end do
+      ! 収束判定
+      if(error < tolerance) then
+        status = 0
+        exit
+      endif
+    enddo
 
     return
-  end subroutine newton_sub
+  endsubroutine newton_sub
 
-end module mod_newton
+endmodule mod_newton
 
 module mod_equation
   implicit none
@@ -133,7 +131,7 @@ contains
     real(8) :: y
 
     y = x - cos(x)
-  end function f
+  endfunction f
 
   ! 微分値
   function df(x) result(y)
@@ -141,20 +139,20 @@ contains
     real(8) :: y
 
     y = 1 + sin(x)
-  end function df
+  endfunction df
 
   ! サブルーチンで2つの値を同時に返す
   subroutine fdf(x, y, dy)
     implicit none
-    real(8), intent(in)  :: x
+    real(8), intent(in) :: x
     real(8), intent(out) :: y, dy
 
-    y  = f(x)
+    y = f(x)
     dy = df(x)
 
     return
-  end subroutine fdf
-end module mod_equation
+  endsubroutine fdf
+endmodule mod_equation
 
 program answer
   use mod_newton
@@ -174,18 +172,18 @@ program answer
 
   select case(status)
   case(0)
-     write(*, fmt='(a)') 'Iteration converged !'
+    write(*, fmt='(a)') 'Iteration converged !'
   case(1)
-     write(*, fmt='(a)') 'Iteration did not converge !'
+    write(*, fmt='(a)') 'Iteration did not converge !'
   case(-1)
-     write(*, fmt='(a)') 'Error'
-     stop
+    write(*, fmt='(a)') 'Error'
+    stop
   case default
-     write(*, fmt='(a)') 'Unknown error'
-     stop
-  end select
+    write(*, fmt='(a)') 'Unknown error'
+    stop
+  endselect
 
   write(*, fmt='("Solution = ", e18.12, ", Error = ", e8.2)') x, err
 
   stop
-end program answer
+endprogram answer

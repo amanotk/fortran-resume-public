@@ -39,4 +39,4 @@ program sample
   call show(a)
 
   stop
-end program sample
+endprogram sample

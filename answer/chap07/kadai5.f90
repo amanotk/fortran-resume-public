@@ -10,15 +10,15 @@ program answer
   open(unit=10, iostat=ios, file=datafile, action='read', &
        & form='formatted', status='old')
 
-  if( ios /= 0 ) then
-     write(*,*) 'Failed to open file'
-  end if
+  if(ios /= 0) then
+    write(*, *) 'Failed to open file'
+  endif
 
-  read(10,*) n
+  read(10, *) n
 
   allocate(x(n))
 
-  read(10,*) x
+  read(10, *) x
 
   close(10)
 
@@ -27,16 +27,16 @@ program answer
 
   ! 見つけたい数を読み込む
   write(*, fmt='(a)', advance='no') 'Input an integer : '
-  read(*,*) to_be_found
+  read(*, *) to_be_found
 
   ! 二分探索で見つける
   call bsearch(x, to_be_found, i)
 
-  if( i /= -1) then
-     write(*,'(i8, a, i8)') to_be_found, ' was fouund at index ', i
+  if(i /= -1) then
+    write(*, '(i8, a, i8)') to_be_found, ' was fouund at index ', i
   else
-     write(*,'(i8, a)') to_be_found, ' was not found !'
-  end if
+    write(*, '(i8, a)') to_be_found, ' was not found !'
+  endif
 
   deallocate(x)
 
@@ -47,29 +47,29 @@ contains
   !
   subroutine bsearch(array, var, index)
     implicit none
-    integer, intent(in)  :: array(:) ! ソートされた配列
-    integer, intent(in)  :: var      ! 探したい値
+    integer, intent(in) :: array(:) ! ソートされた配列
+    integer, intent(in) :: var      ! 探したい値
     integer, intent(out) :: index    ! 見つかった要素へのインデックス
 
     integer :: left, right, middle
 
-    index =-1
-    left  = 1
+    index = -1
+    left = 1
     right = size(array)
 
-    do while( left <= right )
-       middle = (left + right)/2
-       if( array(middle) == var ) then
-          index = middle
-          exit
-       else if( array(middle) > var ) then
-          right = middle - 1
-       else if( array(middle) < var ) then
-          left  = middle + 1
-       end if
-    end do
+    do while(left <= right)
+      middle = (left + right) / 2
+      if(array(middle) == var) then
+        index = middle
+        exit
+      else if(array(middle) > var) then
+        right = middle - 1
+      else if(array(middle) < var) then
+        left = middle + 1
+      endif
+    enddo
 
-  end subroutine bsearch
+  endsubroutine bsearch
 
   !
   ! バブルソート
@@ -82,12 +82,12 @@ contains
 
     n = size(array)
     do i = 1, n
-       do j = 1, n-i
-          call swapif(array(j), array(j+1))
-       end do
-    end do
+      do j = 1, n - i
+        call swapif(array(j), array(j + 1))
+      enddo
+    enddo
 
-  end subroutine bsort
+  endsubroutine bsort
 
   !
   ! a, bが a > b なら交換, それ以外なら何もしない
@@ -98,12 +98,12 @@ contains
 
     integer :: c
 
-    if( a > b ) then
-       c = a
-       a = b
-       b = c
-    end if
+    if(a > b) then
+      c = a
+      a = b
+      b = c
+    endif
 
-  end subroutine swapif
+  endsubroutine swapif
 
-end program answer
+endprogram answer

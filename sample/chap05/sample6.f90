@@ -5,16 +5,16 @@ program sample
   implicit none
 
   integer :: i, j
-  real(8) :: x(3,4)
+  real(8) :: x(3, 4)
 
   ! 配列のメモリが連続した要素に順に読み込まれる
-  read(*,*) x
+  read(*, *) x
 
   do j = 1, 4
-     do i = 1, 3
-        write(*,*) i, j, x(i,j)
-     end do
-  end do
+    do i = 1, 3
+      write(*, *) i, j, x(i, j)
+    enddo
+  enddo
 
   stop
-end program sample
+endprogram sample

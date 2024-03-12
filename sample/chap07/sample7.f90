@@ -13,9 +13,9 @@ program sample
   call sub()
 
   ! 整数を16進数に変換して表示
-  n = 15*16**6 + 4*16**4 + 3*16**3 + 16**2 + 1
+  n = 15 * 16**6 + 4 * 16**4 + 3 * 16**3 + 16**2 + 1
   call decimal2hex(n, hexstr)
-  write(*,*) 'decimal = ', n, ' ===> hex = ', hexstr
+  write(*, *) 'decimal = ', n, ' ===> hex = ', hexstr
 
   stop
 contains
@@ -30,8 +30,8 @@ contains
     ! もし以下の行があればメインプログラムのnとサブプログラムのnは独立
     !integer :: n
 
-    write(*,*) n        ! メインプログラム中の変数nにアクセス
-  end subroutine sub
+    write(*, *) n        ! メインプログラム中の変数nにアクセス
+  endsubroutine sub
 
   !
   ! 内部手続きのスコープについて (2)
@@ -50,12 +50,12 @@ contains
 
     d = decimal
     do i = 1, 8
-       n = d / 16**(8-i)
-       d = d - n * 16**(8-i)
-       ! メインプログラムで宣言された変数(hex_char)を参照
-       hex(i:i) = hex_char(n)
-    end do
+      n = d / 16**(8 - i)
+      d = d - n * 16**(8 - i)
+      ! メインプログラムで宣言された変数(hex_char)を参照
+      hex(i:i) = hex_char(n)
+    enddo
 
-  end subroutine decimal2hex
+  endsubroutine decimal2hex
 
-end program sample
+endprogram sample

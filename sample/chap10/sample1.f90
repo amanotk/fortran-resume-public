@@ -5,4 +5,4 @@ program sample
   call a_sub()
 
   stop
-end program sample
+endprogram sample

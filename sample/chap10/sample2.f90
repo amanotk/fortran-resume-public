@@ -25,9 +25,9 @@ contains
 
     response = hl_gtk_message_dialog_show(msg, GTK_BUTTONS_OK, &
          & "メッセージダイアログ"//c_null_char, parent=window)
-  call hl_gtk_box_pack(hbox, btn_msg, expand=FALSE)
+    call hl_gtk_box_pack(hbox, btn_msg, expand=FALSE)
 
-  end subroutine cb_msg
+  endsubroutine cb_msg
 
   ! show dialog before quit
   subroutine cb_quit(widget, gdata) bind(c)
@@ -42,12 +42,12 @@ contains
     response = hl_gtk_message_dialog_show(msg, GTK_BUTTONS_YES_NO, &
          & "終了"//c_null_char, parent=window)
 
-    if (response == GTK_RESPONSE_YES) then
-       call gtk_main_quit()
-    end if
+    if(response == GTK_RESPONSE_YES) then
+      call gtk_main_quit()
+    endif
 
-  end subroutine cb_quit
-end module gui_handler
+  endsubroutine cb_quit
+endmodule gui_handler
 
 !
 ! main program
@@ -63,7 +63,7 @@ program sample
   window = hl_gtk_window_new("サンプル"//c_null_char, &
        & wsize=(/200, 200/), &
        & destroy=c_funloc(gtk_main_quit), &
-       & border=10_c_int )
+       & border=10_c_int)
 
   ! verticall box
   vbox = hl_gtk_box_new(horizontal=FALSE, &
@@ -87,10 +87,9 @@ program sample
        & clicked=c_funloc(cb_quit))
   call hl_gtk_box_pack(hbox, btn_quit, expand=FALSE)
 
-
   ! now start app
   call gtk_widget_show_all(window)
   call gtk_main()
 
   stop
-end program sample
+endprogram sample

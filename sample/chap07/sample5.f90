@@ -30,35 +30,35 @@ contains
   !
   subroutine hello(name, unit)
     implicit none
-    character(len=*), intent(in)  :: name
+    character(len=*), intent(in) :: name
     integer, intent(in), optional :: unit    ! optional属性付き引数
 
     integer :: u
 
     ! 組込み関数presentで引数が呼出し時に指定されたかどうかを調べることが出来る．
     ! 返値が真なら指定有り，偽なら指定無し (偽の場合はデフォルトの動作を実装)
-    if( present(unit) ) then
-       u = unit                              ! unitを指定
+    if(present(unit)) then
+      u = unit                              ! unitを指定
     else
-       u = 6                                 ! デフォルトは標準出力
-    end if
+      u = 6                                 ! デフォルトは標準出力
+    endif
 
-    write(u,*) 'Hello ', name                ! 表示
+    write(u, *) 'Hello ', name              ! 表示
 
     return
-  end subroutine hello
+  endsubroutine hello
 
   !
   ! これでもキーワード引数を使うことは出来る
   !
   subroutine chao(name, unit)
     implicit none
-    character(len=*), intent(in)  :: name
+    character(len=*), intent(in) :: name
     integer, intent(in) :: unit
 
-    write(unit,*) 'Chao ', name
+    write(unit, *) 'Chao ', name
 
     return
-  end subroutine chao
+  endsubroutine chao
 
-end program sample
+endprogram sample

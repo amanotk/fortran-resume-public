@@ -19,15 +19,15 @@ program sample
   ! ios <  0 : ファイルの終端に達した
   !
   do while(ios == 0)
-     ! 空白行以外をカウント(line == '' なら空白行である)
-     if (line /= '') then
-        nline = nline + 1
-     end if
-     ! 次の行を読み込む
-     read(*, fmt='(a)', iostat=ios) line
-  end do
+    ! 空白行以外をカウント(line == '' なら空白行である)
+    if(line /= '') then
+      nline = nline + 1
+    endif
+    ! 次の行を読み込む
+    read(*, fmt='(a)', iostat=ios) line
+  enddo
 
-  write(*,*) 'Number of lines (without brank) : ', nline
+  write(*, *) 'Number of lines (without brank) : ', nline
 
   stop
-end program sample
+endprogram sample

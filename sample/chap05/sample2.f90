@@ -8,11 +8,11 @@ program sample
   integer, parameter :: b(3) = (/-1, 0, 1/)
 
   ! "(/" と "/)" で囲えばその場で配列を作ることが出来る
-  write(*,*) (/1, 2, 3/)
+  write(*, *)(/1, 2, 3/)
 
-  write(*,*) a
+  write(*, *) a
 
-  write(*,*) b
+  write(*, *) b
 
   stop
-end program sample
+endprogram sample

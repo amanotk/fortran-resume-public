@@ -2,7 +2,7 @@ program sample
   implicit none
 
   ! 再帰呼び出し
-  write(*,*) fact(2), fact(4), fact(6)
+  write(*, *) fact(2), fact(4), fact(6)
 
   stop
 contains
@@ -18,11 +18,11 @@ contains
     integer :: m
 
     if(n == 1) then                    ! 無限ループにならないように
-       m = 1
+      m = 1
     else
-       m = n*fact(n-1)                 ! 自分自身を(異なる引数で)呼び出す
-    end if
+      m = n * fact(n - 1)              ! 自分自身を(異なる引数で)呼び出す
+    endif
 
-  end function fact
+  endfunction fact
 
-end program sample
+endprogram sample

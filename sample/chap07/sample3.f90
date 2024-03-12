@@ -26,18 +26,18 @@ contains
 
     ! 代入
     do i = 1, n
-       x(i) = i ** exponent
-    end do
+      x(i) = i**exponent
+    enddo
 
     ! 和を計算
     sum = 0.0_8
     do i = 1, n
-       sum = sum + x(i)
-    end do
+      sum = sum + x(i)
+    enddo
 
-    write(*,*) 'sum of array = ', sum
+    write(*, *) 'sum of array = ', sum
 
-  end subroutine sub1
+  endsubroutine sub1
 
   ! sub2
   subroutine sub2()
@@ -46,8 +46,8 @@ contains
     ! このように定義されていても問題無い(sub1のnとは独立な変数である)
     integer, parameter :: n = 100
 
-    write(*,*) 'n = ', n
+    write(*, *) 'n = ', n
 
-  end subroutine sub2
+  endsubroutine sub2
 
-end program sample
+endprogram sample

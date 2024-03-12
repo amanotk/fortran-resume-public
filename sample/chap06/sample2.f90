@@ -28,10 +28,10 @@ program sample
   !     & form='formatted', status='old', position='append')
 
   ! ファイルが正常に開けたかどうかをチェックする
-  if (ios /= 0) then
-     write(*,*) 'Failed to open file for output'
-     stop
-  end if
+  if(ios /= 0) then
+    write(*, *) 'Failed to open file for output'
+    stop
+  endif
 
   ! ファイルを閉じる
   close(10)
@@ -44,13 +44,13 @@ program sample
        & form='formatted', status='old', position='rewind')
 
   ! またチェック
-  if (ios /= 0) then
-     write(*,*) 'Failed to open file for input'
-     stop
-  end if
+  if(ios /= 0) then
+    write(*, *) 'Failed to open file for input'
+    stop
+  endif
 
   ! ファイルを閉じる
   close(20)
 
   stop
-end program sample
+endprogram sample

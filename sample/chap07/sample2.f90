@@ -14,10 +14,10 @@ contains
     implicit none                 ! 暗黙の型宣言の禁止
     character(len=*) :: name      ! 引数を宣言 (任意長の文字列)
 
-    write(*,*) 'Hello ', name     ! 内部の処理
+    write(*, *) 'Hello ', name    ! 内部の処理
 
     return
-  end subroutine hello
+  endsubroutine hello
 
   !!!!!!!!!! ここまでの間に行う !!!!!!!!!!
-end program sample
+endprogram sample

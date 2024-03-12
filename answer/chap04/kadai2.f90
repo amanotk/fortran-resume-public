@@ -3,16 +3,16 @@ program answer
 
   integer :: n, m
 
-  write(*,*) 'Input two integers: '
-  read(*,*) n, m
+  write(*, *) 'Input two integers: '
+  read(*, *) n, m
 
-  if( n > m ) then
-     write(*,*) n, ' is larger than ', m
-  else if (n < m ) then
-     write(*,*) n, ' is smaller than ', m
+  if(n > m) then
+    write(*, *) n, ' is larger than ', m
+  else if(n < m) then
+    write(*, *) n, ' is smaller than ', m
   else
-     write(*,*) n, ' is equal to ', m
-  end if
+    write(*, *) n, ' is equal to ', m
+  endif
 
   stop
-end program answer
+endprogram answer

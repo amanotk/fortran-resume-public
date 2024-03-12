@@ -7,6 +7,6 @@ contains
     implicit none
 
     call b_sub()
-    write(*,*) 'a_sub in module a is called'
-  end subroutine a_sub
-end module a
+    write(*, *) 'a_sub in module a is called'
+  endsubroutine a_sub
+endmodule a

@@ -4,13 +4,13 @@ module mod_list
 
   ! singly linked list
   type :: list_type
-     type(list_type), pointer :: next
-     integer :: value
-  end type list_type
+    type(list_type), pointer :: next
+    integer :: value
+  endtype list_type
 
   interface assignment(=)
-     module procedure assign
-  end interface assignment(=)
+    module procedure assign
+  endinterface assignment(=)
 
   public :: list_type
   public :: new, delete, show, append, insert, remove
@@ -27,7 +27,7 @@ contains
     call delete(a)
     call new(a, value=b)
 
-  end subroutine assign
+  endsubroutine assign
 
   ! show list contents
   subroutine show(list)
@@ -38,19 +38,19 @@ contains
 
     write(*, fmt='("List = [")', advance='no')
 
-    if( associated(list) ) then
-       ! show contents
-       iter => list
-       write(*, fmt='(i5, x)', advance='no') iter%value
-       do while( associated(iter%next) )
-          iter => iter%next
-          write(*,fmt='(i5, x)', advance='no') iter%value
-       end do
-    end if
+    if(associated(list)) then
+      ! show contents
+      iter => list
+      write(*, fmt='(i5, x)', advance='no') iter % value
+      do while(associated(iter % next))
+        iter => iter % next
+        write(*, fmt='(i5, x)', advance='no') iter % value
+      enddo
+    endif
 
     write(*, fmt='(a)') ']'
 
-  end subroutine show
+  endsubroutine show
 
   ! create a new node (pointer must be initialized by nullify() in advance)
   subroutine new(list, next, value)
@@ -59,22 +59,22 @@ contains
     type(list_type), pointer, optional, intent(in) :: next
     integer, optional, intent(in) :: value
 
-    if( associated(list) ) then
-       write(*,*) 'Error in new'
-    end if
+    if(associated(list)) then
+      write(*, *) 'Error in new'
+    endif
 
     allocate(list)
-    nullify(list%next)
+    nullify(list % next)
 
-    if( present(next) ) then
-       list%next => next
-    end if
+    if(present(next)) then
+      list % next => next
+    endif
 
-    if( present(value) ) then
-       list%value = value
-    end if
+    if(present(value)) then
+      list % value = value
+    endif
 
-  end subroutine new
+  endsubroutine new
 
   ! safely delete all the list contents
   subroutine delete(list)
@@ -83,20 +83,20 @@ contains
 
     type(list_type), pointer :: iter, temp
 
-    if( .not. associated(list) ) then
-       return
-    end if
+    if(.not. associated(list)) then
+      return
+    endif
 
     iter => list
-    do while( associated(iter%next) )
-       temp => iter
-       iter => iter%next
-       deallocate(temp)
-    end do
+    do while(associated(iter % next))
+      temp => iter
+      iter => iter % next
+      deallocate(temp)
+    enddo
 
     nullify(list)
 
-  end subroutine delete
+  endsubroutine delete
 
   ! return the last node
   function tail(list) result(iter)
@@ -104,11 +104,11 @@ contains
     type(list_type), pointer :: iter
 
     iter => list
-    do while( associated(iter%next) )
-       iter => iter%next
-    end do
+    do while(associated(iter % next))
+      iter => iter % next
+    enddo
 
-  end function tail
+  endfunction tail
 
   ! append a single node at the last
   subroutine append(list, value)
@@ -119,9 +119,9 @@ contains
     type(list_type), pointer :: iter
 
     iter => tail(list)
-    call new(iter%next, value=value)
+    call new(iter % next, value=value)
 
-  end subroutine append
+  endsubroutine append
 
   ! insert a node at a given index
   subroutine insert(list, index, value)
@@ -133,34 +133,34 @@ contains
     integer :: i
     type(list_type), pointer :: iter, prev, node
 
-    if( index < 1 ) then
-       write(*,*) 'Error: no such node'
-       return
-    end if
+    if(index < 1) then
+      write(*, *) 'Error: no such node'
+      return
+    endif
 
     ! find a node after which a new node is inserted
     nullify(prev)
     iter => list
-    do i = 1, index-1
-       if( .not. associated(iter%next) ) then
-          write(*,*) 'Error: no such node'
-          return
-       end if
-       prev => iter
-       iter => iter%next
-    end do
+    do i = 1, index - 1
+      if(.not. associated(iter % next)) then
+        write(*, *) 'Error: no such node'
+        return
+      endif
+      prev => iter
+      iter => iter % next
+    enddo
 
     ! create a new node
     nullify(node)
     call new(node, next=iter, value=value)
 
-    if( .not. associated(prev) ) then ! first node
-       list => node
+    if(.not. associated(prev)) then ! first node
+      list => node
     else
-       prev%next => node
-    end if
+      prev % next => node
+    endif
 
-  end subroutine insert
+  endsubroutine insert
 
   ! remove a node at a given index
   subroutine remove(list, index)
@@ -171,30 +171,30 @@ contains
     integer :: i
     type(list_type), pointer :: iter, prev
 
-    if( index < 1  ) then
-       write(*,*) 'Error: no such node'
-    end if
+    if(index < 1) then
+      write(*, *) 'Error: no such node'
+    endif
 
     ! find a node to be removed
     nullify(prev)
     iter => list
-    do i = 1, index-1
-       if( .not. associated(iter%next) ) then
-          write(*,*) 'Error: no such node'
-          return
-       end if
-       prev => iter
-       iter => iter%next
-    end do
+    do i = 1, index - 1
+      if(.not. associated(iter % next)) then
+        write(*, *) 'Error: no such node'
+        return
+      endif
+      prev => iter
+      iter => iter % next
+    enddo
 
-    if( .not. associated(prev) ) then ! first node
-       list => list%next
+    if(.not. associated(prev)) then ! first node
+      list => list % next
     else
-       prev%next => iter%next
-    end if
+      prev % next => iter % next
+    endif
 
     deallocate(iter)
 
-  end subroutine remove
+  endsubroutine remove
 
-end module mod_list
+endmodule mod_list

@@ -6,22 +6,22 @@ program sample
   real(8) :: x(10)
 
   do i = 1, 10
-     x(i) = real(i, 8)
-  end do
+    x(i) = real(i, 8)
+  enddo
 
   ! intent属性
   a = 1.0
   b = 2.0
   call add(a, b, c)
-  write(*,*) a, b, c
+  write(*, *) a, b, c
 
   ! 配列の渡し方
-  write(*,*) 'average ===> ', average1(x), average2(10, x)
+  write(*, *) 'average ===> ', average1(x), average2(10, x)
 
   ! save属性の使い方
   do i = 1, 10
-     call fibonacci()
-  end do
+    call fibonacci()
+  enddo
 
   stop
 contains
@@ -43,8 +43,8 @@ contains
   !
   subroutine add(a, b, c)
     implicit none
-    real(8), intent(in)  :: a, b       ! 入力用変数(変更不可)
-    real(8), intent(out) :: c          ! 出力用変数
+    real(8), intent(in) :: a, b       ! 入力用変数(変更不可)
+    real(8), intent(out) :: c         ! 出力用変数
 
     ! 以下はコンパイルエラー
     !a = 1.0_8
@@ -52,7 +52,7 @@ contains
     ! 出力用の変数に値を代入
     c = a + b
 
-  end subroutine add
+  endsubroutine add
 
   !
   ! <<< 形状引継ぎ配列の使い方 >>>
@@ -67,7 +67,7 @@ contains
 
     ave = sum(x) / size(x)
 
-  end function average1
+  endfunction average1
 
   !
   ! <<< 配列サイズの引数渡し >>>
@@ -82,7 +82,7 @@ contains
 
     ave = sum(x) / size(x)
 
-  end function average2
+  endfunction average2
 
   !
   ! <<< save属性 >>>
@@ -93,26 +93,26 @@ contains
   subroutine fibonacci()
     implicit none
     ! 以下の3つがsave属性付き (初回の呼出し時の値は宣言文で与える)
-    integer, save :: n  = 1
+    integer, save :: n = 1
     integer, save :: f0 = 0
     integer, save :: f1 = 0
 
     integer :: f2
 
-    if (n == 1) then
-       write(*,*) 'Fibonacci number [', 0, '] = ', f0
-       f2 = 1
+    if(n == 1) then
+      write(*, *) 'Fibonacci number [', 0, '] = ', f0
+      f2 = 1
     else
-       f2 = f0 + f1
-    end if
+      f2 = f0 + f1
+    endif
 
-    write(*,*) 'Fibonacci number [', n, '] = ', f2
+    write(*, *) 'Fibonacci number [', n, '] = ', f2
 
     ! 次回呼び出し用 (これらの値を記憶し続ける)
-    n  = n + 1
+    n = n + 1
     f0 = f1
     f1 = f2
 
-  end subroutine fibonacci
+  endsubroutine fibonacci
 
-end program sample
+endprogram sample

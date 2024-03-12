@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="ja" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>chap09/sample2.f90 &mdash; Fortran演習(地球惑星物理学演習)</title>
@@ -17,7 +17,6 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
         <script src="_static/translations.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
@@ -41,18 +40,14 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-
-          
-          
-          <a href="index.html" class="icon icon-home">
-            Fortran演習
+            <a href="index.html" class="icon icon-home"> Fortran演習
           </a>
               <div class="version">
                 2023
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -84,7 +79,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li><a href="index.html" class="icon icon-home"></a></li>
       <li class="breadcrumb-item active">chap09/sample2.f90</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -95,7 +90,7 @@
            <div itemprop="articleBody">
              
   <section id="chap09-sample2-f90">
-<h1>chap09/sample2.f90<a class="headerlink" href="#chap09-sample2-f90" title="この見出しへのパーマリンク"></a></h1>
+<h1>chap09/sample2.f90<a class="headerlink" href="#chap09-sample2-f90" title="Permalink to this heading"></a></h1>
 <p><a class="reference external" href="sample/chap09/sample2.f90">サンプルコードのダウンロード</a></p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="c">! 内部手続き</span>
 <span class="linenos">  2</span><span class="k">module </span><span class="n">mod_integrator</span>
@@ -116,12 +111,12 @@
 <span class="linenos"> 17</span><span class="w">    </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 <span class="linenos"> 18</span>
 <span class="linenos"> 19</span><span class="w">    </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.5_8</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
-<span class="linenos"> 20</span><span class="w">    </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="o">-</span><span class="mi">1</span>
-<span class="linenos"> 21</span><span class="w">       </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<span class="linenos"> 22</span><span class="w">    </span><span class="k">end do</span>
+<span class="linenos"> 20</span><span class="w">    </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="linenos"> 21</span><span class="w">      </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="linenos"> 22</span><span class="w">    </span><span class="k">enddo</span>
 <span class="linenos"> 23</span><span class="k">    </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">dx</span>
 <span class="linenos"> 24</span>
-<span class="linenos"> 25</span><span class="w">  </span><span class="k">end function </span><span class="n">trapezoid</span>
+<span class="linenos"> 25</span><span class="w">  </span><span class="k">endfunction </span><span class="n">trapezoid</span>
 <span class="linenos"> 26</span>
 <span class="linenos"> 27</span><span class="w">  </span><span class="c">!</span>
 <span class="linenos"> 28</span><span class="w">  </span><span class="c">! Simpson公式による数値積分</span>
@@ -137,24 +132,24 @@
 <span class="linenos"> 38</span><span class="w">    </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 <span class="linenos"> 39</span>
 <span class="linenos"> 40</span><span class="w">    </span><span class="c">! 端点を含めた配列サイズが奇数でなければエラー</span>
-<span class="linenos"> 41</span><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="nb">mod</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="linenos"> 42</span><span class="k">       write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;array size must be odd&#39;</span>
-<span class="linenos"> 43</span><span class="w">       </span><span class="k">stop</span>
-<span class="linenos"> 44</span><span class="k">    end if</span>
+<span class="linenos"> 41</span><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="nb">mod</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos"> 42</span><span class="k">      write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;array size must be odd&#39;</span>
+<span class="linenos"> 43</span><span class="w">      </span><span class="k">stop</span>
+<span class="linenos"> 44</span><span class="k">    endif</span>
 <span class="linenos"> 45</span>
 <span class="linenos"> 46</span><span class="k">    </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 <span class="linenos"> 47</span><span class="w">    </span><span class="c">! even</span>
-<span class="linenos"> 48</span><span class="w">    </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
-<span class="linenos"> 49</span><span class="w">       </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">4.0_8</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<span class="linenos"> 50</span><span class="w">    </span><span class="k">end do</span>
+<span class="linenos"> 48</span><span class="w">    </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
+<span class="linenos"> 49</span><span class="w">      </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">4.0_8</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="linenos"> 50</span><span class="w">    </span><span class="k">enddo</span>
 <span class="linenos"> 51</span><span class="w">    </span><span class="c">! odd</span>
-<span class="linenos"> 52</span><span class="w">    </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
-<span class="linenos"> 53</span><span class="w">       </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">2.0_8</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<span class="linenos"> 54</span><span class="w">    </span><span class="k">end do</span>
+<span class="linenos"> 52</span><span class="w">    </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
+<span class="linenos"> 53</span><span class="w">      </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">2.0_8</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="linenos"> 54</span><span class="w">    </span><span class="k">enddo</span>
 <span class="linenos"> 55</span><span class="k">    </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">dx</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">3.0_8</span>
 <span class="linenos"> 56</span>
-<span class="linenos"> 57</span><span class="w">  </span><span class="k">end function </span><span class="n">simpson</span>
-<span class="linenos"> 58</span><span class="k">end module </span><span class="n">mod_integrator</span>
+<span class="linenos"> 57</span><span class="w">  </span><span class="k">endfunction </span><span class="n">simpson</span>
+<span class="linenos"> 58</span><span class="k">endmodule </span><span class="n">mod_integrator</span>
 <span class="linenos"> 59</span>
 <span class="linenos"> 60</span><span class="k">program </span><span class="n">sample</span>
 <span class="linenos"> 61</span><span class="w">  </span><span class="k">use </span><span class="n">mod_integrator</span><span class="w"> </span><span class="c">! モジュールを参照</span>
@@ -168,34 +163,34 @@
 <span class="linenos"> 69</span><span class="w">  </span><span class="n">pi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">atan</span><span class="p">(</span><span class="mf">1.0_8</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">4.0_8</span>
 <span class="linenos"> 70</span>
 <span class="linenos"> 71</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(a)&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">advance</span><span class="o">=</span><span class="s1">&#39;no&#39;</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;Input number of segments : &#39;</span>
-<span class="linenos"> 72</span><span class="w">  </span><span class="k">read</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">nmax</span>
+<span class="linenos"> 72</span><span class="w">  </span><span class="k">read</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">nmax</span>
 <span class="linenos"> 73</span>
-<span class="linenos"> 74</span><span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="nb">mod</span><span class="p">(</span><span class="n">nmax</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="linenos"> 75</span><span class="k">     write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;Number of segments must be an even number&#39;</span>
-<span class="linenos"> 76</span><span class="w">     </span><span class="k">stop</span>
-<span class="linenos"> 77</span><span class="k">  end if</span>
+<span class="linenos"> 74</span><span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="nb">mod</span><span class="p">(</span><span class="n">nmax</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos"> 75</span><span class="k">    write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;Number of segments must be an even number&#39;</span>
+<span class="linenos"> 76</span><span class="w">    </span><span class="k">stop</span>
+<span class="linenos"> 77</span><span class="k">  endif</span>
 <span class="linenos"> 78</span>
 <span class="linenos"> 79</span><span class="k">  </span><span class="n">x1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0_8</span>
 <span class="linenos"> 80</span><span class="w">  </span><span class="n">x2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0_8</span>
-<span class="linenos"> 81</span><span class="w">  </span><span class="n">dx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">x2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">x1</span><span class="p">)</span><span class="o">/</span><span class="n">nmax</span>
+<span class="linenos"> 81</span><span class="w">  </span><span class="n">dx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">x2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">x1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">nmax</span>
 <span class="linenos"> 82</span>
 <span class="linenos"> 83</span><span class="w">  </span><span class="c">! 配列サイズはnmax+1</span>
-<span class="linenos"> 84</span><span class="w">  </span><span class="k">allocate</span><span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="n">nmax</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+<span class="linenos"> 84</span><span class="w">  </span><span class="k">allocate</span><span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="n">nmax</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span>
 <span class="linenos"> 85</span>
 <span class="linenos"> 86</span><span class="w">  </span><span class="c">! 関数を評価して配列に代入</span>
-<span class="linenos"> 87</span><span class="w">  </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">nmax</span><span class="o">+</span><span class="mi">1</span>
-<span class="linenos"> 88</span><span class="w">     </span><span class="n">y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">x1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dx</span><span class="o">*</span><span class="kt">real</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-<span class="linenos"> 89</span><span class="w">  </span><span class="k">end do</span>
+<span class="linenos"> 87</span><span class="w">  </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">nmax</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="linenos"> 88</span><span class="w">    </span><span class="n">y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">x1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dx</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">))</span>
+<span class="linenos"> 89</span><span class="w">  </span><span class="k">enddo</span>
 <span class="linenos"> 90</span>
 <span class="linenos"> 91</span><span class="w">  </span><span class="c">! 台形公式による数値積分</span>
 <span class="linenos"> 92</span><span class="w">  </span><span class="n">integral</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">trapezoid</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">dx</span><span class="p">)</span>
 <span class="linenos"> 93</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(a16, &quot; : &quot;, f18.15, &quot; (rel. error = &quot;, e18.12, &quot;)&quot;)&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="linenos"> 94</span><span class="w">       </span><span class="p">&amp;</span><span class="w"> </span><span class="s2">&quot;Trapezoidal rule&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">integral</span><span class="p">,</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">integral</span><span class="o">/</span><span class="n">pi</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1.0_8</span><span class="p">)</span>
+<span class="linenos"> 94</span><span class="w">       </span><span class="p">&amp;</span><span class="w"> </span><span class="s2">&quot;Trapezoidal rule&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">integral</span><span class="p">,</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">integral</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">pi</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1.0_8</span><span class="p">)</span>
 <span class="linenos"> 95</span>
 <span class="linenos"> 96</span><span class="w">  </span><span class="c">! Simpsonの公式による数値積分</span>
 <span class="linenos"> 97</span><span class="w">  </span><span class="n">integral</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">simpson</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">dx</span><span class="p">)</span>
 <span class="linenos"> 98</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(a16, &quot; : &quot;, f18.15, &quot; (rel. error = &quot;, e18.12, &quot;)&quot;)&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="linenos"> 99</span><span class="w">       </span><span class="p">&amp;</span><span class="w"> </span><span class="s2">&quot;Simpson&#39;s rule&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">integral</span><span class="p">,</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">integral</span><span class="o">/</span><span class="n">pi</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1.0_8</span><span class="p">)</span>
+<span class="linenos"> 99</span><span class="w">       </span><span class="p">&amp;</span><span class="w"> </span><span class="s2">&quot;Simpson&#39;s rule&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">integral</span><span class="p">,</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">integral</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">pi</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1.0_8</span><span class="p">)</span>
 <span class="linenos">100</span>
 <span class="linenos">101</span><span class="w">  </span><span class="k">deallocate</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 <span class="linenos">102</span>
@@ -210,8 +205,8 @@
 <span class="linenos">111</span><span class="w">    </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">4.0_8</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="mf">1.0_8</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 <span class="linenos">112</span>
 <span class="linenos">113</span><span class="w">    </span><span class="k">return</span>
-<span class="linenos">114</span><span class="k">  end function </span><span class="n">f</span>
-<span class="linenos">115</span><span class="k">end program </span><span class="n">sample</span>
+<span class="linenos">114</span><span class="k">  endfunction </span><span class="n">f</span>
+<span class="linenos">115</span><span class="k">endprogram </span><span class="n">sample</span>
 </pre></div>
 </div>
 </section>

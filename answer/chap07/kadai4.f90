@@ -4,17 +4,17 @@ program answer
   integer :: i, n
   integer, allocatable :: x(:)
 
-  read(*,*) n
+  read(*, *) n
 
   allocate(x(n))
 
-  read(*,*) x
+  read(*, *) x
 
   call bsort(x)
 
   do i = 1, n
-     write(*,*) x(i)
-  end do
+    write(*, *) x(i)
+  enddo
 
   deallocate(x)
 
@@ -31,12 +31,12 @@ contains
 
     n = size(array)
     do i = 1, n
-       do j = 1, n-i
-          call swapif(array(j), array(j+1))
-       end do
-    end do
+      do j = 1, n - i
+        call swapif(array(j), array(j + 1))
+      enddo
+    enddo
 
-  end subroutine bsort
+  endsubroutine bsort
 
   !
   ! a, bが a > b なら交換, それ以外なら何もしない
@@ -47,12 +47,12 @@ contains
 
     integer :: c
 
-    if( a > b ) then
-       c = a
-       a = b
-       b = c
-    end if
+    if(a > b) then
+      c = a
+      a = b
+      b = c
+    endif
 
-  end subroutine swapif
+  endsubroutine swapif
 
-end program answer
+endprogram answer

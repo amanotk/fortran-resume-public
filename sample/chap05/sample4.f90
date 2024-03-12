@@ -4,34 +4,34 @@ program sample
   integer :: i, j
 
   ! 2次元配列 (10 x 10 => 計100要素)
-  real(8) :: a(10,10)
+  real(8) :: a(10, 10)
 
   ! 3次元配列 (4 x 8 x 16 => 計512要素)
   real(8) :: b(4, 8, 16)
 
   ! 動的配列も同様に宣言できる
-  real(8), allocatable :: c(:,:)
+  real(8), allocatable :: c(:, :)
 
   ! 動的配列: 4 x 8
-  if( .not. allocated(c) ) then
-     allocate(c(4,8))
-  end if
+  if(.not. allocated(c)) then
+    allocate(c(4, 8))
+  endif
 
   ! 配列に値を代入
-  do j = 1, 8 
-     do i = 1, 4
-        c(i,j) = i*j
-     end do
-  end do
+  do j = 1, 8
+    do i = 1, 4
+      c(i, j) = i * j
+    enddo
+  enddo
 
   ! 配列の中身を表示
-  do j = 1, 8 
-     do i = 1, 4
-        write(*,*) c(i,j)
-     end do
-  end do
+  do j = 1, 8
+    do i = 1, 4
+      write(*, *) c(i, j)
+    enddo
+  enddo
 
   deallocate(c)
 
   stop
-end program sample
+endprogram sample

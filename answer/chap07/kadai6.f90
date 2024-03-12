@@ -10,10 +10,10 @@ program answer
 
   ! 正常に読み込めていれば(ios = 0, 改行は input = '')
   do while(ios == 0 .and. input /= '')
-     x(m+1) = input
-     m = m + 1
-     read(*, fmt='(a)', iostat=ios) input
-  end do
+    x(m + 1) = input
+    m = m + 1
+    read(*, fmt='(a)', iostat=ios) input
+  enddo
 
   ! ソート
   y(1:m) = x(1:m)
@@ -22,15 +22,15 @@ program answer
   ! 結果の表示
   write(*, fmt='(a)') '*** before sort ***'
   do i = 1, m
-     write(*, fmt='(a11)', advance='no') adjustl(x(i))
-  end do
-  write(*,*)
+    write(*, fmt='(a11)', advance='no') adjustl(x(i))
+  enddo
+  write(*, *)
 
   write(*, fmt='(a)') '*** after sort ***'
   do i = 1, m
-     write(*, fmt='(a11)', advance='no') adjustl(y(i))
-  end do
-  write(*,*)
+    write(*, fmt='(a11)', advance='no') adjustl(y(i))
+  enddo
+  write(*, *)
 
   stop
 contains
@@ -45,12 +45,12 @@ contains
     integer :: i, j
 
     do i = 1, n
-       do j = 1, n-i
-          call swapif(array(j), array(j+1))
-       end do
-    end do
+      do j = 1, n - i
+        call swapif(array(j), array(j + 1))
+      enddo
+    enddo
 
-  end subroutine bsort
+  endsubroutine bsort
 
   !
   ! a, bが a > b なら交換, それ以外なら何もしない
@@ -61,12 +61,12 @@ contains
 
     character(len=10) :: c
 
-    if( a > b ) then
-       c = a
-       a = b
-       b = c
-    end if
+    if(a > b) then
+      c = a
+      a = b
+      b = c
+    endif
 
-  end subroutine swapif
+  endsubroutine swapif
 
-end program answer
+endprogram answer

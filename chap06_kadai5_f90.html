@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="ja" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>chap06/kadai5.f90 &mdash; Fortran演習(地球惑星物理学演習)</title>
@@ -17,7 +17,6 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
         <script src="_static/translations.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
@@ -41,18 +40,14 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-
-          
-          
-          <a href="index.html" class="icon icon-home">
-            Fortran演習
+            <a href="index.html" class="icon icon-home"> Fortran演習
           </a>
               <div class="version">
                 2023
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -84,7 +79,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li><a href="index.html" class="icon icon-home"></a></li>
       <li class="breadcrumb-item active">chap06/kadai5.f90</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -95,7 +90,7 @@
            <div itemprop="articleBody">
              
   <section id="chap06-kadai5-f90">
-<h1>chap06/kadai5.f90<a class="headerlink" href="#chap06-kadai5-f90" title="この見出しへのパーマリンク"></a></h1>
+<h1>chap06/kadai5.f90<a class="headerlink" href="#chap06-kadai5-f90" title="Permalink to this heading"></a></h1>
 <p><a class="reference external" href="answer/chap06/kadai5.f90">サンプルコードのダウンロード</a></p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">program </span><span class="n">answer</span>
 <span class="linenos"> 2</span><span class="w">  </span><span class="k">implicit none</span>
@@ -107,10 +102,10 @@
 <span class="linenos"> 8</span><span class="w">  </span><span class="k">open</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">iostat</span><span class="o">=</span><span class="n">ios</span><span class="p">,</span><span class="w"> </span><span class="k">file</span><span class="o">=</span><span class="s1">&#39;helix2.dat&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;read&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
 <span class="linenos"> 9</span><span class="w">       </span><span class="p">&amp;</span><span class="w"> </span><span class="n">form</span><span class="o">=</span><span class="s1">&#39;unformatted&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="o">=</span><span class="s1">&#39;old&#39;</span><span class="p">)</span>
 <span class="linenos">10</span>
-<span class="linenos">11</span><span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="n">ios</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="linenos">12</span><span class="k">     write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;Failed to open file&#39;</span>
-<span class="linenos">13</span><span class="w">     </span><span class="k">stop</span>
-<span class="linenos">14</span><span class="k">  end if</span>
+<span class="linenos">11</span><span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="n">ios</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">12</span><span class="k">    write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;Failed to open file&#39;</span>
+<span class="linenos">13</span><span class="w">    </span><span class="k">stop</span>
+<span class="linenos">14</span><span class="k">  endif</span>
 <span class="linenos">15</span>
 <span class="linenos">16</span><span class="k">  read</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="n">x</span>
 <span class="linenos">17</span><span class="w">  </span><span class="k">read</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="n">y</span>
@@ -119,11 +114,11 @@
 <span class="linenos">20</span><span class="w">  </span><span class="k">close</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="linenos">21</span>
 <span class="linenos">22</span><span class="w">  </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n</span>
-<span class="linenos">23</span><span class="w">     </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;(f5.2, 1x, f5.2, 1x, f5.2)&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="w"> </span><span class="n">z</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<span class="linenos">24</span><span class="w">  </span><span class="k">end do</span>
+<span class="linenos">23</span><span class="w">    </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;(f5.2, 1x, f5.2, 1x, f5.2)&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="w"> </span><span class="n">z</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="linenos">24</span><span class="w">  </span><span class="k">enddo</span>
 <span class="linenos">25</span>
 <span class="linenos">26</span><span class="k">  stop</span>
-<span class="linenos">27</span><span class="k">end program </span><span class="n">answer</span>
+<span class="linenos">27</span><span class="k">endprogram </span><span class="n">answer</span>
 </pre></div>
 </div>
 </section>

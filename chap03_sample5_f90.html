@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="ja" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>chap03/sample5.f90 &mdash; Fortran演習(地球惑星物理学演習)</title>
@@ -17,7 +17,6 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
         <script src="_static/translations.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
@@ -41,18 +40,14 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-
-          
-          
-          <a href="index.html" class="icon icon-home">
-            Fortran演習
+            <a href="index.html" class="icon icon-home"> Fortran演習
           </a>
               <div class="version">
                 2023
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -84,7 +79,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li><a href="index.html" class="icon icon-home"></a></li>
       <li class="breadcrumb-item active">chap03/sample5.f90</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -95,7 +90,7 @@
            <div itemprop="articleBody">
              
   <section id="chap03-sample5-f90">
-<h1>chap03/sample5.f90<a class="headerlink" href="#chap03-sample5-f90" title="この見出しへのパーマリンク"></a></h1>
+<h1>chap03/sample5.f90<a class="headerlink" href="#chap03-sample5-f90" title="Permalink to this heading"></a></h1>
 <p><a class="reference external" href="sample/chap03/sample5.f90">サンプルコードのダウンロード</a></p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">program </span><span class="n">sample</span>
 <span class="linenos"> 2</span><span class="w">  </span><span class="k">implicit none</span>
@@ -109,18 +104,18 @@
 <span class="linenos">10</span><span class="w">  </span><span class="c">!</span>
 <span class="linenos">11</span><span class="w">  </span><span class="c">! 四則演算およびべき乗</span>
 <span class="linenos">12</span><span class="w">  </span><span class="c">!</span>
-<span class="linenos">13</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;addition       =&gt; &#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">3.0</span><span class="w">  </span><span class="c">! 足し算</span>
-<span class="linenos">14</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;subtraction    =&gt; &#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">5.0</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">3.0</span><span class="w">  </span><span class="c">! 引き算</span>
-<span class="linenos">15</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;multiplication =&gt; &#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">3.0</span><span class="w">  </span><span class="c">! 掛け算</span>
-<span class="linenos">16</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;division       =&gt; &#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">5.0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2.0</span><span class="w">  </span><span class="c">! 割り算</span>
-<span class="linenos">17</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;power          =&gt; &#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="mf">3.0</span><span class="w"> </span><span class="c">! べき乗</span>
+<span class="linenos">13</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;addition       =&gt; &#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">3.0</span><span class="w">  </span><span class="c">! 足し算</span>
+<span class="linenos">14</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;subtraction    =&gt; &#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">5.0</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">3.0</span><span class="w">  </span><span class="c">! 引き算</span>
+<span class="linenos">15</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;multiplication =&gt; &#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">3.0</span><span class="w">  </span><span class="c">! 掛け算</span>
+<span class="linenos">16</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;division       =&gt; &#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">5.0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2.0</span><span class="w">  </span><span class="c">! 割り算</span>
+<span class="linenos">17</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;power          =&gt; &#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0</span><span class="o">**</span><span class="mf">3.0</span><span class="w">   </span><span class="c">! べき乗</span>
 <span class="linenos">18</span>
 <span class="linenos">19</span><span class="w">  </span><span class="c">!</span>
 <span class="linenos">20</span><span class="w">  </span><span class="c">! 演算の優先順位: べき乗 &gt; 掛け算 =割り算 &gt; 足し算 =引き算</span>
 <span class="linenos">21</span><span class="w">  </span><span class="c">! 可読性のためにも括弧()で明示的に演算の順番が分かるようにしておくほうが良い。</span>
 <span class="linenos">22</span><span class="w">  </span><span class="c">!</span>
-<span class="linenos">23</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;w/  parenthesis =&gt; &#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mf">2.0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">3.0</span><span class="p">)</span><span class="w">   </span><span class="c">! 括弧あり =&gt; 10.0</span>
-<span class="linenos">24</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;w/o parenthesis =&gt; &#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0</span><span class="w"> </span><span class="o">*</span><span class="w">  </span><span class="mf">2.0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">3.0</span><span class="w">    </span><span class="c">! 括弧なし =&gt; 7.0</span>
+<span class="linenos">23</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;w/  parenthesis =&gt; &#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mf">2.0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">3.0</span><span class="p">)</span><span class="w">   </span><span class="c">! 括弧あり =&gt; 10.0</span>
+<span class="linenos">24</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;w/o parenthesis =&gt; &#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">2.0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">3.0</span><span class="w">     </span><span class="c">! 括弧なし =&gt; 7.0</span>
 <span class="linenos">25</span>
 <span class="linenos">26</span><span class="w">  </span><span class="c">!</span>
 <span class="linenos">27</span><span class="w">  </span><span class="c">! 四則演算と代入を同時に</span>
@@ -131,18 +126,18 @@
 <span class="linenos">32</span><span class="w">  </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="w">       </span><span class="c">! 掛け算（a * b）の結果をdに代入</span>
 <span class="linenos">33</span><span class="w">  </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">b</span><span class="w">       </span><span class="c">! 割り算 (a / b）の結果edに代入</span>
 <span class="linenos">34</span>
-<span class="linenos">35</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;substitution   =&gt; &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">a</span>
-<span class="linenos">36</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;addition       =&gt; &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">b</span>
-<span class="linenos">37</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;subtraction    =&gt; &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">c</span>
-<span class="linenos">38</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;multiplication =&gt; &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">d</span>
-<span class="linenos">39</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;division       =&gt; &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span>
+<span class="linenos">35</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;substitution   =&gt; &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">a</span>
+<span class="linenos">36</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;addition       =&gt; &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">b</span>
+<span class="linenos">37</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;subtraction    =&gt; &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">c</span>
+<span class="linenos">38</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;multiplication =&gt; &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">d</span>
+<span class="linenos">39</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;division       =&gt; &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span>
 <span class="linenos">40</span>
 <span class="linenos">41</span><span class="w">  </span><span class="c">!</span>
 <span class="linenos">42</span><span class="w">  </span><span class="c">! 標準入力から値を読み込み変数xに代入</span>
 <span class="linenos">43</span><span class="w">  </span><span class="c">!</span>
-<span class="linenos">44</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span>
-<span class="linenos">45</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;Input a real number: &#39;</span>
-<span class="linenos">46</span><span class="w">  </span><span class="k">read</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">x</span>
+<span class="linenos">44</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span>
+<span class="linenos">45</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;Input a real number: &#39;</span>
+<span class="linenos">46</span><span class="w">  </span><span class="k">read</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">x</span>
 <span class="linenos">47</span>
 <span class="linenos">48</span><span class="w">  </span><span class="c">!</span>
 <span class="linenos">49</span><span class="w">  </span><span class="c">! 標準で様々な関数が用意されている</span>
@@ -156,11 +151,11 @@
 <span class="linenos">57</span><span class="w">  </span><span class="c">! 双極関数   =&gt; sinh(x), cosh(x), tanh(x)</span>
 <span class="linenos">58</span><span class="w">  </span><span class="c">! 逆三角関数 =&gt; asin(x), acos(x), atan(x)</span>
 <span class="linenos">59</span><span class="w">  </span><span class="c">!</span>
-<span class="linenos">60</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="nb">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="c">! sin(x)を計算し表示</span>
-<span class="linenos">61</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="nb">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="c">! cos(x)を計算し表示</span>
+<span class="linenos">60</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="nb">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="c">! sin(x)を計算し表示</span>
+<span class="linenos">61</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="nb">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="c">! cos(x)を計算し表示</span>
 <span class="linenos">62</span>
 <span class="linenos">63</span><span class="w">  </span><span class="k">stop</span>
-<span class="linenos">64</span><span class="k">end program </span><span class="n">sample</span>
+<span class="linenos">64</span><span class="k">endprogram </span><span class="n">sample</span>
 </pre></div>
 </div>
 </section>

@@ -7,17 +7,17 @@ program sample ! ここにコメントを書いても良い
   ! 空行は無視される
 
   ! 標準出力に文字列を表示(シングルクオートもしくはダブルクオートで囲む）
-  write(*,*) 'Hello, world 2 !'
+  write(*, *) 'Hello, world 2 !'
 
   ! 複数の文字列や変数をカンマで区切って並べてもよい
-  write(*,*) "This is ", "also ", "OK"
+  write(*, *) "This is ", "also ", "OK"
 
   ! 1文が複数行に渡る場合には `&` を用いる.
-  write(*,*) &
+  write(*, *) &
        & 'This is a continuation line'
 
   print *, 'This is another way to print out'
 
   ! プログラムを終了する. 多くの場合無くても構わないがあったほうが無難.
   stop
-end program sample
+endprogram sample

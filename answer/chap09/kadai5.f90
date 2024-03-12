@@ -3,28 +3,28 @@ module mod_rational
   private
 
   type :: rational
-     integer :: num, den
-  end type rational
+    integer :: num, den
+  endtype rational
 
-  interface operator (+)
-     module procedure add
-  end interface operator (+)
+  interface operator(+)
+    module procedure add
+  endinterface operator(+)
 
-  interface operator (-)
-     module procedure sub
-  end interface operator (-)
+  interface operator(-)
+    module procedure sub
+  endinterface operator(-)
 
-  interface operator (*)
-     module procedure mul
-  end interface operator (*)
+  interface operator(*)
+    module procedure mul
+  endinterface operator(*)
 
-  interface operator (/)
-     module procedure div
-  end interface operator (/)
+  interface operator(/)
+    module procedure div
+  endinterface operator(/)
 
-  interface assignment (=)
-     module procedure assign
-  end interface assignment (=)
+  interface assignment(=)
+    module procedure assign
+  endinterface assignment(=)
 
   public :: rational
   public :: show
@@ -37,63 +37,63 @@ contains
     type(rational), intent(in) :: a, b
     type(rational) :: ret
 
-    ret%num = a%num * b%den + a%den * b%num
-    ret%den = a%den * b%den
-    call reduction(ret%num, ret%den)
+    ret % num = a % num * b % den + a % den * b % num
+    ret % den = a % den * b % den
+    call reduction(ret % num, ret % den)
 
-  end function add
+  endfunction add
 
   function sub(a, b) result(ret)
     implicit none
     type(rational), intent(in) :: a, b
     type(rational) :: ret
 
-    ret%num = a%num * b%den - a%den * b%num
-    ret%den = a%den * b%den
-    call reduction(ret%num, ret%den)
+    ret % num = a % num * b % den - a % den * b % num
+    ret % den = a % den * b % den
+    call reduction(ret % num, ret % den)
 
-  end function sub
+  endfunction sub
 
   function mul(a, b) result(ret)
     implicit none
     type(rational), intent(in) :: a, b
     type(rational) :: ret
 
-    ret%num = a%num * b%num
-    ret%den = a%den * b%den
-    call reduction(ret%num, ret%den)
+    ret % num = a % num * b % num
+    ret % den = a % den * b % den
+    call reduction(ret % num, ret % den)
 
-  end function mul
+  endfunction mul
 
   function div(a, b) result(ret)
     implicit none
     type(rational), intent(in) :: a, b
     type(rational) :: ret
 
-    ret%num = a%num * b%den
-    ret%den = a%den * b%num
-    call reduction(ret%num, ret%den)
+    ret % num = a % num * b % den
+    ret % den = a % den * b % num
+    call reduction(ret % num, ret % den)
 
-  end function div
+  endfunction div
 
   subroutine assign(a, b)
     implicit none
     type(rational), intent(out) :: a
-    integer, intent(in)         :: b(2)
+    integer, intent(in) :: b(2)
 
-    a%num = b(1)
-    a%den = b(2)
-    call reduction(a%num, a%den)
+    a % num = b(1)
+    a % den = b(2)
+    call reduction(a % num, a % den)
 
-  end subroutine assign
+  endsubroutine assign
 
   subroutine show(r)
     implicit none
     type(rational), intent(in) :: r
 
-    write(*, '(i6, " / ", i6)') r%num, r%den
+    write(*, '(i6, " / ", i6)') r % num, r % den
     return
-  end subroutine show
+  endsubroutine show
 
   function gcd(a, b) result(ret)
     implicit none
@@ -105,15 +105,15 @@ contains
     m = a
     n = b
     r = mod(m, n)
-    do while( r /= 0 )
-       m = n
-       n = r
-       r = mod(m, n)
-    end do
+    do while(r /= 0)
+      m = n
+      n = r
+      r = mod(m, n)
+    enddo
 
     ret = abs(n)
 
-  end function gcd
+  endfunction gcd
 
   subroutine reduction(num, den)
     implicit none
@@ -124,9 +124,9 @@ contains
     r = gcd(num, den)
     num = num / r
     den = den / r
-  end subroutine reduction
+  endsubroutine reduction
 
-end module mod_rational
+endmodule mod_rational
 
 program answer
   use mod_rational
@@ -144,16 +144,16 @@ program answer
   call show(b)
 
   write(*, fmt='(a)', advance='no') 'a + b = '
-  call show(a+b)
+  call show(a + b)
 
   write(*, fmt='(a)', advance='no') 'a - b = '
-  call show(a-b)
+  call show(a - b)
 
   write(*, fmt='(a)', advance='no') 'a * b = '
-  call show(a*b)
+  call show(a * b)
 
   write(*, fmt='(a)', advance='no') 'a / b = '
-  call show(a/b)
+  call show(a / b)
 
   stop
-end program answer
+endprogram answer

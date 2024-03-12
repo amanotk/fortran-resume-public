@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="ja" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>8. 数値解析の基礎 &mdash; Fortran演習(地球惑星物理学演習)</title>
@@ -17,7 +17,6 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
         <script src="_static/translations.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -44,18 +43,14 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-
-          
-          
-          <a href="index.html" class="icon icon-home">
-            Fortran演習
+            <a href="index.html" class="icon icon-home"> Fortran演習
           </a>
               <div class="version">
                 2023
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -110,7 +105,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li><a href="index.html" class="icon icon-home"></a></li>
       <li class="breadcrumb-item active"><span class="section-number">8. </span>数値解析の基礎</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -121,8 +116,8 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1><a class="toc-backref" href="#id32"><span class="section-number">8. </span>数値解析の基礎</a><a class="headerlink" href="#id1" title="この見出しへのパーマリンク"></a></h1>
-<p>これまでは主にプログラミングの作法を学んできた．基本的には現在までの知識を組み合わせれば原理的にはどんな問題にも対応できるようになっている <a class="footnote-reference brackets" href="#id20" id="id2">1</a>．そこで，これまでに学んだ知識を用いてもう少し実践的な内容に取り組もう．具体的には非線形方程式の求根法や，関数の数値積分，また乱数の使い方などを扱う．</p>
+<h1><a class="toc-backref" href="#id32" role="doc-backlink"><span class="section-number">8. </span>数値解析の基礎</a><a class="headerlink" href="#id1" title="Permalink to this heading"></a></h1>
+<p>これまでは主にプログラミングの作法を学んできた．基本的には現在までの知識を組み合わせれば原理的にはどんな問題にも対応できるようになっている <a class="footnote-reference brackets" href="#id20" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>．そこで，これまでに学んだ知識を用いてもう少し実践的な内容に取り組もう．具体的には非線形方程式の求根法や，関数の数値積分，また乱数の使い方などを扱う．</p>
 <div class="admonition seealso">
 <p class="admonition-title">参考</p>
 <ul class="simple">
@@ -133,7 +128,7 @@
 <li><p><a class="reference internal" href="chap08_sample5_f90.html"><span class="doc">sample5.f90</span></a> : 乱数</p></li>
 </ul>
 </div>
-<div class="contents topic" id="id3">
+<nav class="contents" id="id3">
 <p class="topic-title">この章の内容</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#id1" id="id32">数値解析の基礎</a></p>
@@ -146,12 +141,12 @@
 </ul>
 </li>
 </ul>
-</div>
+</nav>
 <section id="c8-float-precision">
-<span id="id4"></span><h2><a class="toc-backref" href="#id33"><span class="section-number">8.1. </span>実数の精度と誤差</a><a class="headerlink" href="#c8-float-precision" title="この見出しへのパーマリンク"></a></h2>
+<span id="id4"></span><h2><a class="toc-backref" href="#id33" role="doc-backlink"><span class="section-number">8.1. </span>実数の精度と誤差</a><a class="headerlink" href="#c8-float-precision" title="Permalink to this heading"></a></h2>
 <p>これまで何気なく用いてきた実数型だが，数値解析を始める前に計算機における実数の取り扱いやその誤差について理解しておこう．</p>
 <section id="id5">
-<h3><span class="section-number">8.1.1. </span>浮動小数点数の表現<a class="headerlink" href="#id5" title="この見出しへのパーマリンク"></a></h3>
+<h3><span class="section-number">8.1.1. </span>浮動小数点数の表現<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h3>
 <p>実数は計算機の内部では浮動小数点数と呼ばれる形式になっており，</p>
 <div class="math notranslate nohighlight">
 \[x = \underbrace{(-1)^{s}}_{\mbox{符号}} \times
@@ -160,7 +155,7 @@
 <p>のような表現で表される．仮数部は有効桁を決める部分であり，指数部は絶対値を調整するためのものである． 仮数部が <span class="math notranslate nohighlight">\(1.f\)</span> となっているのは(最上位ビットは常に1なので)実質1ビット分だけ精度を稼ぐためである(これをケチ表現と呼ぶ)． 例えば標準的な規格(IEEE754規格)では単精度の場合，符号部に1ビット，仮数部に23ビット，指数部に8ビットが割り当てられている． 指数部が8ビットであることから，<span class="math notranslate nohighlight">\(e=0, 1, \ldots, 255\)</span> であり，即ち絶対値の範囲としては <span class="math notranslate nohighlight">\(2^{-127} \sim 10^{-38} \lesssim x \lesssim 2^{127} \sim 10^{+38}\)</span> 程度以内の数値しか表現できない． また <span class="math notranslate nohighlight">\(\log_{10} (2^{23 + 1}) \sim 7.2\)</span> なので10進での有効桁数は7桁程度である． 同様に倍精度では符号部に1ビット，仮数部に52ビット，指数部に11ビットが割り当てられていることから絶対値の範囲は <span class="math notranslate nohighlight">\(2^{-1024} \sim 10^{-308} \lesssim x \lesssim 2^{+1024} \sim 10^{+308}\)</span>，有効桁数は <span class="math notranslate nohighlight">\(\log_{10} (2^{52+1}) \sim 15.9\)</span> となり10進での有効桁数は16桁程度である．</p>
 </section>
 <section id="id6">
-<h3><span class="section-number">8.1.2. </span>丸め誤差<a class="headerlink" href="#id6" title="この見出しへのパーマリンク"></a></h3>
+<h3><span class="section-number">8.1.2. </span>丸め誤差<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h3>
 <p>実数を有効桁で「丸め」て表現することから生じる誤差を丸め誤差と呼ぶ．これは場合によっては求めたい計算結果の精度に悪影響を及ぼすこともあるため，注意が必要である．</p>
 <ul>
 <li><p>桁落ち</p>
@@ -194,13 +189,13 @@
 </section>
 </section>
 <section id="id7">
-<h2><a class="toc-backref" href="#id34"><span class="section-number">8.2. </span>求根法</a><a class="headerlink" href="#id7" title="この見出しへのパーマリンク"></a></h2>
+<h2><a class="toc-backref" href="#id34" role="doc-backlink"><span class="section-number">8.2. </span>求根法</a><a class="headerlink" href="#id7" title="Permalink to this heading"></a></h2>
 <p>解析的には解けない方程式(非線形方程式)の解を求める方法を考えよう．通常は右辺と左辺の両方に式があるわけだが，移項してしまって</p>
 <div class="math notranslate nohighlight">
 \[f(x) = 0\]</div>
-<p>という一般的な形にして解くことにしよう．実はこの問題は意外と難しい問題であり，どんな問題にも使うことのできる汎用的で，かつ高速に解を求められるような手法は存在しない．と言うのはどんな手法であっても基本的には初期値として近似解のあたりを付けて，少しずつ真の解に近づけていく反復法だからである．初期値の選び方によっては正しい解に収束しない場合や，欲しい解(例えば物理的な解)に収束しないもあり得る <a class="footnote-reference brackets" href="#id21" id="id8">2</a>．計算機は初期値までは面倒を見てくれないので，人間が適切な初期値を与えてあげなければならない．とりあえず初期値は与えられたとして，そこから近似解を反復によって求めるアルゴリズムを見ていこう．</p>
+<p>という一般的な形にして解くことにしよう．実はこの問題は意外と難しい問題であり，どんな問題にも使うことのできる汎用的で，かつ高速に解を求められるような手法は存在しない．と言うのはどんな手法であっても基本的には初期値として近似解のあたりを付けて，少しずつ真の解に近づけていく反復法だからである．初期値の選び方によっては正しい解に収束しない場合や，欲しい解(例えば物理的な解)に収束しないもあり得る <a class="footnote-reference brackets" href="#id21" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>．計算機は初期値までは面倒を見てくれないので，人間が適切な初期値を与えてあげなければならない．とりあえず初期値は与えられたとして，そこから近似解を反復によって求めるアルゴリズムを見ていこう．</p>
 <section id="id9">
-<h3><span class="section-number">8.2.1. </span>二分法<a class="headerlink" href="#id9" title="この見出しへのパーマリンク"></a></h3>
+<h3><span class="section-number">8.2.1. </span>二分法<a class="headerlink" href="#id9" title="Permalink to this heading"></a></h3>
 <p>もしある区間に解が1つあると分かっているならば，反復によって近似解が必ず真の解に収束する，二分法(bisection method)と呼ばれるアルゴリズムが知られいる．まず <span class="math notranslate nohighlight">\([x_1, x_2] \ (x_1 &lt; x_2)\)</span> に対して <span class="math notranslate nohighlight">\(f(x_1) &lt; 0, f(x_2) &gt; 0\)</span> ならばこのの区間に解があることが分かる．このとき，二分法によって近似解を求める手順は以下のようなものとなる．</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -213,34 +208,34 @@
 <p>実際には <span class="math notranslate nohighlight">\(f(x_1) &gt; 0, f(x_2) &lt; 0\)</span> の場合も考慮しなければならないが，組み込み関数 <code class="docutils literal notranslate"><span class="pre">sign</span></code> を用いてこれは簡単に実現出来る．以下のコードには二分法の実装例を示している．ただし <code class="docutils literal notranslate"><span class="pre">f</span></code> は関数として定義されているものとする．</p>
 <div class="literal-block-wrapper docutils container" id="id23">
 <div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap08_sample2_f90.html"><span class="doc">sample2.f90</span></a> 抜粋</span><a class="headerlink" href="#id23" title="このコードへのパーマリンク"></a></div>
-<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">27</span><span class="w">  </span><span class="n">sig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sign</span><span class="p">(</span><span class="mf">1.0_8</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span><span class="o">-</span><span class="n">f</span><span class="p">(</span><span class="n">x1</span><span class="p">))</span>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">27</span><span class="w">  </span><span class="n">sig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sign</span><span class="p">(</span><span class="mf">1.0_8</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">x1</span><span class="p">))</span>
 <span class="linenos">28</span><span class="w">  </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
 <span class="linenos">29</span><span class="w">  </span><span class="k">do </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">nmax</span>
-<span class="linenos">30</span><span class="w">     </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">x1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x2</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.5_8</span>
-<span class="linenos">31</span><span class="w">     </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="linenos">30</span><span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">x1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x2</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.5_8</span>
+<span class="linenos">31</span><span class="w">    </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="linenos">32</span>
-<span class="linenos">33</span><span class="w">     </span><span class="c">! 収束判定</span>
-<span class="linenos">34</span><span class="w">     </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x2</span><span class="o">-</span><span class="n">x1</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">tolerance</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="linenos">35</span><span class="k">        </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
-<span class="linenos">36</span><span class="w">        </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(&quot;Converged at step &quot;, i4)&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">n</span>
-<span class="linenos">37</span><span class="w">        </span><span class="k">exit</span>
-<span class="linenos">38</span><span class="k">     else</span>
-<span class="linenos">39</span><span class="k">        write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(&quot;Error at step &quot;, i4, &quot; = &quot;, e20.8)&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-<span class="linenos">40</span><span class="w">     </span><span class="k">end if</span>
+<span class="linenos">33</span><span class="w">    </span><span class="c">! 収束判定</span>
+<span class="linenos">34</span><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">x1</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">tolerance</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">35</span><span class="k">      </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
+<span class="linenos">36</span><span class="w">      </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(&quot;Converged at step &quot;, i4)&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">n</span>
+<span class="linenos">37</span><span class="w">      </span><span class="k">exit</span>
+<span class="linenos">38</span><span class="k">    else</span>
+<span class="linenos">39</span><span class="k">      write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(&quot;Error at step &quot;, i4, &quot; = &quot;, e20.8)&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="linenos">40</span><span class="w">    </span><span class="k">endif</span>
 <span class="linenos">41</span>
-<span class="linenos">42</span><span class="w">     </span><span class="c">! 次の値を推定</span>
-<span class="linenos">43</span><span class="w">     </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="o">*</span><span class="n">sig</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="linenos">44</span><span class="k">        </span><span class="n">x1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span>
-<span class="linenos">45</span><span class="w">     </span><span class="k">else</span>
-<span class="linenos">46</span><span class="k">        </span><span class="n">x2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span>
-<span class="linenos">47</span><span class="w">     </span><span class="k">end if</span>
-<span class="linenos">48</span><span class="k">  end do</span>
+<span class="linenos">42</span><span class="w">    </span><span class="c">! 次の値を推定</span>
+<span class="linenos">43</span><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">sig</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">44</span><span class="k">      </span><span class="n">x1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span>
+<span class="linenos">45</span><span class="w">    </span><span class="k">else</span>
+<span class="linenos">46</span><span class="k">      </span><span class="n">x2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span>
+<span class="linenos">47</span><span class="w">    </span><span class="k">endif</span>
+<span class="linenos">48</span><span class="k">  enddo</span>
 </pre></div>
 </div>
 </div>
 </section>
 <section id="newton">
-<h3><span class="section-number">8.2.2. </span>Newton法<a class="headerlink" href="#newton" title="この見出しへのパーマリンク"></a></h3>
+<h3><span class="section-number">8.2.2. </span>Newton法<a class="headerlink" href="#newton" title="Permalink to this heading"></a></h3>
 <p>二分法は解の含まれる範囲を正しく指定すれば必ず収束するという利点はあるものの，あまり収束の速いアルゴリズムではなかった．一方で，初期値によっては収束しないかもしれないが，収束するならばその収束自体は速いというアルゴリズムも考えられる．それがここで紹介するNewton法と呼ばれるものである．これは <span class="math notranslate nohighlight">\(f(x)\)</span> に加えてその微分 <span class="math notranslate nohighlight">\(f'(x)\)</span> も用いるのが特徴である．すなわち，近似解 <span class="math notranslate nohighlight">\(x\)</span> が与えられたときに <span class="math notranslate nohighlight">\(x\)</span> の周りでのテイラー展開した</p>
 <div class="math notranslate nohighlight">
 \[f(x + \delta) \simeq f(x) + \delta f'(x) + O(\delta^2)\]</div>
@@ -252,28 +247,28 @@
 <div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap08_sample3_f90.html"><span class="doc">sample3.f90</span></a> 抜粋</span><a class="headerlink" href="#id24" title="このコードへのパーマリンク"></a></div>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">14</span><span class="w">  </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
 <span class="linenos">15</span><span class="w">  </span><span class="k">do </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">nmax</span>
-<span class="linenos">16</span><span class="w">     </span><span class="c">! 次の値の推定</span>
-<span class="linenos">17</span><span class="w">     </span><span class="n">y</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="linenos">18</span><span class="w">     </span><span class="n">dy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">df</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="linenos">19</span><span class="w">     </span><span class="n">dx</span><span class="w"> </span><span class="o">=-</span><span class="n">y</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">dy</span>
-<span class="linenos">20</span><span class="w">     </span><span class="n">x</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dx</span>
+<span class="linenos">16</span><span class="w">    </span><span class="c">! 次の値の推定</span>
+<span class="linenos">17</span><span class="w">    </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="linenos">18</span><span class="w">    </span><span class="n">dy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">df</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="linenos">19</span><span class="w">    </span><span class="n">dx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">y</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">dy</span>
+<span class="linenos">20</span><span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dx</span>
 <span class="linenos">21</span>
-<span class="linenos">22</span><span class="w">     </span><span class="c">! 収束判定</span>
-<span class="linenos">23</span><span class="w">     </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">dx</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">tolerance</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="linenos">24</span><span class="k">        </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
-<span class="linenos">25</span><span class="w">        </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(&quot;Converged at step &quot;, i4)&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">n</span>
-<span class="linenos">26</span><span class="w">        </span><span class="k">exit</span>
-<span class="linenos">27</span><span class="k">     else</span>
-<span class="linenos">28</span><span class="k">        write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(&quot;Error at step &quot;, i4, &quot; = &quot;, e20.8)&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-<span class="linenos">29</span><span class="w">     </span><span class="k">end if</span>
-<span class="linenos">30</span><span class="k">  end do</span>
+<span class="linenos">22</span><span class="w">    </span><span class="c">! 収束判定</span>
+<span class="linenos">23</span><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">dx</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">tolerance</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">24</span><span class="k">      </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
+<span class="linenos">25</span><span class="w">      </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(&quot;Converged at step &quot;, i4)&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">n</span>
+<span class="linenos">26</span><span class="w">      </span><span class="k">exit</span>
+<span class="linenos">27</span><span class="k">    else</span>
+<span class="linenos">28</span><span class="k">      write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;(&quot;Error at step &quot;, i4, &quot; = &quot;, e20.8)&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="linenos">29</span><span class="w">    </span><span class="k">endif</span>
+<span class="linenos">30</span><span class="k">  enddo</span>
 </pre></div>
 </div>
 </div>
 </section>
 </section>
 <section id="c8-numerical-integration">
-<span id="id10"></span><h2><a class="toc-backref" href="#id35"><span class="section-number">8.3. </span>数値積分</a><a class="headerlink" href="#c8-numerical-integration" title="この見出しへのパーマリンク"></a></h2>
+<span id="id10"></span><h2><a class="toc-backref" href="#id35" role="doc-backlink"><span class="section-number">8.3. </span>数値積分</a><a class="headerlink" href="#c8-numerical-integration" title="Permalink to this heading"></a></h2>
 <p>次に関数の積分</p>
 <div class="math notranslate nohighlight">
 \[S = \int_{a}^{b} f(x) d x\]</div>
@@ -300,9 +295,9 @@
 <span class="linenos">23</span><span class="w">  </span><span class="c">! 台形公式による数値積分</span>
 <span class="linenos">24</span><span class="w">  </span><span class="c">!</span>
 <span class="linenos">25</span><span class="w">  </span><span class="n">integral</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.5_8</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">x2</span><span class="p">))</span>
-<span class="linenos">26</span><span class="w">  </span><span class="k">do </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">nmax</span><span class="o">-</span><span class="mi">1</span>
-<span class="linenos">27</span><span class="w">     </span><span class="n">integral</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">integral</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">x1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dx</span><span class="o">*</span><span class="kt">real</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-<span class="linenos">28</span><span class="w">  </span><span class="k">end do</span>
+<span class="linenos">26</span><span class="w">  </span><span class="k">do </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">nmax</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="linenos">27</span><span class="w">    </span><span class="n">integral</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">integral</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">x1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dx</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">))</span>
+<span class="linenos">28</span><span class="w">  </span><span class="k">enddo</span>
 <span class="linenos">29</span><span class="k">  </span><span class="n">integral</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">integral</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">dx</span>
 </pre></div>
 </div>
@@ -315,13 +310,13 @@
 <span class="linenos">36</span><span class="w">  </span><span class="c">!</span>
 <span class="linenos">37</span><span class="w">  </span><span class="n">integral</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span>
 <span class="linenos">38</span><span class="w">  </span><span class="c">! odd</span>
-<span class="linenos">39</span><span class="w">  </span><span class="k">do </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">nmax</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
-<span class="linenos">40</span><span class="w">     </span><span class="n">integral</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">integral</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">4.0_8</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">x1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dx</span><span class="o">*</span><span class="kt">real</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-<span class="linenos">41</span><span class="w">  </span><span class="k">end do</span>
+<span class="linenos">39</span><span class="w">  </span><span class="k">do </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">nmax</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
+<span class="linenos">40</span><span class="w">    </span><span class="n">integral</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">integral</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">4.0_8</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">x1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dx</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">))</span>
+<span class="linenos">41</span><span class="w">  </span><span class="k">enddo</span>
 <span class="linenos">42</span><span class="w">  </span><span class="c">! even</span>
-<span class="linenos">43</span><span class="w">  </span><span class="k">do </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">nmax</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
-<span class="linenos">44</span><span class="w">     </span><span class="n">integral</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">integral</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">2.0_8</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">x1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dx</span><span class="o">*</span><span class="kt">real</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-<span class="linenos">45</span><span class="w">  </span><span class="k">end do</span>
+<span class="linenos">43</span><span class="w">  </span><span class="k">do </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">nmax</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
+<span class="linenos">44</span><span class="w">    </span><span class="n">integral</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">integral</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">2.0_8</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">x1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dx</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">))</span>
+<span class="linenos">45</span><span class="w">  </span><span class="k">enddo</span>
 <span class="linenos">46</span><span class="k">  </span><span class="n">integral</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">integral</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">dx</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">3.0_8</span>
 </pre></div>
 </div>
@@ -329,7 +324,7 @@
 <p>のように実装することが出来る．ここで <code class="docutils literal notranslate"><span class="pre">f(x)</span></code> は被積分関数である．</p>
 </section>
 <section id="id11">
-<h2><a class="toc-backref" href="#id36"><span class="section-number">8.4. </span>乱数</a><a class="headerlink" href="#id11" title="この見出しへのパーマリンク"></a></h2>
+<h2><a class="toc-backref" href="#id36" role="doc-backlink"><span class="section-number">8.4. </span>乱数</a><a class="headerlink" href="#id11" title="Permalink to this heading"></a></h2>
 <p>確率的な現象を計算機を用いて模擬する際には乱数を用いることになる．ただし計算機で用いることのできる乱数は擬似乱数と呼ばれ，乱数のように見えるが実際には決定論的な手法に基づき生成される数列である．従って質の良い(周期の長い)乱数を用いなければ，用途によっては乱数とみなすことのできない場合もあるため注意が必要である．</p>
 <p>Fortranには乱数を発生させる組込みのサブルーチン <code class="docutils literal notranslate"><span class="pre">random_number</span></code> が存在する．</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">call </span><span class="nb">random_number</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -342,7 +337,7 @@
 <li><p>必要な領域を確保( <code class="docutils literal notranslate"><span class="pre">allocate</span></code> を用いる)</p></li>
 <li><p>シードを指定</p></li>
 </ol>
-<p>といった流れとなる．以下のサブルーチン <code class="docutils literal notranslate"><span class="pre">random_seed_clock</span></code> は計算機の時刻 <a class="footnote-reference brackets" href="#id22" id="id12">3</a> に応じてシードを指定するものであり，これを用いれば実行する度に(時刻が異なるので)得られる乱数値が異なることが保証される．逆に固定のシードを用いるようにしておくと毎回同じ結果が得られるため，乱数を用いるプログラムをデバッグする際には都合が良い．</p>
+<p>といった流れとなる．以下のサブルーチン <code class="docutils literal notranslate"><span class="pre">random_seed_clock</span></code> は計算機の時刻 <a class="footnote-reference brackets" href="#id22" id="id12" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a> に応じてシードを指定するものであり，これを用いれば実行する度に(時刻が異なるので)得られる乱数値が異なることが保証される．逆に固定のシードを用いるようにしておくと毎回同じ結果が得られるため，乱数を用いるプログラムをデバッグする際には都合が良い．</p>
 <div class="literal-block-wrapper docutils container" id="id27">
 <div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap08_sample5_f90.html"><span class="doc">sample5.f90</span></a> 抜粋</span><a class="headerlink" href="#id27" title="このコードへのパーマリンク"></a></div>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">75</span><span class="w">  </span><span class="c">!</span>
@@ -363,14 +358,14 @@
 <span class="linenos">90</span><span class="w">    </span><span class="k">call </span><span class="nb">random_seed</span><span class="p">(</span><span class="n">put</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
 <span class="linenos">91</span>
 <span class="linenos">92</span><span class="w">    </span><span class="k">deallocate</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
-<span class="linenos">93</span><span class="w">  </span><span class="k">end subroutine </span><span class="n">random_seed_clock</span>
+<span class="linenos">93</span><span class="w">  </span><span class="k">endsubroutine </span><span class="n">random_seed_clock</span>
 </pre></div>
 </div>
 </div>
 <p>なお， <code class="docutils literal notranslate"><span class="pre">random_seed_clock</span></code> を使った乱数シードの初期化は <a class="reference internal" href="chap08_sample5_f90.html"><span class="doc">sample5.f90</span></a> の例のようにプログラムの実行の最初に一度だけ行えば十分である．</p>
 </section>
 <section id="id13">
-<h2><a class="toc-backref" href="#id37"><span class="section-number">8.5. </span>第8章 演習課題</a><a class="headerlink" href="#id13" title="この見出しへのパーマリンク"></a></h2>
+<h2><a class="toc-backref" href="#id37" role="doc-backlink"><span class="section-number">8.5. </span>第8章 演習課題</a><a class="headerlink" href="#id13" title="Permalink to this heading"></a></h2>
 <div class="admonition seealso">
 <p class="admonition-title">参考</p>
 <ul class="simple">
@@ -382,11 +377,11 @@
 </ul>
 </div>
 <section id="id14">
-<h3><span class="section-number">8.5.1. </span>課題1<a class="headerlink" href="#id14" title="この見出しへのパーマリンク"></a></h3>
+<h3><span class="section-number">8.5.1. </span>課題1<a class="headerlink" href="#id14" title="Permalink to this heading"></a></h3>
 <p>サンプルプログラムをコンパイル・実行して動作を確認せよ．さらに，適宜修正してその実行結果を確認せよ．</p>
 </section>
 <section id="id15">
-<h3><span class="section-number">8.5.2. </span>課題2<a class="headerlink" href="#id15" title="この見出しへのパーマリンク"></a></h3>
+<h3><span class="section-number">8.5.2. </span>課題2<a class="headerlink" href="#id15" title="Permalink to this heading"></a></h3>
 <p>2次方程式 <span class="math notranslate nohighlight">\(a x^2 + b x + c = 0\)</span>
 の解は以下の解の公式を用いて求めることが出来る．</p>
 <div class="math notranslate nohighlight">
@@ -399,7 +394,7 @@
 <p>であるが，解の公式を用いた場合と式変形によって桁落ち対策をした場合で数値解を比較せよ．(桁落ち対策が必要なのはどちらか一方の解のみである．)</p>
 </section>
 <section id="id16">
-<h3><span class="section-number">8.5.3. </span>課題3<a class="headerlink" href="#id16" title="この見出しへのパーマリンク"></a></h3>
+<h3><span class="section-number">8.5.3. </span>課題3<a class="headerlink" href="#id16" title="Permalink to this heading"></a></h3>
 <p>Newton法では関数の微分値を解析的に与えて用いるが，割線法(Secant method)と呼ばれる手法では連続した2つの近似解を用いて，微分を差分で近似する．即ち <span class="math notranslate nohighlight">\(n\)</span> 番目の近似解を <span class="math notranslate nohighlight">\(x_n\)</span> と書いたときに，Newton法の公式</p>
 <div class="math notranslate nohighlight">
 \[x_{n+1} = x_{n} - \frac{f(x_{n})}{f'(x_{n})}\]</div>
@@ -420,7 +415,7 @@
 </figure>
 </section>
 <section id="id17">
-<h3><span class="section-number">8.5.4. </span>課題4<a class="headerlink" href="#id17" title="この見出しへのパーマリンク"></a></h3>
+<h3><span class="section-number">8.5.4. </span>課題4<a class="headerlink" href="#id17" title="Permalink to this heading"></a></h3>
 <p><span class="math notranslate nohighlight">\(f(x) = \dfrac{4}{\pi} \dfrac{1}{1 + x^2}\)</span> および <span class="math notranslate nohighlight">\(f(x) = (n+1) \ x^{n} \ (n = 0, \ldots, 5)\)</span> のそれぞれについて</p>
 <div class="math notranslate nohighlight">
 \[\int_{0}^{1} f(x) dx\]</div>
@@ -435,7 +430,7 @@
 <p>このような依存性となる理由を考えよう．</p>
 </section>
 <section id="id18">
-<h3><span class="section-number">8.5.5. </span>課題5<a class="headerlink" href="#id18" title="この見出しへのパーマリンク"></a></h3>
+<h3><span class="section-number">8.5.5. </span>課題5<a class="headerlink" href="#id18" title="Permalink to this heading"></a></h3>
 <p>一様乱数を用いてある確率分布に従う乱数を発生させるために逆関数を用いる方法(変換法や逆関数法などと呼ばれる)を考える．区間 <span class="math notranslate nohighlight">\([0, 1)\)</span> での一様乱数 <span class="math notranslate nohighlight">\(x\)</span> およびその確率分布 <span class="math notranslate nohighlight">\(f(x)\)</span> ，また必要な乱数 <span class="math notranslate nohighlight">\(y\)</span> とその確率分布 <span class="math notranslate nohighlight">\(g(y)\)</span> とする．ただし乱数の値域は <span class="math notranslate nohighlight">\(a \leq y &lt; b\)</span> とする． <span class="math notranslate nohighlight">\(y\)</span> を <span class="math notranslate nohighlight">\(x\)</span> から何らかの変換で <span class="math notranslate nohighlight">\(y = P(x)\)</span> のように表すとき，確率密度の保存から</p>
 <div class="math notranslate nohighlight">
 \[g(y) d y = f(x) dx = d x\]</div>
@@ -469,7 +464,7 @@
 </figure>
 </section>
 <section id="id19">
-<h3><span class="section-number">8.5.6. </span>課題6 <sup>†</sup><a class="headerlink" href="#id19" title="この見出しへのパーマリンク"></a></h3>
+<h3><span class="section-number">8.5.6. </span>課題6 <sup>†</sup><a class="headerlink" href="#id19" title="Permalink to this heading"></a></h3>
 <p>乱数を利用した数値積分法としてモンテカルロ法が知られている．これを用いて <span class="math notranslate nohighlight">\(n\)</span> 次元ユークリッド空間における単位超球の体積 <span class="math notranslate nohighlight">\(V_n\)</span> を求めるプログラムを作成せよ．</p>
 <p>ただし <span class="math notranslate nohighlight">\(n\)</span> 次元超球の体積は <span class="math notranslate nohighlight">\(n\)</span> 次元空間の座標を <span class="math notranslate nohighlight">\(x_i \, (i=1, \ldots, n)\)</span> とし，</p>
 <div class="math notranslate nohighlight">
@@ -493,17 +488,18 @@
 </pre></div>
 </div>
 <hr class="docutils" />
-<dl class="footnote brackets">
-<dt class="label" id="id20"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
-<dd><p>もちろん数学や物理，更には数値解析の知識は必要になってくるわけだが，それはこれから学んでいくことになる．</p>
-</dd>
-<dt class="label" id="id21"><span class="brackets"><a class="fn-backref" href="#id8">2</a></span></dt>
-<dd><p>1変数ならまだ良いのだが，多変数関数に拡張するとほとんどお手上げである．</p>
-</dd>
-<dt class="label" id="id22"><span class="brackets"><a class="fn-backref" href="#id12">3</a></span></dt>
-<dd><p>Unix系OSの場合は1970年1月1日からの経過時間．</p>
-</dd>
-</dl>
+<aside class="footnote brackets" id="id20" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">1</a><span class="fn-bracket">]</span></span>
+<p>もちろん数学や物理，更には数値解析の知識は必要になってくるわけだが，それはこれから学んでいくことになる．</p>
+</aside>
+<aside class="footnote brackets" id="id21" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">2</a><span class="fn-bracket">]</span></span>
+<p>1変数ならまだ良いのだが，多変数関数に拡張するとほとんどお手上げである．</p>
+</aside>
+<aside class="footnote brackets" id="id22" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id12">3</a><span class="fn-bracket">]</span></span>
+<p>Unix系OSの場合は1970年1月1日からの経過時間．</p>
+</aside>
 </section>
 </section>
 </section>

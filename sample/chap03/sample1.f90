@@ -10,8 +10,8 @@ program sample
   x = 3.14
 
   ! 表示
-  write(*,*) 'integer => ', n
-  write(*,*) 'real => ', x
+  write(*, *) 'integer => ', n
+  write(*, *) 'real => ', x
 
   stop
-end program sample
+endprogram sample

@@ -6,25 +6,25 @@ program answer
   integer :: best, worst
   real(8) :: savg, sstd
 
-  read(*,*) n
+  read(*, *) n
 
   allocate(score(n))
-  read(*,*) score
+  read(*, *) score
 
-  best  = 0
+  best = 0
   worst = 100
-  savg  = 0.0_8
+  savg = 0.0_8
   do i = 1, n
-     best  = max(best, score(i))
-     worst = min(worst, score(i))
-     savg  = savg + score(i)
-  end do
+    best = max(best, score(i))
+    worst = min(worst, score(i))
+    savg = savg + score(i)
+  enddo
   savg = savg / n
 
   sstd = 0.0_8
   do i = 1, n
-     sstd = sstd + (score(i) - savg)**2
-  end do
+    sstd = sstd + (score(i) - savg)**2
+  enddo
   sstd = sqrt(sstd / n)
 
   ! 以下のように組み込み関数を用いても良い
@@ -33,12 +33,12 @@ program answer
 !!   savg  = sum(score)/real(n, kind=8)
 !!   sstd  = sqrt(sum((score - savg)**2)/n)
 
-  write(*,*) 'Best               : ', best
-  write(*,*) 'Worst              : ', worst
-  write(*,*) 'Average            : ', savg
-  write(*,*) 'Standard deviation : ', sstd
+  write(*, *) 'Best               : ', best
+  write(*, *) 'Worst              : ', worst
+  write(*, *) 'Average            : ', savg
+  write(*, *) 'Standard deviation : ', sstd
 
   deallocate(score)
 
   stop
-end program answer
+endprogram answer

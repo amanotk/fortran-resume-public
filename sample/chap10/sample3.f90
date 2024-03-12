@@ -14,8 +14,8 @@ contains
     ret = x - cos(x)
 
     return
-  end function f
-end module mod_equation
+  endfunction f
+endmodule mod_equation
 
 ! 関数やサブルーチンの引数渡し
 program sample
@@ -33,18 +33,18 @@ program sample
 
   select case(status)
   case(0)
-     write(*, fmt='(a)') 'Iteration converged !'
+    write(*, fmt='(a)') 'Iteration converged !'
   case(1)
-     write(*, fmt='(a)') 'Iteration did not converge !'
+    write(*, fmt='(a)') 'Iteration did not converge !'
   case(-1)
-     write(*, fmt='(a)') 'Error'
-     stop
+    write(*, fmt='(a)') 'Error'
+    stop
   case default
-     write(*, fmt='(a)') 'Unknown error'
-     stop
-  end select
+    write(*, fmt='(a)') 'Unknown error'
+    stop
+  endselect
 
   write(*, fmt='("Solution = ", e18.12, ", Error = ", e8.2)') x1, err
 
   stop
-end program sample
+endprogram sample

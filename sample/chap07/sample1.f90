@@ -1,8 +1,8 @@
 program sample
   implicit none
 
-  write(*,*) 'square1 => ', square1(2.0_8)
-  write(*,*) 'square2 => ', square2(2.0_8)
+  write(*, *) 'square1 => ', square1(2.0_8)
+  write(*, *) 'square2 => ', square2(2.0_8)
 
   ! 以下はエラー (引数はreal(8)で宣言されているのに与えられたのはreal(4))
   !write(*,*) square1(2.0), square2(2.0)
@@ -21,7 +21,7 @@ contains
     square1 = x**2                ! 返値は関数名と同じ名前の変数に代入
 
     return                        ! 呼び出し元に制御を戻す
-  end function square1
+  endfunction square1
 
   !
   ! 関数の宣言(2) : resultを使った形式
@@ -34,7 +34,7 @@ contains
     y = x**2                      ! 返値を代入
 
     return                        ! 呼び出し元に制御を戻す
-  end function square2
+  endfunction square2
 
   !!!!!!!!!! ここまでの間に行う !!!!!!!!!!
-end program sample
+endprogram sample

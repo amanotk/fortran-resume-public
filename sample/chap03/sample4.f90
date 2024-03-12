@@ -3,12 +3,12 @@ program sample
 
   real(8) :: x, y
 
-  write(*,*) 'Input two real numbers: '
+  write(*, *) 'Input two real numbers: '
 
   ! 整数を読み込む
-  read(*,*) x, y
+  read(*, *) x, y
 
-  write(*,*) 'average = ', (x + y)/2
+  write(*, *) 'average = ',(x + y) / 2
 
   stop
-end program sample
+endprogram sample

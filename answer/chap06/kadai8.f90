@@ -8,10 +8,10 @@ program answer
   open(unit=10, iostat=ios, file='helix2.dat', action='read', &
        & access='stream', form='unformatted', status='old')
 
-  if( ios /= 0 ) then
-     write(*,*) 'Failed to open file'
-     stop
-  end if
+  if(ios /= 0) then
+    write(*, *) 'Failed to open file'
+    stop
+  endif
 
   ! read x
   read(10) header
@@ -31,8 +31,8 @@ program answer
   close(10)
 
   do i = 1, n
-     write(*, '(f5.2,x,f5.2,x,f5.2)') x(i), y(i), z(i)
-  end do
+    write(*, '(f5.2,x,f5.2,x,f5.2)') x(i), y(i), z(i)
+  enddo
 
   stop
-end program answer
+endprogram answer

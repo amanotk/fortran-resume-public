@@ -1,4 +1,4 @@
 program sample
-  write(*,*) 'Hello, world !'
+  write(*, *) 'Hello, world !'
   stop
-end program sample
+endprogram sample

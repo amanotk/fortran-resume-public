@@ -12,17 +12,17 @@ program sample
   open(unit=10, iostat=ios, file='ascii.dat', action='write', &
        & form='formatted', status='replace')
 
-  if (ios /= 0) then
-     write(*,*) 'Failed to open file for output'
-     stop
-  end if
+  if(ios /= 0) then
+    write(*, *) 'Failed to open file for output'
+    stop
+  endif
 
   ! ファイル(装置番号=10)にデータを書き出し
   do i = 1, 64
-     x = real(i,8)/real(n-1,8)
-     y = cos(2*3.1415_8 * x)
-     write(10, '(e20.8, e20.8)') x, y
-  end do
+    x = real(i, 8) / real(n - 1, 8)
+    y = cos(2 * 3.1415_8 * x)
+    write(10, '(e20.8, e20.8)') x, y
+  enddo
 
   close(10)
 
@@ -32,18 +32,18 @@ program sample
   open(unit=20, iostat=ios, file='ascii.dat', action='read', &
        & form='formatted', status='old', position='rewind')
 
-  if (ios /= 0) then
-     write(*,*) 'Failed to open file for input'
-     stop
-  end if
+  if(ios /= 0) then
+    write(*, *) 'Failed to open file for input'
+    stop
+  endif
 
   do i = 1, n
-     ! データを読み込んで表示
-     read(20,*) x, y
-     write(*, '(e20.8, e20.8)') x, y
-  end do
+    ! データを読み込んで表示
+    read(20, *) x, y
+    write(*, '(e20.8, e20.8)') x, y
+  enddo
 
   close(20)
 
   stop
-end program sample
+endprogram sample

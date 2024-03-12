@@ -8,45 +8,45 @@ program sample
   pi = atan(1.0_8) * 4.0_8
 
   write(*, fmt='(a)', advance='no') 'Input number of segments : '
-  read(*,*) nmax
+  read(*, *) nmax
 
-  if( mod(nmax,2) /= 0 ) then
-     write(*,*) 'Number of segments must be an even number'
-     stop
-  end if
+  if(mod(nmax, 2) /= 0) then
+    write(*, *) 'Number of segments must be an even number'
+    stop
+  endif
 
   x1 = 0.0_8
   x2 = 1.0_8
-  dx = (x2 - x1)/nmax
+  dx = (x2 - x1) / nmax
 
   !
   ! 台形公式による数値積分
   !
   integral = 0.5_8 * (f(x1) + f(x2))
-  do n = 1, nmax-1
-     integral = integral + f(x1 + dx*real(n,8))
-  end do
+  do n = 1, nmax - 1
+    integral = integral + f(x1 + dx * real(n, 8))
+  enddo
   integral = integral * dx
 
   write(*, fmt='(a16, " : ", f18.15, " (rel. error = ", e18.12, ")")') &
-       & "Trapezoidal rule", integral, abs(integral/pi - 1.0_8)
+       & "Trapezoidal rule", integral, abs(integral / pi - 1.0_8)
 
   !
   ! Simpsonの公式による数値積分
   !
   integral = f(x1) + f(x2)
   ! odd
-  do n = 1, nmax-1, 2
-     integral = integral + 4.0_8 * f(x1 + dx*real(n,8))
-  end do
+  do n = 1, nmax - 1, 2
+    integral = integral + 4.0_8 * f(x1 + dx * real(n, 8))
+  enddo
   ! even
-  do n = 2, nmax-2, 2
-     integral = integral + 2.0_8 * f(x1 + dx*real(n,8))
-  end do
+  do n = 2, nmax - 2, 2
+    integral = integral + 2.0_8 * f(x1 + dx * real(n, 8))
+  enddo
   integral = integral * dx / 3.0_8
 
   write(*, fmt='(a16, " : ", f18.15, " (rel. error = ", e18.12, ")")') &
-       & "Simpson's rule", integral, abs(integral/pi - 1.0_8)
+       & "Simpson's rule", integral, abs(integral / pi - 1.0_8)
 
   stop
 contains
@@ -59,5 +59,5 @@ contains
     ret = 4.0_8 / (1.0_8 + x**2)
 
     return
-  end function f
-end program sample
+  endfunction f
+endprogram sample

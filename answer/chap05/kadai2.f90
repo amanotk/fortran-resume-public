@@ -6,16 +6,16 @@ program answer
 
   integer :: i, m, d, doy
 
-  write(*,*) 'Input month and day : '
-  read(*,*) m, d
+  write(*, *) 'Input month and day : '
+  read(*, *) m, d
 
   doy = 0
-  do i = 1, m-1
-     doy = doy + days(i)
-  end do
+  do i = 1, m - 1
+    doy = doy + days(i)
+  enddo
   doy = doy + d
 
-  write(*,*) 'day of year : ', doy
+  write(*, *) 'day of year : ', doy
 
   stop
-end program answer
+endprogram answer

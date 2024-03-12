@@ -9,13 +9,13 @@ program answer
   theta2 = 180.0_8
   dtheta = 10.0_8
 
-  n = int((theta2 - theta1)/dtheta)
+  n = int((theta2 - theta1) / dtheta)
 
   do i = 0, n
-     theta = dtheta * i
-     radian = theta / 180.0_8 * pi
-     write(*,*) theta, sin(radian), cos(radian)
-  end do
+    theta = dtheta * i
+    radian = theta / 180.0_8 * pi
+    write(*, *) theta, sin(radian), cos(radian)
+  enddo
 
   stop
-end program answer
+endprogram answer

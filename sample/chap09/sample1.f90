@@ -4,13 +4,13 @@ module mod_variable
 
   ! 定数の定義
   real(8), parameter :: light_speed = 2.998e+08 ! 光速 [m/s]
-  real(8), parameter :: kboltzmann  = 1.381e-23 ! Boltzmann定数 [J/K]
-  real(8), parameter :: hplanck     = 6.626e-34 ! Planck定数 [J s]
+  real(8), parameter :: kboltzmann = 1.381e-23 ! Boltzmann定数 [J/K]
+  real(8), parameter :: hplanck = 6.626e-34 ! Planck定数 [J s]
 
   ! 変数
   real(8), save :: x, y, z
 
-end module mod_variable
+endmodule mod_variable
 
 ! メインプログラム
 program sample
@@ -31,4 +31,4 @@ program sample
   z = 0.0
 
   stop
-end program sample
+endprogram sample

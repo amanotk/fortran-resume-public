@@ -4,11 +4,11 @@ program answer
   integer :: i, j
 
   do i = 1, 9
-     do j = 1, 9
-        write(*, fmt='(i4)', advance='no') i*j
-     end do
-     write(*,*)
-  end do
+    do j = 1, 9
+      write(*, fmt='(i4)', advance='no') i * j
+    enddo
+    write(*, *)
+  enddo
 
   stop
-end program answer
+endprogram answer

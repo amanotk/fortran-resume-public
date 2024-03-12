@@ -3,9 +3,9 @@ program answer
 
   real(8) :: h, l
 
-  read(*,*) l, h
+  read(*, *) l, h
 
-  write(*,*) 'Area of triangle: ', h*l/2
+  write(*, *) 'Area of triangle: ', h * l / 2
 
   stop
-end program answer
+endprogram answer

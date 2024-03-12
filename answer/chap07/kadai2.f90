@@ -3,10 +3,10 @@ program answer
 
   real(8) :: x
 
-  read(*,*) x
+  read(*, *) x
 
-  write(*,*) 'sqrt(x) = ', sqrt(x)
-  write(*,*) 'appox   = ', mysqrt(x)
+  write(*, *) 'sqrt(x) = ', sqrt(x)
+  write(*, *) 'appox   = ', mysqrt(x)
 
   stop
 contains
@@ -22,14 +22,14 @@ contains
     real(8) :: xx, err
 
     ! 初期値
-    y   = x
+    y = x
     err = 1.0_8
 
     do while(err > epsilon)
-       xx = y
-       y  = 0.5_8 * (x/xx + xx)
-       err = abs((xx-y)/xx)
-    end do
+      xx = y
+      y = 0.5_8 * (x / xx + xx)
+      err = abs((xx - y) / xx)
+    enddo
 
-  end function mysqrt
-end program answer
+  endfunction mysqrt
+endprogram answer
