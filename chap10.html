@@ -1,24 +1,24 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="ja" >
+<html class="writer-html5" lang="ja" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>10. 付録 &mdash; Fortran演習(地球惑星物理学演習)</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5349f25f" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=9f0ccda0" />
+
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/translations.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f6f563f6"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=4755f45a"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
@@ -42,14 +42,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Fortran演習
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Fortran演習
           </a>
-              <div class="version">
-                2024
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -112,7 +113,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active"><span class="section-number">10. </span>付録</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -123,7 +124,7 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1><a class="toc-backref" href="#id35" role="doc-backlink"><span class="section-number">10. </span>付録</a><a class="headerlink" href="#id1" title="Permalink to this heading"></a></h1>
+<h1><a class="toc-backref" href="#id35" role="doc-backlink"><span class="section-number">10. </span>付録</a><a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
 <div class="admonition seealso">
 <p class="admonition-title">参考</p>
 <ul class="simple">
@@ -158,9 +159,9 @@
 </ul>
 </nav>
 <section id="id3">
-<h2><a class="toc-backref" href="#id36" role="doc-backlink"><span class="section-number">10.1. </span>大規模なプログラム開発</a><a class="headerlink" href="#id3" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id36" role="doc-backlink"><span class="section-number">10.1. </span>大規模なプログラム開発</a><a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
 <section id="id4">
-<h3><span class="section-number">10.1.1. </span>分割コンパイル<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">10.1.1. </span>分割コンパイル<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
 <p>これまでは基本的に単一のソースファイルからなるプログラムを扱ってきたが，大規模なプログラムを扱う際にはソースファイルをいくつかに分割して扱うと開発の見通しが良くなる．複数のソースファイルからなるプログラムを開発するにあたって，まずは単一のソースファイルから実行形式のファイルを作る手順を復習しよう．</p>
 <p>これまでは例えば</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>$<span class="w"> </span>gfortran<span class="w"> </span>sample.f90
@@ -197,7 +198,7 @@
 <p>のように実行すれば，カレントディレクトリに加えて <code class="docutils literal notranslate"><span class="pre">../module</span></code> にある <code class="docutils literal notranslate"><span class="pre">.mod</span></code> ファイルも参照することになる．規模が大きなプログラムではいくつかのディレクトリにファイルを分散して配置するようになるため，<code class="docutils literal notranslate"><span class="pre">-I</span></code> オプションを頻繁に用いることになるだろう．</p>
 </section>
 <section id="id7">
-<h3><span class="section-number">10.1.2. </span>ライブラリの利用方法<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">10.1.2. </span>ライブラリの利用方法<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
 <p>一般に，関数やサブルーチン群をひとまとまりにしたものをライブラリと呼ぶ．これまでにも組み込み関数などの標準で用意されている便利な機能を利用してきたが，これは標準ライブラリが提供するものである．これと同じように，他の誰かが開発した便利な関数やサブルーチンを自分のプログラムから呼び出して利用することも出来る．</p>
 <p>ライブラリは通常(Unix系のOSでは) <code class="docutils literal notranslate"><span class="pre">libABC.a</span></code> や <code class="docutils literal notranslate"><span class="pre">libXYZ.so</span></code> といったファイル名になっている(これらをアーカイブとも呼ぶ)．基本的には実行形式のファイルを作成するリンク時にこれらのライブラリともリンクするように指定してやれば良い．例えば</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>$<span class="w"> </span>gfortran<span class="w"> </span>main.o<span class="w"> </span>-lABC<span class="w"> </span>-lXYZ
@@ -209,7 +210,7 @@
 </div>
 </section>
 <section id="gui">
-<h3><span class="section-number">10.1.3. </span>GUIプログラムの作成 <sup>†</sup><a class="headerlink" href="#gui" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">10.1.3. </span>GUIプログラムの作成 <sup>†</sup><a class="headerlink" href="#gui" title="Link to this heading"></a></h3>
 <!--
 数値計算関係のライブラリはこれからも多々使う機会があると思うので，ここではちょっと違った例としてGUI(Graphical User Interface)のライブラリを使ってみよう．GUIのライブラリは様々なものが存在するが，ここではFortranから使えるGTK+を用いる．サンプルプログラム`samle2.f90`をコンパイルするには
 
@@ -220,12 +221,12 @@
 のようにすれば良い．
 --></section>
 <section id="make">
-<h3><span class="section-number">10.1.4. </span>Makeの使い方<a class="headerlink" href="#make" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">10.1.4. </span>Makeの使い方<a class="headerlink" href="#make" title="Link to this heading"></a></h3>
 <p>To be written.</p>
 </section>
 </section>
 <section id="id8">
-<h2><a class="toc-backref" href="#id37" role="doc-backlink"><span class="section-number">10.2. </span>関数やサブルーチンの引数渡し</a><a class="headerlink" href="#id8" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id37" role="doc-backlink"><span class="section-number">10.2. </span>関数やサブルーチンの引数渡し</a><a class="headerlink" href="#id8" title="Link to this heading"></a></h2>
 <p>関数やサブルーチンの引数として，関数やサブルーチンを渡すことが出来る．これには以下のように引数として渡す関数やサブルーチンの形式を <code class="docutils literal notranslate"><span class="pre">interface</span></code> を用いて指定する．</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">subroutine </span><span class="n">writefunc</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
 <span class="linenos"> 2</span><span class="w">  </span><span class="k">implicit none</span>
@@ -311,7 +312,7 @@
 <p>とすれば良い．</p>
 </section>
 <section id="id9">
-<h2><a class="toc-backref" href="#id38" role="doc-backlink"><span class="section-number">10.3. </span>計算時間の測定</a><a class="headerlink" href="#id9" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id38" role="doc-backlink"><span class="section-number">10.3. </span>計算時間の測定</a><a class="headerlink" href="#id9" title="Link to this heading"></a></h2>
 <p>プログラム全体の実行時間はシェルコマンドで計測できる．例えば <code class="docutils literal notranslate"><span class="pre">time</span></code> コマンドを用いて以下のように実行すれば良い <a class="footnote-reference brackets" href="#id28" id="id10" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>．realの行が実際の実行時間を示している．大雑把には全実行時間のうち，userが自分のプログラムの処理が動いていた時間，sysはOSの処理が動いていた時間を表す．</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>$<span class="w"> </span>/usr/bin/time<span class="w"> </span>./a.out
 <span class="linenos">2</span><span class="w">       </span><span class="m">0</span>.98<span class="w"> </span>real<span class="w">         </span><span class="m">0</span>.97<span class="w"> </span>user<span class="w">         </span><span class="m">0</span>.00<span class="w"> </span>sys
@@ -332,11 +333,11 @@
 <p>なお，細かいことを言うと経過時間(elapsed time)，CPU時間(cpu time)，システムCPU時間(system cpu time)，ユーザーCPU時間(user cpu time)で意味が少しずつ異なることに注意しよう．<code class="docutils literal notranslate"><span class="pre">cpu_time</span></code> で計測されるのはCPU時間である．</p>
 </section>
 <section id="id11">
-<h2><a class="toc-backref" href="#id39" role="doc-backlink"><span class="section-number">10.4. </span>ポインタとデータ構造 <sup>†</sup></a><a class="headerlink" href="#id11" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id39" role="doc-backlink"><span class="section-number">10.4. </span>ポインタとデータ構造 <sup>†</sup></a><a class="headerlink" href="#id11" title="Link to this heading"></a></h2>
 <p>ポインタとは簡単に言えば別名である．即ち，ポインタ変数は他の変数や配列によって保持されているデータ領域のメモリ上のアドレス(番地)を指し示す変数になっている．例えば，ポインタ変数に対する処理として記述しておけば，ポインタ変数の指し示すアドレスを変更するだけで異なるデータに対する処理を行っていることになる．</p>
 <p>しかし，ポインタはこれまで出てきたような処理には敢えて用いる必要が無いので，あまりありがたみを感じられないかもしれない．実際にはポインタはリストやスタック，キューなどのより複雑な <a class="reference internal" href="#appendix-data-structure"><span class="std std-ref">データ構造</span></a> を記述するには必須であるが，そうでなければ必ずしも必要にはならない．ポインタは初心者には少し難しいかもしれないので，分からなければとりあえずは無視しても良い．</p>
 <section id="id12">
-<h3><span class="section-number">10.4.1. </span>ポインタ変数<a class="headerlink" href="#id12" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">10.4.1. </span>ポインタ変数<a class="headerlink" href="#id12" title="Link to this heading"></a></h3>
 <p>ポインタを用いるには変数宣言に <code class="docutils literal notranslate"><span class="pre">pointer</span></code> 属性を指定すれば良い．またポインタが指し指すことの出来る変数(ターゲット変数)には <code class="docutils literal notranslate"><span class="pre">target</span></code> 属性を指定する必要がある．以下の例を考えよう．</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iptr</span>
 <span class="linenos"> 2</span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">target</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span>
@@ -371,7 +372,7 @@
 </div>
 </section>
 <section id="id14">
-<h3><span class="section-number">10.4.2. </span>ポインタ配列<a class="headerlink" href="#id14" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">10.4.2. </span>ポインタ配列<a class="headerlink" href="#id14" title="Link to this heading"></a></h3>
 <p>ポインタ配列はターゲット配列と結合させることが出来る．ただし両者の次元は同じでなければならない．ポインタ配列は配列全体を指したり，部分配列を指したりすることが出来る．</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span>
 <span class="linenos"> 2</span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">lb</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">ub</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -402,13 +403,14 @@
 <p>またポインタ配列に対しても <code class="docutils literal notranslate"><span class="pre">allocate</span></code> による無名領域への結合が出来るので，動的配列と同様に用いることも可能である <a class="footnote-reference brackets" href="#id30" id="id15" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>．</p>
 </section>
 <section id="appendix-data-structure">
-<span id="id16"></span><h3><span class="section-number">10.4.3. </span>データ構造<a class="headerlink" href="#appendix-data-structure" title="Permalink to this heading"></a></h3>
+<span id="id16"></span><h3><span class="section-number">10.4.3. </span>データ構造<a class="headerlink" href="#appendix-data-structure" title="Link to this heading"></a></h3>
 <p>これまでの例では，ポインタは複雑な割にはありがたみが少ない．実際にポインタを使う必要性は特に感じられないだろう．ポインタが特に重要となってくるのは柔軟なデータ構造を扱う場合である．実は配列もデータ構造の一つである．配列はサイズが固定で，全ての要素が同じ型のデータの集まりなので比較的簡単に扱うことが出来る．すなわち，配列の各要素はメモリ上に連続的に配置されているので，任意の要素への直接アクセス(ランダムアクセス)が可能という長所を持つ(任意の要素のアドレスが簡単に計算出来る)．
 その一方で，要素をある特定の位置に挿入したい場合にはそれ以降の要素を全てずらさなければならないし，サイズの変更が簡単には出来ないという短所がある．</p>
 <figure class="align-center" id="id34">
-<a class="reference internal image-reference" href="_images/list.png"><img alt="List構造．" src="_images/list.png" style="width: 480px;" /></a>
+<a class="reference internal image-reference" href="_images/list.png"><img alt="List構造．" src="_images/list.png" style="width: 480px;" />
+</a>
 <figcaption>
-<p><span class="caption-text">List構造．</span><a class="headerlink" href="#id34" title="この画像へのパーマリンク"></a></p>
+<p><span class="caption-text">List構造．</span><a class="headerlink" href="#id34" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>配列とよく対比されるデータ構造として，リスト(list)が知られている．図に示すようにリスト構造は各要素が他の要素へのポインタ(アドレス)を保持する．従って，リスト構造では任意の要素(例えば先頭から <span class="math notranslate nohighlight">\(N\)</span> 番目の要素)へのアクセスをしようと思ってもそのアドレスが分からない．すなわち，常に各要素に対して順番にアクセス(シーケンシャルアクセス)をしなければならない．これは配列に対するリスト構造の短所である．その一方で，任意の場所への要素の挿入や削除をするにはポインタアドレスの付け替えをするだけで実現出来る．また，リストの末尾に要素を追加するには新しい要素を生成( <code class="docutils literal notranslate"><span class="pre">allocate</span></code>)して，その要素に対するポインタを指定してやれば良い．このような特徴があるため，シーケンシャルアクセスしか必要とされない代わりに，頻繁にサイズ変更，要素の挿入・削除があるような用途にはリストが有用となる．</p>
@@ -480,14 +482,14 @@
 </section>
 </section>
 <section id="id17">
-<h2><a class="toc-backref" href="#id40" role="doc-backlink"><span class="section-number">10.5. </span>デバッグのテクニック <sup>†</sup></a><a class="headerlink" href="#id17" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id40" role="doc-backlink"><span class="section-number">10.5. </span>デバッグのテクニック <sup>†</sup></a><a class="headerlink" href="#id17" title="Link to this heading"></a></h2>
 <section id="id18">
-<h3><span class="section-number">10.5.1. </span>プリプロセッサ<a class="headerlink" href="#id18" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">10.5.1. </span>プリプロセッサ<a class="headerlink" href="#id18" title="Link to this heading"></a></h3>
 <p>プログラムの開発中(デバッグ中)には一時的にソースコードの一部分をコメントアウトしてその影響を調べたいことが多々あるかと思う．このような時にプリプロセッサと呼ばれる機能を用いると便利である．プリプロセッサとはC/C++のコンパイラが自動的に行う前処理のことであるが，Fortranコンパイラでも多くの場合オプションによってプリプロセッサを有効にすることが出来る．なお，プリプロセッサを使うにはgfortranであれば <code class="docutils literal notranslate"><span class="pre">-cpp</span></code> オプション <a class="footnote-reference brackets" href="#id31" id="id19" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a> を付けてコンパイルすれば良い．または拡張子を <code class="docutils literal notranslate"><span class="pre">.f90</span></code> では無く <code class="docutils literal notranslate"><span class="pre">.F90</span></code> とすればオプションを指定しなくても自動的にプリプロセッサが有効になる．</p>
 <p>プリプロセッサの機能は様々であるが，特に簡単で便利なのは以下の様な使い方である．</p>
-<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>#if 0
-<span class="linenos">2</span>  ここはコンパイラに無視されるので何が書いてあっても良い
-<span class="linenos">3</span>#endif
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="cp">#if 0</span>
+<span class="linenos">2</span><span class="w">  </span><span class="err">ここはコンパイラに無視されるので何が書いてあっても良い</span>
+<span class="linenos">3</span><span class="cp">#endif</span>
 </pre></div>
 </div>
 <p>一時的に実行させたく無い処理については，上の例のように <code class="docutils literal notranslate"><span class="pre">#if</span> <span class="pre">0</span></code> から <code class="docutils literal notranslate"><span class="pre">#endif</span></code> によって囲むことでコンパイラにその部分を無視させることが出来る．コンパイラに認識させたい時には <code class="docutils literal notranslate"><span class="pre">0</span></code> を <code class="docutils literal notranslate"><span class="pre">1</span></code> に変更するだけで良いので，特定の処理が結果に与える影響を簡単に調べることが出来る．さらに</p>
@@ -526,7 +528,7 @@
 <p>のように実行すれば，マクロ <code class="docutils literal notranslate"><span class="pre">_DEBUG_MODE</span></code> の値が1に定義され，&quot;デバッグモード1&quot;の処理がコンパイルされる．</p>
 </section>
 <section id="printf">
-<h3><span class="section-number">10.5.2. </span>printfデバッグ<a class="headerlink" href="#printf" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">10.5.2. </span>printfデバッグ<a class="headerlink" href="#printf" title="Link to this heading"></a></h3>
 <p>デバッグの基本中の基本テクニックは <code class="docutils literal notranslate"><span class="pre">printf</span></code> デバッグと呼ばれる．<code class="docutils literal notranslate"><span class="pre">printf</span></code> とはC言語で標準出力に表示するための関数名で，要するに間違っていそうな箇所に当たりをつけて，途中結果を出力して確認するという古典的な手法である．Fortranの場合にはひたすら <code class="docutils literal notranslate"><span class="pre">write(*,*)</span></code> で怪しい変数を出力してみれば大抵の場合(すくなくとも演習の課題レベルの場合)には自ずとバグの原因が見えてくる <a class="footnote-reference brackets" href="#id33" id="id21" role="doc-noteref"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></a>．</p>
 <p>このデバッグ手法はプリプロセッサと組み合わせると便利である．例えば</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="cp">#ifdef _DEBUG</span>
@@ -545,20 +547,20 @@
 <p>このようなテクニックは非常に有用で，開発効率を大幅に高めてくれるハズなので，少しずつ身につけていくと良い．</p>
 </section>
 <section id="gdb">
-<h3><span class="section-number">10.5.3. </span>gdb<a class="headerlink" href="#gdb" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">10.5.3. </span>gdb<a class="headerlink" href="#gdb" title="Link to this heading"></a></h3>
 <p>To be written.</p>
 </section>
 </section>
 <section id="c">
-<h2><a class="toc-backref" href="#id41" role="doc-backlink"><span class="section-number">10.6. </span>C言語とのリンク <sup>†</sup></a><a class="headerlink" href="#c" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id41" role="doc-backlink"><span class="section-number">10.6. </span>C言語とのリンク <sup>†</sup></a><a class="headerlink" href="#c" title="Link to this heading"></a></h2>
 <p>To be written.</p>
 </section>
 <section id="fortran-77">
-<h2><a class="toc-backref" href="#id42" role="doc-backlink"><span class="section-number">10.7. </span>Fortran 77について <sup>†</sup></a><a class="headerlink" href="#fortran-77" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id42" role="doc-backlink"><span class="section-number">10.7. </span>Fortran 77について <sup>†</sup></a><a class="headerlink" href="#fortran-77" title="Link to this heading"></a></h2>
 <p>To be written.</p>
 </section>
 <section id="id22">
-<h2><a class="toc-backref" href="#id43" role="doc-backlink"><span class="section-number">10.8. </span>第10章 演習課題</a><a class="headerlink" href="#id22" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id43" role="doc-backlink"><span class="section-number">10.8. </span>第10章 演習課題</a><a class="headerlink" href="#id22" title="Link to this heading"></a></h2>
 <div class="admonition seealso">
 <p class="admonition-title">参考</p>
 <ul class="simple">
@@ -567,11 +569,11 @@
 </ul>
 </div>
 <section id="id23">
-<h3><span class="section-number">10.8.1. </span>課題1<a class="headerlink" href="#id23" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">10.8.1. </span>課題1<a class="headerlink" href="#id23" title="Link to this heading"></a></h3>
 <p>サンプルプログラムをコンパイル・実行して動作を確認せよ．さらに，適宜修正してその実行結果を確認せよ．</p>
 </section>
 <section id="id24">
-<h3><span class="section-number">10.8.2. </span>課題2<a class="headerlink" href="#id24" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">10.8.2. </span>課題2<a class="headerlink" href="#id24" title="Link to this heading"></a></h3>
 <p>任意の1変数関数 <span class="math notranslate nohighlight">\(f(x)\)</span> およびその微分値を返す関数 <span class="math notranslate nohighlight">\(f'(x)\)</span> を引数として受け取り， <span class="math notranslate nohighlight">\(f(x) = 0\)</span> の近似解をNewton法により求めるサブルーチンを実装し，その動作を確認せよ．ただし以下の条件を満たすこと．</p>
 <ul class="simple">
 <li><p>初期値を引数として受け取る．</p></li>
@@ -584,7 +586,7 @@
 <p>(二分法のモジュール <code class="docutils literal notranslate"><span class="pre">bisection.f90</span></code> の <code class="docutils literal notranslate"><span class="pre">mod_bisection</span></code> を参考にすればよい．)</p>
 </section>
 <section id="id25">
-<h3><span class="section-number">10.8.3. </span>課題3 <sup>†</sup><a class="headerlink" href="#id25" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">10.8.3. </span>課題3 <sup>†</sup><a class="headerlink" href="#id25" title="Link to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">list.f90</span></code> で定義されているリストを実装したモジュール <code class="docutils literal notranslate"><span class="pre">mod_list</span></code> へ以下の様な機能追加を試みよ．以下では <code class="docutils literal notranslate"><span class="pre">a</span></code> はリスト( <code class="docutils literal notranslate"><span class="pre">type(list_type)</span></code>)のポインタであるとする．</p>
 <ul class="simple">
 <li><p>代入演算子が配列を受け取れるようにせよ．即ち，</p></li>
@@ -610,37 +612,39 @@
 </div>
 <p>のようなコードが実行可能となるはずである．</p>
 <hr class="docutils" />
-<aside class="footnote brackets" id="id26" role="note">
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id26" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">1</a><span class="fn-bracket">]</span></span>
 <p>これはFortranの規格というわけではないようだが，多くのコンパイラがこのような仕様になっている．</p>
 </aside>
-<aside class="footnote brackets" id="id27" role="note">
+<aside class="footnote brackets" id="id27" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">2</a><span class="fn-bracket">]</span></span>
 <p>C言語のインクルードパスの指定と同じである．</p>
 </aside>
-<aside class="footnote brackets" id="id28" role="note">
+<aside class="footnote brackets" id="id28" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id10">3</a><span class="fn-bracket">]</span></span>
 <p>単に <code class="docutils literal notranslate"><span class="pre">time</span></code> とするとシェルの組込みコマンドになってしまうので，<code class="docutils literal notranslate"><span class="pre">/usr/bin/time</span></code> と絶対パスを指定している．シェル組込みの <code class="docutils literal notranslate"><span class="pre">time</span></code> でも問題は無いが，出力が多少異なるであろう．</p>
 </aside>
-<aside class="footnote brackets" id="id29" role="note">
+<aside class="footnote brackets" id="id29" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id13">4</a><span class="fn-bracket">]</span></span>
 <p>C言語のポインタと異なり，<code class="docutils literal notranslate"><span class="pre">=&gt;</span></code> でポインタのアドレスを指定する以外は普通の変数のように使える．これによってポインタであることを意識せずに用いることが出来る．個人的には逆に分かりにくいように思うのだが．</p>
 </aside>
-<aside class="footnote brackets" id="id30" role="note">
+<aside class="footnote brackets" id="id30" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id15">5</a><span class="fn-bracket">]</span></span>
 <p>ただしポインタ配列の場合は <code class="docutils literal notranslate"><span class="pre">allocatable</span></code> とは異なり，スコープから外れた場合に自動で <code class="docutils literal notranslate"><span class="pre">deallocate</span></code> されないようである．</p>
 </aside>
-<aside class="footnote brackets" id="id31" role="note">
+<aside class="footnote brackets" id="id31" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id19">6</a><span class="fn-bracket">]</span></span>
 <p>ifortでは <code class="docutils literal notranslate"><span class="pre">-fpp</span></code>．</p>
 </aside>
-<aside class="footnote brackets" id="id32" role="note">
+<aside class="footnote brackets" id="id32" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id20">7</a><span class="fn-bracket">]</span></span>
 <p>変数のように見えるが，プリプロセッサで(コンパイルされる前に)処理されるのでプログラム中の変数にはなっていない．</p>
 </aside>
-<aside class="footnote brackets" id="id33" role="note">
+<aside class="footnote brackets" id="id33" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id21">8</a><span class="fn-bracket">]</span></span>
 <p>演習中にディスプレイの前でフリーズしている人を良く見かけるが，考えているだけでは何も進まない．とりあえずヒントを探すという意味で値を出力するのは非常に重要である．</p>
+</aside>
 </aside>
 </section>
 </section>

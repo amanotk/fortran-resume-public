@@ -1,24 +1,24 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="ja" >
+<html class="writer-html5" lang="ja" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>9. モジュールと構造型 &mdash; Fortran演習(地球惑星物理学演習)</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5349f25f" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=9f0ccda0" />
+
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/translations.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f6f563f6"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=4755f45a"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
@@ -43,14 +43,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Fortran演習
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Fortran演習
           </a>
-              <div class="version">
-                2024
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -107,7 +108,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active"><span class="section-number">9. </span>モジュールと構造型</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -118,7 +119,7 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1><a class="toc-backref" href="#id30" role="doc-backlink"><span class="section-number">9. </span>モジュールと構造型</a><a class="headerlink" href="#id1" title="Permalink to this heading"></a></h1>
+<h1><a class="toc-backref" href="#id30" role="doc-backlink"><span class="section-number">9. </span>モジュールと構造型</a><a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
 <p>これまでに既に <a class="reference internal" href="chap07.html#c7"><span class="std std-ref">関数とサブルーチン</span></a> ではプログラムの開発を容易にするための手段として，関数やサブルーチンといったサブプログラムを用いる方法を学んだ．これらサブプログラムは機能を分割し，1つの独立したプログラム単位として扱われる．ところがプログラムの規模が大きくなってくると，関数やサブルーチン群を用いるだけでは必ずしも十分とは言えなくなって来る．そのような場合に便利になってくる <strong>モジュール</strong> という機能について学ぼう．</p>
 <p>モジュールも独立したサブプログラムであるが，関数やサブルーチンなどよりも <strong>1段階大きなプログラム単位</strong> として考えることができる．すなわち，複数の関連する機能を提供する関数やサブルーチン群を1つのモジュールにまとめて提供することが出来る．さらに関数やサブルーチンと大きく異なり，モジュール内部に宣言された変数に外部からアクセスすることも出来るため，複数の変数群をまとめる役割も果たす．またモジュールと共に用いると便利な <strong>構造型</strong> の使い方も身につけよう．構造型はいくつかのデータを1つにまとめて，新しいユーザー定義型を提供する機能である．</p>
 <div class="admonition seealso">
@@ -148,7 +149,7 @@
 </ul>
 </nav>
 <section id="id3">
-<h2><a class="toc-backref" href="#id31" role="doc-backlink"><span class="section-number">9.1. </span>モジュールの基本</a><a class="headerlink" href="#id3" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id31" role="doc-backlink"><span class="section-number">9.1. </span>モジュールの基本</a><a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
 <p>既に述べたようにモジュールは1つの独立したプログラム単位である．その特徴は以下の様な点である．</p>
 <ul class="simple">
 <li><p>モジュール内で変数宣言が出来る．宣言された変数はモジュール内部からはもちろん他のモジュールやメインプログラムから使用することが出来る．</p></li>
@@ -182,7 +183,7 @@
 <p>というような形となる．</p>
 </section>
 <section id="c9-refer-variables">
-<span id="id4"></span><h2><a class="toc-backref" href="#id32" role="doc-backlink"><span class="section-number">9.2. </span>変数や定数の参照</a><a class="headerlink" href="#c9-refer-variables" title="Permalink to this heading"></a></h2>
+<span id="id4"></span><h2><a class="toc-backref" href="#id32" role="doc-backlink"><span class="section-number">9.2. </span>変数や定数の参照</a><a class="headerlink" href="#c9-refer-variables" title="Link to this heading"></a></h2>
 <blockquote>
 <div><p><a class="reference internal" href="chap09_sample1_f90.html"><span class="doc">サンプルコード参照</span></a></p>
 </div></blockquote>
@@ -263,7 +264,7 @@
 </div>
 </section>
 <section id="c9-internal-procedure">
-<span id="id5"></span><h2><a class="toc-backref" href="#id33" role="doc-backlink"><span class="section-number">9.3. </span>内部手続き</a><a class="headerlink" href="#c9-internal-procedure" title="Permalink to this heading"></a></h2>
+<span id="id5"></span><h2><a class="toc-backref" href="#id33" role="doc-backlink"><span class="section-number">9.3. </span>内部手続き</a><a class="headerlink" href="#c9-internal-procedure" title="Link to this heading"></a></h2>
 <blockquote>
 <div><p><a class="reference internal" href="chap09_sample2_f90.html"><span class="doc">サンプルコード参照</span></a></p>
 </div></blockquote>
@@ -330,7 +331,7 @@
 </div>
 </section>
 <section id="id6">
-<h2><a class="toc-backref" href="#id34" role="doc-backlink"><span class="section-number">9.4. </span>総称名</a><a class="headerlink" href="#id6" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id34" role="doc-backlink"><span class="section-number">9.4. </span>総称名</a><a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
 <blockquote>
 <div><p><a class="reference internal" href="chap09_sample3_f90.html"><span class="doc">サンプルコード参照</span></a></p>
 </div></blockquote>
@@ -380,7 +381,7 @@
 <p>この例では三角形の面積を底辺と高さが与えられた時と3つの頂点の座標が与えられた時のいずれも同じ関数名で呼び出すことが出来るように総称名 <code class="docutils literal notranslate"><span class="pre">triangle</span></code> を宣言している．2つの違いは呼び出し時の引数だけなので，呼び出される時の引数の個数や型によってコンパイラが自動的に適切な方を呼び出すことが出来る．なお，総称名を用いると全く別の機能を実装したものであってもまとめることが出来てしまうのだが，このような使い方は混乱の元になるだけであろう．総称名を使うのは意味的に同じ機能を持った関数やサブルーチンをまとめる時にのみにしておいた方が良い．</p>
 </section>
 <section id="id8">
-<h2><a class="toc-backref" href="#id35" role="doc-backlink"><span class="section-number">9.5. </span>アクセス制限</a><a class="headerlink" href="#id8" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id35" role="doc-backlink"><span class="section-number">9.5. </span>アクセス制限</a><a class="headerlink" href="#id8" title="Link to this heading"></a></h2>
 <blockquote>
 <div><p><a class="reference internal" href="chap09_sample4_f90.html"><span class="doc">サンプルコード参照</span></a></p>
 </div></blockquote>
@@ -392,7 +393,7 @@
 </ul>
 <p><a class="reference internal" href="chap07.html#c7"><span class="std std-ref">関数とサブルーチン</span></a> で学んだことは，それらをブラックボックスとして用いることで間違いを減らすことが出来るということであった．モジュールについても基本的に考え方は同じであって，せっかく機能を分割してモジュールを実装したのならば利用する時にはその中身のことは忘れたい．特に規模が大きなプログラムを複数人体制で開発する際には他人が実装したモジュールの中身など知る由も無いし，知りたくも無いであろう．いたずらに守備範囲を広げてエラーするくらいなら，狭くても良いから自分の守備範囲だけは死守する方が守りは固くなるのである．</p>
 <section id="id9">
-<h3><span class="section-number">9.5.1. </span>参照先からのアクセス制限<a class="headerlink" href="#id9" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">9.5.1. </span>参照先からのアクセス制限<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
 <p>まずは参照先(モジュールの利用者の側)からのアクセス制限について学ぼう．一部の変数やルーチンへのアクセスしか必要無い場合には，<code class="docutils literal notranslate"><span class="pre">use</span></code> 宣言の際に <code class="docutils literal notranslate"><span class="pre">only</span></code> を用いてそれ以外の名前を参照先からは無効にする(見えないようにする)ことが出来る．例えば <a class="reference internal" href="#c9-refer-variables"><span class="std std-ref">変数や定数の参照</span></a> の <code class="docutils literal notranslate"><span class="pre">mod_variable</span></code> から <code class="docutils literal notranslate"><span class="pre">light_speed</span></code> だけを用いたい場合には</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">use </span><span class="n">mod_variable</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">light_speed</span>
 </pre></div>
@@ -404,7 +405,7 @@
 <p>のようにすることで，<code class="docutils literal notranslate"><span class="pre">light_speed</span></code> の代わりに <code class="docutils literal notranslate"><span class="pre">c</span></code> という名前でアクセスすることが出来る．(ただしあくまで別名なので実態は``light_speed`` のままである．) これによって，例えばモジュール内部の変数と同じ名前の変数を参照先で使いたい場合に，名前の競合を避けることが出来る．</p>
 </section>
 <section id="id10">
-<h3><span class="section-number">9.5.2. </span>参照元からのアクセス制限<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">9.5.2. </span>参照元からのアクセス制限<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
 <p>参照先からのアクセス制限は言わば性善説の立場に立ったアクセス制限である <a class="footnote-reference brackets" href="#id26" id="id11" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>．それに対して，性悪説の立場に立った，モジュールを提供する側からのアクセス制限も可能である．</p>
 <p>モジュール内部で宣言された変数やルーチンには <code class="docutils literal notranslate"><span class="pre">public</span></code> や <code class="docutils literal notranslate"><span class="pre">private</span></code> などの属性を与えることが出来，この属性によってアクセス制限をすることが出来る．すなわち，<code class="docutils literal notranslate"><span class="pre">private</span></code> 属性が指定された変数やルーチンはモジュール外からは直接見えず，内部からのみアクセスが可能になる．一方で，<code class="docutils literal notranslate"><span class="pre">public</span></code> 属性が指定されたものは公開され，外部から自由にアクセスすることが出来る．Fortranのモジュールでは <code class="docutils literal notranslate"><span class="pre">public</span></code> がデフォルトである．</p>
 <p>原則としてモジュールの内部でしか用いられないものは外部には公開しない方が良い．例えば以下のモジュールを考えよう．</p>
@@ -530,13 +531,13 @@
 </section>
 </section>
 <section id="c9-structure">
-<span id="id13"></span><h2><a class="toc-backref" href="#id36" role="doc-backlink"><span class="section-number">9.6. </span>構造型</a><a class="headerlink" href="#c9-structure" title="Permalink to this heading"></a></h2>
+<span id="id13"></span><h2><a class="toc-backref" href="#id36" role="doc-backlink"><span class="section-number">9.6. </span>構造型</a><a class="headerlink" href="#c9-structure" title="Link to this heading"></a></h2>
 <blockquote>
 <div><p><a class="reference internal" href="chap09_sample5_f90.html"><span class="doc">サンプルコード参照</span></a></p>
 </div></blockquote>
 <p>これまで扱ってきた <code class="docutils literal notranslate"><span class="pre">integer</span></code> や <code class="docutils literal notranslate"><span class="pre">real</span></code> のような組込み型だけで無く，新しいデータ型を自分で定義して用いることもできる．これを <strong>構造型</strong> と呼ぶ <a class="footnote-reference brackets" href="#id28" id="id14" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>．構造型は組込み型やその配列はもちろん他の構造型を要素に持つことも出来る．</p>
 <section id="id15">
-<h3><span class="section-number">9.6.1. </span>定義と使い方<a class="headerlink" href="#id15" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">9.6.1. </span>定義と使い方<a class="headerlink" href="#id15" title="Link to this heading"></a></h3>
 <p>構造型は以下の様な形式で定義される．</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">type</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">name_of_type</span>
 <span class="linenos">2</span><span class="w">  </span><span class="c">!型名 :: 要素名</span>
@@ -565,7 +566,7 @@
 <p>構造型の各要素にアクセスするには上の例のように&quot;<code class="docutils literal notranslate"><span class="pre">%</span></code> &quot;を用いれば良い．構造型を用いると，常にセットで必要になるような複数のデータをまとめて保持することが出来るので，上手く利用すればプログラムが非常に見やすくなる．例えば非常に多くの引数を必要とするサブルーチンでも，構造型を利用してデータをまとめることで引数の数を減らして，スッキリとした形に書き換えることが出来るだろう <a class="footnote-reference brackets" href="#id29" id="id16" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>．</p>
 </section>
 <section id="id17">
-<h3><span class="section-number">9.6.2. </span>ユーザー定義演算子<a class="headerlink" href="#id17" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">9.6.2. </span>ユーザー定義演算子<a class="headerlink" href="#id17" title="Link to this heading"></a></h3>
 <p>構造型の機能として特筆すべきは，構造型に対する演算子を自分で定義することが出来るという点である．これをユーザー定義演算子と呼ぶ．演算子の定義は以下のように総称名の場合とほぼ同様である．</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">interface </span><span class="n">operator</span><span class="w"> </span><span class="p">(.</span><span class="n">operator</span><span class="p">.)</span>
 <span class="linenos">2</span><span class="w">   </span><span class="k">module procedure </span><span class="n">specific_procedure1</span><span class="p">,</span><span class="w"> </span><span class="n">specific_procedure2</span>
@@ -625,7 +626,7 @@
 <p>このようにしておけば，<code class="docutils literal notranslate"><span class="pre">vector2</span></code> 型と倍精度実数型の <code class="docutils literal notranslate"><span class="pre">+</span></code> 演算が可能になる．この時，<code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">1.0_8</span></code> のような演算では <code class="docutils literal notranslate"><span class="pre">add2_scalar1</span></code> が，<code class="docutils literal notranslate"><span class="pre">0.5_8</span> <span class="pre">+</span> <span class="pre">a</span></code> のような演算では <code class="docutils literal notranslate"><span class="pre">add2_scalar2</span></code> が自動的に呼び出されることになる．</p>
 </section>
 <section id="id18">
-<h3><span class="section-number">9.6.3. </span>ユーザー定義代入文<a class="headerlink" href="#id18" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">9.6.3. </span>ユーザー定義代入文<a class="headerlink" href="#id18" title="Link to this heading"></a></h3>
 <p>代入文( <code class="docutils literal notranslate"><span class="pre">=</span></code>)に関しては，ユーザー定義演算子とは少し事情が異なるのでここで触れておく．まず代入文は，同じ構造型同士であればデフォルトで使用可能である(例えば <code class="docutils literal notranslate"><span class="pre">type(vector2)</span></code> 型の変数同士で <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">b</span></code> としても良い)．この場合は，構造型の各要素で単純に代入文が実行される．異なる型同士での代入には，ユーザー定義代入文の定義が必要である．(明示的に指定しない限り，コンパイラには何が正しい代入動作か判断出来ないため．)</p>
 <p>ユーザー定義演算子と異なり，代入文の実態はサブルーチンを用いて定義する．</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c">! = 中身</span>
@@ -650,7 +651,7 @@
 </section>
 </section>
 <section id="id19">
-<h2><a class="toc-backref" href="#id37" role="doc-backlink"><span class="section-number">9.7. </span>第9章 演習課題</a><a class="headerlink" href="#id19" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id37" role="doc-backlink"><span class="section-number">9.7. </span>第9章 演習課題</a><a class="headerlink" href="#id19" title="Link to this heading"></a></h2>
 <div class="admonition seealso">
 <p class="admonition-title">参考</p>
 <ul class="simple">
@@ -661,15 +662,15 @@
 </ul>
 </div>
 <section id="id20">
-<h3><span class="section-number">9.7.1. </span>課題1<a class="headerlink" href="#id20" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">9.7.1. </span>課題1<a class="headerlink" href="#id20" title="Link to this heading"></a></h3>
 <p>サンプルプログラムをコンパイル・実行して動作を確認せよ．さらに，適宜修正してその実行結果を確認せよ．</p>
 </section>
 <section id="id21">
-<h3><span class="section-number">9.7.2. </span>課題2<a class="headerlink" href="#id21" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">9.7.2. </span>課題2<a class="headerlink" href="#id21" title="Link to this heading"></a></h3>
 <p>サンプルプログラム <span class="xref std std-doc">sample1.f90</span> を参考にして，数学定数を定義するモジュールを作成せよ．メインプログラムも作成して，動作を確認すること．特に <code class="docutils literal notranslate"><span class="pre">use</span></code> によるモジュール参照， <code class="docutils literal notranslate"><span class="pre">only</span></code> の使い方などを理解し，定数値の書き換えが出来ない(コンパイルエラーとなる)ことを確かめよ．数学定数としては例えば <span class="math notranslate nohighlight">\(\pi\)</span>, <span class="math notranslate nohighlight">\(\sqrt{\pi}\)</span>, <span class="math notranslate nohighlight">\(e\)</span> などを定義すれば良い．</p>
 </section>
 <section id="id22">
-<h3><span class="section-number">9.7.3. </span>課題3<a class="headerlink" href="#id22" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">9.7.3. </span>課題3<a class="headerlink" href="#id22" title="Link to this heading"></a></h3>
 <p><span class="xref std std-doc">sample5.f90</span> のモジュール <code class="docutils literal notranslate"><span class="pre">mod_vector</span></code> で定義されている2次元のベクトル構造型 <code class="docutils literal notranslate"><span class="pre">type(vector2)</span></code> を拡張し，以下の演算子を定義せよ．(以下で <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code> は共に <code class="docutils literal notranslate"><span class="pre">type(vector2)</span></code> で宣言されたものとする．)</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">-</span></code> 演算子:
@@ -697,7 +698,7 @@
 <p>ここで <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">(/2.0_8,</span> <span class="pre">1.0_8/)</span></code> の右辺は長さ2の倍精度実数型の配列である．</p>
 </section>
 <section id="id23">
-<h3><span class="section-number">9.7.4. </span>課題4<a class="headerlink" href="#id23" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">9.7.4. </span>課題4<a class="headerlink" href="#id23" title="Link to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">mod_vector</span></code> をさらに拡張し， <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">z</span></code> を要素に持つ3次元ベクトルを表す構造型 <code class="docutils literal notranslate"><span class="pre">type(vector3)</span></code> を新たに定義せよ．また，この型に対する <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">=</span></code> などの演算子を定義せよ．(ただし, <code class="docutils literal notranslate"><span class="pre">*</span></code> 演算子は通常のベクトル積を返すものとし，それ以外は <code class="docutils literal notranslate"><span class="pre">type(vector2)</span></code> の自然な拡張となるようにすること．)</p>
 <p>さらにサブルーチン <code class="docutils literal notranslate"><span class="pre">show</span></code> をオーバーロードし， <code class="docutils literal notranslate"><span class="pre">type(vector2)</span></code>, <code class="docutils literal notranslate"><span class="pre">type(vector3)</span></code> のどちらの変数も引数に取れるようにせよ．</p>
 <p>これによって，例えば</p>
@@ -731,7 +732,7 @@
 <p>のような記述が可能になるはずである．</p>
 </section>
 <section id="id24">
-<h3><span class="section-number">9.7.5. </span>課題5<a class="headerlink" href="#id24" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">9.7.5. </span>課題5<a class="headerlink" href="#id24" title="Link to this heading"></a></h3>
 <p>有理数を表す構造体を扱うモジュールを作成せよ．有理数同士の和差積商の演算子もそれぞれ定義すること．さらに，代入演算子で長さ2の整数配列を受け取れるようにし，また有理数を標準出力に表示するサブルーチン(例えば <code class="docutils literal notranslate"><span class="pre">show</span></code> )も作成せよ．(有理数の分子および分母は整数であるので2つの整数型を持つ構造体として定義すればよい．)</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">type</span><span class="p">(</span><span class="n">rational</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span>
 <span class="linenos"> 2</span>
@@ -768,25 +769,27 @@
 </pre></div>
 </div>
 <hr class="docutils" />
-<aside class="footnote brackets" id="id25" role="note">
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id25" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">1</a><span class="fn-bracket">]</span></span>
 <p>実は総称名はモジュールに限らず，メインプログラムの内部手続きでも用いることが出来る．その場合あまりありがたみは感じないかもしれないが．</p>
 </aside>
-<aside class="footnote brackets" id="id26" role="note">
+<aside class="footnote brackets" id="id26" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id11">2</a><span class="fn-bracket">]</span></span>
 <p>モジュール利用者がモジュール内部の処理に悪影響を与えないように振る舞ってくれればこれでも良いのだが，過度の期待は禁物である．</p>
 </aside>
-<aside class="footnote brackets" id="id27" role="note">
+<aside class="footnote brackets" id="id27" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id12">3</a><span class="fn-bracket">]</span></span>
 <p>このように内部データを敢えて隠ぺいする(外から見えないようにする)ことをカプセル化(encapsulation)と呼ぶ. これは現代的なオブジェクト指向プログラミングの基本的な概念である．</p>
 </aside>
-<aside class="footnote brackets" id="id28" role="note">
+<aside class="footnote brackets" id="id28" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id14">4</a><span class="fn-bracket">]</span></span>
 <p>Fortran 2003以降では派生型と呼ばれるらしい．(オブジェクト指向プログラミングをサポートしたからであろう．)</p>
 </aside>
-<aside class="footnote brackets" id="id29" role="note">
+<aside class="footnote brackets" id="id29" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id16">5</a><span class="fn-bracket">]</span></span>
 <p>もっともこれは好みの問題であって，引数が山ほどあるサブルーチンの方が分かりやすいという人もいるかもしれない．</p>
+</aside>
 </aside>
 </section>
 </section>

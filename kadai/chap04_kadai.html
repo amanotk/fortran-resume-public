@@ -1,24 +1,24 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="ja" >
+<html class="writer-html5" lang="ja" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>第4章 演習課題 &mdash; Fortran演習(地球惑星物理学演習)</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=5349f25f" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=9f0ccda0" />
+
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/translations.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=f6f563f6"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=4755f45a"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
@@ -41,14 +41,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> Fortran演習
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Fortran演習
           </a>
-              <div class="version">
-                2024
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -80,7 +81,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">第4章 演習課題</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -91,7 +92,7 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1>第4章 演習課題<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h1>
+<h1>第4章 演習課題<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
 <div class="admonition seealso">
 <p class="admonition-title">参考</p>
 <ul class="simple">
@@ -104,11 +105,11 @@
 </ul>
 </div>
 <section id="id2">
-<h2>課題1<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
+<h2>課題1<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
 <p>サンプルプログラムをコンパイル・実行して動作を確認せよ．さらに，適宜修正してその実行結果を確認せよ．</p>
 </section>
 <section id="id3">
-<h2>課題2<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h2>
+<h2>課題2<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
 <p>標準入力から2つの整数( <span class="math notranslate nohighlight">\(n, m\)</span> とする)を読み込み，その大小を比較するプログラムを作成せよ．例えば <span class="math notranslate nohighlight">\(n = 1, m = 2\)</span> なら以下のように <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">is</span> <span class="pre">smaller</span> <span class="pre">than</span> <span class="pre">2</span></code> と表示する．</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$./a.out
 <span class="w"> </span>Input<span class="w"> </span>two<span class="w"> </span>integers:
@@ -120,7 +121,7 @@
 <p>同様に <span class="math notranslate nohighlight">\(n = 2, m = 1\)</span> なら <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">is</span> <span class="pre">larger</span> <span class="pre">than</span> <span class="pre">1</span></code>, <span class="math notranslate nohighlight">\(n = m = 1\)</span> なら <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">is</span> <span class="pre">equal</span> <span class="pre">to</span> <span class="pre">1</span></code> などと表示するものとする．</p>
 </section>
 <section id="id4">
-<h2>課題3<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h2>
+<h2>課題3<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
 <p><span class="math notranslate nohighlight">\(0^\circ\)</span> から <span class="math notranslate nohighlight">\(180^\circ\)</span> まで <span class="math notranslate nohighlight">\(10^\circ\)</span> 刻みの <span class="math notranslate nohighlight">\(\theta\)</span> および， <span class="math notranslate nohighlight">\(\sin \theta\)</span>, <span class="math notranslate nohighlight">\(\cos \theta\)</span> を標準出力に表示するプログラムを作成せよ(以下のように各 <span class="math notranslate nohighlight">\(\theta\)</span> の値ごとに改行せよ)．またこの結果をリダイレクトを用いてファイルとして記録し，gnuplotを用いてこのファイルのデータとgnuplotに組み込みの三角関数を共に図示せよ．なお三角関数の引数はラジアン単位であることに注意せよ．</p>
 <p>実行結果は例えば以下のようなものになる．</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./a.out
@@ -143,7 +144,7 @@
 <p>などとして結果を確認すればよい．</p>
 </section>
 <section id="id5">
-<h2>課題4<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h2>
+<h2>課題4<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
 <p>標準入力から与えられた2つの整数<span class="math notranslate nohighlight">\(m, n \ge 1\)</span> の最大公約数を表示するプログラムを作成せよ．最大公約数を求めるには以下のアルゴリズム(ユークリッドの互除法)を用いるとよい．</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -166,7 +167,7 @@
 <p>とすれば <code class="docutils literal notranslate"><span class="pre">m</span></code> を <code class="docutils literal notranslate"><span class="pre">n</span></code> で割った余りを <code class="docutils literal notranslate"><span class="pre">r</span></code> に代入することが出来る．</p>
 </section>
 <section id="id6">
-<h2>課題5<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h2>
+<h2>課題5<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
 <p>以下の級数計算により自然対数の底 <span class="math notranslate nohighlight">\(e\)</span> の近似値を求めるプログラムを作成せよ．</p>
 <div class="math notranslate nohighlight">
 \[e \simeq \sum_{n=0}^{N} \frac{1}{n !}. \quad (0! = 1に注意せよ)\]</div>
@@ -192,7 +193,7 @@
 </div>
 </section>
 <section id="id7">
-<h2>課題6<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h2>
+<h2>課題6<a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
 <p>標準入力から文字列(英単語)を読み込み，それが <code class="docutils literal notranslate"><span class="pre">food</span></code>, <code class="docutils literal notranslate"><span class="pre">animal</span></code>, <code class="docutils literal notranslate"><span class="pre">vehicle</span></code>, <code class="docutils literal notranslate"><span class="pre">others</span></code> (それ以外)のいずれかを判定し，表示するプログラムを作成せよ．ただし <code class="docutils literal notranslate"><span class="pre">exit</span></code> が入力されるまでプログラムは終了せず何度でも入力を受け付けるものとする．なお以下の英単語リスト以外のものは <code class="docutils literal notranslate"><span class="pre">others</span></code> と判断してよい:
 <code class="docutils literal notranslate"><span class="pre">apple</span></code>, <code class="docutils literal notranslate"><span class="pre">orange</span></code>, <code class="docutils literal notranslate"><span class="pre">banana</span></code>, <code class="docutils literal notranslate"><span class="pre">dog</span></code>, <code class="docutils literal notranslate"><span class="pre">cat</span></code>, <code class="docutils literal notranslate"><span class="pre">lion</span></code>, <code class="docutils literal notranslate"><span class="pre">car</span></code>,
 <code class="docutils literal notranslate"><span class="pre">airplane</span></code>, <code class="docutils literal notranslate"><span class="pre">motorcycle</span></code> ．</p>
@@ -216,15 +217,22 @@ bike<span class="w">     </span><span class="c1"># キーボード入力</span>
 </div>
 </section>
 <section id="id8">
-<h2>課題7<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h2>
+<h2>課題7<a class="headerlink" href="#id8" title="Link to this heading"></a></h2>
 <p>以下の漸化式</p>
 <div class="math notranslate nohighlight">
 \[p_{n+1} = p_n + \alpha p_n (1 - p_n)\]</div>
 <p>で定義される数列 <span class="math notranslate nohighlight">\(p_n (n=0, 1, \ldots)\)</span> を考える．初期値 <span class="math notranslate nohighlight">\(p_0 = 0.9\)</span> から数列を生成し，そのうち <span class="math notranslate nohighlight">\(n=100, \ldots, 200\)</span> までを <span class="math notranslate nohighlight">\(\alpha\)</span> の関数として <span class="math notranslate nohighlight">\(1 &lt; \alpha &lt; 3\)</span> の範囲でプロットせよ． <span class="math notranslate nohighlight">\(\alpha\)</span> を <span class="math notranslate nohighlight">\(10^{-3}\)</span> 刻みで変えながらプロットすると結果は以下のようになるだろう．</p>
 <figure class="align-center" id="id9">
-<a class="reference internal image-reference" href="kadai/figure/logistic.png"><img alt="kadai/figure/logistic.png" src="kadai/figure/logistic.png" /></a>
+<a class="reference internal image-reference" href="kadai/figure/logistic.png"><img alt="kadai/figure/logistic.png" src="kadai/figure/logistic.png" />
+<aside class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">/workspaces/docs-environment/fortran-resume/kadai/chap04_kadai.rst</span>, line 170)</p>
+<p>Cannot scale image!
+  Could not get size from &quot;kadai/figure/logistic.png&quot;:
+  Requires Python Imaging Library.</p>
+</aside>
+</a>
 <figcaption>
-<p><span class="caption-text">ロジスティック写像</span><a class="headerlink" href="#id9" title="この画像へのパーマリンク"></a></p>
+<p><span class="caption-text">ロジスティック写像</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>このような写像はロジスティック写像と呼ばれ，非常に単純な式ながら一定の条件を満たすときにはカオスを生み出すことが知られている．</p>

@@ -1,24 +1,24 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="ja" >
+<html class="writer-html5" lang="ja" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>第7章 演習課題 &mdash; Fortran演習(地球惑星物理学演習)</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=5349f25f" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=9f0ccda0" />
+
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/translations.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=f6f563f6"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=4755f45a"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
@@ -41,14 +41,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> Fortran演習
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Fortran演習
           </a>
-              <div class="version">
-                2024
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -80,7 +81,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">第7章 演習課題</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -91,7 +92,7 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1>第7章 演習課題<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h1>
+<h1>第7章 演習課題<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
 <div class="admonition seealso">
 <p class="admonition-title">参考</p>
 <ul class="simple">
@@ -104,11 +105,11 @@
 </ul>
 </div>
 <section id="id2">
-<h2>課題1<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
+<h2>課題1<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
 <p>サンプルプログラムをコンパイル・実行して動作を確認せよ．さらに，適宜修正してその実行結果を確認せよ．</p>
 </section>
 <section id="id3">
-<h2>課題2<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h2>
+<h2>課題2<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
 <p>与えられた倍精度実数 <span class="math notranslate nohighlight">\(a (&gt; 0)\)</span> の平方根の近似値を返す関数を実装せよ．ただし平方根は以下のような逐次近似で計算するものとする．</p>
 <div class="math notranslate nohighlight">
 \[x_{n+1} = \frac{1}{2} \left( \frac{a}{x_{n}} + x_{n} \right)\]</div>
@@ -122,7 +123,7 @@ sqrt<span class="o">(</span>x<span class="o">)</span><span class="w"> </span><sp
 </div>
 </section>
 <section id="id4">
-<h2>課題3<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h2>
+<h2>課題3<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
 <p>テストの点数が整数配列から与えられた時にヒストグラムを作成するサブルーチン <code class="docutils literal notranslate"><span class="pre">histogram</span></code> を実装せよ．例えば点数配列とビン幅を入力とし，作成されたヒストグラムの各ビンの中央値，各ビン内の人数を出力とする以下の様な形式のサブルーチンを作成すればよい．ただし，与える整数は <span class="math notranslate nohighlight">\(0 \leq n &lt; 100\)</span> とするが，もしこの範囲を超えた入力があった場合にはエラーを表示して終了すること．</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">subroutine </span><span class="n">histogram</span><span class="p">(</span><span class="n">score</span><span class="p">,</span><span class="w"> </span><span class="n">binw</span><span class="p">,</span><span class="w"> </span><span class="n">binc</span><span class="p">,</span><span class="w"> </span><span class="n">hist</span><span class="p">)</span>
 <span class="w">  </span><span class="k">implicit none</span>
@@ -164,7 +165,7 @@ sqrt<span class="o">(</span>x<span class="o">)</span><span class="w"> </span><sp
 <p>のようなエラーを表示するように実装せよ．</p>
 </section>
 <section id="id6">
-<h2>課題4<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h2>
+<h2>課題4<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
 <p>データ <span class="math notranslate nohighlight">\(x_1, x_2, \ldots, x_n\)</span> を大きさの順に並べ替える処理をソートという．ソートのアルゴリズムの中でも一番簡単なのがバブルソートと呼ばれるものである．これは以下の処理を <span class="math notranslate nohighlight">\(n-1\)</span> 回繰り返すことで実現される．</p>
 <blockquote>
 <div><p><span class="math notranslate nohighlight">\(i=1, \ldots, n-1\)</span> まで順に <span class="math notranslate nohighlight">\(x_{i}\)</span> と <span class="math notranslate nohighlight">\(x_{i+1}\)</span> の大小を比較し, <span class="math notranslate nohighlight">\(x_{i} &gt; x_{i+1}\)</span> なら順番を入れ替える</p>
@@ -188,7 +189,7 @@ sqrt<span class="o">(</span>x<span class="o">)</span><span class="w"> </span><sp
 <p>のように読みこませれば良い．</p>
 </section>
 <section id="id8">
-<h2>課題5<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h2>
+<h2>課題5<a class="headerlink" href="#id8" title="Link to this heading"></a></h2>
 <p>データ <span class="math notranslate nohighlight">\(x_1, x_2, \ldots, x_n\)</span> からある値 <span class="math notranslate nohighlight">\(X\)</span> に等しいものを探しだす処理を探索という．その中でも以下は二分探索と呼ばれるアルゴリズムである．</p>
 <blockquote>
 <div><ul class="simple">
@@ -228,7 +229,7 @@ Input<span class="w"> </span>an<span class="w"> </span>integer<span class="w"> <
 </div>
 </section>
 <section id="id10">
-<h2>課題6<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h2>
+<h2>課題6<a class="headerlink" href="#id10" title="Link to this heading"></a></h2>
 <p>1行に1つの英単語が記述されているファイルを読み込み，英単語を辞書順にソートして出力するプログラムを作成せよ．空白行かファイルの終端に達するまで全ての単語を読み込むこと．ただし英単語は10文字以下，また読み込む単語の数は100個以下であると仮定してよい． <a class="reference external" href="data/words.txt">words.txt</a> を入力として作成したプログラムの動作を確認せよ．</p>
 <p>実行結果は例えば以下のようになるだろう．(空白行の後の <code class="docutils literal notranslate"><span class="pre">NOT_TO_BE_READ</span></code> は読まれていないことに注意!)</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./a.out<span class="w"> </span>&lt;<span class="w"> </span>words.txt
@@ -245,7 +246,7 @@ apple<span class="w">      </span>banana<span class="w">     </span>grape<span c
 <p>などのように宣言すれば良い．ここで <code class="docutils literal notranslate"><span class="pre">char_array</span></code> は10文字分の文字列を保持する長さ100の配列である．</p>
 </section>
 <section id="id11">
-<h2>課題7 <sup>†</sup><a class="headerlink" href="#id11" title="Permalink to this heading"></a></h2>
+<h2>課題7 <sup>†</sup><a class="headerlink" href="#id11" title="Link to this heading"></a></h2>
 <p>与えられたファイルに含まれるアルファベットの各文字の出現回数をヒストグラムとして標準出力に表示するプログラムを作成せよ．ファイルの長さは任意とする．即ちファイルの終端まで全ての文字を読み込まなければならない(空白行があっても読み込み続ける)．ただし以下の条件を満たすこと．</p>
 <ul class="simple">
 <li><p>アルファベット <code class="docutils literal notranslate"><span class="pre">a-z,</span> <span class="pre">A-Z</span></code> 以外は無視してよい．</p></li>

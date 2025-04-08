@@ -1,23 +1,23 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="ja" >
+<html class="writer-html5" lang="ja" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>2. プログラムの作成と実行 &mdash; Fortran演習(地球惑星物理学演習)</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5349f25f" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=9f0ccda0" />
+
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/translations.js"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f6f563f6"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=4755f45a"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
@@ -42,14 +42,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Fortran演習
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Fortran演習
           </a>
-              <div class="version">
-                2024
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -108,7 +109,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active"><span class="section-number">2. </span>プログラムの作成と実行</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -119,7 +120,7 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1><a class="toc-backref" href="#id34" role="doc-backlink"><span class="section-number">2. </span>プログラムの作成と実行</a><a class="headerlink" href="#id1" title="Permalink to this heading"></a></h1>
+<h1><a class="toc-backref" href="#id34" role="doc-backlink"><span class="section-number">2. </span>プログラムの作成と実行</a><a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
 <p>まずは計算機が実行するプログラムの作成および実行する方法を学び，Fortranプログラムの基本的な構造について理解しよう．</p>
 <div class="admonition seealso">
 <p class="admonition-title">参考</p>
@@ -144,10 +145,10 @@
 </ul>
 </nav>
 <section id="hello-world">
-<h2><a class="toc-backref" href="#id35" role="doc-backlink"><span class="section-number">2.1. </span>Hello, world !</a><a class="headerlink" href="#hello-world" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id35" role="doc-backlink"><span class="section-number">2.1. </span>Hello, world !</a><a class="headerlink" href="#hello-world" title="Link to this heading"></a></h2>
 <p>プログラミング言語を学ぶ時には &quot;Hello, world !&quot; を表示するプログラムから始めるのが慣例になっている．以下に示したものがその最初のプログラムである．</p>
 <div class="literal-block-wrapper docutils container" id="id30">
-<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap02_sample1_f90.html"><span class="doc">sample1.f90</span></a></span><a class="headerlink" href="#id30" title="このコードへのパーマリンク"></a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap02_sample1_f90.html"><span class="doc">sample1.f90</span></a></span><a class="headerlink" href="#id30" title="Link to this code"></a></div>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">program </span><span class="n">sample</span>
 <span class="linenos">2</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;Hello, world !&#39;</span>
 <span class="linenos">3</span><span class="w">  </span><span class="k">stop</span>
@@ -179,10 +180,10 @@
 </div>
 </section>
 <section id="id5">
-<h2><a class="toc-backref" href="#id36" role="doc-backlink"><span class="section-number">2.2. </span>ソースコードの基本</a><a class="headerlink" href="#id5" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id36" role="doc-backlink"><span class="section-number">2.2. </span>ソースコードの基本</a><a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
 <p>以下に示すサンプルを例にとってFortranのソースコードの基本的な構造を説明しよう．</p>
 <div class="literal-block-wrapper docutils container" id="id31">
-<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap02_sample2_f90.html"><span class="doc">sample2.f90</span></a></span><a class="headerlink" href="#id31" title="このコードへのパーマリンク"></a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap02_sample2_f90.html"><span class="doc">sample2.f90</span></a></span><a class="headerlink" href="#id31" title="Link to this code"></a></div>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c">! これ以降は「コメント」として無視される.</span>
 <span class="linenos"> 2</span><span class="c">! ソースコードは人間が直感的に理解できないので, 適宜コメントを入れてプログラムの</span>
 <span class="linenos"> 3</span><span class="c">! 内容を理解しやすくすることを推奨.</span>
@@ -210,15 +211,15 @@
 </div>
 </div>
 <section id="id6">
-<h3><span class="section-number">2.2.1. </span>使用可能な文字<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">2.2.1. </span>使用可能な文字<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
 <p>ソースコードの編集に用いることが出来るのは半角の英数字および下線(アンダースコア)といくつかの四則演算などに使う特殊文字である．(要するに日本語は使えないと思えば良い．) なおFortranは英字の大文字と小文字を区別しない( <code class="docutils literal notranslate"><span class="pre">fortran</span></code>，<code class="docutils literal notranslate"><span class="pre">Fortran</span></code>，<code class="docutils literal notranslate"><span class="pre">FORTRAN</span></code> は全て同一と解釈される)という現代においては大変珍しい言語の一つである．これは歴史的な事情によるものである．古いFortran 77のソースコードには大文字だけで記述されているものも多く存在するが，単に読みにくくなるだけなのでそのような意味のないことはやめよう．</p>
 </section>
 <section id="id7">
-<h3><span class="section-number">2.2.2. </span>コメント<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">2.2.2. </span>コメント<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
 <p>ソースコードには計算機に実行させる命令だけでなくコメント(注釈)を含めることができる．Fortranでは &quot;!&quot; から行末までがコメントとみなされる．コメントはプログラムの実行とは無関係であり，コンパイル時には単純に無視される．ソースコードはプログラミング言語固有のキーワードなどで記述されているため人間には理解しづらいのに対して，コメントには人間が理解できるように自由に説明を加えることができる．コメントはソースコードの可読性を良くするものなので積極的に活用すべきである <a class="footnote-reference brackets" href="#id26" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>．なおコメントには日本語を用いても問題ないが，それ以外の部分に日本語を使うとコンパイル時にエラーとなる．特に気づきにくいのがソースコード中に全角スペースが混じってしまってコンパイルが通らないという現象である．エディタにemacsを用いている場合は，後に見るように設定によってこの問題を回避出来る．</p>
 </section>
 <section id="id9">
-<h3><span class="section-number">2.2.3. </span>プログラムの構造<a class="headerlink" href="#id9" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">2.2.3. </span>プログラムの構造<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
 <p>Fortranのソースコードは以下のように <code class="docutils literal notranslate"><span class="pre">program</span></code> と <code class="docutils literal notranslate"><span class="pre">end</span> <span class="pre">program</span></code> で囲まれる．以下のコードの <code class="docutils literal notranslate"><span class="pre">program_name</span></code> は基本的に何でも良く，分り易い名前を付けるのがよい．ただしFortranの予約語( <code class="docutils literal notranslate"><span class="pre">program</span></code> などのキーワード)は使えない．また後述の組込み関数と同じ名前にしてしまうとその組込み関数は使えなくなってしまうので注意して欲しい．<code class="docutils literal notranslate"><span class="pre">stop</span></code> はプログラムを終了するという意味であり，<code class="docutils literal notranslate"><span class="pre">end</span> <span class="pre">program</span></code> の直前では省略しても通常は問題無いのだが，入れておいた方がお行儀が良いのでそうしておこう．</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">program </span><span class="n">program_name</span>
 <span class="linenos">2</span>
@@ -240,12 +241,12 @@
 <p>とすると標準出力(ターミナル)に文字列を表示することができる．<code class="docutils literal notranslate"><span class="pre">write(*,*)</span></code> はここではとりあえず文字列を出力するためのオマジナイと思っておいて欲しい．プログラミング言語を学ぶ時にはこの「オマジナイ」というやつが多く出てくるのだが，そのうち意味がわかるようになるので心配しなくて良い．なお <code class="docutils literal notranslate"><span class="pre">read(*,*)</span></code> で標準入力(ターミナルからのキーボード入力)を読み込むことが出来るが，これについては変数を学んでから説明しよう．なお先ほどのサンプルの13行目の様に複数の文字列や後で説明する変数をカンマで区切って並べても良い．これを入出力リストと呼ぶ．</p>
 </section>
 <section id="id10">
-<h3><span class="section-number">2.2.4. </span>継続行<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">2.2.4. </span>継続行<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
 <p>Fortranでは1行が132文字以下でなければいけないという制限が課せられている．1行に収まらない長い文を記述するには行の最後に <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> を記述することで，次の行へと継続することが出来る．実際には80文字とか100文字とか(要するにエディタの表示範囲で)改行する方がプログラムが読みやすくなる．サンプルの16-17行目のような形で記述すればよい．17行目の <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> は必ずしも必要では無いが，あった方が読みやすいので入れておくことを推奨する．なおemacsでは改行したい位置で <code class="docutils literal notranslate"><span class="pre">C-c</span> <span class="pre">RET</span></code> と打つと <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> を自動で挿入して字下げまでしてくれる <a class="footnote-reference brackets" href="#id27" id="id11" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>．</p>
 </section>
 </section>
 <section id="id12">
-<h2><a class="toc-backref" href="#id37" role="doc-backlink"><span class="section-number">2.3. </span>ソースコード編集にまつわるエトセトラ <sup>†</sup></a><a class="headerlink" href="#id12" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id37" role="doc-backlink"><span class="section-number">2.3. </span>ソースコード編集にまつわるエトセトラ <sup>†</sup></a><a class="headerlink" href="#id12" title="Link to this heading"></a></h2>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
 <p>2024年現在では以下の内容はかなり古めかしい情報となってしまった．筆者は長年Emacsのヘビーユーザーであったが，現在はsshでログインしたリモートマシンのファイル編集もVS Codeで不自由なくできる時代となってしまたので，久しく <code class="docutils literal notranslate"><span class="pre">emacs</span></code> コマンドの実行すらしていない．ただし，キーバインディングはEmacsで使用しているし，ちょっとしたファイル編集にviは頻繁に利用するので，知っておいた方がよいだろう．</p>
@@ -254,7 +255,7 @@
 <p>ひとつだけコメントしておくと，将来シミュレーションを生業にしたい人はemacsやviなどのエディタにある程度は慣れておいた方が良いかもしれない．というのは，sshログインしたリモートマシンでソースコードの編集をする機会が多くなると予想されるためである．viはもちろん，emacsでも <code class="docutils literal notranslate"><span class="pre">emacs</span> <span class="pre">-nw</span></code> でターミナル上でソースコードの編集が可能である．両者とも使いこなすのは難しいが，その機能は折り紙つきなので，興味のある人は自分でどんどん調べてカスタマイズしていくと良い．</p>
 <p>以下ではemacsで(Fortranに限らず)ソースコードを編集する際に知っておいた方が良いことや，便利な設定などをほんの一部だけ紹介する．知らなくても効率が悪くなるだけで何かが出来なくなるわけではないので興味のない人は無視してもらって構わない．</p>
 <section id="control-capslock-setxkbmap">
-<h3><span class="section-number">2.3.1. </span><code class="docutils literal notranslate"><span class="pre">Control</span></code> と <code class="docutils literal notranslate"><span class="pre">CapsLock</span></code> の交換 (setxkbmap)<a class="headerlink" href="#control-capslock-setxkbmap" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">2.3.1. </span><code class="docutils literal notranslate"><span class="pre">Control</span></code> と <code class="docutils literal notranslate"><span class="pre">CapsLock</span></code> の交換 (setxkbmap)<a class="headerlink" href="#control-capslock-setxkbmap" title="Link to this heading"></a></h3>
 <p>まずemacsでは <code class="docutils literal notranslate"><span class="pre">Control</span></code> をかなり多様するので <code class="docutils literal notranslate"><span class="pre">A</span></code> のキーの左の <code class="docutils literal notranslate"><span class="pre">CapsLock</span></code> を <code class="docutils literal notranslate"><span class="pre">Control</span></code> と交換して使用する人がほとんどである(多分)．最近のLinux系のOS環境では <code class="docutils literal notranslate"><span class="pre">CapsLock</span></code> と <code class="docutils literal notranslate"><span class="pre">Control</span></code> を交換するには</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>$<span class="w"> </span>setxkbmap<span class="w"> </span>-option<span class="w"> </span>ctrl:swapcaps
 </pre></div>
@@ -264,7 +265,7 @@
 <p>なお，同様にviユーザーは <code class="docutils literal notranslate"><span class="pre">Escape</span></code> を多用するのでスペースキーの左もしくは右のキー(普通の日本語キーボードでは「無変換」とか「変換」)を <code class="docutils literal notranslate"><span class="pre">Escape</span></code> として使う人が多いようである．</p>
 </section>
 <section id="control-capslock">
-<h3><span class="section-number">2.3.2. </span><code class="docutils literal notranslate"><span class="pre">Control</span></code> と <code class="docutils literal notranslate"><span class="pre">CapsLock</span></code> の交換 (古い方法)<a class="headerlink" href="#control-capslock" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">2.3.2. </span><code class="docutils literal notranslate"><span class="pre">Control</span></code> と <code class="docutils literal notranslate"><span class="pre">CapsLock</span></code> の交換 (古い方法)<a class="headerlink" href="#control-capslock" title="Link to this heading"></a></h3>
 <p>以下の方法は古典的な方法で，最近の環境では必要ない(というか紛らわしい)情報かもしれないが，念のため残しておく．</p>
 <p>Linux系の環境では <code class="docutils literal notranslate"><span class="pre">xmodmap</span></code> というコマンドでキーボードのカスタマイズが出来る．ホームディレクトリに <code class="docutils literal notranslate"><span class="pre">.Xmodmap</span></code> というファイルを作り，以下の様な内容で保存する．</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>remove<span class="w"> </span><span class="nv">Lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Caps_Lock
@@ -282,22 +283,22 @@
 <p>というコマンドを実行すると <code class="docutils literal notranslate"><span class="pre">CapsLock</span></code> と 左の <code class="docutils literal notranslate"><span class="pre">Control</span></code> キーが交換されたハズだ．ログイン時に自動でこのコマンドを実行するように設定しておけば便利である．</p>
 </section>
 <section id="id13">
-<h3><span class="section-number">2.3.3. </span>基本的な編集作業<a class="headerlink" href="#id13" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">2.3.3. </span>基本的な編集作業<a class="headerlink" href="#id13" title="Link to this heading"></a></h3>
 <p>まずマウスを使わずに作業できるようになることを目標にしよう．なぜなら将来リモートマシンにログインして作業する際にはマウスを使うことは出来ないからだ <a class="footnote-reference brackets" href="#id28" id="id14" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>．</p>
 <p>既にこれまでの演習で学んだことだとは思うがemacsでは( <code class="docutils literal notranslate"><span class="pre">Control</span></code> キーと <code class="docutils literal notranslate"><span class="pre">CapsLock</span></code> を交換しておけば)キーボードのホームポジションから手を動かさずに全ての作業が出来るようになっている．これにはカーソルキーに対応する <code class="docutils literal notranslate"><span class="pre">C-n</span></code> (↓ <code class="docutils literal notranslate"><span class="pre">next-line</span></code>)，<code class="docutils literal notranslate"><span class="pre">C-p</span></code> (↑ <code class="docutils literal notranslate"><span class="pre">previous-line</span></code>)，<code class="docutils literal notranslate"><span class="pre">C-f</span></code> (→ <code class="docutils literal notranslate"><span class="pre">forward-char</span></code>)，<code class="docutils literal notranslate"><span class="pre">C-b</span></code> (← <code class="docutils literal notranslate"><span class="pre">backward-char</span></code>)，と <code class="docutils literal notranslate"><span class="pre">Delete</span></code> キーに対応する <code class="docutils literal notranslate"><span class="pre">C-h</span></code> は必須である．また <code class="docutils literal notranslate"><span class="pre">C-a</span></code> (行頭へ移動)，<code class="docutils literal notranslate"><span class="pre">C-e</span></code> (行末へ移動) や，<code class="docutils literal notranslate"><span class="pre">C-k</span></code> (カーソルから行末までを削除) もよく使うので覚えておこう．ちなみにemacsとは関係無いが，多くの環境で Alt-Tabによってウィンドウの切り替えが出来る．またターミナルでのコマンドライン編集時にもemacsと同じキーバインドが使える場合が多いので，これらを覚えておくだけでマウスの使用頻度が激減すること請け合いである．</p>
 <p>viユーザーの名誉のために述べておくと，当然のようにviでも( <code class="docutils literal notranslate"><span class="pre">Escape</span></code> の場所を適切にしておけば)ホームポジションから一切手を動かす必要が無い．更に言うとviでは片手でコーヒーを飲みながらカーソル移動が出来るので，少なくともこの点ではviの方が優れている(なので余裕があればviも勉強しよう)．</p>
 </section>
 <section id="tab">
-<h3><span class="section-number">2.3.4. </span>Tabの利用<a class="headerlink" href="#tab" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">2.3.4. </span>Tabの利用<a class="headerlink" href="#tab" title="Link to this heading"></a></h3>
 <p>ソースコードは適切に字下げされていると格段に見やすくなるし，明らかな文法間違いに気づくきっかけにもなるので字下げの徹底を強く推奨する．emacsでは Tabキーを押すと自動でカーソルのある行の字下げをしてくれる．複数行を一気に字下げしたい場合には字下げしたい領域を選択して <code class="docutils literal notranslate"><span class="pre">M-x</span> <span class="pre">indent-region</span></code> もしくは <code class="docutils literal notranslate"><span class="pre">M-C-\</span></code> で選択された領域の字下げが出来る．ファイル全体を字下げしたい時には <code class="docutils literal notranslate"><span class="pre">C-x</span> <span class="pre">h</span> <span class="pre">M-C-\</span></code> とすれば良い．</p>
 <p>またFortranは <code class="docutils literal notranslate"><span class="pre">program</span></code> に限らず，実行ブロックが <code class="docutils literal notranslate"><span class="pre">end</span> <span class="pre">???</span></code> で終わるようになっている．emacsでは <code class="docutils literal notranslate"><span class="pre">end</span></code> まで入力した状態でTabキーを押すと自動で <code class="docutils literal notranslate"><span class="pre">end</span></code> の後に適切なキーワードを挿入してくれる．(例えば <code class="docutils literal notranslate"><span class="pre">program</span> <span class="pre">sample</span></code> の場合はTabキーによって <code class="docutils literal notranslate"><span class="pre">end</span></code> の後に <code class="docutils literal notranslate"><span class="pre">program</span> <span class="pre">sample</span></code> が挿入される．) これは非常に便利なので是非利用して欲しい．</p>
 </section>
 <section id="id15">
-<h3><span class="section-number">2.3.5. </span>コメントアウト<a class="headerlink" href="#id15" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">2.3.5. </span>コメントアウト<a class="headerlink" href="#id15" title="Link to this heading"></a></h3>
 <p>ソースコードを編集していると(特にデバッグ中は)複数行をまとめてコメントアウトしたいことが多々ある．そんな時に各行の先頭にいちいち&quot;!&quot;を挿入するのはバカバカしい．emacsでは領域を選択して <code class="docutils literal notranslate"><span class="pre">M-x</span> <span class="pre">comment-region</span></code> とするとまとめてコメントアウトしてくれるようになっている．ちなみにコメントアウトした領域を元に戻す時は <code class="docutils literal notranslate"><span class="pre">M-x</span> <span class="pre">uncomment-region</span></code> とすれば良い．なお多くのemacsのデフォルト環境で <code class="docutils literal notranslate"><span class="pre">.f90</span></code> のファイルを開いた場合には(自動でf90-modeというモードになり) <code class="docutils literal notranslate"><span class="pre">C-;</span></code> が <code class="docutils literal notranslate"><span class="pre">M-x</span> <span class="pre">comment-region</span></code> に設定されている．同様に <code class="docutils literal notranslate"><span class="pre">C-u</span> <span class="pre">C-;</span></code> が <code class="docutils literal notranslate"><span class="pre">M-x</span> <span class="pre">uncomment-region</span></code> である．</p>
 </section>
 <section id="id16">
-<h3><span class="section-number">2.3.6. </span>全角スペースの表示<a class="headerlink" href="#id16" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">2.3.6. </span>全角スペースの表示<a class="headerlink" href="#id16" title="Link to this heading"></a></h3>
 <p>前述の通りソースコードに全角スペースが含まれているとコンパイルが出来ない(しかもエラーメッセージからはそれが分からない)という厄介な問題が存在する．これは初心者ほど陥りやすい罠であるが，emacsの設定でこの問題を回避することが出来る．例えば以下の様な設定を <code class="docutils literal notranslate"><span class="pre">.emacs</span></code> などの設定ファイルに書いておくと全角スペースが &quot;□&quot; と表示されるので一目瞭然である．</p>
 <div class="highlight-elisp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="p">(</span><span class="nb">require</span><span class="w"> </span><span class="ss">&#39;whitespace</span><span class="p">)</span>
 <span class="linenos"> 2</span><span class="p">(</span><span class="k">setq</span><span class="w"> </span><span class="nv">whitespace-style</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">face</span><span class="w"> </span><span class="nv">trailing</span><span class="w"> </span><span class="nv">spaces</span><span class="w"> </span><span class="nv">tabs</span><span class="w"> </span><span class="nv">space-mark</span><span class="w"> </span><span class="nv">tab-mark</span><span class="p">))</span>
@@ -319,25 +320,26 @@
 </div>
 <p>なお上の設定では行末のスペースやタブなども表示するように設定されているが，このあたりは完全に好みである．以下はemacsでソースコードを編集中のスクリーンショットである．</p>
 <figure class="align-center" id="id32">
-<a class="reference internal image-reference" href="_images/emacs.png"><img alt="_images/emacs.png" src="_images/emacs.png" style="width: 480px;" /></a>
+<a class="reference internal image-reference" href="_images/emacs.png"><img alt="_images/emacs.png" src="_images/emacs.png" style="width: 480px;" />
+</a>
 <figcaption>
-<p><span class="caption-text">Emacsのスクリーンショット</span><a class="headerlink" href="#id32" title="この画像へのパーマリンク"></a></p>
+<p><span class="caption-text">Emacsのスクリーンショット</span><a class="headerlink" href="#id32" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="id17">
-<h3><span class="section-number">2.3.7. </span>複数ファイルの編集<a class="headerlink" href="#id17" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">2.3.7. </span>複数ファイルの編集<a class="headerlink" href="#id17" title="Link to this heading"></a></h3>
 <p>真のemacs使いはいちいちemacsを立ち上げたり終了したりはしない．常にemacsを立ち上げておき，複数のファイル(emacsではバッファと呼ぶ)を縦横無尽に切り替えながら編集するのである <a class="footnote-reference brackets" href="#id29" id="id18" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>．<code class="docutils literal notranslate"><span class="pre">C-x</span> <span class="pre">f</span></code> で新しいファイルを開くことは当然出来るとして，過去に編集していたバッファに切り替える方法を覚えておこう．<code class="docutils literal notranslate"><span class="pre">C-x</span> <span class="pre">b</span></code> でミニバッファに既に開いているバッファ名(ファイル名)を入力するとそのバッファに移ることが出来る．またTabによる補完も使うことが出来る．<code class="docutils literal notranslate"><span class="pre">C-x</span> <span class="pre">C-b</span></code> では現在開いているバッファの一覧が表示され，選択することでそのバッファに移ることが出来る．</p>
 <p>なお最近ではemacsにもタブ(タブブラウザのあれである)を導入することが出来るらしい．興味のある人は <code class="docutils literal notranslate"><span class="pre">tabbar.el</span></code> で調べてみよう．</p>
 </section>
 <section id="id19">
-<h3><span class="section-number">2.3.8. </span>まとめ<a class="headerlink" href="#id19" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">2.3.8. </span>まとめ<a class="headerlink" href="#id19" title="Link to this heading"></a></h3>
 <p>細かいことはどうでもいいという実践派の人は以下の表を頭に入れておけばよい．正確には体が勝手に覚えるものなのだが．</p>
 <table class="docutils align-default" id="id33">
-<caption><span class="caption-text">これだけは知っとけemacsのキーバインド</span><a class="headerlink" href="#id33" title="このテーブルへのパーマリンク"></a></caption>
+<caption><span class="caption-text">これだけは知っとけemacsのキーバインド</span><a class="headerlink" href="#id33" title="Link to this table"></a></caption>
 <colgroup>
-<col style="width: 33%" />
-<col style="width: 67%" />
+<col style="width: 33.3%" />
+<col style="width: 66.7%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>キーバインド</p></th>
@@ -419,7 +421,7 @@
 </section>
 </section>
 <section id="id20">
-<h2><a class="toc-backref" href="#id38" role="doc-backlink"><span class="section-number">2.4. </span>第2章 演習課題</a><a class="headerlink" href="#id20" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id38" role="doc-backlink"><span class="section-number">2.4. </span>第2章 演習課題</a><a class="headerlink" href="#id20" title="Link to this heading"></a></h2>
 <div class="admonition seealso">
 <p class="admonition-title">参考</p>
 <ul class="simple">
@@ -427,15 +429,15 @@
 </ul>
 </div>
 <section id="id21">
-<h3><span class="section-number">2.4.1. </span>課題1<a class="headerlink" href="#id21" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">2.4.1. </span>課題1<a class="headerlink" href="#id21" title="Link to this heading"></a></h3>
 <p>サンプルプログラムをコンパイル・実行して動作を確認せよ．</p>
 </section>
 <section id="id22">
-<h3><span class="section-number">2.4.2. </span>課題2<a class="headerlink" href="#id22" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">2.4.2. </span>課題2<a class="headerlink" href="#id22" title="Link to this heading"></a></h3>
 <p>サンプルプログラムをエディタで修正，コンパイルし、実行して結果を確認せよ．例えば <a class="reference internal" href="chap02_sample1_f90.html"><span class="doc">sample1.f90</span></a> の出力を <code class="docutils literal notranslate"><span class="pre">Hello,</span> <span class="pre">Fortran</span> <span class="pre">!</span></code> に変更して出力を確認せよ．</p>
 </section>
 <section id="id23">
-<h3><span class="section-number">2.4.3. </span>課題3 <sup>†</sup><a class="headerlink" href="#id23" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">2.4.3. </span>課題3 <sup>†</sup><a class="headerlink" href="#id23" title="Link to this heading"></a></h3>
 <p>本演習では扱わないが，C言語やPythonの場合についてもプログラムの実行の方法も知っておこう．</p>
 <p>C言語はFortranと同じようにコンパイル言語なので，ソースをコンパイルして実行する．C言語のコンパイラとしては <code class="docutils literal notranslate"><span class="pre">gcc</span></code> を用いることが出来る．ここでは <a class="reference internal" href="chap02_hello_c.html"><span class="doc">hello.c</span></a> をコンパイル，実行してみよう．</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>$<span class="w"> </span>gcc<span class="w"> </span>hello.c
@@ -461,29 +463,31 @@
 <p>のように実行することができるだろう．</p>
 <p>プログラムの規模が大きくなってくると，次第にコンパイルにも時間がかかるようになってくるが，Pythonのような言語ではコンパイルの必要がないことが大きな利点となる．一方で実行速度は（書き方に大きく依存するものの）C言語やFortranの方が一般には高速である．</p>
 <hr class="docutils" />
-<aside class="footnote brackets" id="id24" role="note">
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id24" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">1</a><span class="fn-bracket">]</span></span>
 <p>Fortran 77では <code class="docutils literal notranslate"><span class="pre">.f</span></code> である．</p>
 </aside>
-<aside class="footnote brackets" id="id25" role="note">
+<aside class="footnote brackets" id="id25" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">2</a><span class="fn-bracket">]</span></span>
 <p>そうでない場合もあるのだが，とりあえず今は気にしないことにしよう．</p>
 </aside>
-<aside class="footnote brackets" id="id26" role="note">
+<aside class="footnote brackets" id="id26" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">3</a><span class="fn-bracket">]</span></span>
 <p>自分が3日前に書いたコードが何をしているか理解できないというのは日常茶飯事である．</p>
 </aside>
-<aside class="footnote brackets" id="id27" role="note">
+<aside class="footnote brackets" id="id27" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id11">4</a><span class="fn-bracket">]</span></span>
 <p>このようにキーバインドを表す際には <code class="docutils literal notranslate"><span class="pre">C</span></code> がControl，<code class="docutils literal notranslate"><span class="pre">M</span></code> がMetaキーを表す．例えば <code class="docutils literal notranslate"><span class="pre">C-x</span></code> はControlキーを押しながら <code class="docutils literal notranslate"><span class="pre">x</span></code> キーを押すことを，<code class="docutils literal notranslate"><span class="pre">M-x</span></code> はEscapeキーを押して <em>離してから</em> <code class="docutils literal notranslate"><span class="pre">x</span></code> キーを押すことを意味する．</p>
 </aside>
-<aside class="footnote brackets" id="id28" role="note">
+<aside class="footnote brackets" id="id28" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id14">5</a><span class="fn-bracket">]</span></span>
 <p>出来ないことも無いのだが，やっぱり何をするのにも遅くてイライラするので．</p>
 </aside>
-<aside class="footnote brackets" id="id29" role="note">
+<aside class="footnote brackets" id="id29" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id18">6</a><span class="fn-bracket">]</span></span>
 <p>emacs上でコンパイルしたり，emacsをターミナル代わりに使う人もいるのだが少しばかりマニアックな話題なので各自で調べて欲しい．</p>
+</aside>
 </aside>
 </section>
 </section>

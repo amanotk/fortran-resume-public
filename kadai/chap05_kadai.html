@@ -1,24 +1,24 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="ja" >
+<html class="writer-html5" lang="ja" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>第5章 演習課題 &mdash; Fortran演習(地球惑星物理学演習)</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=5349f25f" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=9f0ccda0" />
+
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/translations.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=f6f563f6"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=4755f45a"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
@@ -41,14 +41,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> Fortran演習
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Fortran演習
           </a>
-              <div class="version">
-                2024
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -80,7 +81,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">第5章 演習課題</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -91,7 +92,7 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1>第5章 演習課題<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h1>
+<h1>第5章 演習課題<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
 <div class="admonition seealso">
 <p class="admonition-title">参考</p>
 <ul class="simple">
@@ -104,11 +105,11 @@
 </ul>
 </div>
 <section id="id2">
-<h2>課題1<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
+<h2>課題1<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
 <p>サンプルプログラムをコンパイル・実行して動作を確認せよ．さらに，適宜修正してその実行結果を確認せよ．</p>
 </section>
 <section id="id3">
-<h2>課題2<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h2>
+<h2>課題2<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
 <p>与えられた月日(例えば4月1日であれば4と1)を標準入力から読み込み，その日が1年のうちで何日目かを表示するプログラムを作成せよ．ただし閏年は無視して考えて良い．以下のような配列を用いるとよいだろう．</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">days</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">&amp;</span>
 <span class="w">     </span><span class="p">&amp;</span><span class="w"> </span><span class="p">(</span><span class="o">/</span><span class="mi">31</span><span class="p">,</span><span class="w"> </span><span class="mi">28</span><span class="p">,</span><span class="w"> </span><span class="mi">31</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">31</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">31</span><span class="p">,</span><span class="w"> </span><span class="mi">31</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">31</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">31</span><span class="o">/</span><span class="p">)</span>
@@ -124,7 +125,7 @@
 </div>
 </section>
 <section id="id4">
-<h2>課題3<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h2>
+<h2>課題3<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
 <p>学生のテストの点数を自動的に処理するプログラムを作成せよ．すなわち，標準入力から学生の人数および人数分のテストの点を順に読み込み，最高点，最低点，平均点，標準偏差をそれぞれ表示するプログラムを作成せよ．ただし標準偏差はデータ数 <span class="math notranslate nohighlight">\(N\)</span> ，各データの値 <span class="math notranslate nohighlight">\(x_i (i=1,\ldots,N)\)</span> ，平均値 <span class="math notranslate nohighlight">\(\bar{x}\)</span> を用いて</p>
 <div class="math notranslate nohighlight">
 \[\sigma = \sqrt{\frac{1}{N} \sum_{i=1}^{N} (x_i - \bar{x})^2}\]</div>
@@ -140,7 +141,7 @@
 <p>なおデータファイルには，1行目にデータ数 <span class="math notranslate nohighlight">\(N\)</span> ，それ以降に各データ <span class="math notranslate nohighlight">\(x_i\)</span> が記述されているので，まずはデータ数を読み込み配列のメモリを <code class="docutils literal notranslate"><span class="pre">allocate</span></code> した後に各データを読み込めば良い．( <span class="xref std std-doc">sample3.f90</span> を参照せよ．)</p>
 </section>
 <section id="id5">
-<h2>課題4<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h2>
+<h2>課題4<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
 <p>標準入力から2つのベクトルを読み込み，両者の内積を計算し表示するプログラムを作成せよ． <code class="docutils literal notranslate"><span class="pre">do</span></code> ループを用いて地道に計算した結果と組込み関数 <code class="docutils literal notranslate"><span class="pre">dot_product</span></code> を用いた結果を比較すること．</p>
 <p>以下はデータファイル <a class="reference external" href="data/vector.dat">vector.dat</a> を入力とした場合の結果である．</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./a.out<span class="w"> </span>&lt;<span class="w"> </span>vector.dat
@@ -151,7 +152,7 @@
 <p>ただしデータは，ベクトルの長さ <span class="math notranslate nohighlight">\(N\)</span> ，1つ目のベクトルの要素( <span class="math notranslate nohighlight">\(N\)</span> 個)，2つ目のベクトルの各要素( <span class="math notranslate nohighlight">\(N\)</span> 個)，の順に並んでいるものとする．</p>
 </section>
 <section id="id6">
-<h2>課題5<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h2>
+<h2>課題5<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
 <p>標準入力からベクトルと行列を読み込み，積を計算して表示するプログラムを作成せよ．これについても2重<code class="docutils literal notranslate"><span class="pre">do</span></code> ループを用いて地道に計算した結果と，組込み関数 <code class="docutils literal notranslate"><span class="pre">matmul</span></code> を用いた結果を比較すること．</p>
 <p>以下はデータファイル <a class="reference external" href="data/matvec.dat">matvec.dat</a> を入力とした場合の結果である．これと同じ結果が得られることを確認せよ．</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>/a.out<span class="w"> </span>&lt;<span class="w"> </span>matvec.dat
@@ -205,7 +206,7 @@
 </div>
 </section>
 <section id="id7">
-<h2>課題6<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h2>
+<h2>課題6<a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
 <p>標準入力から与えられた整数 <span class="math notranslate nohighlight">\(n ( \ge 2)\)</span> 以下の全ての素数( <span class="math notranslate nohighlight">\(1\)</span> は素数に含めない)を表示するプログラムを作成せよ．以下のエラトステネスのふるいと呼ばれるアルゴリズムを用いるとよい．</p>
 <p>各整数 <span class="math notranslate nohighlight">\(i=2,\ldots,n\)</span> について順に</p>
 <blockquote>
@@ -232,7 +233,7 @@
 </div>
 </section>
 <section id="id8">
-<h2>課題7<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h2>
+<h2>課題7<a class="headerlink" href="#id8" title="Link to this heading"></a></h2>
 <p>標準入力から3つの整数 <code class="docutils literal notranslate"><span class="pre">L</span></code>, <code class="docutils literal notranslate"><span class="pre">M</span></code>, <code class="docutils literal notranslate"><span class="pre">N</span></code> を読み込み， 形状が <code class="docutils literal notranslate"><span class="pre">(L,</span> <span class="pre">M,</span> <span class="pre">N)</span></code> の整数型の3次元配列，および長さ <code class="docutils literal notranslate"><span class="pre">L*M*N</span></code> の整数型の1次元配列を作成せよ．その上で，</p>
 <blockquote>
 <div><ul class="simple">

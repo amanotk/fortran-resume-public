@@ -1,24 +1,24 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="ja" >
+<html class="writer-html5" lang="ja" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>1. はじめに &mdash; Fortran演習(地球惑星物理学演習)</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5349f25f" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=9f0ccda0" />
+
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/translations.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f6f563f6"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=4755f45a"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
@@ -43,14 +43,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Fortran演習
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Fortran演習
           </a>
-              <div class="version">
-                2024
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -87,7 +88,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active"><span class="section-number">1. </span>はじめに</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -98,14 +99,11 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1><span class="section-number">1. </span>はじめに<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h1>
+<h1><span class="section-number">1. </span>はじめに<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
 <p>この演習では非常に短い期間でFortranによるプログラミングの基礎を学ぶことになる．ここで学ぶ内容は今後の演習に必須のものとなるので，心して取り組んで頂きたい．</p>
 <p>とは言っても，プログラミング言語を用いて自分のやりたいことを思うがままに実現できるようになるのはそれほど簡単なことでは無く，この演習だけでは不十分であると思われる．プログラミング言語の文法自体は英語や日本語などの自然言語に比べたら格段に簡単だが，それでもそれを使いこなすのにはある程度の訓練が必要なのである．特にプログラミング初心者の人がこの演習の内容を全て理解するのは難しいので，分からない内容があっても落ち込むことは無い．(興味を持ってやっていればそのうちに自然と身に付くものである．) 最低限の目標は，Fortranというプログラミング言語の基礎を覚え，自分で簡単なプログラムの作成および実行が出来るようになること(=この後の演習の内容についていけるようになること)である．各節のタイトルに「<sup>†</sup>」がついている項目がいくつかあるが，この内容は演習の課題をこなすためには必ずしも知らなくて良い内容である．ただし，知っておくと色々と便利なことが多いので余裕があればこの内容もマスターしておくと良い．</p>
 <p>なお演習時には言語仕様を事細かに解説するようなことはしない．そんなことをしていては時間が足りないし，何より退屈なだけである．また言語仕様の詳細を理解したからと言ってプログラムを書けるようになるわけではなく，全く実用的では無い．その代わりに，各事項を理解する助けになるようサンプルプログラムを多数用意してある．大事なのは自分でサンプルプログラムを修正，実行し，その動作を自分の目で確認することである．また毎日の課題に取り組むことで，「習うより慣れよ」の精神で実践的に基礎を身につけて行って欲しい．この文書についても教科書的なものでは無く，サンプルプログラムの解説といった位置付けである．また，各章の最後に用意してある演習課題には各自で取り組んで欲しい．</p>
-<p>最初に断っておくと，この文書は <em>未完成</em> である．用語が統一されていなかったり，間違いなどを含んでいる可能性も大いにあるので，その点については注意して欲しい．内容としてはどちらかと言うと教科書には書いていないようなことを随時盛り込んでいく予定である(あくまで予定である)．基本的にはこのhtmlのWebページを正式版とするが，オフラインで勉強したい場合には以下からPDFをダウンロードすることも出来るので適宜活用して欲しい．(ただしPDF版は機械的に変換したもので，サンプルファイルへのリンクなどが上手く動作しないので注意して欲しい．)</p>
-<blockquote>
-<div><p>PDF版: <a class="reference external" href="https://amanotk.github.io/fortran-resume-public/fortran-resume.pdf">https://amanotk.github.io/fortran-resume-public/fortran-resume.pdf</a></p>
-</div></blockquote>
+<p>最初に断っておくと，この文書は <em>未完成</em> である．用語が統一されていなかったり，間違いなどを含んでいる可能性も大いにあるので，その点については注意して欲しい．内容としてはどちらかと言うと教科書には書いていないようなことを随時盛り込んでいく予定である(あくまで予定である)．</p>
 <p>この演習では説明しないような内容(細かい文法事項など)については必要であれば以下を適宜参考にすると良い <a class="footnote-reference brackets" href="#textbook" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> ．高木(2009)は非常に良くまとまっているので，これがあれば困ることは少ないであろう．紙の本が良いという人は富田・齋藤(2011)がよくまとまっている．少し古いバージョンがWebで参照でき，多くの人にはこれで十分である．牛島(2007)は少し初心者には分かりづらいかもしれないが，モジュールに関する記述が実践的である．数値計算についても少し触れられているが，本格的に取り組む場合は専門の文献も併せて参考にした方が良い．</p>
 <ol class="arabic simple">
 <li><p>高木征弘 (2009) 『地球物理学演習テキスト Fortran90/95入門』</p></li>
@@ -114,7 +112,7 @@
 (森北出版)</p></li>
 </ol>
 <section id="id3">
-<h2><span class="section-number">1.1. </span>演習環境の準備<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h2>
+<h2><span class="section-number">1.1. </span>演習環境の準備<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
 <p>この演習で用意されているサンプルプログラムや課題（の一部）は，リダイレクトなど，Unix-likeな環境のコマンドラインでの実行を仮定している．したがって，個人のマシンで自習をするには，Unix-likeなFortranの開発環境を構築する必要がある．ある程度の知識がある人であれば，WindowsならWSL2(Windows Subsystem for Linux)，MacならHomebrewまたはMacPortsなどをインストールすることで使えるようになるだろう．VMWareやVirtualBoxなどを使って，仮想マシンとしてLinuxなどのOSをインストールして使うことも出来る．</p>
 <p>パソコン初心者で，これらの敷居が高いと感じる人は</p>
 <blockquote>
@@ -129,7 +127,7 @@
 <p>などと実行すればサンプルと解答が一括でダウンロードができる．（この場合はサンプルが <code class="docutils literal notranslate"><span class="pre">sample</span></code> というディレクトリに，解答が <code class="docutils literal notranslate"><span class="pre">answer</span></code> というディレクトリに格納される．）</p>
 </section>
 <section id="id6">
-<h2><span class="section-number">1.2. </span>プログラミングを学ぶ意義<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h2>
+<h2><span class="section-number">1.2. </span>プログラミングを学ぶ意義<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
 <p>いま</p>
 <div class="math notranslate nohighlight">
 \[x = \cos x\]</div>
@@ -138,7 +136,7 @@
 <p>さて，自分のやりたいことを計算機で実現するにはどのような手続を処理させるかをまず整理しなければならない．この手続のことをアルゴリズムと言う．例えば上の例で言えば，非線形方程式を数値的に解くための手法のことである．アルゴリズムが決まればそれをプログラミング言語で記述し，計算機に実行させることができる．本演習ではFortranというプログラミング言語の使い方を覚えることが主たる目的であるので，アルゴリズムについては詳しく説明しない．しかし，プログラミング言語の文法は世の中に数多ある言語で様々であるが，アルゴリズムは言語が何であろうと変わらないので，実際にはアルゴリズムの理解の方が重要であることを十分に認識しておいて欲しい．</p>
 </section>
 <section id="id7">
-<h2><span class="section-number">1.3. </span>プログラミング言語について<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h2>
+<h2><span class="section-number">1.3. </span>プログラミング言語について<a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
 <p>これから学ぶのは正確にはFortran 90/95と呼ばれる規格の言語である．90とか95というのは1990年とか1995年に規格が定められたという意味である．Fortran 90とFortran 95ではあまり違いが無いのでこのように記述することが多い．2000年前後まではFortran 77という規格が幅を効かせていたのだが，最近ではopen sourceのコンパイラ(後述)が普及したこともあって，今から勉強するならFortran 90/95が良い選択肢である．(より新しい規格としてFortran 2003や2008，さらには2018も存在し，その主な違いはオブジェクト指向プログラミングのサポートである．これは明らかに本演習の範囲を超えているので扱わないことにする．偏見ではあるがオブジェクト指向プログラミングをしたい人はそもそもFortranは選ばないだろう．) ただし太古の昔から脈々と受け継がれてきたプログラムなどは今でも古めかしいFortran 77のままで現役で使われている．そのようなプログラムに出会ってしまった時には諦めてFortran 77も勉強しよう．(実はそういうことは結構あるのだが，いくつかの違いさえ理解してしまえば，それほど難しいことでは無い．) 本演習では単にFortranと言った場合にはFortran 90/95を指している．</p>
 <p>ちなみにプログラミング言語というのは星の数ほどあり，よく知られたものだけでも C/C++，C#，Java，Javascript，Perl，Python，Ruby，Lispなどがある．正直に言えば今更Fortranを学ぶのは時代遅れである．多くの言語の文法がC言語に近くできているのに対してFortranは仲間外れの部類である．また，C言語を習得した人がFortranを習得するのは比較的容易いが，その逆は必ずしも真ではない．しかし一応フォローしておくとFortranにもメリットはあって，分野にも依るが時代遅れと言われながらもしぶとく今でも現役で使われ続けている言語であり，この傾向はまだしばらく続くであろう．また，Fortranは細かいことを考える必要があまり無い比較的簡単な言語でもあるので，初心者にはとっつきやすいと同時にプログラミングの専門家では無い科学者向きの言語であるとも言える．</p>
 <p>ただし基本的な考え方は他の言語でもあまり変わらないので，興味のある人はぜひ他の言語にも挑戦してもらいたい．おすすめは(少しとっつきにくいところはあるものの)比較的簡単な言語でありながら応用範囲の広いPythonである <a class="footnote-reference brackets" href="#id9" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> ．Pythonは <a class="reference external" href="https://amanotk.github.io/python-resume-public/">Python演習</a> で扱うが，これはFortran(に限らずプログラミング言語一般)の知識をある程度習得している人向けである．またC言語は教養として知っておくと非常に役に立つ．</p>
@@ -148,13 +146,15 @@
 <p>しかし，もし筆者が独断と偏見で学生に教育する言語を選択するのであればFortranは選ばないであろう．各研究分野の都合にも大きく依存するであろうが，私見ではレガシーコードの維持という観点以外では，学生にFortranを教える積極な理由が見いだせてないためである．実際に新規開発される欧米のHPCコードやライブラリではC++，特にいわゆるModern C++を採用している例が多く見受けられるようになっている（その理由を考え始めると長くなるのでここでは述べない）．しかし，最近のC++はFortranに比べると非常に難しく，一般の研究者向きの言語とは呼べないシロモノになってしまったのが悩ましいところである．ただし，多くの研究者にとってはPythonが使えるようになっていれば，他の言語が必要になっても比較的容易に対処ができるのではないだろうか（ちなみに最近のC++はPythonに近い書き方ができるようになってきている）．</p>
 </div>
 <hr class="docutils" />
-<aside class="footnote brackets" id="textbook" role="note">
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="textbook" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">1</a><span class="fn-bracket">]</span></span>
 <p>基礎的には本演習で扱う事項さえ理解してしまえば，分からないことは本で探すよりインターネットで探した方が早いので，自分で必要性を感じなければ教科書などは特に購入する必要は無い．更に言うと巷には古い(参考にしないほうが良い)Fortranの本があふれているので注意して欲しい．大抵はどこかの大学の年配の先生が書いた年季の入ったテキストを基に教科書としたものであるが，お世辞にも薦められないような本がごく最近にも出版されている．偏見たっぷりに言うと，サンプルプログラムが全部大文字で記述されているような本はかなりの確率でこの部類に入ると思って良い．</p>
 </aside>
-<aside class="footnote brackets" id="id9" role="note">
+<aside class="footnote brackets" id="id9" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">2</a><span class="fn-bracket">]</span></span>
 <p>実はPythonを使うとCやFortranの半分以下の行数でやりたいことが実現出来る場合が多く,最近の計算機能力を考えると大規模計算をするのでなければ実用上はほとんど Pythonで事足りてしまう．実際に世界的に科学や工学の多くの分野でPythonの導入が進んでいる．</p>
+</aside>
 </aside>
 </section>
 </section>

@@ -1,24 +1,24 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="ja" >
+<html class="writer-html5" lang="ja" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>4. 制御構造 &mdash; Fortran演習(地球惑星物理学演習)</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5349f25f" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=9f0ccda0" />
+
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/translations.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f6f563f6"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=4755f45a"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
@@ -43,14 +43,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Fortran演習
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Fortran演習
           </a>
-              <div class="version">
-                2024
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -102,7 +103,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active"><span class="section-number">4. </span>制御構造</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -113,7 +114,7 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1><a class="toc-backref" href="#id27" role="doc-backlink"><span class="section-number">4. </span>制御構造</a><a class="headerlink" href="#id1" title="Permalink to this heading"></a></h1>
+<h1><a class="toc-backref" href="#id27" role="doc-backlink"><span class="section-number">4. </span>制御構造</a><a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
 <p>ここではプログラムの動作を制御するための文法について学ぼう．と言っても覚えなければいけないことは <code class="docutils literal notranslate"><span class="pre">if</span></code> による条件分岐，<code class="docutils literal notranslate"><span class="pre">do</span></code> による繰り返し，<code class="docutils literal notranslate"><span class="pre">select</span></code> による条件分岐のみである．<code class="docutils literal notranslate"><span class="pre">goto</span></code> という構文も存在するのだが，これはバグのもとになることから一般的には使わないほうが良いとされており，従ってここでも敢えて扱わない．</p>
 <div class="admonition seealso">
 <p class="admonition-title">参考</p>
@@ -139,10 +140,10 @@
 </ul>
 </nav>
 <section id="if">
-<h2><a class="toc-backref" href="#id28" role="doc-backlink"><span class="section-number">4.1. </span>条件分岐(if)</a><a class="headerlink" href="#if" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id28" role="doc-backlink"><span class="section-number">4.1. </span>条件分岐(if)</a><a class="headerlink" href="#if" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">if</span></code> による条件分岐は例えばユーザーの入力によって動作を変更する場合などに用いる．典型的な使い方は以下のようなものである．（これは閏年の判定例である．）</p>
 <div class="literal-block-wrapper docutils container" id="id14">
-<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap04_sample1_f90.html"><span class="doc">sample1.f90</span></a> 抜粋</span><a class="headerlink" href="#id14" title="このコードへのパーマリンク"></a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap04_sample1_f90.html"><span class="doc">sample1.f90</span></a> 抜粋</span><a class="headerlink" href="#id14" title="Link to this code"></a></div>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 4</span><span class="w">  </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">year</span>
 <span class="linenos"> 5</span>
 <span class="linenos"> 6</span><span class="w">  </span><span class="c">! 標準入力から整数を読み込む</span>
@@ -179,11 +180,11 @@
 <p>のように書くことも出来る．構文自体はそれほど難しくないので，ここで注意すべきは条件判定の部分だけであろう．以下の表に条件式に用いられることの多い演算子をまとめてある．なおFortran 77では <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> のような演算子(関係演算子と呼ばれる)は正式にはサポートされていなかった．このため古いコードには <code class="docutils literal notranslate"><span class="pre">.gt.</span></code> のような演算子を見かけることもあるかも知れないが，自分で新しくプログラムを作成する際にはこのような古い形式は使うべきではない．新しい形式は <code class="docutils literal notranslate"><span class="pre">/=</span></code> 以外のものについてはC言語を始めとする他の多くの言語と同じなのでこちらを用いることを強く推奨する．ちなみにC言語などでは <code class="docutils literal notranslate"><span class="pre">/=</span></code> ではなく <code class="docutils literal notranslate"><span class="pre">!=</span></code> が用いられる．</p>
 <p>特に実数の値が等しいかどうかを判定する際には注意が必要である．すなわち，実数に対しては <code class="docutils literal notranslate"><span class="pre">==</span></code> を使うことは出来ない．なぜなら2つの実数がほぼ等しいように見えても <code class="docutils literal notranslate"><span class="pre">==</span></code> による判定では全てのビットが厳密に等しくなければ真とは判定されないからである．従って，代わりに例えば差の絶対値 <code class="docutils literal notranslate"><span class="pre">abs(A-B)</span></code> が十分小さいかどうかで判定しなくてはならない <a class="footnote-reference brackets" href="#id13" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>．</p>
 <table class="docutils align-default" id="id15" style="width: 80%">
-<caption><span class="caption-text">条件演算子</span><a class="headerlink" href="#id15" title="このテーブルへのパーマリンク"></a></caption>
+<caption><span class="caption-text">条件演算子</span><a class="headerlink" href="#id15" title="Link to this table"></a></caption>
 <colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
+<col style="width: 33.3%" />
+<col style="width: 33.3%" />
+<col style="width: 33.3%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>演算子</p></th>
@@ -220,11 +221,11 @@
 </table>
 <p>また条件判定が複雑な時には以下の論理演算子を用いることになるだろう．</p>
 <table class="docutils align-default" id="id16" style="width: 80%">
-<caption><span class="caption-text">論理演算子</span><a class="headerlink" href="#id16" title="このテーブルへのパーマリンク"></a></caption>
+<caption><span class="caption-text">論理演算子</span><a class="headerlink" href="#id16" title="Link to this table"></a></caption>
 <colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
+<col style="width: 33.3%" />
+<col style="width: 33.3%" />
+<col style="width: 33.3%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>演算子</p></th>
@@ -277,7 +278,7 @@
 <p>ただし何重にも深く入れ子になった <code class="docutils literal notranslate"><span class="pre">if</span></code> 文の実行効率はあまり良くないので出来るかぎり浅い条件分岐に留めておいた方が良い．</p>
 <p>以下は <a class="reference internal" href="chap04_sample1_f90.html"><span class="doc">sample1.f90</span></a> の11-19行目の閏年の判定と全く同じことを入れ子にした <code class="docutils literal notranslate"><span class="pre">if</span></code> で実装した例である．</p>
 <div class="literal-block-wrapper docutils container" id="id17">
-<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap04_sample1_f90.html"><span class="doc">sample1.f90</span></a> 抜粋</span><a class="headerlink" href="#id17" title="このコードへのパーマリンク"></a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap04_sample1_f90.html"><span class="doc">sample1.f90</span></a> 抜粋</span><a class="headerlink" href="#id17" title="Link to this code"></a></div>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">21</span><span class="w">  </span><span class="c">! 同じことを入れ子のifで実現</span>
 <span class="linenos">22</span><span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="nb">mod</span><span class="p">(</span><span class="n">year</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
 <span class="linenos">23</span><span class="k">    if</span><span class="p">(</span><span class="nb">mod</span><span class="p">(</span><span class="n">year</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
@@ -297,12 +298,12 @@
 </div>
 </section>
 <section id="do">
-<h2><a class="toc-backref" href="#id29" role="doc-backlink"><span class="section-number">4.2. </span>反復処理(do)</a><a class="headerlink" href="#do" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id29" role="doc-backlink"><span class="section-number">4.2. </span>反復処理(do)</a><a class="headerlink" href="#do" title="Link to this heading"></a></h2>
 <section id="c4-do">
-<span id="id4"></span><h3><span class="section-number">4.2.1. </span>決まった回数の繰り返し(do)<a class="headerlink" href="#c4-do" title="Permalink to this heading"></a></h3>
+<span id="id4"></span><h3><span class="section-number">4.2.1. </span>決まった回数の繰り返し(do)<a class="headerlink" href="#c4-do" title="Link to this heading"></a></h3>
 <p>決まった繰り返しの処理をするために用いるのが <code class="docutils literal notranslate"><span class="pre">do</span></code> (従ってこの反復処理は <code class="docutils literal notranslate"><span class="pre">do</span></code> ループと呼ばれる)である．これも使い方は至ってシンプルである．</p>
 <div class="literal-block-wrapper docutils container" id="id18">
-<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap04_sample2_f90.html"><span class="doc">sample2.f90</span></a> 抜粋</span><a class="headerlink" href="#id18" title="このコードへのパーマリンク"></a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap04_sample2_f90.html"><span class="doc">sample2.f90</span></a> 抜粋</span><a class="headerlink" href="#id18" title="Link to this code"></a></div>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">10</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;--- Do loop #1 ---&#39;</span>
 <span class="linenos">11</span><span class="w">  </span><span class="nb">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
 <span class="linenos">12</span><span class="w">  </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span>
@@ -321,7 +322,7 @@
 <p>のような形で書くことになる．上の例では整数型変数 <code class="docutils literal notranslate"><span class="pre">i</span></code> は <code class="docutils literal notranslate"><span class="pre">do</span></code> 変数と呼ばれ，<code class="docutils literal notranslate"><span class="pre">do</span></code> ループの中で <code class="docutils literal notranslate"><span class="pre">i</span></code> の値が <code class="docutils literal notranslate"><span class="pre">lower</span></code> から <code class="docutils literal notranslate"><span class="pre">upper</span></code> まで <code class="docutils literal notranslate"><span class="pre">stride</span></code> ずつ変化する．<code class="docutils literal notranslate"><span class="pre">stride</span></code> は省略することも可能であり，その場合は <code class="docutils literal notranslate"><span class="pre">1</span></code> と解釈される．また <code class="docutils literal notranslate"><span class="pre">stride</span></code> は負の値であっても良い(当然この時は <code class="docutils literal notranslate"><span class="pre">lower</span> <span class="pre">&gt;</span> <span class="pre">upper</span></code> でなければループ内の処理は実行されない)．通常 <code class="docutils literal notranslate"><span class="pre">do</span></code> 変数は整数型でなければならないが，実数型などでもコンパイル出来てしまう環境もあり，そのような場合は思わぬバグの原因となってしまう．間違いを未然に防ぐためにも <code class="docutils literal notranslate"><span class="pre">do</span></code> 変数には整数型を用いること．</p>
 <p>例えば次は先ほどの例の和を求める処理を1つおきに実行する．</p>
 <div class="literal-block-wrapper docutils container" id="id19">
-<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap04_sample2_f90.html"><span class="doc">sample2.f90</span></a> 抜粋</span><a class="headerlink" href="#id19" title="このコードへのパーマリンク"></a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap04_sample2_f90.html"><span class="doc">sample2.f90</span></a> 抜粋</span><a class="headerlink" href="#id19" title="Link to this code"></a></div>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">18</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;--- Do loop #2 ---&#39;</span>
 <span class="linenos">19</span><span class="w">  </span><span class="nb">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
 <span class="linenos">20</span><span class="w">  </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
@@ -333,7 +334,7 @@
 </div>
 <p>また <code class="docutils literal notranslate"><span class="pre">if</span></code> 文の場合と同様に <code class="docutils literal notranslate"><span class="pre">do</span></code> ループに関しても以下のように入れ子(多重ループ)にすることが出来る．以下は2重ループの例である．</p>
 <div class="literal-block-wrapper docutils container" id="id20">
-<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap04_sample2_f90.html"><span class="doc">sample2.f90</span></a> 抜粋</span><a class="headerlink" href="#id20" title="このコードへのパーマリンク"></a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap04_sample2_f90.html"><span class="doc">sample2.f90</span></a> 抜粋</span><a class="headerlink" href="#id20" title="Link to this code"></a></div>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">34</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;--- Do loop #4 ---&#39;</span>
 <span class="linenos">35</span><span class="w">  </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span>
 <span class="linenos">36</span><span class="w">    </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span>
@@ -358,7 +359,7 @@
 </div>
 </section>
 <section id="do-while">
-<h3><span class="section-number">4.2.2. </span>条件を指定した繰り返し(do while)<a class="headerlink" href="#do-while" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">4.2.2. </span>条件を指定した繰り返し(do while)<a class="headerlink" href="#do-while" title="Link to this heading"></a></h3>
 <p>繰り返しの処理には基本的に先ほどの <code class="docutils literal notranslate"><span class="pre">do</span></code> ループを用いれば良いのだが，これを少し違った形式で行う <code class="docutils literal notranslate"><span class="pre">do</span> <span class="pre">while</span></code> なる構文も用意されている．これは</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">do while</span><span class="p">(</span><span class="w"> </span><span class="n">conditional</span><span class="w"> </span><span class="p">)</span>
 <span class="linenos">2</span><span class="w">  </span><span class="c">! 繰り返し処理</span>
@@ -388,7 +389,7 @@
 </div>
 <p>などのように非常にスッキリと記述できる．この例では <code class="docutils literal notranslate"><span class="pre">abs(x)</span></code> の値が <span class="math notranslate nohighlight">\(10^{-8}\)</span> 以下になるまで反復を続ける．例えば，以下は逐次計算によって平方根を求める計算である．</p>
 <div class="literal-block-wrapper docutils container" id="id21">
-<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap04_sample3_f90.html"><span class="doc">sample3.f90</span></a> 抜粋</span><a class="headerlink" href="#id21" title="このコードへのパーマリンク"></a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap04_sample3_f90.html"><span class="doc">sample3.f90</span></a> 抜粋</span><a class="headerlink" href="#id21" title="Link to this code"></a></div>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">20</span><span class="w">  </span><span class="c">!</span>
 <span class="linenos">21</span><span class="w">  </span><span class="c">! 逐次近似によって平方根を求める</span>
 <span class="linenos">22</span><span class="w">  </span><span class="c">!</span>
@@ -401,10 +402,10 @@
 </div>
 </section>
 <section id="exitcycle">
-<h3><span class="section-number">4.2.3. </span>複雑な処理(exitとcycle)<a class="headerlink" href="#exitcycle" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">4.2.3. </span>複雑な処理(exitとcycle)<a class="headerlink" href="#exitcycle" title="Link to this heading"></a></h3>
 <p>単純な繰り返しだけでなく，より柔軟な制御を行うには <code class="docutils literal notranslate"><span class="pre">exit</span></code> や <code class="docutils literal notranslate"><span class="pre">cycle</span></code> を用いる．<code class="docutils literal notranslate"><span class="pre">exit</span></code> では <code class="docutils literal notranslate"><span class="pre">do</span></code> ループの中から途中で抜けることが出来，<code class="docutils literal notranslate"><span class="pre">cycle</span></code> ではループ内のそれ以降の処理を行わずにループ先頭に戻ることがで出来る．これらを用いると意図的に作った無限ループから条件を満たした時だけ抜け出すようなプログラムも簡単に作ることができる．例えば以下の例を見てみよう．</p>
 <div class="literal-block-wrapper docutils container" id="id22">
-<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap04_sample4_f90.html"><span class="doc">sample4.f90</span></a> 抜粋</span><a class="headerlink" href="#id22" title="このコードへのパーマリンク"></a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap04_sample4_f90.html"><span class="doc">sample4.f90</span></a> 抜粋</span><a class="headerlink" href="#id22" title="Link to this code"></a></div>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 9</span><span class="w">  </span><span class="c">! 無限ループ</span>
 <span class="linenos">10</span><span class="w">  </span><span class="k">do while</span><span class="p">(.</span><span class="n">true</span><span class="p">.)</span>
 <span class="linenos">11</span><span class="w">    </span><span class="c">! 標準入力から読み込む</span>
@@ -458,11 +459,11 @@
 </section>
 </section>
 <section id="select">
-<h2><a class="toc-backref" href="#id30" role="doc-backlink"><span class="section-number">4.3. </span>条件分岐(select)</a><a class="headerlink" href="#select" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id30" role="doc-backlink"><span class="section-number">4.3. </span>条件分岐(select)</a><a class="headerlink" href="#select" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">select</span></code> 構文を用いても条件分岐を行うことも出来る．基本的には <code class="docutils literal notranslate"><span class="pre">if</span></code> を用いれば同じことは実現出来るのだが，場合によっては <code class="docutils literal notranslate"><span class="pre">select</span></code> を用いた方がよりスッキリとした形で書ける事があるので知っておいて損はない．典型的には整数や文字列の値で場合分けを制御する際に用いる(実数型には用いることは出来ない)．</p>
 <p>一番基本的な使い方は以下のようなものである．</p>
 <div class="literal-block-wrapper docutils container" id="id23">
-<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap04_sample5_f90.html"><span class="doc">sample5.f90</span></a> 抜粋</span><a class="headerlink" href="#id23" title="このコードへのパーマリンク"></a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap04_sample5_f90.html"><span class="doc">sample5.f90</span></a> 抜粋</span><a class="headerlink" href="#id23" title="Link to this code"></a></div>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 7</span><span class="w">  </span><span class="c">! 整数を読み込む</span>
 <span class="linenos"> 8</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;Input integer : &#39;</span>
 <span class="linenos"> 9</span><span class="w">  </span><span class="k">read</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">i</span>
@@ -486,7 +487,7 @@
 <p><code class="docutils literal notranslate"><span class="pre">case</span></code> で入力された整数の値に応じて処理を切り替えている．また，どの <code class="docutils literal notranslate"><span class="pre">case</span></code> の条件にも当てはまらない場合の処理は <code class="docutils literal notranslate"><span class="pre">case</span> <span class="pre">deafault</span></code> によって行えば良い．</p>
 <p>この例を見ただけでは <code class="docutils literal notranslate"><span class="pre">if-elif-else</span></code> を使うのとほとんど変わらないように感じられるので，もう少し <code class="docutils literal notranslate"><span class="pre">select</span></code> の利点が生かされた例として以下を見てみよう．ここでは入力された整数 <code class="docutils literal notranslate"><span class="pre">score</span></code> (テストの点だと思おう)の値によって場合分けをしている．</p>
 <div class="literal-block-wrapper docutils container" id="id24">
-<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap04_sample5_f90.html"><span class="doc">sample5.f90</span></a> 抜粋</span><a class="headerlink" href="#id24" title="このコードへのパーマリンク"></a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap04_sample5_f90.html"><span class="doc">sample5.f90</span></a> 抜粋</span><a class="headerlink" href="#id24" title="Link to this code"></a></div>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">26</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;&#39;</span>
 <span class="linenos">27</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;Input score : &#39;</span>
 <span class="linenos">28</span><span class="w">  </span><span class="k">read</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">score</span>
@@ -511,7 +512,7 @@
 <p>この例のように <code class="docutils literal notranslate"><span class="pre">case</span></code> では単一の値だけでなく値の範囲を指定することができる．範囲の指定は <code class="docutils literal notranslate"><span class="pre">case(下限:上限)</span></code> のような形ですれば良い．</p>
 <p>さらに</p>
 <div class="literal-block-wrapper docutils container" id="id25">
-<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap04_sample5_f90.html"><span class="doc">sample5.f90</span></a> 抜粋</span><a class="headerlink" href="#id25" title="このコードへのパーマリンク"></a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap04_sample5_f90.html"><span class="doc">sample5.f90</span></a> 抜粋</span><a class="headerlink" href="#id25" title="Link to this code"></a></div>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">47</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;Input language : &#39;</span>
 <span class="linenos">48</span><span class="w">  </span><span class="k">read</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">c</span>
 <span class="linenos">49</span>
@@ -534,7 +535,7 @@
 <p>は文字列の値によって分岐する例である．このように1つの <code class="docutils literal notranslate"><span class="pre">case</span></code> で複数の値をカンマで区切って指定することも出来る．</p>
 </section>
 <section id="id5">
-<h2><a class="toc-backref" href="#id31" role="doc-backlink"><span class="section-number">4.4. </span>第4章 演習課題</a><a class="headerlink" href="#id5" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id31" role="doc-backlink"><span class="section-number">4.4. </span>第4章 演習課題</a><a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
 <div class="admonition seealso">
 <p class="admonition-title">参考</p>
 <ul class="simple">
@@ -547,11 +548,11 @@
 </ul>
 </div>
 <section id="id6">
-<h3><span class="section-number">4.4.1. </span>課題1<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">4.4.1. </span>課題1<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
 <p>サンプルプログラムをコンパイル・実行して動作を確認せよ．さらに，適宜修正してその実行結果を確認せよ．</p>
 </section>
 <section id="id7">
-<h3><span class="section-number">4.4.2. </span>課題2<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">4.4.2. </span>課題2<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
 <p>標準入力から2つの整数( <span class="math notranslate nohighlight">\(n, m\)</span> とする)を読み込み，その大小を比較するプログラムを作成せよ．例えば <span class="math notranslate nohighlight">\(n = 1, m = 2\)</span> なら以下のように <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">is</span> <span class="pre">smaller</span> <span class="pre">than</span> <span class="pre">2</span></code> と表示する．</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>$./a.out
 <span class="linenos">2</span><span class="w"> </span>Input<span class="w"> </span>two<span class="w"> </span>integers:
@@ -563,7 +564,7 @@
 <p>同様に <span class="math notranslate nohighlight">\(n = 2, m = 1\)</span> なら <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">is</span> <span class="pre">larger</span> <span class="pre">than</span> <span class="pre">1</span></code>, <span class="math notranslate nohighlight">\(n = m = 1\)</span> なら <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">is</span> <span class="pre">equal</span> <span class="pre">to</span> <span class="pre">1</span></code> などと表示するものとする．</p>
 </section>
 <section id="id8">
-<h3><span class="section-number">4.4.3. </span>課題3<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">4.4.3. </span>課題3<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
 <p><span class="math notranslate nohighlight">\(0^\circ\)</span> から <span class="math notranslate nohighlight">\(180^\circ\)</span> まで <span class="math notranslate nohighlight">\(10^\circ\)</span> 刻みの <span class="math notranslate nohighlight">\(\theta\)</span> および， <span class="math notranslate nohighlight">\(\sin \theta\)</span>, <span class="math notranslate nohighlight">\(\cos \theta\)</span> を標準出力に表示するプログラムを作成せよ(以下のように各 <span class="math notranslate nohighlight">\(\theta\)</span> の値ごとに改行せよ)．またこの結果をリダイレクトを用いてファイルとして記録し，gnuplotを用いてこのファイルのデータとgnuplotに組み込みの三角関数を共に図示せよ．なお三角関数の引数はラジアン単位であることに注意せよ．</p>
 <p>実行結果は例えば以下のようなものになる．</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>$<span class="w"> </span>./a.out
@@ -586,7 +587,7 @@
 <p>などとして結果を確認すればよい．</p>
 </section>
 <section id="id9">
-<h3><span class="section-number">4.4.4. </span>課題4<a class="headerlink" href="#id9" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">4.4.4. </span>課題4<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
 <p>標準入力から与えられた2つの整数<span class="math notranslate nohighlight">\(m, n \ge 1\)</span> の最大公約数を表示するプログラムを作成せよ．最大公約数を求めるには以下のアルゴリズム(ユークリッドの互除法)を用いるとよい．</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -609,7 +610,7 @@
 <p>とすれば <code class="docutils literal notranslate"><span class="pre">m</span></code> を <code class="docutils literal notranslate"><span class="pre">n</span></code> で割った余りを <code class="docutils literal notranslate"><span class="pre">r</span></code> に代入することが出来る．</p>
 </section>
 <section id="id10">
-<h3><span class="section-number">4.4.5. </span>課題5<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">4.4.5. </span>課題5<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
 <p>以下の級数計算により自然対数の底 <span class="math notranslate nohighlight">\(e\)</span> の近似値を求めるプログラムを作成せよ．</p>
 <div class="math notranslate nohighlight">
 \[e \simeq \sum_{n=0}^{N} \frac{1}{n !}. \quad (0! = 1に注意せよ)\]</div>
@@ -635,7 +636,7 @@
 </div>
 </section>
 <section id="id11">
-<h3><span class="section-number">4.4.6. </span>課題6<a class="headerlink" href="#id11" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">4.4.6. </span>課題6<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
 <p>標準入力から文字列(英単語)を読み込み，それが <code class="docutils literal notranslate"><span class="pre">food</span></code>, <code class="docutils literal notranslate"><span class="pre">animal</span></code>, <code class="docutils literal notranslate"><span class="pre">vehicle</span></code>, <code class="docutils literal notranslate"><span class="pre">others</span></code> (それ以外)のいずれかを判定し，表示するプログラムを作成せよ．ただし <code class="docutils literal notranslate"><span class="pre">exit</span></code> が入力されるまでプログラムは終了せず何度でも入力を受け付けるものとする．なお以下の英単語リスト以外のものは <code class="docutils literal notranslate"><span class="pre">others</span></code> と判断してよい:
 <code class="docutils literal notranslate"><span class="pre">apple</span></code>, <code class="docutils literal notranslate"><span class="pre">orange</span></code>, <code class="docutils literal notranslate"><span class="pre">banana</span></code>, <code class="docutils literal notranslate"><span class="pre">dog</span></code>, <code class="docutils literal notranslate"><span class="pre">cat</span></code>, <code class="docutils literal notranslate"><span class="pre">lion</span></code>, <code class="docutils literal notranslate"><span class="pre">car</span></code>,
 <code class="docutils literal notranslate"><span class="pre">airplane</span></code>, <code class="docutils literal notranslate"><span class="pre">motorcycle</span></code> ．</p>
@@ -659,22 +660,25 @@
 </div>
 </section>
 <section id="id12">
-<h3><span class="section-number">4.4.7. </span>課題7<a class="headerlink" href="#id12" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">4.4.7. </span>課題7<a class="headerlink" href="#id12" title="Link to this heading"></a></h3>
 <p>以下の漸化式</p>
 <div class="math notranslate nohighlight">
 \[p_{n+1} = p_n + \alpha p_n (1 - p_n)\]</div>
 <p>で定義される数列 <span class="math notranslate nohighlight">\(p_n (n=0, 1, \ldots)\)</span> を考える．初期値 <span class="math notranslate nohighlight">\(p_0 = 0.9\)</span> から数列を生成し，そのうち <span class="math notranslate nohighlight">\(n=100, \ldots, 200\)</span> までを <span class="math notranslate nohighlight">\(\alpha\)</span> の関数として <span class="math notranslate nohighlight">\(1 &lt; \alpha &lt; 3\)</span> の範囲でプロットせよ． <span class="math notranslate nohighlight">\(\alpha\)</span> を <span class="math notranslate nohighlight">\(10^{-3}\)</span> 刻みで変えながらプロットすると結果は以下のようになるだろう．</p>
 <figure class="align-center" id="id26">
-<a class="reference internal image-reference" href="_images/logistic.png"><img alt="_images/logistic.png" src="_images/logistic.png" style="width: 480.0px; height: 360.0px;" /></a>
+<a class="reference internal image-reference" href="_images/logistic.png"><img alt="_images/logistic.png" src="_images/logistic.png" style="width: 480.0px; height: 360.0px;" />
+</a>
 <figcaption>
-<p><span class="caption-text">ロジスティック写像</span><a class="headerlink" href="#id26" title="この画像へのパーマリンク"></a></p>
+<p><span class="caption-text">ロジスティック写像</span><a class="headerlink" href="#id26" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>このような写像はロジスティック写像と呼ばれ，非常に単純な式ながら一定の条件を満たすときにはカオスを生み出すことが知られている．</p>
 <hr class="docutils" />
-<aside class="footnote brackets" id="id13" role="note">
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id13" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">1</a><span class="fn-bracket">]</span></span>
 <p><code class="docutils literal notranslate"><span class="pre">abs(x)</span></code> は <code class="docutils literal notranslate"><span class="pre">x</span></code> の絶対値を返す組込み関数である．</p>
+</aside>
 </aside>
 </section>
 </section>

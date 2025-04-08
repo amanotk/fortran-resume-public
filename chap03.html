@@ -1,24 +1,24 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="ja" >
+<html class="writer-html5" lang="ja" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>3. 変数・データ型・基本的な計算 &mdash; Fortran演習(地球惑星物理学演習)</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5349f25f" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=9f0ccda0" />
+
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/translations.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f6f563f6"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=4755f45a"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
@@ -43,14 +43,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Fortran演習
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Fortran演習
           </a>
-              <div class="version">
-                2024
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -100,7 +101,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active"><span class="section-number">3. </span>変数・データ型・基本的な計算</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -111,7 +112,7 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1><a class="toc-backref" href="#id40" role="doc-backlink"><span class="section-number">3. </span>変数・データ型・基本的な計算</a><a class="headerlink" href="#id1" title="Permalink to this heading"></a></h1>
+<h1><a class="toc-backref" href="#id40" role="doc-backlink"><span class="section-number">3. </span>変数・データ型・基本的な計算</a><a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
 <p>ここでは計算機でデータを扱うには必須となる変数とデータ型および基本的な計算の仕方について学ぼう．</p>
 <div class="admonition seealso">
 <p class="admonition-title">参考</p>
@@ -143,20 +144,20 @@
 </ul>
 </nav>
 <section id="id3">
-<h2><a class="toc-backref" href="#id41" role="doc-backlink"><span class="section-number">3.1. </span>変数</a><a class="headerlink" href="#id3" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id41" role="doc-backlink"><span class="section-number">3.1. </span>変数</a><a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
 <p>プログラム中で何らかの値を保持するためには変数を用いる必要がある．例えば一度には出来ないような複雑な計算の途中結果などは変数に格納することになる．要するにデータの入れ物である．変数を用いるにあたって,</p>
 <ul class="simple">
 <li><p>変数は宣言しなければならないこと</p></li>
 <li><p>変数には型があること</p></li>
 </ul>
 <p>という2点に注意しなければならない．変数の宣言は</p>
-<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>データ型 :: 変数名
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="err">データ型</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="err">変数名</span>
 </pre></div>
 </div>
 <p>のような形で行う．(ここで&quot; <code class="docutils literal notranslate"><span class="pre">::</span></code> &quot;は必須ではないが，宣言と同時に初期化をしたり，後で出てくる変数の属性を指定する時には必要となる．従ってこの演習では変数宣言時には常に&quot; <code class="docutils literal notranslate"><span class="pre">::</span></code> &quot;を用いることにする．)</p>
 <p>例えば以下のコードは <code class="docutils literal notranslate"><span class="pre">n</span></code> と <code class="docutils literal notranslate"><span class="pre">x</span></code> という2つの変数を宣言し，それぞれ値を代入している．ここで <code class="docutils literal notranslate"><span class="pre">=</span></code> は数学で用いる記号とは異なり，<code class="docutils literal notranslate"><span class="pre">=</span></code> の左側の変数に右側の値を代入する(データを格納する)という意味である．</p>
 <div class="literal-block-wrapper docutils container" id="id25">
-<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap03_sample1_f90.html"><span class="doc">sample1.f90</span></a></span><a class="headerlink" href="#id25" title="このコードへのパーマリンク"></a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap03_sample1_f90.html"><span class="doc">sample1.f90</span></a></span><a class="headerlink" href="#id25" title="Link to this code"></a></div>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">program </span><span class="n">sample</span>
 <span class="linenos"> 2</span><span class="w">  </span><span class="k">implicit none</span><span class="w"> </span><span class="c">! 暗黙の型宣言禁止</span>
 <span class="linenos"> 3</span>
@@ -185,14 +186,14 @@
 <p>が暗黙の型宣言の禁止を意味する．このときは全ての変数を明示的に宣言しなければコンパイルエラーとなる．以降，本演習では必ず <code class="docutils literal notranslate"><span class="pre">implicit</span> <span class="pre">none</span></code> を使うこととする <a class="footnote-reference brackets" href="#id21" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>．なおgfortranでは <code class="docutils literal notranslate"><span class="pre">-fimplicit-none</span></code> というオプションを用いると，デフォルトで <code class="docutils literal notranslate"><span class="pre">implicit</span> <span class="pre">none</span></code> を指定した状態にすることが出来る．</p>
 </section>
 <section id="id5">
-<h2><a class="toc-backref" href="#id42" role="doc-backlink"><span class="section-number">3.2. </span>データ型と精度</a><a class="headerlink" href="#id5" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id42" role="doc-backlink"><span class="section-number">3.2. </span>データ型と精度</a><a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
 <p>標準のFortranで用いることができるデータ型として以下のようなものがある．</p>
 <table class="docutils align-default" id="id26">
-<caption><span class="caption-text">使用可能なデータ型</span><a class="headerlink" href="#id26" title="このテーブルへのパーマリンク"></a></caption>
+<caption><span class="caption-text">使用可能なデータ型</span><a class="headerlink" href="#id26" title="Link to this table"></a></caption>
 <colgroup>
-<col style="width: 13%" />
-<col style="width: 13%" />
-<col style="width: 75%" />
+<col style="width: 12.5%" />
+<col style="width: 12.5%" />
+<col style="width: 75.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>型名</p></th>
@@ -226,7 +227,7 @@
 <p>注意しなければならないのは，特に実数型の <code class="docutils literal notranslate"><span class="pre">real</span></code> (従って当然 <code class="docutils literal notranslate"><span class="pre">complex</span></code> も)はあくまで実数の近似表現であるという点である．例えば <code class="docutils literal notranslate"><span class="pre">1.0</span></code> を代入したとしても，これが厳密に1を表しているわけではない．これは10進数を2進数で無理やり表そうとするために起きる問題であり，回避する手段は無い．そうは言っても多くの場合において十分な精度で実数を近似できているので問題が無いのである．これとは対照に，整数型 <code class="docutils literal notranslate"><span class="pre">integer</span></code> は厳密に整数を表現することが出来る．</p>
 <p>しかしながら整数型にしても実数型にしても，どんな値でも表現できるというわけではない．具体的には各データ型に何バイト <a class="footnote-reference brackets" href="#id22" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> の領域を持たせるかによって表現できる値の範囲が変わる．Fortranでは確保する領域の大きさを変数の宣言時に明示的に指定することが出来る．すなわち</p>
 <div class="literal-block-wrapper docutils container" id="id27">
-<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap03_sample2_f90.html"><span class="doc">sample2.f90</span></a> 抜粋</span><a class="headerlink" href="#id27" title="このコードへのパーマリンク"></a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap03_sample2_f90.html"><span class="doc">sample2.f90</span></a> 抜粋</span><a class="headerlink" href="#id27" title="Link to this code"></a></div>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 4</span><span class="w">  </span><span class="c">! 整数型</span>
 <span class="linenos"> 5</span><span class="w">  </span><span class="kt">integer</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i4</span><span class="w">     </span><span class="c">! 4バイト（32ビット）の整数型</span>
 <span class="linenos"> 6</span><span class="w">  </span><span class="kt">integer</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i8</span><span class="w">     </span><span class="c">! 8バイト（64ビット）の整数型</span>
@@ -244,12 +245,12 @@
 </div>
 <p>のように型名の後に <code class="docutils literal notranslate"><span class="pre">()</span></code> でデータ領域の大きさを指定できる．これを <code class="docutils literal notranslate"><span class="pre">kind</span></code> パラメータと呼ぶ．なお，<code class="docutils literal notranslate"><span class="pre">real(8)</span></code> のように <code class="docutils literal notranslate"><span class="pre">kind=</span></code> は省略して構わない．( <code class="docutils literal notranslate"><span class="pre">kind</span></code> パラメータを用いると移植性の高いプログラムを作成することが出来るが，これは本演習の守備範囲を超えるので以降では <code class="docutils literal notranslate"><span class="pre">kind=</span></code> は省略することとする．) ちなみに特に何も指定しない場合は <code class="docutils literal notranslate"><span class="pre">integer</span></code> が4バイト，<code class="docutils literal notranslate"><span class="pre">real</span></code> が4バイトとなっていることが多いが，これは処理系依存である．処理系依存などの細かいことはとりあえず忘れると，結果的に表すことのできる値の範囲は以下のようになっていると思えばよい．(実数の値の範囲については <a class="reference internal" href="chap08.html#c8-float-precision"><span class="std std-ref">実数の精度と誤差</span></a> でもう少し細かく説明する．)</p>
 <table class="docutils align-default" id="id28">
-<caption><span class="caption-text">各データ型の表現できる値の範囲</span><a class="headerlink" href="#id28" title="このテーブルへのパーマリンク"></a></caption>
+<caption><span class="caption-text">各データ型の表現できる値の範囲</span><a class="headerlink" href="#id28" title="Link to this table"></a></caption>
 <colgroup>
-<col style="width: 22%" />
-<col style="width: 11%" />
-<col style="width: 11%" />
-<col style="width: 56%" />
+<col style="width: 22.2%" />
+<col style="width: 11.1%" />
+<col style="width: 11.1%" />
+<col style="width: 55.6%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>型名</p></th>
@@ -289,7 +290,7 @@
 <p>なお <code class="docutils literal notranslate"><span class="pre">real(4)</span></code> を単精度，<code class="docutils literal notranslate"><span class="pre">real(8)</span></code> を倍精度，<code class="docutils literal notranslate"><span class="pre">real(16)</span></code> を4倍精度と呼ぶのが通例である．特に実数型については，単精度の約7桁という精度では心もとないので現在では倍精度を用いるのが一般的である．本演習では特段の理由がない限り <code class="docutils literal notranslate"><span class="pre">real(8)</span></code>，<code class="docutils literal notranslate"><span class="pre">complex(8)</span></code> を用いる( <code class="docutils literal notranslate"><span class="pre">complex(8)</span></code> では実部と虚部がそれぞれ <code class="docutils literal notranslate"><span class="pre">real(8)</span></code> となる)．</p>
 <p>なお複素数型 <code class="docutils literal notranslate"><span class="pre">complex</span></code> の定数は <code class="docutils literal notranslate"><span class="pre">(実部，虚部)</span></code> という形で表す．例えば</p>
 <div class="literal-block-wrapper docutils container" id="id29">
-<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap03_sample2_f90.html"><span class="doc">sample2.f90</span></a> 抜粋</span><a class="headerlink" href="#id29" title="このコードへのパーマリンク"></a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap03_sample2_f90.html"><span class="doc">sample2.f90</span></a> 抜粋</span><a class="headerlink" href="#id29" title="Link to this code"></a></div>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">43</span><span class="w">  </span><span class="n">c4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mf">2.71</span><span class="p">,</span><span class="w"> </span><span class="mf">0.99</span><span class="p">)</span>
 <span class="linenos">44</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">c4</span>
 </pre></div>
@@ -298,7 +299,7 @@
 <p>は倍精度複素数型の変数 <code class="docutils literal notranslate"><span class="pre">c4</span></code> に <span class="math notranslate nohighlight">\(2.71 + 0.99 i\)</span> を代入している．</p>
 <p>また文字型( <code class="docutils literal notranslate"><span class="pre">character</span></code>)では通常 <code class="docutils literal notranslate"><span class="pre">kind=1</span></code> なので <a class="footnote-reference brackets" href="#id23" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>，<code class="docutils literal notranslate"><span class="pre">kind</span></code> パラメータを指定する必要がない．<code class="docutils literal notranslate"><span class="pre">character</span></code> で複数の文字(文字列)を表すには以下のように <code class="docutils literal notranslate"><span class="pre">len=</span></code> で文字数を指定することになる．(この場合は <code class="docutils literal notranslate"><span class="pre">len=</span></code> を省略することも出来る．)</p>
 <div class="literal-block-wrapper docutils container" id="id30">
-<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap03_sample2_f90.html"><span class="doc">sample2.f90</span></a> 抜粋</span><a class="headerlink" href="#id30" title="このコードへのパーマリンク"></a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap03_sample2_f90.html"><span class="doc">sample2.f90</span></a> 抜粋</span><a class="headerlink" href="#id30" title="Link to this code"></a></div>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">20</span><span class="w">  </span><span class="c">! 文字列型は少し特殊で通常はkind=1である。文字列の長さはlen=で指定する</span>
 <span class="linenos">21</span><span class="w">  </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">256</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="nb">char</span><span class="w">   </span><span class="c">! 256文字分</span>
 </pre></div>
@@ -307,11 +308,11 @@
 <p>論理型( <code class="docutils literal notranslate"><span class="pre">logical</span></code>)は真偽値を表すために用いるので，通常は <code class="docutils literal notranslate"><span class="pre">kind</span></code> パラメータは指定する必要は無い．</p>
 </section>
 <section id="id8">
-<h2><a class="toc-backref" href="#id43" role="doc-backlink"><span class="section-number">3.3. </span>定数</a><a class="headerlink" href="#id8" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id43" role="doc-backlink"><span class="section-number">3.3. </span>定数</a><a class="headerlink" href="#id8" title="Link to this heading"></a></h2>
 <p>数値などを直接ソースコードに記述するとそれは定数(定数リテラル)と呼ばれる．例えば <code class="docutils literal notranslate"><span class="pre">99</span></code> や <code class="docutils literal notranslate"><span class="pre">1.5</span></code> などのような表現である．定数に <code class="docutils literal notranslate"><span class="pre">_4</span></code> や <code class="docutils literal notranslate"><span class="pre">_8</span></code> などを付けることによって <code class="docutils literal notranslate"><span class="pre">kind</span></code> パラメータを指定することも出来る．先ほどの例では <code class="docutils literal notranslate"><span class="pre">99_4</span></code>，<code class="docutils literal notranslate"><span class="pre">1.5_8</span></code> などのように書くことが出来る．論理型の定数は <code class="docutils literal notranslate"><span class="pre">.true.</span></code> もしくは <code class="docutils literal notranslate"><span class="pre">.false.</span></code> のどちらかである．文字型の定数は既に最初のサンプルで見たように <code class="docutils literal notranslate"><span class="pre">'</span></code> (シングルクォート)もしくは <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> (ダブルクォート)で囲まれた文字列，例えば <code class="docutils literal notranslate"><span class="pre">'earth'</span></code> や <code class="docutils literal notranslate"><span class="pre">&quot;physics&quot;</span></code> などである．</p>
 <p>また <code class="docutils literal notranslate"><span class="pre">parameter</span></code> 属性を用いて変数のように名前付きの定数を使用することも可能である．</p>
 <div class="literal-block-wrapper docutils container" id="id31">
-<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap03_sample3_f90.html"><span class="doc">sample3.f90</span></a> 抜粋</span><a class="headerlink" href="#id31" title="このコードへのパーマリンク"></a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap03_sample3_f90.html"><span class="doc">sample3.f90</span></a> 抜粋</span><a class="headerlink" href="#id31" title="Link to this code"></a></div>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 4</span><span class="w">  </span><span class="kt">integer</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8_4</span>
 <span class="linenos"> 5</span><span class="w">  </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">pi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.141592653589_8</span>
 <span class="linenos"> 6</span><span class="w">  </span><span class="kt">integer</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">m</span>
@@ -331,10 +332,10 @@
 <p>また実数で例えば <span class="math notranslate nohighlight">\(3 \times 10^{10}\)</span> を表現するには上の例の12行目のように <code class="docutils literal notranslate"><span class="pre">3.0e+10_8</span></code> のように書けば良い．ちなみにFortran 77の慣習では倍精度での定数値を表現するのに <code class="docutils literal notranslate"><span class="pre">e</span></code> の代わりに <code class="docutils literal notranslate"><span class="pre">d</span></code> を使っていたので，これを <code class="docutils literal notranslate"><span class="pre">3.0d+10</span></code> と書くと倍精度，すなわち <code class="docutils literal notranslate"><span class="pre">3.0e+10_8</span></code> と同じ意味となる．このように実数の定数に <code class="docutils literal notranslate"><span class="pre">e</span></code> や <code class="docutils literal notranslate"><span class="pre">d</span></code> を用いる表現は今でもかなり頻繁に見られるので知っておくと良い．</p>
 </section>
 <section id="id9">
-<h2><a class="toc-backref" href="#id44" role="doc-backlink"><span class="section-number">3.4. </span>標準入力から変数への値の代入</a><a class="headerlink" href="#id9" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id44" role="doc-backlink"><span class="section-number">3.4. </span>標準入力から変数への値の代入</a><a class="headerlink" href="#id9" title="Link to this heading"></a></h2>
 <p>以下のように変数 <code class="docutils literal notranslate"><span class="pre">x</span></code> を宣言しておいて <code class="docutils literal notranslate"><span class="pre">read(*,*)</span></code> を用いると，プログラムの実行時にキーボードからの入力された内容を読み込み，変数(この場合は <code class="docutils literal notranslate"><span class="pre">x</span></code>)に代入することが出来る．</p>
 <div class="literal-block-wrapper docutils container" id="id32">
-<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap03_sample4_f90.html"><span class="doc">sample4.f90</span></a></span><a class="headerlink" href="#id32" title="このコードへのパーマリンク"></a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap03_sample4_f90.html"><span class="doc">sample4.f90</span></a></span><a class="headerlink" href="#id32" title="Link to this code"></a></div>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">program </span><span class="n">sample</span>
 <span class="linenos"> 2</span><span class="w">  </span><span class="k">implicit none</span>
 <span class="linenos"> 3</span>
@@ -363,10 +364,10 @@
 <p>ここで3行目と4行目はキーボードで入力した値である．この <code class="docutils literal notranslate"><span class="pre">read(*,*)</span></code> の意味は後述するのでここでは再びオマジナイであると思っておこう．なお，<code class="docutils literal notranslate"><span class="pre">read(*,*)</span></code> の場合も，<code class="docutils literal notranslate"><span class="pre">write(*,*)</span></code> と同様に複数の変数を並べて指定することができる．</p>
 </section>
 <section id="id10">
-<h2><a class="toc-backref" href="#id45" role="doc-backlink"><span class="section-number">3.5. </span>算術演算</a><a class="headerlink" href="#id10" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id45" role="doc-backlink"><span class="section-number">3.5. </span>算術演算</a><a class="headerlink" href="#id10" title="Link to this heading"></a></h2>
 <p>Fortranでは最も基本的な演算である四則演算およびべき乗を以下のように計算することが出来る．当然変数同士での演算も可能である．</p>
 <div class="literal-block-wrapper docutils container" id="id33">
-<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap03_sample5_f90.html"><span class="doc">sample5.f90</span></a> 抜粋</span><a class="headerlink" href="#id33" title="このコードへのパーマリンク"></a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap03_sample5_f90.html"><span class="doc">sample5.f90</span></a> 抜粋</span><a class="headerlink" href="#id33" title="Link to this code"></a></div>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">13</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;addition       =&gt; &#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">3.0</span><span class="w">  </span><span class="c">! 足し算</span>
 <span class="linenos">14</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;subtraction    =&gt; &#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">5.0</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">3.0</span><span class="w">  </span><span class="c">! 引き算</span>
 <span class="linenos">15</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;multiplication =&gt; &#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">3.0</span><span class="w">  </span><span class="c">! 掛け算</span>
@@ -377,7 +378,7 @@
 </div>
 <p>演算実行の優先順位は <em>べき乗 &gt; 乗算 = 除算 &gt; 加算，減算</em> の順となっているが，分かりにくい場合は，以下の例のように可読性のために <code class="docutils literal notranslate"><span class="pre">()</span></code> で明示的に演算の順番が分かるようにしておくと良い．</p>
 <div class="literal-block-wrapper docutils container" id="id34">
-<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap03_sample5_f90.html"><span class="doc">sample5.f90</span></a> 抜粋</span><a class="headerlink" href="#id34" title="このコードへのパーマリンク"></a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap03_sample5_f90.html"><span class="doc">sample5.f90</span></a> 抜粋</span><a class="headerlink" href="#id34" title="Link to this code"></a></div>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">23</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;w/  parenthesis =&gt; &#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mf">2.0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">3.0</span><span class="p">)</span><span class="w">   </span><span class="c">! 括弧あり =&gt; 10.0</span>
 <span class="linenos">24</span><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;w/o parenthesis =&gt; &#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">2.0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">3.0</span><span class="w">     </span><span class="c">! 括弧なし =&gt; 7.0</span>
 </pre></div>
@@ -385,10 +386,10 @@
 </div>
 </section>
 <section id="id11">
-<h2><a class="toc-backref" href="#id46" role="doc-backlink"><span class="section-number">3.6. </span>代入</a><a class="headerlink" href="#id11" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id46" role="doc-backlink"><span class="section-number">3.6. </span>代入</a><a class="headerlink" href="#id11" title="Link to this heading"></a></h2>
 <p>既に学んだように <code class="docutils literal notranslate"><span class="pre">=</span></code> 演算子を用いて左辺で指定する変数に値を代入することが出来る．この時，右辺には任意の演算を含んでも良い．例えば</p>
 <div class="literal-block-wrapper docutils container" id="id35">
-<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap03_sample5_f90.html"><span class="doc">sample5.f90</span></a> 抜粋</span><a class="headerlink" href="#id35" title="このコードへのパーマリンク"></a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap03_sample5_f90.html"><span class="doc">sample5.f90</span></a> 抜粋</span><a class="headerlink" href="#id35" title="Link to this code"></a></div>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">29</span><span class="w">  </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.0</span><span class="w">         </span><span class="c">! 変数aに代入</span>
 <span class="linenos">30</span><span class="w">  </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">3.0</span><span class="w">     </span><span class="c">! 足し算（a + 3.0）の結果をbに代入</span>
 <span class="linenos">31</span><span class="w">  </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1.0</span><span class="w">     </span><span class="c">! 引き算 (a - 1.0) の結果をcに代入</span>
@@ -400,10 +401,10 @@
 <p>のようにすればよい．</p>
 </section>
 <section id="id12">
-<h2><a class="toc-backref" href="#id47" role="doc-backlink"><span class="section-number">3.7. </span>組込み関数</a><a class="headerlink" href="#id12" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id47" role="doc-backlink"><span class="section-number">3.7. </span>組込み関数</a><a class="headerlink" href="#id12" title="Link to this heading"></a></h2>
 <p>Fortranには標準で使える関数が多く用意されており，組込み関数と呼ばれる．関数というと数学の関数を思い浮かべるかもしれないが，必ずしも数学関数ばかりではない．関数というのは単に入力値を受け取り何らかの値を返す機能(function)のことである．例えば数学では <span class="math notranslate nohighlight">\(f(x) = \sin(x)\)</span> と書いた時には <span class="math notranslate nohighlight">\(x\)</span> という入力に対して <span class="math notranslate nohighlight">\(\sin(x)\)</span> という値を返すことを意味する．Fortranでも入力値 <code class="docutils literal notranslate"><span class="pre">x</span></code> 対して <code class="docutils literal notranslate"><span class="pre">sin(x)</span></code> とすることで関数値を計算することが出来る．なお関数に渡すパラメータ(ここでは <code class="docutils literal notranslate"><span class="pre">x</span></code>)のことを <em>引数</em> と呼び，関数が返す値のことを <em>返値</em> と呼ぶ．</p>
 <div class="literal-block-wrapper docutils container" id="id36">
-<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap03_sample5_f90.html"><span class="doc">sample5.f90</span></a> 抜粋</span><a class="headerlink" href="#id36" title="このコードへのパーマリンク"></a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap03_sample5_f90.html"><span class="doc">sample5.f90</span></a> 抜粋</span><a class="headerlink" href="#id36" title="Link to this code"></a></div>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">41</span><span class="w">  </span><span class="c">!</span>
 <span class="linenos">42</span><span class="w">  </span><span class="c">! 標準入力から値を読み込み変数xに代入</span>
 <span class="linenos">43</span><span class="w">  </span><span class="c">!</span>
@@ -431,11 +432,11 @@
 <p>この他にも様々な関数が用意されているので，必要に応じて調べて欲しい <a class="footnote-reference brackets" href="#id24" id="id13" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>．なお，自分で独自の関数を定義して用いる方法は後に学ぶことになる．</p>
 </section>
 <section id="id14">
-<h2><a class="toc-backref" href="#id48" role="doc-backlink"><span class="section-number">3.8. </span>型変換</a><a class="headerlink" href="#id14" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id48" role="doc-backlink"><span class="section-number">3.8. </span>型変換</a><a class="headerlink" href="#id14" title="Link to this heading"></a></h2>
 <p>異なる型同士の演算を行う場合や，代入する際に左辺と右辺で型が異なる場合には <strong>より一般的な型へと変換された後に演算や代入が実行される</strong>．この機能は便利なようで時に注意が必要な場合がある．</p>
 <p>例えば以下の例を考えよう．</p>
 <div class="literal-block-wrapper docutils container" id="id37">
-<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap03_sample6_f90.html"><span class="doc">sample6.f90</span></a> 抜粋</span><a class="headerlink" href="#id37" title="このコードへのパーマリンク"></a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap03_sample6_f90.html"><span class="doc">sample6.f90</span></a> 抜粋</span><a class="headerlink" href="#id37" title="Link to this code"></a></div>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">17</span><span class="w">  </span><span class="c">! 以下の代入文は意図した通りに動かない</span>
 <span class="linenos">18</span><span class="w">  </span><span class="c">! 右辺は整数同士の演算なので0となり, それが代入時に実数型に変換される</span>
 <span class="linenos">19</span><span class="w">  </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3</span>
@@ -445,10 +446,10 @@
 <p><code class="docutils literal notranslate"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">0.666...</span></code> となるかと思いきや，実際には <code class="docutils literal notranslate"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">0</span></code> となってしまう．これは左辺が整数同士の演算として行われるため( <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">/</span> <span class="pre">3</span></code> は <code class="docutils literal notranslate"><span class="pre">0</span></code>)である．これを回避するには例えば <code class="docutils literal notranslate"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">2.0_8</span> <span class="pre">/</span> <span class="pre">3</span></code> や <code class="docutils literal notranslate"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">2</span> <span class="pre">/</span> <span class="pre">3.0_8</span></code> とすれば良い．どちらかが実数であればもう一方も実数に変換されてから計算されるので，演算結果も実数となる．ただし <code class="docutils literal notranslate"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">2.0</span> <span class="pre">/</span> <span class="pre">3</span></code> のようにしてしまうと <code class="docutils literal notranslate"><span class="pre">z</span></code> は倍精度( <code class="docutils literal notranslate"><span class="pre">real(8)</span></code>)で宣言されているにも関わらず <code class="docutils literal notranslate"><span class="pre">2.0</span></code> は単精度の実数( <code class="docutils literal notranslate"><span class="pre">real(4)</span></code>)と解釈され，右辺の計算結果も単精度実数となる．これが左辺の <code class="docutils literal notranslate"><span class="pre">z</span></code> に代入される時に倍精度( <code class="docutils literal notranslate"><span class="pre">real(8)</span></code>)に変換されるため，結果的には精度が失われることになってしまう．</p>
 <p>以下の組込み関数を用いて明示的に型変換を行うことも出来る．例えば，<code class="docutils literal notranslate"><span class="pre">real(1,</span> <span class="pre">kind=8)</span></code> によって整数 <code class="docutils literal notranslate"><span class="pre">1</span></code> が倍精度実数の <code class="docutils literal notranslate"><span class="pre">1.0_8</span></code> に変換される．ここでも2番目の引数を指定し忘れると精度が失われるので注意が必要である．ただし <code class="docutils literal notranslate"><span class="pre">kind=</span></code> は省略可能であり，<code class="docutils literal notranslate"><span class="pre">real(1,</span> <span class="pre">8)</span></code> とするだけでも良い．</p>
 <table class="docutils align-default" id="id38">
-<caption><span class="caption-text">型変換を行う組み込み関数</span><a class="headerlink" href="#id38" title="このテーブルへのパーマリンク"></a></caption>
+<caption><span class="caption-text">型変換を行う組み込み関数</span><a class="headerlink" href="#id38" title="Link to this table"></a></caption>
 <colgroup>
-<col style="width: 33%" />
-<col style="width: 67%" />
+<col style="width: 33.3%" />
+<col style="width: 66.7%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>関数名</p></th>
@@ -481,7 +482,7 @@
 </table>
 <p>型変換関数を使った最も丁寧なやり方は</p>
 <div class="literal-block-wrapper docutils container" id="id39">
-<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap03_sample6_f90.html"><span class="doc">sample6.f90</span></a> 抜粋</span><a class="headerlink" href="#id39" title="このコードへのパーマリンク"></a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap03_sample6_f90.html"><span class="doc">sample6.f90</span></a> 抜粋</span><a class="headerlink" href="#id39" title="Link to this code"></a></div>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">30</span><span class="w">  </span><span class="c">! 明示的に変換する</span>
 <span class="linenos">31</span><span class="w">  </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nb">kind</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="nb">kind</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
 </pre></div>
@@ -490,7 +491,7 @@
 <p>のようなものである．</p>
 </section>
 <section id="id15">
-<h2><a class="toc-backref" href="#id49" role="doc-backlink"><span class="section-number">3.9. </span>第3章 演習課題</a><a class="headerlink" href="#id15" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id49" role="doc-backlink"><span class="section-number">3.9. </span>第3章 演習課題</a><a class="headerlink" href="#id15" title="Link to this heading"></a></h2>
 <div class="admonition seealso">
 <p class="admonition-title">参考</p>
 <ul class="simple">
@@ -501,11 +502,11 @@
 </ul>
 </div>
 <section id="id16">
-<h3><span class="section-number">3.9.1. </span>課題1<a class="headerlink" href="#id16" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">3.9.1. </span>課題1<a class="headerlink" href="#id16" title="Link to this heading"></a></h3>
 <p>サンプルプログラムをコンパイル・実行して動作を確認せよ．さらに，適宜修正してその実行結果を確認せよ．</p>
 </section>
 <section id="id17">
-<h3><span class="section-number">3.9.2. </span>課題2<a class="headerlink" href="#id17" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">3.9.2. </span>課題2<a class="headerlink" href="#id17" title="Link to this heading"></a></h3>
 <p>標準入力から三角形の底辺 <span class="math notranslate nohighlight">\(l\)</span> と高さ <span class="math notranslate nohighlight">\(h\)</span> を読み込み，三角形の面積を表示するプログラムを作成せよ．</p>
 <p>例えば以下のような実行結果が得られる．</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>$<span class="w"> </span>./a.out
@@ -516,7 +517,7 @@
 </div>
 </section>
 <section id="id18">
-<h3><span class="section-number">3.9.3. </span>課題3<a class="headerlink" href="#id18" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">3.9.3. </span>課題3<a class="headerlink" href="#id18" title="Link to this heading"></a></h3>
 <p>単精度実数型 <code class="docutils literal notranslate"><span class="pre">real(4)</span></code> および倍精度実数型 <code class="docutils literal notranslate"><span class="pre">real(8)</span></code> で，それぞれ <span class="math notranslate nohighlight">\(\tan(\pi/4) = 1\)</span> なる関係式を用いて <span class="math notranslate nohighlight">\(\pi\)</span> の値を求めて表示し，その値の精度を確認せよ．(組み込み関数 <code class="docutils literal notranslate"><span class="pre">atan(x)</span></code> が数学の <span class="math notranslate nohighlight">\(\tan^{-1}(x)\)</span> に対応している．)
 なお，精度を確認する際には4倍精度実数型 <code class="docutils literal notranslate"><span class="pre">real(16)</span></code> でも同様に <span class="math notranslate nohighlight">\(\pi\)</span> の値を求め，これを正確な値(真値)とみなし，それとの相対誤差を確認すること．
 ただし相対誤差は <span class="math notranslate nohighlight">\(|1 - 近似値/真値|\)</span> で評価せよ．(絶対値を返す関数 <code class="docutils literal notranslate"><span class="pre">abs(x)</span></code> を用いよ．)</p>
@@ -531,7 +532,7 @@
 （ここで，例えば <code class="docutils literal notranslate"><span class="pre">2.7E-0008</span></code> は <span class="math notranslate nohighlight">\(2.7 \times 10^{-8}\)</span> を表すのでとても小さい値であることを意味する．）</p>
 </section>
 <section id="id19">
-<h3><span class="section-number">3.9.4. </span>課題4<a class="headerlink" href="#id19" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">3.9.4. </span>課題4<a class="headerlink" href="#id19" title="Link to this heading"></a></h3>
 <p>標準入力から複素数 <span class="math notranslate nohighlight">\(z (= x + i y)\)</span> を読み込み， <span class="math notranslate nohighlight">\(e^z\)</span> および <span class="math notranslate nohighlight">\(e^x \left( \cos y + i \sin y \right)\)</span> をそれぞれ計算し，その結果が等しいことを確認せよ
 (組み込み関数 <code class="docutils literal notranslate"><span class="pre">exp(x)</span></code> および <code class="docutils literal notranslate"><span class="pre">sin(x)</span></code> ， <code class="docutils literal notranslate"><span class="pre">cos(x)</span></code> を用いればよい)．ただし倍精度の複素数型 <code class="docutils literal notranslate"><span class="pre">complex(8)</span></code> を用いること．なお複素数 <code class="docutils literal notranslate"><span class="pre">z</span></code> の実部は <code class="docutils literal notranslate"><span class="pre">real(z)</span></code> ，虚部は <code class="docutils literal notranslate"><span class="pre">aimag(z)</span></code> という組み込み関数でそれぞれ求めることができる．またキーボードから複素数の入力は <code class="docutils literal notranslate"><span class="pre">(実部,</span> <span class="pre">虚部)</span></code> という形式となることに注意せよ．例えば <span class="math notranslate nohighlight">\(z = 1 + i\)</span> について <span class="math notranslate nohighlight">\(\exp(z)\)</span> を求めるには</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>$<span class="w"> </span>./a.out
@@ -543,7 +544,7 @@
 <p>のように <code class="docutils literal notranslate"><span class="pre">(実部,</span> <span class="pre">虚部)</span></code> という形式で入力すれば良い．</p>
 </section>
 <section id="id20">
-<h3><span class="section-number">3.9.5. </span>課題5<a class="headerlink" href="#id20" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">3.9.5. </span>課題5<a class="headerlink" href="#id20" title="Link to this heading"></a></h3>
 <p>キーボード入力で与えられた実数 <span class="math notranslate nohighlight">\(x\)</span> について，テイラー展開の公式</p>
 <div class="math notranslate nohighlight">
 \[\sin x = x - \frac{x^3}{3 !} + \frac{x^5}{5 !} - \frac{x^7}{7 !} \cdots\]</div>
@@ -559,21 +560,23 @@
 </pre></div>
 </div>
 <hr class="docutils" />
-<aside class="footnote brackets" id="id21" role="note">
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id21" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">1</a><span class="fn-bracket">]</span></span>
 <p>巷で流行りのスクリプト言語では変数宣言は要らないじゃないかという人もいるかもしれないが，それは動的型付き言語だからそれでも良いのである．CやFortranのような静的型付き言語ではその限りではない．</p>
 </aside>
-<aside class="footnote brackets" id="id22" role="note">
+<aside class="footnote brackets" id="id22" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">2</a><span class="fn-bracket">]</span></span>
 <p>通常1バイトは8ビット，すなわち1バイトあたり2 <sup>8</sup> = 256通りの表現が可能である．</p>
 </aside>
-<aside class="footnote brackets" id="id23" role="note">
+<aside class="footnote brackets" id="id23" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">3</a><span class="fn-bracket">]</span></span>
 <p>ASCIIコードは1バイトで足りるため．</p>
 </aside>
-<aside class="footnote brackets" id="id24" role="note">
+<aside class="footnote brackets" id="id24" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id13">4</a><span class="fn-bracket">]</span></span>
 <p>例えば 高木(2009，3章)．</p>
+</aside>
 </aside>
 </section>
 </section>

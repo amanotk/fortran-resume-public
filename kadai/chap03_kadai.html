@@ -1,24 +1,24 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="ja" >
+<html class="writer-html5" lang="ja" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>第3章 演習課題 &mdash; Fortran演習(地球惑星物理学演習)</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=5349f25f" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=9f0ccda0" />
+
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/translations.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=f6f563f6"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=4755f45a"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
@@ -41,14 +41,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> Fortran演習
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Fortran演習
           </a>
-              <div class="version">
-                2024
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -80,7 +81,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">第3章 演習課題</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -91,7 +92,7 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1>第3章 演習課題<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h1>
+<h1>第3章 演習課題<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
 <div class="admonition seealso">
 <p class="admonition-title">参考</p>
 <ul class="simple">
@@ -102,11 +103,11 @@
 </ul>
 </div>
 <section id="id2">
-<h2>課題1<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
+<h2>課題1<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
 <p>サンプルプログラムをコンパイル・実行して動作を確認せよ．さらに，適宜修正してその実行結果を確認せよ．</p>
 </section>
 <section id="id3">
-<h2>課題2<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h2>
+<h2>課題2<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
 <p>標準入力から三角形の底辺 <span class="math notranslate nohighlight">\(l\)</span> と高さ <span class="math notranslate nohighlight">\(h\)</span> を読み込み，三角形の面積を表示するプログラムを作成せよ．</p>
 <p>例えば以下のような実行結果が得られる．</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./a.out
@@ -117,7 +118,7 @@
 </div>
 </section>
 <section id="id4">
-<h2>課題3<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h2>
+<h2>課題3<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
 <p>単精度実数型 <code class="docutils literal notranslate"><span class="pre">real(4)</span></code> および倍精度実数型 <code class="docutils literal notranslate"><span class="pre">real(8)</span></code> で，それぞれ <span class="math notranslate nohighlight">\(\tan(\pi/4) = 1\)</span> なる関係式を用いて <span class="math notranslate nohighlight">\(\pi\)</span> の値を求めて表示し，その値の精度を確認せよ．(組み込み関数 <code class="docutils literal notranslate"><span class="pre">atan(x)</span></code> が数学の <span class="math notranslate nohighlight">\(\tan^{-1}(x)\)</span> に対応している．)
 なお，精度を確認する際には4倍精度実数型 <code class="docutils literal notranslate"><span class="pre">real(16)</span></code> でも同様に <span class="math notranslate nohighlight">\(\pi\)</span> の値を求め，これを正確な値(真値)とみなし，それとの相対誤差を確認すること．
 ただし相対誤差は <span class="math notranslate nohighlight">\(|1 - 近似値/真値|\)</span> で評価せよ．(絶対値を返す関数 <code class="docutils literal notranslate"><span class="pre">abs(x)</span></code> を用いよ．)</p>
@@ -132,7 +133,7 @@
 （ここで，例えば <code class="docutils literal notranslate"><span class="pre">2.7E-0008</span></code> は <span class="math notranslate nohighlight">\(2.7 \times 10^{-8}\)</span> を表すのでとても小さい値であることを意味する．）</p>
 </section>
 <section id="id5">
-<h2>課題4<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h2>
+<h2>課題4<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
 <p>標準入力から複素数 <span class="math notranslate nohighlight">\(z (= x + i y)\)</span> を読み込み， <span class="math notranslate nohighlight">\(e^z\)</span> および <span class="math notranslate nohighlight">\(e^x \left( \cos y + i \sin y \right)\)</span> をそれぞれ計算し，その結果が等しいことを確認せよ
 (組み込み関数 <code class="docutils literal notranslate"><span class="pre">exp(x)</span></code> および <code class="docutils literal notranslate"><span class="pre">sin(x)</span></code> ， <code class="docutils literal notranslate"><span class="pre">cos(x)</span></code> を用いればよい)．ただし倍精度の複素数型 <code class="docutils literal notranslate"><span class="pre">complex(8)</span></code> を用いること．なお複素数 <code class="docutils literal notranslate"><span class="pre">z</span></code> の実部は <code class="docutils literal notranslate"><span class="pre">real(z)</span></code> ，虚部は <code class="docutils literal notranslate"><span class="pre">aimag(z)</span></code> という組み込み関数でそれぞれ求めることができる．またキーボードから複素数の入力は <code class="docutils literal notranslate"><span class="pre">(実部,</span> <span class="pre">虚部)</span></code> という形式となることに注意せよ．例えば <span class="math notranslate nohighlight">\(z = 1 + i\)</span> について <span class="math notranslate nohighlight">\(\exp(z)\)</span> を求めるには</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./a.out
@@ -144,7 +145,7 @@
 <p>のように <code class="docutils literal notranslate"><span class="pre">(実部,</span> <span class="pre">虚部)</span></code> という形式で入力すれば良い．</p>
 </section>
 <section id="id6">
-<h2>課題5<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h2>
+<h2>課題5<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
 <p>キーボード入力で与えられた実数 <span class="math notranslate nohighlight">\(x\)</span> について，テイラー展開の公式</p>
 <div class="math notranslate nohighlight">
 \[\sin x = x - \frac{x^3}{3 !} + \frac{x^5}{5 !} - \frac{x^7}{7 !} \cdots\]</div>

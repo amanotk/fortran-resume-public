@@ -1,24 +1,24 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="ja" >
+<html class="writer-html5" lang="ja" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>7. 関数とサブルーチン &mdash; Fortran演習(地球惑星物理学演習)</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5349f25f" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=9f0ccda0" />
+
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/translations.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f6f563f6"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=4755f45a"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
@@ -43,14 +43,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Fortran演習
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Fortran演習
           </a>
-              <div class="version">
-                2024
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -115,7 +116,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active"><span class="section-number">7. </span>関数とサブルーチン</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -126,7 +127,7 @@
            <div itemprop="articleBody">
              
   <section id="c7">
-<span id="id1"></span><h1><a class="toc-backref" href="#id55" role="doc-backlink"><span class="section-number">7. </span>関数とサブルーチン</a><a class="headerlink" href="#c7" title="Permalink to this heading"></a></h1>
+<span id="id1"></span><h1><a class="toc-backref" href="#id55" role="doc-backlink"><span class="section-number">7. </span>関数とサブルーチン</a><a class="headerlink" href="#c7" title="Link to this heading"></a></h1>
 <p>これまでのプログラムは全ての処理が <code class="docutils literal notranslate"><span class="pre">program</span></code> から <code class="docutils literal notranslate"><span class="pre">end</span> <span class="pre">program</span></code> で囲まれた部分に記述されていたことと思う.これをメインプログラムと呼ぶ．これに対して，メインプログラム以外にもまとまった処理を1つのプログラム単位として記述しておくことが出来る．これをサブプログラムと呼んでいる．サブプログラムを用いることで同じ処理を何度も書かずに済むようになるため，プログラムを簡潔に記述することが出来る(従って無用な間違いも減らすことが出来る)．</p>
 <p>なおFortranでのサブプログラムには関数( <code class="docutils literal notranslate"><span class="pre">function</span></code> )とサブルーチン( <code class="docutils literal notranslate"><span class="pre">subroutine</span></code> )の2種類が有る <a class="footnote-reference brackets" href="#id34" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>．
 関数は値を返すのに対してサブルーチンは値を返さないという違いが有るが，どちらも同じようなものである．
@@ -162,7 +163,7 @@
 </ul>
 </nav>
 <section id="id4">
-<h2><a class="toc-backref" href="#id56" role="doc-backlink"><span class="section-number">7.1. </span>概要</a><a class="headerlink" href="#id4" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id56" role="doc-backlink"><span class="section-number">7.1. </span>概要</a><a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
 <p>関数やサブルーチンなどのサブプログラムはひとまとまりの処理を実行する独立なプログラムと考えることが出来る．例えば，3次方程式 <span class="math notranslate nohighlight">\(a x^3 + b x ^2 + c x + d = 0\)</span> の数値解を与えられた初期値からなんらかの反復法を用いて求める処理を考えよう <a class="footnote-reference brackets" href="#id35" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>．</p>
 <p>ここで係数 <span class="math notranslate nohighlight">\(a, b, c, d\)</span> の値が何であっても行う処理は基本的に同じであろう．では2つの異なる係数の組に対して数値解を知りたい場合はどうすれば良いだろうか? 同じ処理なのだからコピー＆ペーストして係数の値だけ書き換えるというのも一つの案である．しかし，100個の異なる係数の組に対する解を知りたい場合にはどうすれば良いだろうか?
 100回コピー＆ペーストするというのは得策とは言えない．このような場合には与えられた係数の組に対して処理を実行し，結果を返す <strong>関数</strong> が定義されていれば，それを100回呼び出すだけである．
@@ -171,24 +172,26 @@
 従って，規模の大きなプログラムを開発する際には，機能を出来る限り分割した小さな関数やサブルーチン群を実装し，それらを利用して最終的に所望の機能を実装する戦略の方が圧倒的にバグが入りにくいし，またあったとしても修正が容易になる．プログラムを作成する際には関数やサブルーチンにまとめられるような処理が無いか常に注意しておくべきである．</p>
 <p>次図は関数とサブルーチンの概念図である．いずれもひとまとまりの処理を実行するものであり，何らかの入力を受け取り，出力を返すことが出来る．(もちろん入力や出力は無くても良い.) ひとたび正しく実装してしまえば，利用者(呼び出し側)はサブプログラムの内部の実装を気にする必要は無く，ブラックボックスとして用いることが出来る．(<span class="math notranslate nohighlight">\(\cos x\)</span> の値を内部でどのように計算するのか意識しながら用いることは無いのと同じである.) このため，利用者はその他の処理の実装に集中することが可能になるのである．</p>
 <figure class="align-center" id="id41">
-<a class="reference internal image-reference" href="_images/blackbox.png"><img alt="関数とサブルーチンの概念図．" src="_images/blackbox.png" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="_images/blackbox.png"><img alt="関数とサブルーチンの概念図．" src="_images/blackbox.png" style="width: 600px;" />
+</a>
 <figcaption>
-<p><span class="caption-text">関数とサブルーチンの概念図．</span><a class="headerlink" href="#id41" title="この画像へのパーマリンク"></a></p>
+<p><span class="caption-text">関数とサブルーチンの概念図．</span><a class="headerlink" href="#id41" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>サブプログラムはメインプログラムとは独立したプログラムなので，メインプログラムとは他の場所に定義して呼び出すことになる．以下の図はメインプログラムで全ての処理を実行する場合と，サブプログラムを利用する場合の処理の流れを概念的に示している．サブプログラムを呼び出すと，その定義に記述されている処理を実行し，終了すると呼び出し元に処理が返る仕組みになっている．もちろんサブプログラムが他のサブプログラムを呼び出すことも可能である．</p>
 <figure class="align-center" id="id42">
-<a class="reference internal image-reference" href="_images/subprogram.png"><img alt="サブプログラムを利用したプログラムの概念図．" src="_images/subprogram.png" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="_images/subprogram.png"><img alt="サブプログラムを利用したプログラムの概念図．" src="_images/subprogram.png" style="width: 600px;" />
+</a>
 <figcaption>
-<p><span class="caption-text">サブプログラムを利用したプログラムの概念図．</span><a class="headerlink" href="#id42" title="この画像へのパーマリンク"></a></p>
+<p><span class="caption-text">サブプログラムを利用したプログラムの概念図．</span><a class="headerlink" href="#id42" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="id7">
-<h2><a class="toc-backref" href="#id57" role="doc-backlink"><span class="section-number">7.2. </span>定義と呼び出し</a><a class="headerlink" href="#id7" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id57" role="doc-backlink"><span class="section-number">7.2. </span>定義と呼び出し</a><a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
 <p>まずはサブプログラムの定義の仕方と，その呼び出し方を学ぼう．</p>
 <section id="c7-def-procedure">
-<span id="id8"></span><h3><span class="section-number">7.2.1. </span>定義場所<a class="headerlink" href="#c7-def-procedure" title="Permalink to this heading"></a></h3>
+<span id="id8"></span><h3><span class="section-number">7.2.1. </span>定義場所<a class="headerlink" href="#c7-def-procedure" title="Link to this heading"></a></h3>
 <p>詳細は <a class="reference internal" href="#c7-intext-procedure"><span class="std std-ref">内部手続きと外部手続き †</span></a> に譲るが，基本的には関数やサブルーチンはメインプログラムの <code class="docutils literal notranslate"><span class="pre">stop</span></code> の後に <code class="docutils literal notranslate"><span class="pre">contains</span></code> を挿入し，そこから <code class="docutils literal notranslate"><span class="pre">end</span> <span class="pre">program</span></code> の間に定義すれば良い．</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">program </span><span class="n">sample</span>
 <span class="linenos"> 2</span><span class="w">  </span><span class="k">implicit none</span>
@@ -206,21 +209,21 @@
 <p>この方法で定義した関数やサブルーチンは特に準備せずにメインプログラムから呼出しが出来る．私見では，後に学ぶモジュールを使う場合(ソースファイルを複数に分割する場合)を除けば，このやり方が最も間違いを減らすことが出来る方法である．従って特に理由がない限りはこの方法で関数・サブルーチンを定義することを推奨する．</p>
 </section>
 <section id="id9">
-<h3><span class="section-number">7.2.2. </span>関数<a class="headerlink" href="#id9" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">7.2.2. </span>関数<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
 <p>関数とは何らかの値を返すサブプログラムであり,
 以下の様な形式で定義される．</p>
-<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>型 function 関数名(引数リスト)
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="err">型</span><span class="w"> </span><span class="k">function </span><span class="err">関数名</span><span class="p">(</span><span class="err">引数リスト</span><span class="p">)</span>
 <span class="linenos">2</span>
-<span class="linenos">3</span>  変数や引数の型宣言
+<span class="linenos">3</span><span class="w">  </span><span class="err">変数や引数の型宣言</span>
 <span class="linenos">4</span>
-<span class="linenos">5</span>  処理
+<span class="linenos">5</span><span class="w">  </span><span class="err">処理</span>
 <span class="linenos">6</span>
-<span class="linenos">7</span>end function 関数名
+<span class="linenos">7</span><span class="k">end function </span><span class="err">関数名</span>
 </pre></div>
 </div>
 <p>例えば以下は倍精度実数の2乗を返す関数の定義である．</p>
 <div class="literal-block-wrapper docutils container" id="id43">
-<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap07_sample1_f90.html"><span class="doc">sample1.f90</span></a> 抜粋</span><a class="headerlink" href="#id43" title="このコードへのパーマリンク"></a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap07_sample1_f90.html"><span class="doc">sample1.f90</span></a> 抜粋</span><a class="headerlink" href="#id43" title="Link to this code"></a></div>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">14</span><span class="w">  </span><span class="c">!</span>
 <span class="linenos">15</span><span class="w">  </span><span class="c">! 関数の宣言(1) : 関数名と同じ名前の変数に返値を代入する形式</span>
 <span class="linenos">16</span><span class="w">  </span><span class="c">!</span>
@@ -238,18 +241,18 @@
 <p>メインプログラムが <code class="docutils literal notranslate"><span class="pre">program</span></code> で始まり <code class="docutils literal notranslate"><span class="pre">end</span> <span class="pre">program</span></code> で終わるのと同様に，関数定義も <code class="docutils literal notranslate"><span class="pre">function</span></code> で始まり <code class="docutils literal notranslate"><span class="pre">end</span> <span class="pre">function</span></code> で終わる一つの独立したプログラム単位である．従って <code class="docutils literal notranslate"><span class="pre">implicit</span> <span class="pre">none</span></code> によって暗黙の型宣言を禁止し，使用する変数は明示的に宣言をする必要がある．メインプログラムとの大きな違いは，サブプログラムには引数(この場合は <code class="docutils literal notranslate"><span class="pre">x</span></code>)が入力として与えられることであり，引数についてもデータ型を宣言しなければならない．引数はカンマで区切って複数与えても良いし，それぞれが別のデータ型であっても構わない．
 なおサブプログラムの定義時の引数のことを仮引数と呼び，呼び出すときに実際に与えられる引数のことを実引数と呼ぶ．一方，返値は <strong>関数名と同じ名前の変数に値を代入する</strong> ことでそれが返値となる．返値のデータ型は1行目先頭の <code class="docutils literal notranslate"><span class="pre">real(8)</span></code> で指定される．<code class="docutils literal notranslate"><span class="pre">return</span></code> 文はサブプログラムからその呼び出し元へ制御を戻すことを意味しており，上のように他の処理が全て終わった後であれば省略しても構わない．処理の途中で <code class="docutils literal notranslate"><span class="pre">return</span></code> することも可能で，その場合にはそれ以降の処理は行われずに呼び出し元へと制御が戻される.例えば <code class="docutils literal notranslate"><span class="pre">if</span></code> 文で何らかの条件判定を行い，それ以降の処理を行う必要がないと判断した場合にはその時点で <code class="docutils literal notranslate"><span class="pre">return</span></code> によって関数から抜けることが出来る．</p>
 <p>なお関数宣言時に <code class="docutils literal notranslate"><span class="pre">function</span></code> の前に返値のデータ型を指定するのでは無く，以下の様に <code class="docutils literal notranslate"><span class="pre">result(変数名)</span></code> のような形で指定することも出来る．</p>
-<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>function 関数名(引数リスト) result(変数名)
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">function </span><span class="err">関数名</span><span class="p">(</span><span class="err">引数リスト</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="err">変数名</span><span class="p">)</span>
 <span class="linenos">2</span>
-<span class="linenos">3</span>  変数や引数の型宣言
+<span class="linenos">3</span><span class="w">  </span><span class="err">変数や引数の型宣言</span>
 <span class="linenos">4</span>
-<span class="linenos">5</span>  処理
+<span class="linenos">5</span><span class="w">  </span><span class="err">処理</span>
 <span class="linenos">6</span>
-<span class="linenos">7</span>end function 関数名
+<span class="linenos">7</span><span class="k">end function </span><span class="err">関数名</span>
 </pre></div>
 </div>
 <p>この場合は <code class="docutils literal notranslate"><span class="pre">result</span></code> で指定された変数に値を代入することで，それが関数の返値となる．従って，先ほどの <code class="docutils literal notranslate"><span class="pre">square</span></code> の定義は以下のように行うことも出来る．</p>
 <div class="literal-block-wrapper docutils container" id="id44">
-<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap07_sample1_f90.html"><span class="doc">sample1.f90</span></a> 抜粋</span><a class="headerlink" href="#id44" title="このコードへのパーマリンク"></a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap07_sample1_f90.html"><span class="doc">sample1.f90</span></a> 抜粋</span><a class="headerlink" href="#id44" title="Link to this code"></a></div>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">26</span><span class="w">  </span><span class="c">!</span>
 <span class="linenos">27</span><span class="w">  </span><span class="c">! 関数の宣言(2) : resultを使った形式</span>
 <span class="linenos">28</span><span class="w">  </span><span class="c">!</span>
@@ -277,19 +280,19 @@
 <p>のような呼出しはコンパイルエラーとなることに注意して欲しい．</p>
 </section>
 <section id="id10">
-<h3><span class="section-number">7.2.3. </span>サブルーチン<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">7.2.3. </span>サブルーチン<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
 <p>サブルーチンは関数と良く似ているが，値を返さないという違いがある．定義は以下の様な形式となる．</p>
-<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>subroutine サブルーチン名(引数リスト)
-<span class="linenos">2</span>  変数や引数の型宣言
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">subroutine </span><span class="err">サブルーチン名</span><span class="p">(</span><span class="err">引数リスト</span><span class="p">)</span>
+<span class="linenos">2</span><span class="w">  </span><span class="err">変数や引数の型宣言</span>
 <span class="linenos">3</span>
-<span class="linenos">4</span>  処理
+<span class="linenos">4</span><span class="w">  </span><span class="err">処理</span>
 <span class="linenos">5</span>
-<span class="linenos">6</span>end subroutine サブルーチン名
+<span class="linenos">6</span><span class="k">end subroutine </span><span class="err">サブルーチン名</span>
 </pre></div>
 </div>
 <p>例えば</p>
 <div class="literal-block-wrapper docutils container" id="id45">
-<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap07_sample2_f90.html"><span class="doc">sample2.f90</span></a> 抜粋</span><a class="headerlink" href="#id45" title="このコードへのパーマリンク"></a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap07_sample2_f90.html"><span class="doc">sample2.f90</span></a> 抜粋</span><a class="headerlink" href="#id45" title="Link to this code"></a></div>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">10</span><span class="w">  </span><span class="c">!</span>
 <span class="linenos">11</span><span class="w">  </span><span class="c">! サブルーチンの宣言</span>
 <span class="linenos">12</span><span class="w">  </span><span class="c">!</span>
@@ -313,11 +316,11 @@
 </section>
 </section>
 <section id="id11">
-<h2><a class="toc-backref" href="#id58" role="doc-backlink"><span class="section-number">7.3. </span>変数のスコープ</a><a class="headerlink" href="#id11" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id58" role="doc-backlink"><span class="section-number">7.3. </span>変数のスコープ</a><a class="headerlink" href="#id11" title="Link to this heading"></a></h2>
 <p>注意しなければならないのは，サブプログラムは1つの独立したプログラム単位であるので，その中で宣言する <strong>変数は外部の変数とは完全に独立</strong> であるという点である．例えばメインプログラムで宣言されている <code class="docutils literal notranslate"><span class="pre">x</span></code> という変数とサブプログラム中で宣言されている <code class="docutils literal notranslate"><span class="pre">x</span></code> という変数は完全に別のものとして扱われる．また当然サブプログラム中で使用している変数を外部から使用することは出来ない．例外(<a class="reference internal" href="#id17">内部手続き</a> を参照)はあるものの，基本的にはサブプログラムとメインプログラム及び他のサブプログラムは全く独立なものとして考えて良い <a class="footnote-reference brackets" href="#id37" id="id12" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>．<strong>サブプログラムと外部の情報のやり取りは基本的には引数と返値を通じて行う</strong> ものと理解して欲しい．</p>
 <p>以下に挙げる例ではサブルーチン内部で変数を宣言し使用している．</p>
 <div class="literal-block-wrapper docutils container" id="id46">
-<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap07_sample3_f90.html"><span class="doc">sample3.f90</span></a> 抜粋</span><a class="headerlink" href="#id46" title="このコードへのパーマリンク"></a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap07_sample3_f90.html"><span class="doc">sample3.f90</span></a> 抜粋</span><a class="headerlink" href="#id46" title="Link to this code"></a></div>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 9</span><span class="w">  </span><span class="c">! sub1</span>
 <span class="linenos">10</span><span class="w">  </span><span class="k">subroutine </span><span class="n">sub1</span><span class="p">(</span><span class="nb">exponent</span><span class="p">)</span>
 <span class="linenos">11</span><span class="w">    </span><span class="k">implicit none</span>
@@ -355,7 +358,7 @@
 </div>
 <p>この変数は全てこのサブルーチン内部でのみ参照されるものであり，外部からはこれらの変数は参照出来ない．従って，別のサブルーチンが</p>
 <div class="literal-block-wrapper docutils container" id="id47">
-<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap07_sample3_f90.html"><span class="doc">sample3.f90</span></a> 抜粋</span><a class="headerlink" href="#id47" title="このコードへのパーマリンク"></a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap07_sample3_f90.html"><span class="doc">sample3.f90</span></a> 抜粋</span><a class="headerlink" href="#id47" title="Link to this code"></a></div>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">42</span><span class="w">  </span><span class="c">! sub2</span>
 <span class="linenos">43</span><span class="w">  </span><span class="k">subroutine </span><span class="n">sub2</span><span class="p">()</span>
 <span class="linenos">44</span><span class="w">    </span><span class="k">implicit none</span>
@@ -372,9 +375,9 @@
 <p>のように定義されていても， <code class="docutils literal notranslate"><span class="pre">sub1</span></code> 中の <code class="docutils literal notranslate"><span class="pre">n</span></code> と <code class="docutils literal notranslate"><span class="pre">sub2</span></code> 中の <code class="docutils literal notranslate"><span class="pre">n</span></code> は全く別の変数である．</p>
 </section>
 <section id="id13">
-<h2><a class="toc-backref" href="#id59" role="doc-backlink"><span class="section-number">7.4. </span>引数の詳細</a><a class="headerlink" href="#id13" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id59" role="doc-backlink"><span class="section-number">7.4. </span>引数の詳細</a><a class="headerlink" href="#id13" title="Link to this heading"></a></h2>
 <section id="intent">
-<h3><span class="section-number">7.4.1. </span>intent属性<a class="headerlink" href="#intent" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">7.4.1. </span>intent属性<a class="headerlink" href="#intent" title="Link to this heading"></a></h3>
 <p>関数は返値として値を返すことが出来るが，返値はあくまでも一つだけである．実用的には複数の値を結果として返して欲しい場合も多いが，そのような場合には引数に結果の値を代入して返すことが出来る <a class="footnote-reference brackets" href="#id38" id="id14" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>．このことからすぐ分かるように関数とサブルーチンには本質的な違いは無い．サブルーチンを使っても返したい値を引数に代入して返せば良いからだ．どちらを使うかは好みの問題であろう．(Fortranしか使わない人はあまり関数を使いたがらない傾向があるように思える．一方でC言語では関数の返値はエラーチェックに使うことが多いので，C言語から入った人は関数を好むかもしれない.)</p>
 <p>さて，実際には引数で与えた変数の値を勝手に変更して欲しく無い場合もあるだろう．そのため，以下のようにサブプログラムの定義時に引数の入出力特性を指定することが出来る．</p>
 <ul>
@@ -393,7 +396,7 @@
 </ul>
 <p>例えば以下のように引数に属性を指定することによって意図せず第1引数 <code class="docutils literal notranslate"><span class="pre">a</span></code> や第2引数 <code class="docutils literal notranslate"><span class="pre">b</span></code> の値が変更されてしまうバグを防ぐことが出来る．</p>
 <div class="literal-block-wrapper docutils container" id="id48">
-<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap07_sample4_f90.html"><span class="doc">sample4.f90</span></a> 抜粋</span><a class="headerlink" href="#id48" title="このコードへのパーマリンク"></a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap07_sample4_f90.html"><span class="doc">sample4.f90</span></a> 抜粋</span><a class="headerlink" href="#id48" title="Link to this code"></a></div>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">29</span><span class="w">  </span><span class="c">!</span>
 <span class="linenos">30</span><span class="w">  </span><span class="c">! &lt;&lt;&lt; intent属性 &gt;&gt;&gt;</span>
 <span class="linenos">31</span><span class="w">  </span><span class="c">!</span>
@@ -427,10 +430,10 @@
 <p>C言語の経験者はC言語の関数の引数が値渡しなのに対してFortranの関数やサブルーチンでは参照渡しであることに注意して欲しい．C言語では明示的にポインタを(またはC++での参照を)渡さない限り呼び出し元の値が変更されることは無いが，Fortranではサブプログラム中で引数の値を変更すると呼び出し元の値まで変更されてしまうのである．</p>
 </section>
 <section id="id15">
-<h3><span class="section-number">7.4.2. </span>配列渡し<a class="headerlink" href="#id15" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">7.4.2. </span>配列渡し<a class="headerlink" href="#id15" title="Link to this heading"></a></h3>
 <p>配列も同様に関数やサブルーチンに引数として渡すことが可能である．以下の例の <code class="docutils literal notranslate"><span class="pre">average1</span></code> では任意のサイズの配列を渡すことが出来る．(ただし次元は予め指定しておく必要がある.) 配列のサイズや形状が必要であれば <code class="docutils literal notranslate"><span class="pre">size</span></code> や <code class="docutils literal notranslate"><span class="pre">shape</span></code> などの組込み関数を使って求めることが出来る．一方で <code class="docutils literal notranslate"><span class="pre">average2</span></code> では配列サイズを引数として明示的に渡している．配列の添字範囲を指定するなどの特別な事情が無い限りは <code class="docutils literal notranslate"><span class="pre">average1</span></code> のような書き方の方がシンプルで良い．</p>
 <div class="literal-block-wrapper docutils container" id="id49">
-<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap07_sample4_f90.html"><span class="doc">sample4.f90</span></a> 抜粋</span><a class="headerlink" href="#id49" title="このコードへのパーマリンク"></a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap07_sample4_f90.html"><span class="doc">sample4.f90</span></a> 抜粋</span><a class="headerlink" href="#id49" title="Link to this code"></a></div>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">57</span><span class="w">  </span><span class="c">!</span>
 <span class="linenos">58</span><span class="w">  </span><span class="c">! &lt;&lt;&lt; 形状引継ぎ配列の使い方 &gt;&gt;&gt;</span>
 <span class="linenos">59</span><span class="w">  </span><span class="c">!</span>
@@ -465,11 +468,11 @@
 </div>
 </section>
 <section id="save">
-<h3><span class="section-number">7.4.3. </span>save属性<a class="headerlink" href="#save" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">7.4.3. </span>save属性<a class="headerlink" href="#save" title="Link to this heading"></a></h3>
 <p>関数やサブルーチン内で <code class="docutils literal notranslate"><span class="pre">save</span></code> 属性付きで宣言された変数は前回の呼び出し時の値を記憶しておくことが出来る(C言語のstatic変数と同等である)．従って，例えば自分が呼び出された回数を保持することなどもできる．</p>
 <p><code class="docutils literal notranslate"><span class="pre">save</span></code> 属性付きの変数はプログラムの開始時に一度だけ宣言文で代入された値に初期化される．例えば以下のサブルーチン <code class="docutils literal notranslate"><span class="pre">fibonacci</span></code> ではプログラムの開始時に <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">1</span></code>，<code class="docutils literal notranslate"><span class="pre">f0</span> <span class="pre">=</span> <span class="pre">0</span></code>，<code class="docutils literal notranslate"><span class="pre">f1</span> <span class="pre">=</span> <span class="pre">0</span></code> と値が初期化されるが，呼び出しごとに値が変更され，プログラムが終了するまでその値を内部に保持し続ける．</p>
 <div class="literal-block-wrapper docutils container" id="id50">
-<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap07_sample4_f90.html"><span class="doc">sample4.f90</span></a> 抜粋</span><a class="headerlink" href="#id50" title="このコードへのパーマリンク"></a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap07_sample4_f90.html"><span class="doc">sample4.f90</span></a> 抜粋</span><a class="headerlink" href="#id50" title="Link to this code"></a></div>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 87</span><span class="w">  </span><span class="c">!</span>
 <span class="linenos"> 88</span><span class="w">  </span><span class="c">! &lt;&lt;&lt; save属性 &gt;&gt;&gt;</span>
 <span class="linenos"> 89</span><span class="w">  </span><span class="c">!</span>
@@ -516,10 +519,10 @@
 <p>では毎回 <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">1</span></code> に初期化される．混乱を防ぐために <code class="docutils literal notranslate"><span class="pre">save</span></code> 属性付きとしたい変数は明示的に <code class="docutils literal notranslate"><span class="pre">save</span></code> を指定し，それ以外の変数は宣言時の初期化は避けたほうが無難である．</p>
 </section>
 <section id="optional">
-<span id="c7-optional-keyword"></span><h3><span class="section-number">7.4.4. </span>optional属性とキーワード引数 <sup>†</sup><a class="headerlink" href="#optional" title="Permalink to this heading"></a></h3>
+<span id="c7-optional-keyword"></span><h3><span class="section-number">7.4.4. </span>optional属性とキーワード引数 <sup>†</sup><a class="headerlink" href="#optional" title="Link to this heading"></a></h3>
 <p>引数の型宣言において <code class="docutils literal notranslate"><span class="pre">optional</span></code> 属性を指定した引数は，呼出し時に省略することが出来る． <code class="docutils literal notranslate"><span class="pre">optional</span></code> 属性付きの引数は，その引数が与えられたかどうかを検査する <code class="docutils literal notranslate"><span class="pre">present</span></code> という組込み関数と共に用いる．すなわち <code class="docutils literal notranslate"><span class="pre">present(引数)</span></code> は引数が与えられていれば真，そうでない場合には偽を返すので，<code class="docutils literal notranslate"><span class="pre">if</span></code> による条件分岐と組み合わせて用いれば良い．以下の例では引数 <code class="docutils literal notranslate"><span class="pre">unit</span></code> が与えられた場合にはその装置番号へ，与えられていない場合は標準出力へと出力を行う．</p>
 <div class="literal-block-wrapper docutils container" id="id51">
-<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap07_sample5_f90.html"><span class="doc">sample5.f90</span></a> 抜粋</span><a class="headerlink" href="#id51" title="このコードへのパーマリンク"></a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap07_sample5_f90.html"><span class="doc">sample5.f90</span></a> 抜粋</span><a class="headerlink" href="#id51" title="Link to this code"></a></div>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">23</span><span class="w">  </span><span class="c">!</span>
 <span class="linenos">24</span><span class="w">  </span><span class="c">! &lt;&lt;&lt; optional属性 &gt;&gt;&gt;</span>
 <span class="linenos">25</span><span class="w">  </span><span class="c">!</span>
@@ -561,10 +564,10 @@
 </section>
 </section>
 <section id="recursive">
-<h2><a class="toc-backref" href="#id60" role="doc-backlink"><span class="section-number">7.5. </span>再帰呼び出し(recursive) <sup>†</sup></a><a class="headerlink" href="#recursive" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id60" role="doc-backlink"><span class="section-number">7.5. </span>再帰呼び出し(recursive) <sup>†</sup></a><a class="headerlink" href="#recursive" title="Link to this heading"></a></h2>
 <p>再帰呼び出しとは，関数やサブルーチンの中で自分自身を呼び出すことである．このような再帰手続は明示的に <code class="docutils literal notranslate"><span class="pre">recursive</span></code> を用いて関数やサブルーチンを定義しなければならない．なお，何も考えずに自分自身を呼び出すと簡単に無限ループになってしまうので，そうならないように注意しよう．例えば以下は階乗の計算をする例である．</p>
 <div class="literal-block-wrapper docutils container" id="id52">
-<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap07_sample6_f90.html"><span class="doc">sample6.f90</span></a> 抜粋</span><a class="headerlink" href="#id52" title="このコードへのパーマリンク"></a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap07_sample6_f90.html"><span class="doc">sample6.f90</span></a> 抜粋</span><a class="headerlink" href="#id52" title="Link to this code"></a></div>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos">10</span><span class="w">  </span><span class="c">!</span>
 <span class="linenos">11</span><span class="w">  </span><span class="c">! &lt;&lt;&lt; recursive (再帰的呼び出し) &gt;&gt;&gt;</span>
 <span class="linenos">12</span><span class="w">  </span><span class="c">!</span>
@@ -588,13 +591,13 @@
 <p>ここで <span class="math notranslate nohighlight">\(n ! = n \times (n-1) !\)</span> という漸化式を用いている．ある種のアルゴリズムは再帰を使うと非常にスッキリと書くことができるので重宝することも多いだろう．ただし関数やサブルーチンの呼び出しそのものにもコスト(時間)がかかるので，不用意に用いるとパフォーマンスのボトルネックになることもあるため注意して欲しい．(基本的には再帰呼び出しを使わない方がパフォーマンスは良くなる場合が多い．)</p>
 </section>
 <section id="c7-intext-procedure">
-<span id="id16"></span><h2><a class="toc-backref" href="#id61" role="doc-backlink"><span class="section-number">7.6. </span>内部手続きと外部手続き <sup>†</sup></a><a class="headerlink" href="#c7-intext-procedure" title="Permalink to this heading"></a></h2>
+<span id="id16"></span><h2><a class="toc-backref" href="#id61" role="doc-backlink"><span class="section-number">7.6. </span>内部手続きと外部手続き <sup>†</sup></a><a class="headerlink" href="#c7-intext-procedure" title="Link to this heading"></a></h2>
 <p><a class="reference internal" href="#c7-def-procedure"><span class="std std-ref">定義場所</span></a> では，簡単のため複数あるサブプログラムの定義方法の1つのみを扱った．このように定義されたサブプログラムは「内部手続き」と呼ばれるが，これとは別に「外部手続き」なるものも存在する．実際には外部手続きは後で学ぶモジュールを用いてモジュールの内部手続として実装する方が良いのだが，このやり方も知っておいて損は無い．特にモジュール化されていない外部ライブラリを用いる場合や，古いFortran 77仕様のプログラムを扱う際には(内部手続きが存在しないため)外部手続きの理解が必須となる．</p>
 <section id="id17">
-<h3><span class="section-number">7.6.1. </span>内部手続き<a class="headerlink" href="#id17" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">7.6.1. </span>内部手続き<a class="headerlink" href="#id17" title="Link to this heading"></a></h3>
 <p>定義の仕方は <a class="reference internal" href="#c7-def-procedure"><span class="std std-ref">定義場所</span></a> を参照して欲しい．ここで注意しなければならないのは変数のスコープについてである．じつは， <strong>メインプログラム中で宣言した変数には内部手続きからアクセスすることが出来る</strong> (ただし逆は出来ない)ことに注意して欲しい．このことを表すサンプルが <a class="reference internal" href="chap07_sample7_f90.html"><span class="doc">sample7.f90</span></a> である．これはそれほど長くないので，以下に全体を示す．</p>
 <div class="literal-block-wrapper docutils container" id="id53">
-<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap07_sample7_f90.html"><span class="doc">sample7.f90</span></a></span><a class="headerlink" href="#id53" title="このコードへのパーマリンク"></a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap07_sample7_f90.html"><span class="doc">sample7.f90</span></a></span><a class="headerlink" href="#id53" title="Link to this code"></a></div>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">program </span><span class="n">sample</span>
 <span class="linenos"> 2</span><span class="w">  </span><span class="k">implicit none</span>
 <span class="linenos"> 3</span>
@@ -664,10 +667,10 @@
 <p>まとめると，メインプログラムで定義された変数に内部手続きからアクセスすることができるものの，気をつけて使わないと思わぬ動作を引き起こす可能性があるため， <strong>基本的には関数の返値や関数・サブルーチンの引数を介してデータをやり取りする</strong> 方が間違いが少ないであろう．</p>
 </section>
 <section id="id18">
-<h3><span class="section-number">7.6.2. </span>外部手続き(非推奨)<a class="headerlink" href="#id18" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">7.6.2. </span>外部手続き(非推奨)<a class="headerlink" href="#id18" title="Link to this heading"></a></h3>
 <p>外部手続きは <code class="docutils literal notranslate"><span class="pre">program</span></code> から <code class="docutils literal notranslate"><span class="pre">end</span> <span class="pre">program</span></code> で囲まれた範囲 <strong>以外</strong> に定義される．以下に示す例のように，定義する場所はメインプログラムの前でも後でもどちらでも良い．適切にコンパイル・リンクすれば別ファイルで定義したサブプログラムを用いることも可能である．</p>
 <div class="literal-block-wrapper docutils container" id="id54">
-<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap07_sample8_f90.html"><span class="doc">sample8.f90</span></a></span><a class="headerlink" href="#id54" title="このコードへのパーマリンク"></a></div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="chap07_sample8_f90.html"><span class="doc">sample8.f90</span></a></span><a class="headerlink" href="#id54" title="Link to this code"></a></div>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c">!!!!!!!!!!! 外部手続きの定義場所 (1) !!!!!!!!!!</span>
 <span class="linenos"> 2</span><span class="k">function </span><span class="n">square_ext1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 <span class="linenos"> 3</span><span class="w">  </span><span class="k">implicit none</span>
@@ -741,7 +744,7 @@
 </section>
 </section>
 <section id="id21">
-<h2><a class="toc-backref" href="#id62" role="doc-backlink"><span class="section-number">7.7. </span>第7章 演習課題</a><a class="headerlink" href="#id21" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id62" role="doc-backlink"><span class="section-number">7.7. </span>第7章 演習課題</a><a class="headerlink" href="#id21" title="Link to this heading"></a></h2>
 <div class="admonition seealso">
 <p class="admonition-title">参考</p>
 <ul class="simple">
@@ -754,11 +757,11 @@
 </ul>
 </div>
 <section id="id22">
-<h3><span class="section-number">7.7.1. </span>課題1<a class="headerlink" href="#id22" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">7.7.1. </span>課題1<a class="headerlink" href="#id22" title="Link to this heading"></a></h3>
 <p>サンプルプログラムをコンパイル・実行して動作を確認せよ．さらに，適宜修正してその実行結果を確認せよ．</p>
 </section>
 <section id="id23">
-<h3><span class="section-number">7.7.2. </span>課題2<a class="headerlink" href="#id23" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">7.7.2. </span>課題2<a class="headerlink" href="#id23" title="Link to this heading"></a></h3>
 <p>与えられた倍精度実数 <span class="math notranslate nohighlight">\(a (&gt; 0)\)</span> の平方根の近似値を返す関数を実装せよ．ただし平方根は以下のような逐次近似で計算するものとする．</p>
 <div class="math notranslate nohighlight">
 \[x_{n+1} = \frac{1}{2} \left( \frac{a}{x_{n}} + x_{n} \right)\]</div>
@@ -772,7 +775,7 @@
 </div>
 </section>
 <section id="id24">
-<h3><span class="section-number">7.7.3. </span>課題3<a class="headerlink" href="#id24" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">7.7.3. </span>課題3<a class="headerlink" href="#id24" title="Link to this heading"></a></h3>
 <p>テストの点数が整数配列から与えられた時にヒストグラムを作成するサブルーチン <code class="docutils literal notranslate"><span class="pre">histogram</span></code> を実装せよ．例えば点数配列とビン幅を入力とし，作成されたヒストグラムの各ビンの中央値，各ビン内の人数を出力とする以下の様な形式のサブルーチンを作成すればよい．ただし，与える整数は <span class="math notranslate nohighlight">\(0 \leq n &lt; 100\)</span> とするが，もしこの範囲を超えた入力があった場合にはエラーを表示して終了すること．</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">subroutine </span><span class="n">histogram</span><span class="p">(</span><span class="n">score</span><span class="p">,</span><span class="w"> </span><span class="n">binw</span><span class="p">,</span><span class="w"> </span><span class="n">binc</span><span class="p">,</span><span class="w"> </span><span class="n">hist</span><span class="p">)</span>
 <span class="linenos"> 2</span><span class="w">  </span><span class="k">implicit none</span>
@@ -814,7 +817,7 @@
 <p>のようなエラーを表示するように実装せよ．</p>
 </section>
 <section id="id26">
-<h3><span class="section-number">7.7.4. </span>課題4<a class="headerlink" href="#id26" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">7.7.4. </span>課題4<a class="headerlink" href="#id26" title="Link to this heading"></a></h3>
 <p>データ <span class="math notranslate nohighlight">\(x_1, x_2, \ldots, x_n\)</span> を大きさの順に並べ替える処理をソートという．ソートのアルゴリズムの中でも一番簡単なのがバブルソートと呼ばれるものである．これは以下の処理を <span class="math notranslate nohighlight">\(n-1\)</span> 回繰り返すことで実現される．</p>
 <blockquote>
 <div><p><span class="math notranslate nohighlight">\(i=1, \ldots, n-1\)</span> まで順に <span class="math notranslate nohighlight">\(x_{i}\)</span> と <span class="math notranslate nohighlight">\(x_{i+1}\)</span> の大小を比較し, <span class="math notranslate nohighlight">\(x_{i} &gt; x_{i+1}\)</span> なら順番を入れ替える</p>
@@ -838,7 +841,7 @@
 <p>のように読みこませれば良い．</p>
 </section>
 <section id="id28">
-<h3><span class="section-number">7.7.5. </span>課題5<a class="headerlink" href="#id28" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">7.7.5. </span>課題5<a class="headerlink" href="#id28" title="Link to this heading"></a></h3>
 <p>データ <span class="math notranslate nohighlight">\(x_1, x_2, \ldots, x_n\)</span> からある値 <span class="math notranslate nohighlight">\(X\)</span> に等しいものを探しだす処理を探索という．その中でも以下は二分探索と呼ばれるアルゴリズムである．</p>
 <blockquote>
 <div><ul class="simple">
@@ -878,7 +881,7 @@
 </div>
 </section>
 <section id="id30">
-<h3><span class="section-number">7.7.6. </span>課題6<a class="headerlink" href="#id30" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">7.7.6. </span>課題6<a class="headerlink" href="#id30" title="Link to this heading"></a></h3>
 <p>1行に1つの英単語が記述されているファイルを読み込み，英単語を辞書順にソートして出力するプログラムを作成せよ．空白行かファイルの終端に達するまで全ての単語を読み込むこと．ただし英単語は10文字以下，また読み込む単語の数は100個以下であると仮定してよい． <a class="reference external" href="data/words.txt">words.txt</a> を入力として作成したプログラムの動作を確認せよ．</p>
 <p>実行結果は例えば以下のようになるだろう．(空白行の後の <code class="docutils literal notranslate"><span class="pre">NOT_TO_BE_READ</span></code> は読まれていないことに注意!)</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>$<span class="w"> </span>./a.out<span class="w"> </span>&lt;<span class="w"> </span>words.txt
@@ -895,7 +898,7 @@
 <p>などのように宣言すれば良い．ここで <code class="docutils literal notranslate"><span class="pre">char_array</span></code> は10文字分の文字列を保持する長さ100の配列である．</p>
 </section>
 <section id="id31">
-<h3><span class="section-number">7.7.7. </span>課題7 <sup>†</sup><a class="headerlink" href="#id31" title="Permalink to this heading"></a></h3>
+<h3><span class="section-number">7.7.7. </span>課題7 <sup>†</sup><a class="headerlink" href="#id31" title="Link to this heading"></a></h3>
 <p>与えられたファイルに含まれるアルファベットの各文字の出現回数をヒストグラムとして標準出力に表示するプログラムを作成せよ．ファイルの長さは任意とする．即ちファイルの終端まで全ての文字を読み込まなければならない(空白行があっても読み込み続ける)．ただし以下の条件を満たすこと．</p>
 <ul class="simple">
 <li><p>アルファベット <code class="docutils literal notranslate"><span class="pre">a-z,</span> <span class="pre">A-Z</span></code> 以外は無視してよい．</p></li>
@@ -935,33 +938,35 @@
 <p>組込み関数 <code class="docutils literal notranslate"><span class="pre">ichar</span></code> ， <code class="docutils literal notranslate"><span class="pre">char</span></code> を用いるとよい．また規格化の際には四捨五入をする関数 <code class="docutils literal notranslate"><span class="pre">nint</span></code> を用いることが出来る．</p>
 <p>特に仕様は限定しないが，関数やサブルーチンを使った分り易いプログラムを目指すこと．</p>
 <hr class="docutils" />
-<aside class="footnote brackets" id="id34" role="note">
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id34" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">1</a><span class="fn-bracket">]</span></span>
 <p>後で学ぶモジュールもサブプログラムになるのだが，ここではこの2つのみを考えれば良い．</p>
 </aside>
-<aside class="footnote brackets" id="id35" role="note">
+<aside class="footnote brackets" id="id35" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">2</a><span class="fn-bracket">]</span></span>
 <p>3次方程式には解の公式が存在するが，実用的には反復法の方が精度や速度の面で有利なことが多い．</p>
 </aside>
-<aside class="footnote brackets" id="id36" role="note">
+<aside class="footnote brackets" id="id36" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">3</a><span class="fn-bracket">]</span></span>
 <p>全体像を完全に把握出来るプログラムの規模は常人にはせいぜい1000行程度が限界であろう．実際には100行でも怪しいものである．</p>
 </aside>
-<aside class="footnote brackets" id="id37" role="note">
+<aside class="footnote brackets" id="id37" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id12">4</a><span class="fn-bracket">]</span></span>
 <p>内部手続き以外の例外としてはFortran 77の <code class="docutils literal notranslate"><span class="pre">common</span></code> を用いる場合が挙げられるが，とりあえずはこのように理解して欲しい．</p>
 </aside>
-<aside class="footnote brackets" id="id38" role="note">
+<aside class="footnote brackets" id="id38" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id14">5</a><span class="fn-bracket">]</span></span>
 <p>他にも <a class="reference internal" href="chap09.html#c9-structure"><span class="std std-ref">構造型</span></a> を用いるという方法も無いこともない．</p>
 </aside>
-<aside class="footnote brackets" id="id39" role="note">
+<aside class="footnote brackets" id="id39" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id19">6</a><span class="fn-bracket">]</span></span>
 <p>C言語で言うところのプロトタイプ宣言である．</p>
 </aside>
-<aside class="footnote brackets" id="id40" role="note">
+<aside class="footnote brackets" id="id40" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id20">7</a><span class="fn-bracket">]</span></span>
 <p>初心者の頃はコンパイルエラーに辟易とすることが常であるが，コンパイルエラーでは一応コンパイラが(大変分かりにくくはあるものの)エラーメッセージを出力してくれるのに対して，実行時のエラーは通常何のヒントにもならない無情な <code class="docutils literal notranslate"><span class="pre">Segmentation</span> <span class="pre">fault</span></code> のみである．</p>
+</aside>
 </aside>
 </section>
 </section>
