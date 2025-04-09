@@ -14,7 +14,7 @@
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=f6f563f6"></script>
+      <script src="_static/documentation_options.js?v=528de7ef"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/translations.js?v=4755f45a"></script>
@@ -60,8 +60,8 @@
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">1. はじめに</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id3">1.1. 演習環境の準備</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id6">1.2. プログラミングを学ぶ意義</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id7">1.3. プログラミング言語について</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">1.2. プログラミングを学ぶ意義</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">1.3. プログラミング言語について</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="chap02.html">2. プログラムの作成と実行</a></li>
@@ -113,21 +113,15 @@
 </ol>
 <section id="id3">
 <h2><span class="section-number">1.1. </span>演習環境の準備<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
-<p>この演習で用意されているサンプルプログラムや課題（の一部）は，リダイレクトなど，Unix-likeな環境のコマンドラインでの実行を仮定している．したがって，個人のマシンで自習をするには，Unix-likeなFortranの開発環境を構築する必要がある．ある程度の知識がある人であれば，WindowsならWSL2(Windows Subsystem for Linux)，MacならHomebrewまたはMacPortsなどをインストールすることで使えるようになるだろう．VMWareやVirtualBoxなどを使って，仮想マシンとしてLinuxなどのOSをインストールして使うことも出来る．</p>
-<p>パソコン初心者で，これらの敷居が高いと感じる人は</p>
+<p>この演習で用意されているサンプルプログラムや課題（の一部）は，リダイレクトなど，Unix-likeな環境のコマンドラインでの実行を仮定している．したがって，個人のマシンで自習をするには，Unix-likeなFortranの開発環境を構築する必要がある．ここでは何も考えずにとりあえず使える環境として</p>
 <blockquote>
-<div><p><a class="reference external" href="https://github.com/chibutsu-utokyo/ubuntu-22.04">https://github.com/chibutsu-utokyo/ubuntu-22.04</a></p>
+<div><p><a class="reference external" href="https://github.com/chibutsu-utokyo/debian">https://github.com/chibutsu-utokyo/debian</a></p>
 </div></blockquote>
-<p>を使うこともできる．これはブラウザ上で動作する（Linux環境の）VS Codeで，Githubのアカウントさえあれば誰でも使うことができる．この環境にはFortranのコンパイラもインストールされているし，以下のサンプルや課題の解答のリポジトリもダウンロードされているので，とりえあずこの演習に取り組むには最適である．</p>
-<p>サンプルや解答は各章のリンクからダウンロードすることが出来るようになっている．また，それぞれGithub上の <a class="reference external" href="https://github.com/amanotk/fortran-resume-sample">サンプル</a> および <a class="reference external" href="https://github.com/amanotk/fortran-resume-answer">解答</a> のリポジトリにまとめてあるので，これらを参照してもよい． <code class="docutils literal notranslate"><span class="pre">git</span></code> コマンドが使える環境であればコマンドラインで</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/amanotk/fortran-resume-sample.git<span class="w"> </span>sample
-<span class="linenos">2</span>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/amanotk/fortran-resume-answer.git<span class="w"> </span>answer
-</pre></div>
-</div>
-<p>などと実行すればサンプルと解答が一括でダウンロードができる．（この場合はサンプルが <code class="docutils literal notranslate"><span class="pre">sample</span></code> というディレクトリに，解答が <code class="docutils literal notranslate"><span class="pre">answer</span></code> というディレクトリに格納される．）</p>
+<p>を使おう．これはブラウザ上で動作する（Linux環境の）VS Codeで，GitHubのアカウントさえあれば誰でも使うことができる．この環境にはFortranのコンパイラもインストールされているし，以下のサンプルや課題の解答もダウンロードされているので，この演習に取り組む環境として最適である．</p>
+<p>ある程度の知識がある人は，WindowsならWSL2(Windows Subsystem for Linux)，MacならHomebrewまたはMacPortsなどをインストールすれば一通りの開発環境は整えることができる．興味があればぜひ挑戦してみてほしい．</p>
 </section>
-<section id="id6">
-<h2><span class="section-number">1.2. </span>プログラミングを学ぶ意義<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
+<section id="id4">
+<h2><span class="section-number">1.2. </span>プログラミングを学ぶ意義<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
 <p>いま</p>
 <div class="math notranslate nohighlight">
 \[x = \cos x\]</div>
@@ -135,25 +129,25 @@
 <p>もちろん，上の方程式の解を求めるだけなら何もプログラミングを学ぶ必要は無い．そのようなことをやってくれるソフトウェアは探せばいくらでも見つかるだろう．ところが汎用のソフトウェアは決められた計算をするには十分であるが，ちょっとでも違うことをやろうと思うと途端に困ってしまう．誰もやったことのないような最先端の仕事をするには結局のところ必要なものは自分で作らなければいけない．そのためにもここでプログラミングを学んでおくことは非常に重要である(と思う)．</p>
 <p>さて，自分のやりたいことを計算機で実現するにはどのような手続を処理させるかをまず整理しなければならない．この手続のことをアルゴリズムと言う．例えば上の例で言えば，非線形方程式を数値的に解くための手法のことである．アルゴリズムが決まればそれをプログラミング言語で記述し，計算機に実行させることができる．本演習ではFortranというプログラミング言語の使い方を覚えることが主たる目的であるので，アルゴリズムについては詳しく説明しない．しかし，プログラミング言語の文法は世の中に数多ある言語で様々であるが，アルゴリズムは言語が何であろうと変わらないので，実際にはアルゴリズムの理解の方が重要であることを十分に認識しておいて欲しい．</p>
 </section>
-<section id="id7">
-<h2><span class="section-number">1.3. </span>プログラミング言語について<a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
+<section id="id5">
+<h2><span class="section-number">1.3. </span>プログラミング言語について<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
 <p>これから学ぶのは正確にはFortran 90/95と呼ばれる規格の言語である．90とか95というのは1990年とか1995年に規格が定められたという意味である．Fortran 90とFortran 95ではあまり違いが無いのでこのように記述することが多い．2000年前後まではFortran 77という規格が幅を効かせていたのだが，最近ではopen sourceのコンパイラ(後述)が普及したこともあって，今から勉強するならFortran 90/95が良い選択肢である．(より新しい規格としてFortran 2003や2008，さらには2018も存在し，その主な違いはオブジェクト指向プログラミングのサポートである．これは明らかに本演習の範囲を超えているので扱わないことにする．偏見ではあるがオブジェクト指向プログラミングをしたい人はそもそもFortranは選ばないだろう．) ただし太古の昔から脈々と受け継がれてきたプログラムなどは今でも古めかしいFortran 77のままで現役で使われている．そのようなプログラムに出会ってしまった時には諦めてFortran 77も勉強しよう．(実はそういうことは結構あるのだが，いくつかの違いさえ理解してしまえば，それほど難しいことでは無い．) 本演習では単にFortranと言った場合にはFortran 90/95を指している．</p>
-<p>ちなみにプログラミング言語というのは星の数ほどあり，よく知られたものだけでも C/C++，C#，Java，Javascript，Perl，Python，Ruby，Lispなどがある．正直に言えば今更Fortranを学ぶのは時代遅れである．多くの言語の文法がC言語に近くできているのに対してFortranは仲間外れの部類である．また，C言語を習得した人がFortranを習得するのは比較的容易いが，その逆は必ずしも真ではない．しかし一応フォローしておくとFortranにもメリットはあって，分野にも依るが時代遅れと言われながらもしぶとく今でも現役で使われ続けている言語であり，この傾向はまだしばらく続くであろう．また，Fortranは細かいことを考える必要があまり無い比較的簡単な言語でもあるので，初心者にはとっつきやすいと同時にプログラミングの専門家では無い科学者向きの言語であるとも言える．</p>
-<p>ただし基本的な考え方は他の言語でもあまり変わらないので，興味のある人はぜひ他の言語にも挑戦してもらいたい．おすすめは(少しとっつきにくいところはあるものの)比較的簡単な言語でありながら応用範囲の広いPythonである <a class="footnote-reference brackets" href="#id9" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> ．Pythonは <a class="reference external" href="https://amanotk.github.io/python-resume-public/">Python演習</a> で扱うが，これはFortran(に限らずプログラミング言語一般)の知識をある程度習得している人向けである．またC言語は教養として知っておくと非常に役に立つ．</p>
+<p>ちなみにプログラミング言語というのは星の数ほどあり，よく知られたものだけでも C/C++，C#，Java，Javascript，Perl，Python，Ruby，Lispなどがある．正直に言えば今更Fortranを学ぶのは時代遅れである．多くの言語の文法がC言語に近くできているのに対してFortranは仲間外れの部類である．また，C言語を習得した人がFortranを習得するのは比較的容易いが，その逆は必ずしも真ではない．しかし一応フォローしておくとFortranにもメリットはあって，分野にも依るが時代遅れと言われながらもしぶとく今でも現役で使われ続けている言語である．また，Fortranは細かいことを考える必要があまり無い比較的簡単な言語でもあるので，初心者にはとっつきやすいと同時にプログラミングの専門家では無い科学者向きの言語であるとも言える．</p>
+<p>ただし基本的な考え方は他の言語でもあまり変わらないので，興味のある人はぜひ他の言語にも挑戦してもらいたい．おすすめは(少しとっつきにくいところはあるものの)比較的簡単な言語でありながら応用範囲の広いPythonである <a class="footnote-reference brackets" href="#python" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> ．またC言語は教養として知っておくと非常に役に立つ．</p>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
-<p>この文書を書き始めたのはおそらく2013年頃であったかと思うが，それから約10年が経過した2024年現在でも，Fortranは依然としていわゆるHigh-Performance Computing（HPC）では現役で用いられている言語であり続け，Fortranが駆逐される時代はまだしばらく訪れないように思われる．</p>
+<p>この文書を書き始めたのはおそらく2013年頃であったかと思うが，それから約10年が経過した2025年現在でも，Fortranは依然としていわゆるHigh-Performance Computing（HPC）では現役で用いられている言語であり続けている．（この状況がいよいよ変わるかもしれないという兆候は見え始めている．）</p>
 <p>しかし，もし筆者が独断と偏見で学生に教育する言語を選択するのであればFortranは選ばないであろう．各研究分野の都合にも大きく依存するであろうが，私見ではレガシーコードの維持という観点以外では，学生にFortranを教える積極な理由が見いだせてないためである．実際に新規開発される欧米のHPCコードやライブラリではC++，特にいわゆるModern C++を採用している例が多く見受けられるようになっている（その理由を考え始めると長くなるのでここでは述べない）．しかし，最近のC++はFortranに比べると非常に難しく，一般の研究者向きの言語とは呼べないシロモノになってしまったのが悩ましいところである．ただし，多くの研究者にとってはPythonが使えるようになっていれば，他の言語が必要になっても比較的容易に対処ができるのではないだろうか（ちなみに最近のC++はPythonに近い書き方ができるようになってきている）．</p>
 </div>
 <hr class="docutils" />
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="textbook" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">1</a><span class="fn-bracket">]</span></span>
-<p>基礎的には本演習で扱う事項さえ理解してしまえば，分からないことは本で探すよりインターネットで探した方が早いので，自分で必要性を感じなければ教科書などは特に購入する必要は無い．更に言うと巷には古い(参考にしないほうが良い)Fortranの本があふれているので注意して欲しい．大抵はどこかの大学の年配の先生が書いた年季の入ったテキストを基に教科書としたものであるが，お世辞にも薦められないような本がごく最近にも出版されている．偏見たっぷりに言うと，サンプルプログラムが全部大文字で記述されているような本はかなりの確率でこの部類に入ると思って良い．</p>
+<p>基礎的には本演習で扱う事項さえ理解してしまえば，分からないことは本で探すよりインターネットで探したり，AIに聞いた方が早いので，自分で必要性を感じなければ教科書などは特に購入する必要は無い．更に言うと巷には古い(参考にしないほうが良い)Fortranの本があふれているので注意して欲しい．大抵はどこかの大学の年配の先生が書いた年季の入ったテキストを基に教科書としたものであるが，お世辞にも薦められないような本がごく最近にも出版されている．偏見たっぷりに言うと，サンプルプログラムが全部大文字で記述されているような本はかなりの確率でこの部類に入ると思って良い．</p>
 </aside>
-<aside class="footnote brackets" id="id9" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">2</a><span class="fn-bracket">]</span></span>
-<p>実はPythonを使うとCやFortranの半分以下の行数でやりたいことが実現出来る場合が多く,最近の計算機能力を考えると大規模計算をするのでなければ実用上はほとんど Pythonで事足りてしまう．実際に世界的に科学や工学の多くの分野でPythonの導入が進んでいる．</p>
+<aside class="footnote brackets" id="python" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">2</a><span class="fn-bracket">]</span></span>
+<p>実はPythonを使うとCやFortranの半分以下の行数でやりたいことが実現出来る場合が多く,最近の計算機能力を考えると大規模計算をするのでなければ実用上はほとんど Pythonで事足りてしまう．実際に世界的に科学や工学の多くの分野でPythonの導入が進んでいる．Pythonはとりあえず使う分には圧倒的に簡単なので，機械学習の分野でPythonが流行っているのも納得である．</p>
 </aside>
 </aside>
 </section>
@@ -170,7 +164,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Takanobu Amano.</p>
+    <p>&#169; Copyright 2025, Takanobu Amano.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

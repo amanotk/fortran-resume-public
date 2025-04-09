@@ -14,7 +14,7 @@
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=f6f563f6"></script>
+      <script src="_static/documentation_options.js?v=528de7ef"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/translations.js?v=4755f45a"></script>
@@ -127,8 +127,6 @@
 <ul class="simple">
 <li><p><a class="reference internal" href="chap02_sample1_f90.html"><span class="doc">sample1.f90</span></a> : Hello, world</p></li>
 <li><p><a class="reference internal" href="chap02_sample2_f90.html"><span class="doc">sample2.f90</span></a> : Fortranプログラムの基本構造</p></li>
-<li><p><a class="reference external" href="sample/chap02/dot.Xmodmap">dot.Xmodmap</a> : CapsLockと左Controlの交換</p></li>
-<li><p><a class="reference external" href="sample/chap02/dot.emacs.el">dot.emacs.el</a> : emacsの設定</p></li>
 </ul>
 </div>
 <nav class="contents" id="id2">
@@ -156,7 +154,7 @@
 </pre></div>
 </div>
 </div>
-<p>これはソースコードと呼ばれ，人間が読める形式で記述されるテキストファイルである．拡張子はFortran 90/95の場合は <code class="docutils literal notranslate"><span class="pre">.f90</span></code> とする <a class="footnote-reference brackets" href="#id24" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>．プログラムを実行するには，これをコンパイラと呼ばれるプログラムを用いて実行形式(計算機が読み込んで実行することができる形式)に変換してやる必要がある．これをコンパイルと言う．この演習ではgfortranというコンパイラを用いることにしよう．カレントディレクトリに <code class="docutils literal notranslate"><span class="pre">sample1.f90</span></code> というファイルがあることを確認して，ターミナルで以下のコマンドを実行しよう．</p>
+<p>これはソースコードと呼ばれ，人間が読める形式で記述されるテキストファイルである．拡張子はFortran 90/95の場合は <code class="docutils literal notranslate"><span class="pre">.f90</span></code> とする <a class="footnote-reference brackets" href="#id24" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>．プログラムを実行するには，これをコンパイラと呼ばれるプログラムを用いて実行形式(計算機が読み込んで実行することができる形式)に変換してやる必要がある．これをコンパイルと言う．この演習では <code class="docutils literal notranslate"><span class="pre">gfortran</span></code> というコンパイラを用いることにしよう．カレントディレクトリに <code class="docutils literal notranslate"><span class="pre">sample1.f90</span></code> というファイルがあることを確認して，ターミナルで以下のコマンドを実行しよう．</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>$<span class="w"> </span>gfortran<span class="w"> </span>sample1.f90
 <span class="linenos">2</span>$<span class="w"> </span>./a.out
 <span class="linenos">3</span>Hello,<span class="w"> </span>world<span class="w"> </span>!
@@ -176,7 +174,7 @@
 <p class="admonition-title">注釈</p>
 <p>プログラミングを始めたばかりの時にはコンパイラの吐き出すエラーメッセージの意味が分からず困ってしまうことも多いだろう．そんなときには，まずは落ち着いて英語のメッセージを読んでみよう．何がどうおかしいのかが書いてあるハズである．</p>
 <p>なお，コンパイラのエラーメッセージは長くなりがちだが，最初のエラーから解決していったほうがよいことが多い．なぜなら後のエラーは前のエラーに引きずられて発生したものであることが多く，その場合は前が解決されれば自動的に後も解決されるからである．</p>
-<p>いずれにせよ，自分で解決できそうもない時には遠慮なく質問しよう．</p>
+<p>今どきはエラーメッセージをコピペしてAIに聞けば解決することも（しないことも）多い．もし自分で解決できそうもない時には遠慮なく人間に質問しよう．</p>
 </div>
 </section>
 <section id="id5">
@@ -249,7 +247,7 @@
 <h2><a class="toc-backref" href="#id37" role="doc-backlink"><span class="section-number">2.3. </span>ソースコード編集にまつわるエトセトラ <sup>†</sup></a><a class="headerlink" href="#id12" title="Link to this heading"></a></h2>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
-<p>2024年現在では以下の内容はかなり古めかしい情報となってしまった．筆者は長年Emacsのヘビーユーザーであったが，現在はsshでログインしたリモートマシンのファイル編集もVS Codeで不自由なくできる時代となってしまたので，久しく <code class="docutils literal notranslate"><span class="pre">emacs</span></code> コマンドの実行すらしていない．ただし，キーバインディングはEmacsで使用しているし，ちょっとしたファイル編集にviは頻繁に利用するので，知っておいた方がよいだろう．</p>
+<p>2025年現在では以下の内容はかなり古めかしい情報となってしまった．筆者は長年Emacsのヘビーユーザーであったが，現在はsshでログインしたリモートマシンのファイル編集もVS Codeで不自由なくできる時代となってしまたので，久しく <code class="docutils literal notranslate"><span class="pre">emacs</span></code> コマンドの実行すらしていない．ただし，キーバインディングはEmacsで使用しているし，ちょっとした(VS Codeを使うまでもない)ファイル編集にviは頻繁に利用する．そういう意味では知っておいて損になることはないだろう．</p>
 </div>
 <p>ソースコードの編集に用いるソフトウェアはテキスト形式のファイルが編集できるものであればどんなものであっても構わない．しかし世の中には専用に開発された便利なものがあるので利用しない手は無い．この演習ではemacsの使用を推奨することにするが，当然他のエディタを使っても全く問題はない．最近人気のVisual Studio CodeやAtomなどのフリーでクロスプラットホームな高機能エディタを使ってみるのもよいだろう．また，Eclipse等に代表される統合開発環境が好みの人もいるかもしれない．ただし，何を使うにしても大事なのはその機能を使いこなすことが出来るか(使いこなせないのであれば何を使っても同じ)である．</p>
 <p>ひとつだけコメントしておくと，将来シミュレーションを生業にしたい人はemacsやviなどのエディタにある程度は慣れておいた方が良いかもしれない．というのは，sshログインしたリモートマシンでソースコードの編集をする機会が多くなると予想されるためである．viはもちろん，emacsでも <code class="docutils literal notranslate"><span class="pre">emacs</span> <span class="pre">-nw</span></code> でターミナル上でソースコードの編集が可能である．両者とも使いこなすのは難しいが，その機能は折り紙つきなので，興味のある人は自分でどんどん調べてカスタマイズしていくと良い．</p>
@@ -504,7 +502,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Takanobu Amano.</p>
+    <p>&#169; Copyright 2025, Takanobu Amano.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
