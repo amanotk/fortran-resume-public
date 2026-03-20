@@ -1,8 +1,0 @@
-tomato
-banana
-apple
-grape
-watermelon
-plum
-
-NOT_TO_BE_READ
